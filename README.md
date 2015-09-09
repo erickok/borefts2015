@@ -44,3 +44,4 @@ Some code/libraries/resources are used in the project:
     Ricardo Moreira from The Noun Project  
     Creative Commons Attribution 3.0
 
+The names and logos of the brewers are owned by their respective owners. Monalson.ttf font redistributed under fair use.
