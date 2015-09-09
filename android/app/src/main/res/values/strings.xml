@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string name="app_name">Borefts Beer Festival 2015</string>
+	<string name="app_name_short">Borefts 2015</string>
+	
+	<string name="action_info">Info</string>
+	<string name="action_brewers">Brewers</string>
+	<string name="action_styles">Styles</string>
+	<string name="action_twitter">Twitter</string>
+	<string name="action_stars">Stars</string>
+	<string name="action_googleplus">Google+</string>
+	<string name="action_refresh">Refresh</string>
+	<string name="action_locate">Locate beer</string>
+	<string name="action_star_on">Star this beer</string>
+	<string name="action_star_off">Remove star</string>
+	<string name="action_settings">Settings</string>
+	<string name="action_sendcorrection">Send correction</string>
+	<string name="action_about">About this app</string>
+	
+	<string name="info_what">WHAT? WHERE?</string>
+	<string name="info_address">Borefts Beer Festival 2015\nDe Molen Brewery\nDoortocht 4, Bodegraven</string>
+	<string name="info_times">Sep 25 &#8211; 26\n12:00 &#8211; 22:00</string>
+	<string name="info_tokens">TOKENS</string>
+	<string name="info_getmore">Get more</string>
+	<string name="info_entry">€ 20,- for glass, festival booklet and 6 tokens</string>
+	<string name="info_token">€ 10,- for 6 extra tokens or € 2,- per single token</string>
+	<string name="info_extra">Additional tokens can be bought in the front of the brewery. NOT 18 YEARS NO ALCOHOL</string>
+	<string name="info_publictransport">PUBLIC TRANSPORT</string>
+	<string name="info_trains">Trains run every half hour, in each direction, at :15 and :45. Last trains leave at 00:45.</string>
+	<string name="info_nstimes">Departures</string>
+	<string name="info_noparking">Please don\'t drink and drive. Taxis are available via the regional taxi companies.</string>
+	<string name="info_taxis">Find taxis</string>
+	<string name="info_beercafe">BEER SHOP</string>
+	<string name="info_findmill">Find mill</string>
+	<string name="info_shopinfo">The beer shop in the old mill is of course open; for De Molen specialties, festival beers and hundreds of other beers.</string>
+	<string name="info_merchandise">MERCHANDISE</string>
+	<string name="info_shirts">Most brewers will again bring merchansise this year. Moreover, a special Borefts festival t-shirt will be available.</string>
+	
+	<string name="info_origin">%1$s, %2$s</string>
+	<string name="info_abvperc">%1$.1f%%</string>
+	<string name="info_color">COLOR</string>
+	<string name="info_abv">ABV</string>
+	<string name="info_bitterness">BITTER</string>
+	<string name="info_sweetness">SWEET</string>
+	<string name="info_acidity">ACIDIC</string>
+	
+	<string name="info_abvlabel">ABV: %1$.1f%%</string>
+	<string name="info_oakaged">OAK AGED</string>
+	<string name="info_untappd">UNTAPPD</string>
+	<string name="info_ratebeer">RATEBEER</string>
+	<string name="info_tostyle">(indication based on style)</string>
+	<string name="info_serving_keg">ON KEG</string>
+	<string name="info_serving_cask">ON CASK</string>
+	<string name="info_serving_bottle">ON BOTTLE</string>
+	
+	<string name="info_stars">Stars</string>
+	<string name="info_nostars">No beers starred yet.\n\nYou can add your favourite beers to this list using the star button in the top of every beer details screen.</string>
+		
+	<string name="info_baf">BAF!</string>
+	
+	<string name="map_trains">Train station</string>
+	<string name="map_entrance">Entrance</string>
+	<string name="map_mtoilet">Male toilet</string>
+	<string name="map_ftoilet1">Female toilet 1</string>
+	<string name="map_ftoilet2">Female toilet 2</string>
+	<string name="map_tokens">Token sale</string>
+	<string name="map_mill">Tasting room/restaurant</string>
+	<string name="map_firstaid">First aid</string>
+	<string name="map_foodplaza">Food plaza</string>
+
+	<string name="about_broughtby">Brought by Eric Kok\nof 2312 development</string>
+	<string name="about_visit2312">2312.NL</string>
+	<string name="about_visitdemolen">DE MOLEN</string>
+	<string name="about_licenses"><![CDATA[Includes <a href="https://github.com/excilys/androidannotations">AndroidAnnotations</a> by Pierre-Yves Ricau et al.<br /><br />Icons: <a href="http://thenounproject.com/noun/map-marker/#icon-No20774" target="_blank">Map Marker</a> designed by <a href="http://thenounproject.com/tobiasfabian" target="_blank">Tobias F. Wolf</a> from The Noun Project. <a href="http://thenounproject.com/noun/toilet-paper/#icon-No2962" target="_blank">Toilet Paper</a> designed by <a href="http://thenounproject.com/pieroborgo" target="_blank">Piero Borgo</a> from The Noun Project. <a href="http://thenounproject.com/noun/entrance/#icon-No2276" target="_blank">Entrance</a> designed by <a href="http://thenounproject.com/pedro.lalli" target="_blank">Pedro Lalli</a> from The Noun Project. <a href="http://thenounproject.com/noun/coins/#icon-No4509" target="_blank">Coins</a> designed by <a href="http://thenounproject.com/zer0mike" target="_blank">Mike Hince</a> from The Noun Project. <a href="http://thenounproject.com/noun/hamburger/#icon-No10990" target="_blank">Hamburger</a> designed by <a href="http://thenounproject.com/skatakila" target="_blank">Ricardo Moreira</a> from The Noun Project.]]></string>
+	
+	<string name="rate_title">Rate this app</string>
+	<string name="rate_explanation">Like the app? It would be great if you could leave a rating or some feedback in the Play Store.</string>
+	<string name="rate_now">Sure</string>
+	<string name="rate_later">Maybe later</string>
+	<string name="rate_never">No, thanks</string>
+		
+	<string name="error_connection">No (stable) connection available. Tap to try again.</string>
+	<string name="error_nolocations">Couldn\'t load brewer locations</string>
+	<string name="error_nocalendar">No supported Calendar app found</string>
+	<string name="error_notcoupled">This beer is not yet coupled to the website</string>
+		
+</resources>

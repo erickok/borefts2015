@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:padding="@dimen/margin_default">
+
+	<View
+		android:id="@+id/style_view"
+		android:layout_width="48dp"
+		android:layout_height="48dp"
+		tools:background="@color/darkred" />
+
+	<TextView
+		android:id="@+id/name_text"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="@dimen/margin_breweritem"
+		android:layout_marginTop="2dp"
+		android:layout_toRightOf="@id/style_view"
+		android:textColor="#000"
+		android:textIsSelectable="false"
+		android:textSize="@dimen/text_enlarged"
+		android:textStyle="bold"
+		tools:text="Alvinne Mano Negra Chili Stout" />
+
+	<TextView
+		android:id="@+id/abv_text"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentRight="true"
+		android:layout_below="@id/name_text"
+		android:layout_marginLeft="@dimen/margin_half"
+		android:textIsSelectable="false"
+		android:textSize="@dimen/text_small"
+		tools:text="10.0%" />
+
+	<TextView
+		android:id="@+id/stylebrewer_text"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/name_text"
+		android:layout_marginLeft="@dimen/margin_default"
+		android:layout_marginRight="@dimen/margin_default"
+		android:layout_toLeftOf="@id/abv_text"
+		android:layout_toRightOf="@id/style_view"
+		android:textIsSelectable="false"
+		android:textSize="@dimen/text_small"
+		tools:text="Imperial Stout" />
+
+</RelativeLayout>

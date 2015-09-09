@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@drawable/fragment_background" >
+
+	<TextView
+		android:id="@+id/name_text"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="@dimen/margin_default"
+		android:layout_marginLeft="@dimen/margin_default"
+		android:layout_marginRight="@dimen/margin_default"
+		android:layout_marginTop="@dimen/margin_default"
+		android:textColor="#000"
+		android:textIsSelectable="true"
+		android:textSize="@dimen/text_large" />
+
+	<Button
+		android:id="@+id/style_button"
+		style="@style/DefaultButton"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentRight="true"
+		android:layout_below="@id/name_text"
+		android:layout_marginBottom="@dimen/margin_half"
+		android:layout_marginLeft="@dimen/margin_half"
+		android:layout_marginRight="@dimen/margin_default" />
+
+	<Button
+		android:id="@+id/brewer_button"
+		style="@style/DefaultButton"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/name_text"
+		android:layout_marginBottom="@dimen/margin_half"
+		android:layout_marginLeft="@dimen/margin_default"
+		android:layout_marginRight="@dimen/margin_half" />
+
+	<TextView
+		android:id="@+id/abv_text"
+		style="@style/LabelBlue"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/brewer_button"
+		android:layout_marginBottom="@dimen/margin_half"
+		android:layout_marginLeft="@dimen/margin_default"
+		android:layout_marginRight="@dimen/margin_default"
+		android:textIsSelectable="false" />
+
+	<TextView
+		android:id="@+id/serving_text"
+		style="@style/LabelBlue"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/abv_text"
+		android:layout_marginLeft="@dimen/margin_default"
+		android:layout_marginRight="@dimen/margin_default"
+		android:textIsSelectable="false" />
+
+	<LinearLayout
+		android:id="@+id/tags_layout"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentRight="true"
+		android:layout_below="@id/style_button"
+		android:layout_marginLeft="@dimen/margin_default"
+		android:layout_marginRight="@dimen/margin_default"
+		android:gravity="right"
+		android:orientation="vertical" />
+
+	<LinearLayout
+		android:id="@+id/buttonbar_view"
+		android:layout_width="match_parent"
+		android:layout_height="48dp"
+		android:layout_alignParentBottom="true"
+		android:orientation="horizontal" >
+
+		<Button
+			android:id="@+id/untappd_button"
+			style="@style/TransparentButton"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:text="@string/info_untappd" />
+
+		<Button
+			android:id="@+id/ratebeer_button"
+			style="@style/TransparentButton"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:text="@string/info_ratebeer" />
+	</LinearLayout>
+
+	<View
+		android:id="@+id/buttondivider_view"
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:layout_above="@id/buttonbar_view"
+		android:layout_marginLeft="8dp"
+		android:layout_marginRight="8dp"
+		android:layout_marginTop="@dimen/margin_default"
+		android:background="#aaa" />
+
+	<LinearLayout
+		android:id="@+id/statsnames_view"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_above="@id/buttondivider_view"
+		android:orientation="horizontal" >
+
+		<TextView
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:gravity="center"
+			android:text="@string/info_color"
+			android:textSize="@dimen/text_small" />
+
+		<TextView
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:gravity="center"
+			android:text="@string/info_abv"
+			android:textSize="@dimen/text_small" />
+
+		<TextView
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:gravity="center"
+			android:text="@string/info_bitterness"
+			android:textSize="@dimen/text_small" />
+
+		<TextView
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:gravity="center"
+			android:text="@string/info_sweetness"
+			android:textSize="@dimen/text_small" />
+
+		<TextView
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:gravity="center"
+			android:text="@string/info_acidity"
+			android:textSize="@dimen/text_small" />
+	</LinearLayout>
+
+	<LinearLayout
+		android:id="@+id/stats_view"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_above="@id/statsnames_view"
+		android:layout_marginBottom="@dimen/margin_default"
+		android:orientation="horizontal" >
+
+		<FrameLayout
+			android:layout_width="0dp"
+			android:layout_height="100dp"
+			android:layout_weight="1" >
+
+			<View
+				android:id="@+id/color_view"
+				android:layout_width="24dp"
+				android:layout_height="100dp"
+				android:layout_gravity="center" />
+		</FrameLayout>
+
+		<nl.brouwerijdemolen.borefts2013.gui.fragments.BarView
+			android:id="@+id/abv_view"
+			android:layout_width="0dp"
+			android:layout_height="100dp"
+			android:layout_weight="1" />
+
+		<nl.brouwerijdemolen.borefts2013.gui.fragments.BarView
+			android:id="@+id/bitterness_view"
+			android:layout_width="0dp"
+			android:layout_height="100dp"
+			android:layout_weight="1" />
+
+		<nl.brouwerijdemolen.borefts2013.gui.fragments.BarView
+			android:id="@+id/sweetness_view"
+			android:layout_width="0dp"
+			android:layout_height="100dp"
+			android:layout_weight="1" />
+
+		<nl.brouwerijdemolen.borefts2013.gui.fragments.BarView
+			android:id="@+id/acidity_view"
+			android:layout_width="0dp"
+			android:layout_height="100dp"
+			android:layout_weight="1" />
+	</LinearLayout>
+
+	<TextView
+		android:id="@+id/tostyle_text"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_above="@id/stats_view"
+		android:layout_marginBottom="@dimen/margin_default"
+		android:layout_marginLeft="@dimen/margin_default"
+		android:layout_marginRight="@dimen/margin_default"
+		android:text="@string/info_tostyle"
+		android:textIsSelectable="false"
+		android:textSize="@dimen/text_small" />
+
+</RelativeLayout>

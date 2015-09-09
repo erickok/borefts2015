@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="background">#eeeeee</color>
+	<color name="darkred">#c80000</color>
+	<color name="darkred_half">#55ce0000</color>
+	<color name="verydarkred">#870000</color>
+	<color name="yellow">#dec52e</color>
+	<color name="yellow_half">#55dec52e</color>
+	<color name="blue">#1c68c0</color>
+	<color name="blue_half">#551c68c0</color>
+	<color name="style_1">#fff400</color>
+	<color name="style_2">#ffae00</color>
+	<color name="style_3">#ff6a00</color>
+	<color name="style_4">#78400d</color>
+	<color name="style_5">#2e1601</color>
+	<color name="style_unknown">#8c8c8c</color>
+</resources>
