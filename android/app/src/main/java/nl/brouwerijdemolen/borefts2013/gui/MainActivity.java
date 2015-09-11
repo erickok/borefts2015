@@ -6,7 +6,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.widget.TextView;
 
 import com.astuetz.PagerSlidingTabStrip;
 
@@ -41,6 +43,10 @@ import nl.brouwerijdemolen.borefts2013.gui.helpers.NavigationManager;
 public class MainActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener, NavigationManager {
 
 	@ViewById
+	protected Toolbar titleToobar;
+	@ViewById
+	protected TextView titleText;
+	@ViewById
 	protected PagerSlidingTabStrip pagerSlidingTabStrip;
 	@ViewById
 	protected ViewPager tabViewPager;
@@ -55,7 +61,9 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 	@AfterViews
 	protected void init() {
 
-		getSupportActionBar().setTitle(MolenTypefaceSpan.makeMolenSpannable(this, getString(R.string.app_name_short)));
+		setSupportActionBar(titleToobar);
+		getSupportActionBar().setTitle(null);
+		titleText.setText(MolenTypefaceSpan.makeMolenSpannable(this, getString(R.string.app_name_short)));
 
 		// Bind tabs
 		tabViewPager.setAdapter(new TabPageAdapter(getSupportFragmentManager()));

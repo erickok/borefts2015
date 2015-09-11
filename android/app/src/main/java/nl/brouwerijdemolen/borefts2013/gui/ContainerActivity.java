@@ -4,11 +4,15 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.Extra;
 import org.androidannotations.annotations.OptionsItem;
+import org.androidannotations.annotations.ViewById;
 
 import nl.brouwerijdemolen.borefts2013.R;
 import nl.brouwerijdemolen.borefts2013.api.Beer;
@@ -29,6 +33,11 @@ import nl.brouwerijdemolen.borefts2013.gui.helpers.NavigationManager;
 @EActivity(R.layout.activity_empty)
 public class ContainerActivity extends AppCompatActivity implements NavigationManager {
 
+	@ViewById
+	protected Toolbar titleToobar;
+	@ViewById
+	protected TextView titleText;
+
 	@Extra
 	protected Brewer brewer = null;
 	@Extra
@@ -42,8 +51,10 @@ public class ContainerActivity extends AppCompatActivity implements NavigationMa
 	protected void openFragment() {
 
 		// Set up the simple action bar with up navigation
-		getSupportActionBar().setTitle(MolenTypefaceSpan.makeMolenSpannable(this, getString(R.string.app_name_short)));
+		setSupportActionBar(titleToobar);
+		getSupportActionBar().setTitle(null);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		titleText.setText(MolenTypefaceSpan.makeMolenSpannable(this, getString(R.string.app_name_short)));
 
 		// Get the fragment to open based on the supplied Extra
 		Fragment fragment = null;
@@ -61,7 +72,7 @@ public class ContainerActivity extends AppCompatActivity implements NavigationMa
 		}
 
 		// Replace the activity contents with the new fragment
-		getSupportFragmentManager().beginTransaction().add(android.R.id.content, fragment).commit();
+		getSupportFragmentManager().beginTransaction().add(R.id.contentFrame, fragment).commit();
 
 	}
 

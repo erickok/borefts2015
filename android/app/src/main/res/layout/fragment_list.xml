@@ -2,13 +2,14 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:background="@drawable/fragment_background" >
+	android:background="@drawable/fragment_background"
+	android:paddingLeft="@dimen/margin_sides"
+	android:paddingRight="@dimen/margin_sides" >
 
 	<ListView
 		android:id="@+id/the_list"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		android:listSelector="@null"
 		android:visibility="gone" />
 
 	<ProgressBar

@@ -57,7 +57,7 @@ public class MolenTypefaceSpan extends MetricAffectingSpan {
 	
 	public static SpannableString makeMolenSpannable(Context context, CharSequence rawText) {
 		SpannableString s = new SpannableString(rawText);
-		s.setSpan(new RelativeSizeSpan(1.2f), 0, s.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+		s.setSpan(new RelativeSizeSpan(1.25f), 0, s.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 		s.setSpan(new MolenTypefaceSpan(context), 0, s.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 		return s;
 	}

@@ -1,10 +1,10 @@
 <resources>
 
 	<!-- Base application theme. -->
-	<style name="AppTheme" parent="Theme.AppCompat.Light">
+	<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
 		<item name="colorPrimary">@android:color/white</item>
-		<item name="colorPrimaryDark">@color/darkred</item>
-		<item name="colorAccent">@color/verydarkred</item>
+		<item name="colorPrimaryDark">@color/verydarkred</item>
+		<item name="colorAccent">@color/darkred</item>
 		<item name="colorControlHighlight">@color/yellow</item>
 		<item name="colorButtonNormal">@color/darkred</item>
 		<item name="android:textViewStyle">@style/DefaultTextView</item>

@@ -4,6 +4,8 @@
 	<dimen name="margin_default">16dp</dimen>
 	<dimen name="margin_half">8dp</dimen>
 	<dimen name="margin_breweritem">15dp</dimen>
+	<dimen name="margin_toolbarshadow">4dp</dimen>
+	<dimen name="margin_sides">0dp</dimen>
 	
 	<!-- Text sizes -->
 	<dimen name="text_small">13sp</dimen>
