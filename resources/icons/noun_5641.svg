@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="72px" height="60px" viewBox="0 0 72 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+    <title>Slice 1</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Group" sketch:type="MSLayerGroup" fill="#000000">
+            <path d="M16.46,42.609 L59.609,42.609 L71.938,11.789 L16.9,11.789 L12.398,0.955 L0.063,0.955 L0.063,7.117 L8.391,7.117 L10.312,11.789 L10.295,11.789 L16.46,42.609 Z" id="Shape" sketch:type="MSShapeGroup"></path>
+            <path d="M21.237,46.719 C17.833,46.719 15.076,49.479 15.076,52.883 C15.076,56.289 17.833,59.045 21.237,59.045 C24.643,59.045 27.404,56.289 27.404,52.883 C27.404,49.479 24.643,46.719 21.237,46.719 L21.237,46.719 Z" id="Shape" sketch:type="MSShapeGroup"></path>
+            <circle id="Oval" sketch:type="MSShapeGroup" cx="53.869" cy="52.882" r="6.163"></circle>
+        </g>
+    </g>
+</svg>

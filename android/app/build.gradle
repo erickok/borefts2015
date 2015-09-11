@@ -9,8 +9,8 @@ android {
         applicationId "nl.brouwerijdemolen.borefts2013"
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 30
-        versionName "3.0-alpha1"
+        versionCode 31
+        versionName "3.0-alpha2"
     }
     buildTypes {
         release {
@@ -24,7 +24,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'org.androidannotations:androidannotations-api:3.3.2'
     compile 'com.android.support:appcompat-v7:23.0.1'
-    compile 'com.google.android.gms:play-services-maps:6.5.87'
+    compile 'com.google.android.gms:play-services-maps:7.8.0'
     compile 'com.google.code.gson:gson:2.3.1'
     compile 'com.jpardogo.materialtabstrip:library:1.0.8'
     apt 'org.androidannotations:androidannotations:3.3.2'
@@ -33,8 +33,7 @@ dependencies {
 apt {
     arguments {
         androidManifestFile variant.outputs[0].processResources.manifestFile
-        //resourcePackageName 'org.transdroid'
-        logLevel 'INFO'
-        logFile '/Users/erickok/Dev/borefts/borefts2015/app/build/aa-log.txt'
+        //logLevel 'INFO'
+        //logFile '/Users/erickok/Dev/borefts/borefts2015/app/build/aa-log.txt'
     }
 }
