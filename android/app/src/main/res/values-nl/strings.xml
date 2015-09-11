@@ -59,13 +59,16 @@
 	
 	<string name="map_trains">Treinstation</string>
 	<string name="map_entrance">Ingang</string>
-	<string name="map_mtoilet1">Mannentoilet</string>
-	<string name="map_ftoilet1">Damestoilet 1</string>
-	<string name="map_ftoilet2">Damestoilet 2</string>
+	<string name="map_mtoilet">Mannentoilet</string>
+	<string name="map_ftoilet">Damestoilet</string>
 	<string name="map_tokens">Muntverkoop</string>
+	<string name="map_merch">Merchandise</string>
 	<string name="map_mill">Proeflokaal/restaurant</string>
 	<string name="map_firstaid">EHBO</string>
-	<string name="map_foodplaza">Food plaza</string>
+	<string name="map_foodplaza">Food court</string>
+	<string name="map_foodsnack">Food &amp; snack</string>
+	<string name="map_beerbar">USA bierbar</string>
+	<string name="map_shop">Bierwinkel</string>
 
 	<string name="about_broughtby">Ontwikkeld door Eric Kok\nals 2312 development</string>
 	<string name="about_visit2312">2312.NL</string>

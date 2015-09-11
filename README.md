@@ -43,5 +43,11 @@ Some code/libraries/resources are used in the project:
 *  [Hamburger](http://thenounproject.com/noun/map-marker/#icon-No10990)  
     Ricardo Moreira from The Noun Project  
     Creative Commons Attribution 3.0
+*  [Bottle](http://thenounproject.com/noun/bottle/#icon-No137253)  
+    Patengerie from The Noun Project  
+    Creative Commons Attribution 3.0
+*  [Shopping Cart](http://thenounproject.com/noun/shopping-cart/#icon-No5641)  
+    Naomi Atkinson   from The Noun Project  
+    Creative Commons Attribution 3.0
 
 The names and logos of the brewers are owned by their respective owners. Monalson.ttf font redistributed under fair use.

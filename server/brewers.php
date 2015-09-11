@@ -11,10 +11,49 @@
             "sortName": "Molen",
             "city": "Bodegraven",
             "country": "The Netherlands",
-            "description": "De Molen is the host of the Borefts festival... TO ADD",
+            "description": "",
             "website": "http://www.brouwerijdemolen.nl",
-            "latitude": 52.085131,
-            "longitude": 4.740166
+            "latitude": 52.085067,
+            "longitude": 4.740107
+        },
+        {
+            "id": 1,
+            "logoUrl": "austmann.png",
+            "name": "Austmann Bryggeri",
+            "shortName": "Austmann",
+            "sortName": "Austmann",
+            "city": "Trondheim",
+            "country": "Norway",
+            "description": "",
+            "website": "http://www.austmann.no",
+            "latitude": 52.084260,
+            "longitude": 4.739308
+        },
+        {
+            "id": 3,
+            "logoUrl": "brewdog.png",
+            "name": "Brewdog",
+            "shortName": "Brewdog",
+            "sortName": "Brewdog",
+            "city": "Ellon",
+            "country": "Scotland",
+            "description": "",
+            "website": "https://www.brewdog.com",
+            "latitude": 52.084708,
+            "longitude": 4.740016
+        },
+        {
+            "id": 6,
+            "logoUrl": "brewski.png",
+            "name": "Brewski",
+            "shortName": "Brewski",
+            "sortName": "Brewski",
+            "city": "Helsingborg",
+            "country": "Sweden",
+            "description": "",
+            "website": "http://brewskibrew.se",
+            "latitude": 52.084706,
+            "longitude": 4.739965
         },
         {
             "id": 8,
@@ -24,10 +63,10 @@
             "sortName": "Alvinne",
             "city": "Moen",
             "country": "Belgium",
-            "description": "Alvinne is ... TO ADD",
+            "description": "",
             "website": "http://www.alvinne.be",
-            "latitude": 52.084723,
-            "longitude": 4.739911
+            "latitude": 52.084365,
+            "longitude": 4.739249
         },
         {
             "id": 9,
@@ -37,10 +76,36 @@
             "sortName": "Narke",
             "city": "Örebro",
             "country": "Sweden",
-            "description": "Närke is ... TO ADD",
+            "description": "",
             "website": "http://www.kulturbryggeri.se",
-            "latitude": 52.085224,
-            "longitude": 4.740346
+            "latitude": 52.085212,
+            "longitude": 4.740338
+        },
+        {
+            "id": 11,
+            "logoUrl": "ganstaller.jpg",
+            "name": "Gänstaller Bräu",
+            "shortName": "Gänstaller",
+            "sortName": "Ganstaller",
+            "city": "Hallerndorf",
+            "country": "Germany",
+            "description": "",
+            "website": "http://www.gaenstaller.de/",
+            "latitude": 52.085176,
+            "longitude": 4.740386
+        },
+        {
+            "id": 12,
+            "logoUrl": "hairofthedog.png",
+            "name": "Hair Of The Dog Brewing Company",
+            "shortName": "Hair Of The Dog",
+            "sortName": "Hair Of The Dog",
+            "city": "--",
+            "country": "USA",
+            "description": "",
+            "website": "http://www.hairofthedog.com",
+            "latitude": 52.084649,
+            "longitude": 4.739903
         },
         {
             "id": 13,
@@ -52,21 +117,34 @@
             "country": "England",
             "description": "",
             "website": "http://www.burningskybeer.com",
-            "latitude": 52.085182,
-            "longitude": 4.740252
+            "latitude": 52.085110,
+            "longitude": 4.740188
         },
         {
             "id": 14,
-            "logoUrl": "delducato.png",
-            "name": "Birrificio Del Ducato",
-            "shortName": "Del Ducato",
-            "sortName": "Del Ducato",
-            "city": "Roccabianca",
-            "country": "Italy",
+            "logoUrl": "kees.png",
+            "name": "Brouwerij Kees!",
+            "shortName": "Kees!",
+            "sortName": "Kees",
+            "city": "Middelburg",
+            "country": "The Netherlands",
             "description": "",
-            "website": "http://www.birrificiodelducato.net/en/",
-            "latitude": 52.084823,
-            "longitude": 4.74007
+            "website": "http://www.brouwerijkees.nl",
+            "latitude": 52.084467,
+            "longitude": 4.739195
+        },
+        {
+            "id": 15,
+            "logoUrl": "labietis.png",
+            "name": "Alus Darbnīca Labietis",
+            "shortName": "Labietis",
+            "sortName": "Labietis",
+            "city": "Riga",
+            "country": "Latvia",
+            "description": "",
+            "website": "http://www.labietis.lv",
+            "latitude": 52.084223,
+            "longitude": 4.739254
         },
         {
             "id": 16,
@@ -78,10 +156,100 @@
             "country": "England",
             "description": "",
             "website": "http://www.magicrockbrewing.com",
-            "latitude": 52.084614,
-            "longitude": 4.739724
+            "latitude": 52.084668,
+            "longitude": 4.739517
+        },
+        {
+            "id": 17,
+            "logoUrl": "lervig.jpg",
+            "name": "Lervig Aktiebryggeri",
+            "shortName": "Lervig",
+            "sortName": "Lervig",
+            "city": "Stavanger",
+            "country": "Norway",
+            "description": "",
+            "website": "http://www.lervig.no",
+            "latitude": 52.084497,
+            "longitude": 4.739249
+        },
+        {
+            "id": 18,
+            "logoUrl": "malmo.jpg",
+            "name": "Malmö Brygghus",
+            "shortName": "Malmö",
+            "sortName": "Malmo",
+            "city": "Malmö",
+            "country": "Sweden",
+            "description": "",
+            "website": "http://www.malmobrygghus.se/in-english",
+            "latitude": 52.084583,
+            "longitude": 4.739651
+        },
+        {
+            "id": 19,
+            "logoUrl": "naparbier.jpg",
+            "name": "Naparbier",
+            "shortName": "Naparbier",
+            "sortName": "Naparbier",
+            "city": "Noáin",
+            "country": "Spain",
+            "description": "",
+            "website": "http://naparbier.com/en",
+            "latitude": 52.084616,
+            "longitude": 4.739603
+        },
+        {
+            "id": 20,
+            "logoUrl": "oedipus.jpg",
+            "name": "Oedipus",
+            "shortName": "Oedipus",
+            "sortName": "Oedipus",
+            "city": "Amsterdam",
+            "country": "The Netherlands",
+            "description": "",
+            "website": "http://www.oedipusbrewing.com",
+            "latitude": 52.084428,
+            "longitude": 4.739136
+        },
+        {
+            "id": 21,
+            "logoUrl": "omnipollo.png",
+            "name": "Omnipollo",
+            "shortName": "Omnipollo",
+            "sortName": "Omnipollo",
+            "city": "Stockholm",
+            "country": "Sweden",
+            "description": "",
+            "website": "http://www.omnipollo.com",
+            "latitude": 52.084329,
+            "longitude": 4.739447
+        },
+        {
+            "id": 22,
+            "logoUrl": "oppigards.png",
+            "name": "Oppigårds Bryggeri",
+            "shortName": "Oppigårds",
+            "sortName": "Oppigards",
+            "city": "Hedemora",
+            "country": "Sweden",
+            "description": "",
+            "website": "http://www.oppigards.com",
+            "latitude": 52.084639,
+            "longitude": 4.739555
+        },
+        {
+            "id": 23,
+            "logoUrl": "redchurch.png",
+            "name": "The Redchurch Brewery",
+            "shortName": "Redchurch",
+            "sortName": "Redchurch",
+            "city": "Bethnal Green",
+            "country": "England",
+            "description": "",
+            "website": "http://www.theredchurchbrewery.com",
+            "latitude": 52.084293,
+            "longitude": 4.739372
         }
     ],
-    "revision": 30
+    "revision": 31
 }
-
