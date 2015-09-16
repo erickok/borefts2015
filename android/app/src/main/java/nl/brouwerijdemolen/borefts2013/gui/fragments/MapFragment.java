@@ -54,15 +54,15 @@ public class MapFragment extends com.google.android.gms.maps.SupportMapFragment
 	public static final MapElement ELEMENT_ENTRANCE =
 			new MapElement(1, new LatLng(52.084871, 4.740536), R.string.map_entrance, R.drawable.ic_marker_entrance);
 	public static final MapElement ELEMENT_FTOILET1 =
-			new MapElement(2, new LatLng(52.085153, 4.740472), R.string.map_ftoilet, R.drawable.ic_marker_toilet); // In bottle house
+			new MapElement(2, new LatLng(52.085153, 4.740472), R.string.map_toilet, R.drawable.ic_marker_toilet); // In bottle house
 	public static final MapElement ELEMENT_FTOILET2 =
-			new MapElement(3, new LatLng(52.084255, 4.739361), R.string.map_ftoilet, R.drawable.ic_marker_toilet); // In storage
+			new MapElement(3, new LatLng(52.084255, 4.739361), R.string.map_toilet, R.drawable.ic_marker_toilet); // In storage
 	public static final MapElement ELEMENT_FTOILET3 =
-			new MapElement(4, new LatLng(52.084176, 4.739313), R.string.map_ftoilet, R.drawable.ic_marker_toilet); // In the back
+			new MapElement(4, new LatLng(52.084176, 4.739313), R.string.map_toilet, R.drawable.ic_marker_toilet); // In the back
 	public static final MapElement ELEMENT_FTOILET4 =
-			new MapElement(5, new LatLng(52.085104, 4.740724), R.string.map_ftoilet, R.drawable.ic_marker_toilet); // In brewery
+			new MapElement(5, new LatLng(52.085104, 4.740724), R.string.map_toilet, R.drawable.ic_marker_toilet); // In brewery
 	public static final MapElement ELEMENT_FTOILET5 =
-			new MapElement(6, new LatLng(52.085741, 4.742175), R.string.map_ftoilet, R.drawable.ic_marker_toilet); // In mill
+			new MapElement(6, new LatLng(52.085741, 4.742175), R.string.map_toilet, R.drawable.ic_marker_toilet); // In mill
 	/*public static final MapElement ELEMENT_MTOILET1 =
 			new MapElement(7, new LatLng(52.084291, 4.739415), R.string.map_mtoilet, R.drawable.ic_marker_toilet); // In storage*/
 	/*public static final MapElement ELEMENT_MTOILET2 =

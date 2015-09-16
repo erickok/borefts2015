@@ -61,8 +61,7 @@
 	
 	<string name="map_trains">Train station</string>
 	<string name="map_entrance">Entrance</string>
-	<string name="map_mtoilet">Male toilet</string>
-	<string name="map_ftoilet">Female toilet</string>
+	<string name="map_toilet">Toilets</string>
 	<string name="map_tokens">Token sale</string>
 	<string name="map_merch">Merchandise</string>
 	<string name="map_mill">Tasting room/restaurant</string>

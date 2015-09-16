@@ -4,7 +4,7 @@
 {
     "styles": [
         {
-        	"id": 0,
+            "id": 0,
             "name": "Barley Wine",
             "body": 4,
             "color": 3,
@@ -14,7 +14,7 @@
             "acidity": 1
         },
         {
-        	"id": 1,
+            "id": 1,
             "name": "Double IPA",
             "body": 3,
             "color": 2,
@@ -24,7 +24,7 @@
             "acidity": 1
         },
         {
-        	"id": 2,
+            "id": 2,
             "name": "IPA",
             "body": 2,
             "color": 1,
@@ -34,7 +34,7 @@
             "acidity": 1
         },
         {
-        	"id": 3,
+            "id": 3,
             "name": "Sour Ale",
             "body": 2,
             "color": 2,
@@ -44,7 +44,7 @@
             "acidity": 4
         },
         {
-        	"id": 4,
+            "id": 4,
             "name": "Stout",
             "body": 3,
             "color": 5,
@@ -54,7 +54,7 @@
             "acidity": 2
         },
         {
-        	"id": 5,
+            "id": 5,
             "name": "Imperial Stout",
             "body": 5,
             "color": 5,
@@ -64,7 +64,7 @@
             "acidity": 2
         },
         {
-        	"id": 6,
+            "id": 6,
             "name": "English Ale",
             "body": 2,
             "color": 1,
@@ -74,7 +74,7 @@
             "acidity": 1
         },
         {
-        	"id": 7,
+            "id": 7,
             "name": "American Pale Ale",
             "body": 1,
             "color": 1,
@@ -84,7 +84,7 @@
             "acidity": 1
         },
         {
-        	"id": 8,
+            "id": 8,
             "name": "Black IPA",
             "body": 3,
             "color": 5,
@@ -94,7 +94,7 @@
             "acidity": 1
         },
         {
-        	"id": 9,
+            "id": 9,
             "name": "Traditional Ale",
             "body": 2,
             "color": 3,
@@ -104,7 +104,7 @@
             "acidity": 2
         },
         {
-        	"id": 10,
+            "id": 10,
             "name": "Belgian Blond Ale",
             "body": 3,
             "color": 2,
@@ -114,7 +114,7 @@
             "acidity": 3
         },
         {
-        	"id": 11,
+            "id": 11,
             "name": "Porter",
             "body": 3,
             "color": 5,
@@ -124,7 +124,7 @@
             "acidity": 2
         },
         {
-        	"id": 12,
+            "id": 12,
             "name": "Radler",
             "body": 1,
             "color": 3,
@@ -134,7 +134,7 @@
             "acidity": 3
         },
         {
-        	"id": 13,
+            "id": 13,
             "name": "Pilsner",
             "body": 1,
             "color": 1,
@@ -144,7 +144,7 @@
             "acidity": 1
         },
         {
-        	"id": 14,
+            "id": 14,
             "name": "Belgian Dark Ale",
             "body": 4,
             "color": 4,
@@ -154,7 +154,7 @@
             "acidity": 2
         },
         {
-        	"id": 15,
+            "id": 15,
             "name": "Amber",
             "body": 3,
             "color": 2,
@@ -164,7 +164,7 @@
             "acidity": 1
         },
         {
-        	"id": 17,
+            "id": 17,
             "name": "Saison",
             "body": 3,
             "color": 2,
@@ -174,7 +174,7 @@
             "acidity": 3
         },
         {
-        	"id": 18,
+            "id": 18,
             "name": "American Strong Ale",
             "body": 4,
             "color": 4,
@@ -184,7 +184,7 @@
             "acidity": 2
         },
         {
-        	"id": 19,
+            "id": 19,
             "name": "Flemish Red/Brown",
             "body": 3,
             "color": 4,
@@ -242,7 +242,27 @@
             "bitterness": 1,
             "sweetness": 4,
             "acidity": 4
+        },
+        {
+            "id": 25,
+            "name": "Braggot",
+            "body": 3,
+            "color": 3,
+            "abv": 2,
+            "bitterness": 2,
+            "sweetness": 4,
+            "acidity": 3
+        },
+        {
+            "id": 26,
+            "name": "Doppelbock",
+            "body": 4,
+            "color": 4,
+            "abv": 4,
+            "bitterness": 2,
+            "sweetness": 4,
+            "acidity": 1
         }
     ],
-    "revision": 20
+    "revision": 21
 }
