@@ -1654,7 +1654,7 @@
     },
     {
       "id": 10010,
-      "name": "De Molen Blood Orange / Lemon Drop Chili",
+      "name": "De Molen Fruit IPA Blood Orange / Lemon Drop Chili",
       "brewerId": 0,
       "styleId": 2,
       "abv": 6.3,
@@ -1671,7 +1671,7 @@
     },
     {
       "id": 10011,
-      "name": "De Molen Cassis",
+      "name": "De Molen Fruit IPA Cassis",
       "brewerId": 0,
       "styleId": 2,
       "abv": 6.3,
@@ -1688,7 +1688,7 @@
     },
     {
       "id": 10012,
-      "name": "De Molen Passionfruit / Habanero",
+      "name": "De Molen Fruit IPA Passionfruit / Habanero",
       "brewerId": 0,
       "styleId": 2,
       "abv": 6.2,
@@ -1705,7 +1705,7 @@
     },
     {
       "id": 10013,
-      "name": "De Molen Pineapple",
+      "name": "De Molen Fruit IPA Pineapple",
       "brewerId": 0,
       "styleId": 2,
       "abv": 4.8,
@@ -1722,7 +1722,7 @@
     },
     {
       "id": 10014,
-      "name": "De Molen Raspberry",
+      "name": "De Molen Fruit IPA Raspberry",
       "brewerId": 0,
       "styleId": 2,
       "abv": 4.8,
