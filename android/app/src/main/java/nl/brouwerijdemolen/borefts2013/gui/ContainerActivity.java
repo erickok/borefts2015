@@ -56,6 +56,15 @@ public class ContainerActivity extends AppCompatActivity implements NavigationMa
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		titleText.setText(MolenTypefaceSpan.makeMolenSpannable(this, getString(R.string.app_name_short)));
 
+	}
+
+	@Override
+	protected void onStart() {
+		super.onStart();
+
+		if (getSupportFragmentManager().findFragmentById(R.id.contentFrame) != null)
+			return; // Already added
+
 		// Get the fragment to open based on the supplied Extra
 		Fragment fragment = null;
 		if (brewer != null) {

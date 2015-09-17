@@ -4,7 +4,7 @@
 	android:layout_height="match_parent"
 	android:background="@drawable/fragment_background"
 	android:paddingLeft="@dimen/margin_sides"
-	android:paddingRight="@dimen/margin_sides" >
+	android:paddingRight="@dimen/margin_sides">
 
 	<TextView
 		android:id="@+id/name_text"
@@ -76,7 +76,8 @@
 		android:layout_width="match_parent"
 		android:layout_height="48dp"
 		android:layout_alignParentBottom="true"
-		android:orientation="horizontal" >
+		android:background="@android:color/white"
+		android:orientation="horizontal">
 
 		<Button
 			android:id="@+id/untappd_button"
@@ -108,7 +109,7 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_above="@id/buttondivider_view"
-		android:orientation="horizontal" >
+		android:orientation="horizontal">
 
 		<TextView
 			android:layout_width="0dp"
@@ -157,12 +158,12 @@
 		android:layout_height="wrap_content"
 		android:layout_above="@id/statsnames_view"
 		android:layout_marginBottom="@dimen/margin_default"
-		android:orientation="horizontal" >
+		android:orientation="horizontal">
 
 		<FrameLayout
 			android:layout_width="0dp"
-			android:layout_height="100dp"
-			android:layout_weight="1" >
+			android:layout_height="80dp"
+			android:layout_weight="1">
 
 			<View
 				android:id="@+id/color_view"
@@ -174,25 +175,25 @@
 		<nl.brouwerijdemolen.borefts2013.gui.fragments.BarView
 			android:id="@+id/abv_view"
 			android:layout_width="0dp"
-			android:layout_height="100dp"
+			android:layout_height="80dp"
 			android:layout_weight="1" />
 
 		<nl.brouwerijdemolen.borefts2013.gui.fragments.BarView
 			android:id="@+id/bitterness_view"
 			android:layout_width="0dp"
-			android:layout_height="100dp"
+			android:layout_height="80dp"
 			android:layout_weight="1" />
 
 		<nl.brouwerijdemolen.borefts2013.gui.fragments.BarView
 			android:id="@+id/sweetness_view"
 			android:layout_width="0dp"
-			android:layout_height="100dp"
+			android:layout_height="80dp"
 			android:layout_weight="1" />
 
 		<nl.brouwerijdemolen.borefts2013.gui.fragments.BarView
 			android:id="@+id/acidity_view"
 			android:layout_width="0dp"
-			android:layout_height="100dp"
+			android:layout_height="80dp"
 			android:layout_weight="1" />
 	</LinearLayout>
 

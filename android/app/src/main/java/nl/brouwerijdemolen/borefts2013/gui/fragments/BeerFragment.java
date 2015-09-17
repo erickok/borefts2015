@@ -55,7 +55,7 @@ public class BeerFragment extends Fragment {
 	@AfterViews
 	protected void init() {
 		nameText.setText(MolenTypefaceSpan.makeMolenSpannable(getActivity(), beer.getName()));
-		brewerButton.setText(beer.getBrewer().getName());
+		brewerButton.setText(beer.getBrewer().getShortName());
 		styleButton.setText(beer.getStyle().getName());
 		if (beer.getAbv() >= 0)
 			abvText.setText(getString(R.string.info_abvlabel, beer.getAbv()));
