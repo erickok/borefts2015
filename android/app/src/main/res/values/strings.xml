@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<string name="app_name">Borefts Beer Festival 2015</string>
-	<string name="app_name_short">Borefts 2015</string>
+	<string name="app_name">Borefts Beer Festival 2016</string>
+	<string name="app_name_short">Borefts 2016</string>
 	
 	<string name="action_info">Info</string>
 	<string name="action_brewers">Brewers</string>
@@ -19,7 +19,7 @@
 	<string name="action_about">About this app</string>
 	
 	<string name="info_what">WHAT? WHERE?</string>
-	<string name="info_address">Borefts Beer Festival 2015\nDe Molen Brewery\nDoortocht 4, Bodegraven</string>
+	<string name="info_address">Borefts Beer Festival 2016\nDe Molen Brewery\nDoortocht 4, Bodegraven</string>
 	<string name="info_times">Sep 25 &#8211; 26\n12:00 &#8211; 22:00</string>
 	<string name="info_tokens">TOKENS</string>
 	<string name="info_getmore">Get more</string>

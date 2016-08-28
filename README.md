@@ -1,27 +1,27 @@
-Borefts 2015
+Borefts 2016
 ============
 
-The official Android companion app to the Borefts Beer Festival 2015, as organised yearly by brewery De Molen. For everything on the festival itself, please visit [the offical festival website](http://brouwerijdemolen.nl/borefts-bierfestival/).
+The official Android companion app to the Borefts Beer Festival 2016, as organised yearly by brewery De Molen. For everything on the festival itself, please visit [the offical festival website](http://brouwerijdemolen.nl/borefts-bierfestival/).
 
-This app was build by [Eric Kok](http://ekok.nl) of [2312 development](http://2312.nl) as a continuation of the 2013 and 2014 apps. However, we are now open-source! So feel free to contribute or to modify for your own (festival) needs. Remeber, though, the GNU GPLv3 license is copyleft, so every single change or addition needs to be open-sourced under the same license.
+This app was build by [Eric Kok](http://ekok.nl) of [2312 development](http://2312.nl) as a continuation of the 2013, 2014 and 2015 apps. For the 2015 version, see the dedicated branch or releases. We are open-source, so free to contribute or to modify for your own (festival) needs. Remeber, though, the GNU GPLv3 license is copyleft, so every single change or addition needs to be open-sourced under the same license.
 
 License
 =======
     
-    Copyright 2010-2015 Eric Kok et al.
+    Copyright 2010-2016 Eric Kok et al.
     
-    Borefts 2015 is free software: you can redistribute it and/or modify
+    Borefts 2016 is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
     
-    Borefts 2015 is distributed in the hope that it will be useful,
+    Borefts 2016 is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
     
     You should have received a copy of the GNU General Public License
-    along with Borefts 2015.  If not, see <http://www.gnu.org/licenses/>.
+    along with Borefts 2016.  If not, see <http://www.gnu.org/licenses/>.
     
 Some code/libraries/resources are used in the project:
 
