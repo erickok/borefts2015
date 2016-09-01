@@ -1,5 +1,7 @@
 package nl.brouwerijdemolen.borefts2013.gui.fragments;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.BitmapFactory;
@@ -9,8 +11,14 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.os.Handler;
+import android.support.annotation.ColorInt;
+import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.util.SparseArray;
+import android.view.View;
 import android.widget.Toast;
 
 import com.android.volley.Response.ErrorListener;
@@ -21,6 +29,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
 import com.google.android.gms.maps.GoogleMap.OnMapClickListener;
 import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
+import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
@@ -45,9 +54,10 @@ import nl.brouwerijdemolen.borefts2013.api.Brewers;
 import nl.brouwerijdemolen.borefts2013.gui.helpers.ApiQueue;
 import nl.brouwerijdemolen.borefts2013.gui.helpers.NavigationManager;
 
+
 @EFragment
 public class MapFragment extends com.google.android.gms.maps.SupportMapFragment
-		implements OnInfoWindowClickListener, Listener<Brewers>, ErrorListener, OnMarkerClickListener, OnMapClickListener {
+		implements OnMapReadyCallback, OnInfoWindowClickListener, Listener<Brewers>, ErrorListener, OnMarkerClickListener, OnMapClickListener {
 
 	public static final MapElement ELEMENT_TRAINS =
 			new MapElement(0, new LatLng(52.081515, 4.746145), R.string.map_trains, R.drawable.ic_marker_trains);
@@ -85,6 +95,8 @@ public class MapFragment extends com.google.android.gms.maps.SupportMapFragment
 	public static final MapElement ELEMENT_SHOP = new MapElement(17, new LatLng(52.085643, 4.741969), R.string.map_shop, R.drawable.ic_marker_shop);
 	public static final int BREWER_ID_THRESHOLD = 100;
 
+	private static final int REQUEST_PERMISSION = 0;
+
 	private SparseArray<Marker> elementMarkers;
 	private Map<Marker, Brewer> brewerMarkers;
 
@@ -101,38 +113,55 @@ public class MapFragment extends com.google.android.gms.maps.SupportMapFragment
 
 	@AfterViews
 	protected void initMap() {
+		getMapAsync(this);
 
-		if (getMap() == null)
-			return;
+		// If in full screen moe and we have no location access, ask for the runtime permission (unless marked as never ask again)
+		if (!isMinimap && !hasLocationPermission()) {
+			Snackbar snackbar = Snackbar.make(getView(), R.string.general_location_permission, Snackbar.LENGTH_INDEFINITE);
+			snackbar.setActionTextColor(getColor(R.color.yellow));
+			snackbar.setAction(R.string.general_location_ok, new View.OnClickListener() {
+				@Override
+				public void onClick(View view) {
+					ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_PERMISSION);
+				}
+			});
+			snackbar.show();
+		}
+	}
 
+	@Override
+	public void onMapReady(final GoogleMap map) {
 		// Always centre the map on the festival location in Bodegraven
 		// When shown as minimap, no interaction is allowed; the full map screen is started instead
 		if (isMinimap) {
-			getMap().moveCamera(CameraUpdateFactory
+			map.moveCamera(CameraUpdateFactory
 					.newCameraPosition(new CameraPosition.Builder().target(new LatLng(52.084754, 4.739858)).zoom(17.6f).bearing(314f).build()));
-			getMap().getUiSettings().setAllGesturesEnabled(false);
-			getMap().getUiSettings().setZoomControlsEnabled(false);
-			getMap().setOnMarkerClickListener(this);
-			getMap().setOnMapClickListener(this);
+			map.getUiSettings().setAllGesturesEnabled(false);
+			map.getUiSettings().setZoomControlsEnabled(false);
+			map.setOnMarkerClickListener(this);
+			map.setOnMapClickListener(this);
 		} else {
-			getMap().moveCamera(CameraUpdateFactory
+			map.moveCamera(CameraUpdateFactory
 					.newCameraPosition(new CameraPosition.Builder().target(new LatLng(52.085114, 4.740697)).zoom(17.1f).bearing(6f).build()));
-			getMap().setMyLocationEnabled(true);
-			getMap().getUiSettings().setCompassEnabled(true);
-			getMap().setOnInfoWindowClickListener(this);
-			/*getMap().setOnCameraChangeListener(new GoogleMap.OnCameraChangeListener() {
+			if (hasLocationPermission()) {
+				//noinspection MissingPermission Permission checked explicitly
+				map.setMyLocationEnabled(true);
+			}
+			map.getUiSettings().setCompassEnabled(true);
+			map.setOnInfoWindowClickListener(this);
+			map.setOnCameraChangeListener(new GoogleMap.OnCameraChangeListener() {
 				@Override
 				public void onCameraChange(CameraPosition cameraPosition) {
 					Log.d("BOREFTS", String.format(Locale.US, "LAT: %1$.6f LNG: %2$.6f ZOOM: %3$.1f BEA: %4$.1f", cameraPosition.target.latitude,
 							cameraPosition.target.longitude, cameraPosition.zoom, cameraPosition.bearing));
 				}
-			});*/
+			});
 			// Schedule zooming to festival terrain (except when searching for the trains)
 			if (initFocusId >= BREWER_ID_THRESHOLD) {
 				new Handler().postDelayed(new Runnable() {
 					@Override
 					public void run() {
-						getMap().animateCamera(CameraUpdateFactory.newCameraPosition(
+						map.animateCamera(CameraUpdateFactory.newCameraPosition(
 								new CameraPosition.Builder().target(new LatLng(52.084723, 4.739909)).zoom(18f).bearing(3.3f).build()));
 					}
 				}, 1500);
@@ -141,88 +170,93 @@ public class MapFragment extends com.google.android.gms.maps.SupportMapFragment
 
 		// Load the festival outline
 		// Brewery building
-		getMap().addPolygon(new PolygonOptions()
+		map.addPolygon(new PolygonOptions()
 				.add(new LatLng(52.085212, 4.740633), new LatLng(52.085081, 4.740858), new LatLng(52.085008, 4.740740),
-						new LatLng(52.085143, 4.740525)).strokeColor(getResources().getColor(R.color.darkred)).strokeWidth(5f)
-				.fillColor(getResources().getColor(R.color.darkred_half)));
+						new LatLng(52.085143, 4.740525)).strokeColor(getColor(R.color.darkred)).strokeWidth(5f)
+				.fillColor(getColor(R.color.darkred_half)));
 		// Bottling building
-		getMap().addPolygon(new PolygonOptions()
+		map.addPolygon(new PolygonOptions()
 				.add(new LatLng(52.085262, 4.740338), new LatLng(52.085163, 4.740525), new LatLng(52.084992, 4.740257),
 						new LatLng(52.084929, 4.740257), new LatLng(52.084718, 4.739925), new LatLng(52.084850, 4.739705))
-				.strokeColor(getResources().getColor(R.color.darkred)).strokeWidth(5f).fillColor(getResources().getColor(R.color.darkred_half)));
+				.strokeColor(getColor(R.color.darkred)).strokeWidth(5f).fillColor(getColor(R.color.darkred_half)));
 		// Storage building
-		getMap().addPolygon(new PolygonOptions()
+		map.addPolygon(new PolygonOptions()
 				.add(new LatLng(52.084718, 4.739925), new LatLng(52.084843, 4.739715), new LatLng(52.084369, 4.738948),
 						new LatLng(52.084177, 4.739243), new LatLng(52.084392, 4.739614), new LatLng(52.084527, 4.739619))
-				.strokeColor(getResources().getColor(R.color.darkred)).strokeWidth(5f).fillColor(getResources().getColor(R.color.darkred_half)));
+				.strokeColor(getColor(R.color.darkred)).strokeWidth(5f).fillColor(getColor(R.color.darkred_half)));
 		// Festival area 1
-		getMap().addPolygon(new PolygonOptions()
+		map.addPolygon(new PolygonOptions()
 				.add(new LatLng(52.084171, 4.739249), new LatLng(52.084388, 4.739624), new LatLng(52.084523, 4.739624),
 						new LatLng(52.084929, 4.740263), new LatLng(52.084995, 4.740257), new LatLng(52.085146, 4.740515),
-						new LatLng(52.084992, 4.740762), new LatLng(52.084072, 4.739372)).strokeColor(getResources().getColor(R.color.yellow))
-				.strokeWidth(5f).fillColor(getResources().getColor(R.color.yellow_half)));
+						new LatLng(52.084992, 4.740762), new LatLng(52.084072, 4.739372)).strokeColor(getColor(R.color.yellow))
+				.strokeWidth(5f).fillColor(getColor(R.color.yellow_half)));
 		// Entrance area
-		getMap().addPolygon(new PolygonOptions()
+		map.addPolygon(new PolygonOptions()
 				.add(new LatLng(52.084856, 4.740461), new LatLng(52.084921, 4.740550), new LatLng(52.084888, 4.740609),
-						new LatLng(52.084825, 4.740515)).strokeColor(getResources().getColor(R.color.blue)).strokeWidth(5f)
-				.fillColor(getResources().getColor(R.color.blue_half)));
+						new LatLng(52.084825, 4.740515)).strokeColor(getColor(R.color.blue)).strokeWidth(5f)
+				.fillColor(getColor(R.color.blue_half)));
 		// Mill building
-		getMap().addPolygon(new PolygonOptions()
+		map.addPolygon(new PolygonOptions()
 				.add(new LatLng(52.085812, 4.742054), new LatLng(52.085746, 4.742215), new LatLng(52.085687, 4.742151),
 						new LatLng(52.085677, 4.742178), new LatLng(52.085578, 4.742060), new LatLng(52.085641, 4.741910),
-						new LatLng(52.085690, 4.741947), new LatLng(52.085704, 4.741920)).strokeColor(getResources().getColor(R.color.darkred))
-				.strokeWidth(5f).fillColor(getResources().getColor(R.color.darkred_half)));
+						new LatLng(52.085690, 4.741947), new LatLng(52.085704, 4.741920)).strokeColor(getColor(R.color.darkred))
+				.strokeWidth(5f).fillColor(getColor(R.color.darkred_half)));
 		// Festival area 2
-		getMap().addPolygon(new PolygonOptions()
+		map.addPolygon(new PolygonOptions()
 				.add(new LatLng(52.085651, 4.742486), new LatLng(52.085470, 4.742285), new LatLng(52.085575, 4.742062),
 						new LatLng(52.085672, 4.742183), new LatLng(52.085687, 4.742164), new LatLng(52.085745, 4.742226))
-				.strokeColor(getResources().getColor(R.color.yellow)).strokeWidth(5f).fillColor(getResources().getColor(R.color.yellow_half)));
+				.strokeColor(getColor(R.color.yellow)).strokeWidth(5f).fillColor(getColor(R.color.yellow_half)));
 
 		// Load the POI markers
 		elementMarkers = new SparseArray<>(6);
-		addPoiMarker(ELEMENT_TRAINS);
-		addPoiMarker(ELEMENT_ENTRANCE);
-		addPoiMarker(ELEMENT_FTOILET1);
-		addPoiMarker(ELEMENT_FTOILET2);
-		addPoiMarker(ELEMENT_FTOILET3);
-		addPoiMarker(ELEMENT_FTOILET4);
-		addPoiMarker(ELEMENT_FTOILET5);
+		addPoiMarker(map, ELEMENT_TRAINS);
+		addPoiMarker(map, ELEMENT_ENTRANCE);
+		addPoiMarker(map, ELEMENT_FTOILET1);
+		addPoiMarker(map, ELEMENT_FTOILET2);
+		addPoiMarker(map, ELEMENT_FTOILET3);
+		addPoiMarker(map, ELEMENT_FTOILET4);
+		addPoiMarker(map, ELEMENT_FTOILET5);
 		/*addPoiMarker(ELEMENT_MTOILET1);
 		addPoiMarker(ELEMENT_MTOILET2);
 		addPoiMarker(ELEMENT_MTOILET3);*/
-		addPoiMarker(ELEMENT_TOKENS);
-		addPoiMarker(ELEMENT_MILL);
-		addPoiMarker(ELEMENT_FIRSTAID);
-		addPoiMarker(ELEMENT_MERCH);
-		addPoiMarker(ELEMENT_FOODPLAZA);
-		addPoiMarker(ELEMENT_FOODSNACK);
-		addPoiMarker(ELEMENT_BEERBAR);
-		addPoiMarker(ELEMENT_SHOP);
+		addPoiMarker(map, ELEMENT_TOKENS);
+		addPoiMarker(map, ELEMENT_MILL);
+		addPoiMarker(map, ELEMENT_FIRSTAID);
+		addPoiMarker(map, ELEMENT_MERCH);
+		addPoiMarker(map, ELEMENT_FOODPLAZA);
+		addPoiMarker(map, ELEMENT_FOODSNACK);
+		addPoiMarker(map, ELEMENT_BEERBAR);
+		addPoiMarker(map, ELEMENT_SHOP);
 		if (initFocusId >= 0 && initFocusId < BREWER_ID_THRESHOLD) {
 			focusOnMarker(initFocusId);
 		}
 
 		// Load the brewers markers asynchronously
 		apiQueue.requestBrewers(this, this);
-
 	}
 
 	@Override
-	public void onResponse(Brewers brewers) {
+	public void onResponse(final Brewers brewers) {
 		if (getActivity() == null || !isAdded())
 			return;
-		brewerMarkers = new HashMap<>();
-		for (final Brewer brewer : brewers.getBrewers()) {
-			addBrewerMarker(brewer);
-		}
+		getMapAsync(new OnMapReadyCallback() {
+			@Override
+			public void onMapReady(final GoogleMap map) {
+				brewerMarkers = new HashMap<>();
+				for (final Brewer brewer : brewers.getBrewers()) {
+					addBrewerMarker(map, brewer);
+				}
+			}
+		});
 	}
 
 	/**
 	 * Adds a marker to the visible map where some point of interest is located. The marker is cached for later lookup.
+	 * @param map The map object to draw on
 	 * @param element The meta data of the marker to show, including the marker resource graphic id
 	 */
-	protected void addPoiMarker(MapElement element) {
-		Marker marker = getMap().addMarker(new MarkerOptions().position(element.latLng).title(getString(element.titleResource))
+	protected void addPoiMarker(GoogleMap map, MapElement element) {
+		Marker marker = map.addMarker(new MarkerOptions().position(element.latLng).title(getString(element.titleResource))
 				.icon(BitmapDescriptorFactory.fromResource(element.markerResource)));
 		elementMarkers.put(element.focusId, marker);
 	}
@@ -230,9 +264,10 @@ public class MapFragment extends com.google.android.gms.maps.SupportMapFragment
 	/**
 	 * Adds a marker to the visible map where a certain brewer is located. The provided bitmap is a logo of the brewer that was already loaded from
 	 * the memory cache or internet. The marker is cached for later lookup.
+	 * @param map The map object to draw on
 	 * @param brewer The brewer to visualise on the map with a marker
 	 */
-	public void addBrewerMarker(Brewer brewer) {
+	public void addBrewerMarker(GoogleMap map, Brewer brewer) {
 		BitmapDescriptor bitmapToUse;
 		if (brewer.getLogoUrl() == null)
 			bitmapToUse = BitmapDescriptorFactory.fromResource(R.drawable.ic_marker_mask);
@@ -243,8 +278,9 @@ public class MapFragment extends com.google.android.gms.maps.SupportMapFragment
 			else
 				bitmapToUse = BitmapDescriptorFactory.fromBitmap(brewerMarker);
 		}
-		Marker marker = getMap().addMarker(
-				new MarkerOptions().position(new LatLng(brewer.getLatitude(), brewer.getLongitude())).title(brewer.getShortName()).icon(bitmapToUse));
+		Marker marker = map.addMarker(
+				new MarkerOptions().position(new LatLng(brewer.getLatitude(), brewer.getLongitude())).title(brewer.getShortName()).icon
+						(bitmapToUse));
 		// Also open the info window if a focus ID for this brewer was supplied
 		if (initFocusId == BREWER_ID_THRESHOLD + brewer.getId())
 			marker.showInfoWindow();
@@ -293,6 +329,29 @@ public class MapFragment extends com.google.android.gms.maps.SupportMapFragment
 		if (brewerMarkers.containsKey(marker)) {
 			((NavigationManager) getActivity()).openBrewer(this, brewerMarkers.get(marker));
 		}
+	}
+
+	@Override
+	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+		if (requestCode == REQUEST_PERMISSION && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+			// Permission was now granted; update the map to show the location
+			getMapAsync(new OnMapReadyCallback() {
+				@Override
+				public void onMapReady(GoogleMap googleMap) {
+					//noinspection MissingPermission Explicitly just gotten the permission
+					googleMap.setMyLocationEnabled(true);
+				}
+			});
+		}
+	}
+
+	private boolean hasLocationPermission() {
+		return ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
+	}
+
+	@ColorInt
+	private int getColor(int res) {
+		return ContextCompat.getColor(getContext(), res);
 	}
 
 	public static class MapElement {

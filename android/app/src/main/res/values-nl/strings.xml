@@ -3,7 +3,10 @@
 
 	<string name="app_name">Borefts Bierfestival 2016</string>
 	<string name="app_name_short">Borefts 2016</string>
-	
+
+	<string name="general_location_permission">Je lokatie tonen?</string>
+	<string name="general_location_ok">Ja, graag</string>
+
 	<string name="action_info">Info</string>
 	<string name="action_brewers">Brouwers</string>
 	<string name="action_styles">Stijlen</string>
@@ -20,12 +23,12 @@
 	
 	<string name="info_what">WAT? WAAR?</string>
 	<string name="info_address">Borefts Bierfestival 2016\nBrouwerij De Molen\nDoortocht 4, Bodegraven</string>
-	<string name="info_times">Sep 25 &#8211; 26\n12:00 &#8211; 22:00</string>
-	<string name="info_tokens">MUNTEN</string>
-	<string name="info_getmore">EXTRA MUNTEN</string>
-	<string name="info_entry">€ 20,- voor glas, festivalboekje en 6 munten</string>
-	<string name="info_token">€ 10,- voor 6 extra munten of € 2,- per losse munt</string>
-	<string name="info_extra">Extra munten kunnen worden gekocht voor de brouwerijingang. GEEN 18 JAAR GEEN ALCOHOL</string>
+	<string name="info_times">Sep 23 &#8211; 24\n12:00 &#8211; 22:00</string>
+	<string name="info_presale">NIEUW: ALLEEN VOORVERKOOP!</string>
+	<string name="info_tokens">TOEGANG &amp; MUNTEN</string>
+	<string name="info_getmore">KOOP EXTRA\nMUNTEN</string>
+	<string name="info_entry">3500 tickets per dag zijn beschikbaar, alleen via the online voorverkoop. € 25,- voor glas, festivalboekje en 10 munten.</string>
+	<string name="info_extra">Extra munten kunnen worden gekocht à € 2,- per losse munt. GEEN 18 JAAR GEEN ALCOHOL</string>
 	<string name="info_publictransport">OPENBAAR VERVOER</string>
 	<string name="info_trains">Treinen rijden elk half uur, om :15 en :45. De laatste trein vertrekt om 00:45.</string>
 	<string name="info_nstimes">Vertrektijden</string>
@@ -33,9 +36,9 @@
 	<string name="info_taxis">Zoek een taxi</string>
 	<string name="info_beercafe">BIERWINKEL</string>
 	<string name="info_findmill">Zoek de molen</string>
-	<string name="info_shopinfo">De bierwinkel in de molen is natuurlijk weer geopend; voor specialiteiten van De Molen en brouwers op het festival en honderden andere bieren.</string>
+	<string name="info_shopinfo">De bierwinkel in de molen is natuurlijk weer geopend; voor specialiteiten van De Molen, brouwers op het festival en honderden andere bieren.</string>
 	<string name="info_merchandise">MERCHANDISE</string>
-	<string name="info_shirts">Ook dit jaar is er weer merchandise beschikbaar van de meeste aanwezige brouwers. Bovendien is er een uniek Borefts festivalt-shirt beschikbaar.</string>
+	<string name="info_shirts">Ook dit jaar is er weer merchandise beschikbaar van de meeste aanwezige brouwers. Bovendien is er een uniek Borefts festivalt-shirt beschikbaar. Je kunt met cash of pin betalen.</string>
 
 	<string name="info_origin">%1$s, %2$s</string>
 	<string name="info_abvperc">%1$.1f%%</string>
@@ -56,11 +59,12 @@
 	
 	<string name="info_stars">Sterren</string>
 	<string name="info_nostars">Nog geen bieren van ster voorzien.\n\nJe kunt je favoriete bieren van een ster voorzien in een bierdetailscherm met de ster bovenin het scherm.</string>
-	
+
+	<string name="info_baf">BAF!</string>
+
 	<string name="map_trains">Treinstation</string>
 	<string name="map_entrance">Ingang</string>
-	<string name="map_mtoilet">Mannentoilet</string>
-	<string name="map_ftoilet">Damestoilet</string>
+	<string name="map_toilet">Toilets</string>
 	<string name="map_tokens">Muntverkoop</string>
 	<string name="map_merch">Merchandise</string>
 	<string name="map_mill">Proeflokaal/restaurant</string>

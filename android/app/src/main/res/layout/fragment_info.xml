@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:background="@drawable/fragment_background"
-	android:fillViewport="true"
-	android:paddingLeft="@dimen/margin_sides"
-	android:paddingRight="@dimen/margin_sides"
-	android:clipToPadding="false">
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="@drawable/fragment_background"
+			android:clipToPadding="false"
+			android:fillViewport="true"
+			android:paddingLeft="@dimen/margin_sides"
+			android:paddingRight="@dimen/margin_sides">
 
 	<RelativeLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:paddingBottom="@dimen/margin_default" >
+		android:paddingBottom="@dimen/margin_default">
 
 		<FrameLayout
 			android:id="@+id/minimap"
@@ -61,46 +61,52 @@
 			android:text="@string/info_tokens"
 			android:textIsSelectable="false" />
 
-		<Button
-			android:id="@+id/getmore_button"
-			style="@style/DefaultButton"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_alignParentRight="true"
-			android:layout_below="@id/tokens_header"
-			android:layout_marginLeft="@dimen/margin_half"
-			android:layout_marginRight="@dimen/margin_default"
-			android:text="@string/info_getmore" />
-
 		<TextView
-			android:id="@+id/entry_text"
+			android:id="@+id/presale_text"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_below="@id/tokens_header"
 			android:layout_marginBottom="@dimen/margin_half"
 			android:layout_marginLeft="@dimen/margin_default"
 			android:layout_marginRight="@dimen/margin_half"
-			android:layout_toLeftOf="@id/getmore_button"
-			android:text="@string/info_entry"
-			android:textIsSelectable="false" />
+			android:text="@string/info_presale"
+			android:textIsSelectable="false"
+			android:textStyle="bold" />
 
-		<TextView
-			android:id="@+id/token_text"
+		<RelativeLayout
+			android:id="@+id/getmore_wrapper"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_below="@id/entry_text"
-			android:layout_marginBottom="@dimen/margin_half"
-			android:layout_marginLeft="@dimen/margin_default"
-			android:layout_marginRight="@dimen/margin_default"
-			android:layout_toLeftOf="@id/getmore_button"
-			android:text="@string/info_token"
-			android:textIsSelectable="false" />
+			android:layout_below="@+id/presale_text">
+
+			<Button
+				android:id="@+id/getmore_button"
+				style="@style/DefaultButton"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentRight="true"
+				android:layout_marginLeft="@dimen/margin_half"
+				android:layout_marginRight="@dimen/margin_default"
+				android:text="@string/info_getmore" />
+
+			<TextView
+				android:id="@+id/entry_text"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="@dimen/margin_default"
+				android:layout_marginLeft="@dimen/margin_default"
+				android:layout_marginRight="@dimen/margin_half"
+				android:layout_toLeftOf="@id/getmore_button"
+				android:text="@string/info_entry"
+				android:textIsSelectable="false" />
+
+		</RelativeLayout>
 
 		<TextView
 			android:id="@+id/extra_text"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_below="@id/token_text"
+			android:layout_below="@id/getmore_wrapper"
 			android:layout_marginLeft="@dimen/margin_default"
 			android:layout_marginRight="@dimen/margin_default"
 			android:text="@string/info_extra"
@@ -157,7 +163,7 @@
 			android:layout_below="@id/trains_text"
 			android:layout_marginBottom="@dimen/margin_half"
 			android:layout_marginLeft="@dimen/margin_default"
-			android:layout_marginRight="@dimen/margin_default"
+			android:layout_marginRight="@dimen/margin_half"
 			android:layout_toLeftOf="@id/taxis_button"
 			android:text="@string/info_noparking"
 			android:textIsSelectable="false" />
@@ -190,7 +196,7 @@
 			android:layout_below="@id/beercafe_text"
 			android:layout_marginBottom="@dimen/margin_half"
 			android:layout_marginLeft="@dimen/margin_default"
-			android:layout_marginRight="@dimen/margin_default"
+			android:layout_marginRight="@dimen/margin_half"
 			android:layout_toLeftOf="@id/findmill_button"
 			android:text="@string/info_shopinfo"
 			android:textIsSelectable="false" />

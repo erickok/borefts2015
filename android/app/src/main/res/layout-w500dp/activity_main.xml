@@ -1,4 +1,5 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
@@ -19,13 +20,13 @@
 			android:textSize="20sp"
 			tools:text="Borefts 2015" />
 
-		<com.astuetz.PagerSlidingTabStrip
+		<android.support.design.widget.TabLayout
 			android:id="@+id/pagerSlidingTabStrip"
 			android:layout_width="match_parent"
 			android:layout_height="?attr/actionBarSize"
 			android:background="@android:color/white"
-			app:pstsIndicatorColor="@color/darkred"
-			app:pstsShouldExpand="false" />
+			app:tabIndicatorColor="@color/darkred"
+			app:tabMode="scrollable" />
 
 	</android.support.v7.widget.Toolbar>
 

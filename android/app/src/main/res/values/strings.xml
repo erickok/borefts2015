@@ -3,7 +3,10 @@
 
 	<string name="app_name">Borefts Beer Festival 2016</string>
 	<string name="app_name_short">Borefts 2016</string>
-	
+
+	<string name="general_location_permission">Show your location?</string>
+	<string name="general_location_ok">Yes, please</string>
+
 	<string name="action_info">Info</string>
 	<string name="action_brewers">Brewers</string>
 	<string name="action_styles">Styles</string>
@@ -20,12 +23,12 @@
 	
 	<string name="info_what">WHAT? WHERE?</string>
 	<string name="info_address">Borefts Beer Festival 2016\nDe Molen Brewery\nDoortocht 4, Bodegraven</string>
-	<string name="info_times">Sep 25 &#8211; 26\n12:00 &#8211; 22:00</string>
-	<string name="info_tokens">TOKENS</string>
-	<string name="info_getmore">Get more</string>
-	<string name="info_entry">€ 20,- for glass, festival booklet and 6 tokens</string>
-	<string name="info_token">€ 10,- for 6 extra tokens or € 2,- per single token</string>
-	<string name="info_extra">Additional tokens can be bought in the front of the brewery. NOT 18 YEARS NO ALCOHOL</string>
+	<string name="info_times">Sep 23 &#8211; 24\n12:00 &#8211; 22:00</string>
+	<string name="info_presale">NEW: PRE-SALE ONLY!</string>
+	<string name="info_tokens">ENTRY &amp; TOKENS</string>
+	<string name="info_getmore">BUY EXTRA\nTOKENS</string>
+	<string name="info_entry">3500 ticket per day are available, only available online in the pre-sale. € 25,- for glass, festival booklet and 10 tokens.</string>
+	<string name="info_extra">Additional tokens can be bought at € 2,- per single token. NOT 18 YEARS NO ALCOHOL</string>
 	<string name="info_publictransport">PUBLIC TRANSPORT</string>
 	<string name="info_trains">Trains run every half hour, in each direction, at :15 and :45. Last trains leave at 00:45.</string>
 	<string name="info_nstimes">Departures</string>
@@ -35,7 +38,7 @@
 	<string name="info_findmill">Find mill</string>
 	<string name="info_shopinfo">The beer shop in the old mill is of course open; for De Molen specialties, festival beers and hundreds of other beers.</string>
 	<string name="info_merchandise">MERCHANDISE</string>
-	<string name="info_shirts">Most brewers will again bring merchansise this year. Moreover, a special Borefts festival t-shirt will be available.</string>
+	<string name="info_shirts">Most brewers will again bring merchansise this year. Moreover, a special Borefts festival t-shirt will be available. You can pay in cash or with card.</string>
 	
 	<string name="info_origin">%1$s, %2$s</string>
 	<string name="info_abvperc">%1$.1f%%</string>

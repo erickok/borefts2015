@@ -1,6 +1,8 @@
 package nl.brouwerijdemolen.borefts2013.gui;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -9,8 +11,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.widget.TextView;
-
-import com.astuetz.PagerSlidingTabStrip;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 	@ViewById
 	protected TextView titleText;
 	@ViewById
-	protected PagerSlidingTabStrip pagerSlidingTabStrip;
+	protected TabLayout tabLayout;
 	@ViewById
 	protected ViewPager tabViewPager;
 
@@ -67,8 +67,8 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
 		// Bind tabs
 		tabViewPager.setAdapter(new TabPageAdapter(getSupportFragmentManager()));
-		pagerSlidingTabStrip.setOnPageChangeListener(this);
-		pagerSlidingTabStrip.setViewPager(tabViewPager);
+		tabViewPager.addOnPageChangeListener(this);
+		tabLayout.setupWithViewPager(tabViewPager);
 
 	}
 
@@ -89,9 +89,13 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 	protected void actionSendcorrection() {
 		Intent startEmail = new Intent(Intent.ACTION_SEND);
 		startEmail.setType("message/rfc822");
-		startEmail.putExtra(Intent.EXTRA_EMAIL, new String[]{"borefts2015@2312.nl"});
-		startEmail.putExtra(Intent.EXTRA_SUBJECT, "Borefts 2013 Android app correction");
-		startActivity(startEmail);
+		startEmail.putExtra(Intent.EXTRA_EMAIL, new String[]{"borefts2016@2312.nl"});
+		startEmail.putExtra(Intent.EXTRA_SUBJECT, "Borefts 2016 Android app correction");
+		try {
+			startActivity(startEmail);
+		} catch (ActivityNotFoundException e) {
+			// Ignore; normal devices always have an app to send emails, but at least do not crash
+		}
 	}
 
 	@OptionsItem
