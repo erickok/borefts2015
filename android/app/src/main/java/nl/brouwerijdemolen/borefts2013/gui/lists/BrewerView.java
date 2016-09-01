@@ -59,8 +59,9 @@ public class BrewerView extends RelativeLayout {
 			logoImage.setImageBitmap(BitmapFactory.decodeStream(getResources().getAssets().open(
 					"images/" + brewer.getLogoUrl())));
 		} catch (IOException e) {
-			// Should never happen, as the brewer logo always exists
-			Log.e(BrewerHeader.class.getSimpleName(), e.toString());
+			// Should never happen, as the brewer logo always exists locally
+			Log.e(BrewerView.class.getSimpleName(), e.toString());
+			logoImage.setImageDrawable(null);
 		}
 	}
 
