@@ -15,7 +15,7 @@
         },
         {
             "id": 1,
-            "name": "Double IPA",
+            "name": "Imperial IPA",
             "body": 3,
             "color": 2,
             "abv": 4,
@@ -124,18 +124,8 @@
             "acidity": 2
         },
         {
-            "id": 12,
-            "name": "Radler",
-            "body": 1,
-            "color": 3,
-            "abv": 1,
-            "bitterness": 1,
-            "sweetness": 4,
-            "acidity": 3
-        },
-        {
             "id": 13,
-            "name": "Pilsner",
+            "name": "Lager/Pilsner",
             "body": 1,
             "color": 1,
             "abv": 2,
@@ -224,26 +214,6 @@
             "acidity": 4
         },
         {
-            "id": 23,
-            "name": "Lambic",
-            "body": 2,
-            "color": 2,
-            "abv": 2,
-            "bitterness": 1,
-            "sweetness": 2,
-            "acidity": 5
-        },
-        {
-            "id": 24,
-            "name": "Faro",
-            "body": 1,
-            "color": 2,
-            "abv": 1,
-            "bitterness": 1,
-            "sweetness": 4,
-            "acidity": 4
-        },
-        {
             "id": 25,
             "name": "Braggot",
             "body": 3,
@@ -255,12 +225,52 @@
         },
         {
             "id": 26,
-            "name": "Doppelbock",
+            "name": "Bock/doppelbock",
             "body": 4,
             "color": 4,
             "abv": 4,
             "bitterness": 2,
             "sweetness": 4,
+            "acidity": 1
+        },
+        {
+            "id": 27,
+            "name": "Göse",
+            "body": 3,
+            "color": 1,
+            "abv": 1,
+            "bitterness": 1,
+            "sweetness": 1,
+            "acidity": 3
+        },
+        {
+            "id": 28,
+            "name": "Hoppy session ale",
+            "body": 2,
+            "color": 3,
+            "abv": 2,
+            "bitterness": 3,
+            "sweetness": 1,
+            "acidity": 1
+        },
+        {
+            "id": 29,
+            "name": "Kellerbier",
+            "body": 2,
+            "color": 1,
+            "abv": 2,
+            "bitterness": 2,
+            "sweetness": 2,
+            "acidity": 1
+        },
+        {
+            "id": 30,
+            "name": "Experimental/other",
+            "body": 1,
+            "color": 1,
+            "abv": 1,
+            "bitterness": 1,
+            "sweetness": 1,
             "acidity": 1
         }
     ],

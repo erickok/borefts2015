@@ -13,8 +13,8 @@
             "country": "The Netherlands",
             "description": "",
             "website": "http://www.brouwerijdemolen.nl",
-            "latitude": 52.085067,
-            "longitude": 4.740107
+            "latitude": 52.084347,
+            "longitude": 4.739305
         },
         {
             "id": 8,
@@ -26,8 +26,8 @@
             "country": "Belgium",
             "description": "",
             "website": "http://www.alvinne.be",
-            "latitude": 52.084365,
-            "longitude": 4.739249
+            "latitude": 52.084347,
+            "longitude": 4.739305
         },
         {
             "id": 9,
@@ -39,8 +39,8 @@
             "country": "Sweden",
             "description": "",
             "website": "http://www.kulturbryggeri.se",
-            "latitude": 52.085212,
-            "longitude": 4.740338
+            "latitude": 52.084347,
+            "longitude": 4.739305
         },
         {
             "id": 11,
@@ -51,9 +51,9 @@
             "city": "Hallerndorf",
             "country": "Germany",
             "description": "",
-            "website": "http://www.gaenstaller.de/",
-            "latitude": 52.085176,
-            "longitude": 4.740386
+            "website": "http://www.gaenstaller.de",
+            "latitude": 52.084347,
+            "longitude": 4.739305
         },
         {
             "id": 14,
@@ -65,8 +65,8 @@
             "country": "The Netherlands",
             "description": "",
             "website": "http://www.brouwerijkees.nl",
-            "latitude": 52.084467,
-            "longitude": 4.739195
+            "latitude": 52.084347,
+            "longitude": 4.739305
         },
         {
             "id": 15,
@@ -78,8 +78,8 @@
             "country": "Latvia",
             "description": "",
             "website": "http://www.labietis.lv",
-            "latitude": 52.084223,
-            "longitude": 4.739254
+            "latitude": 52.084347,
+            "longitude": 4.739305
         },
         {
             "id": 17,
@@ -91,8 +91,8 @@
             "country": "Norway",
             "description": "",
             "website": "http://www.lervig.no",
-            "latitude": 52.084497,
-            "longitude": 4.739249
+            "latitude": 52.084347,
+            "longitude": 4.739305
         },
         {
             "id": 20,
@@ -104,8 +104,8 @@
             "country": "The Netherlands",
             "description": "",
             "website": "http://www.oedipusbrewing.com",
-            "latitude": 52.084428,
-            "longitude": 4.739136
+            "latitude": 52.084347,
+            "longitude": 4.739305
         },
         {
             "id": 21,
@@ -117,12 +117,12 @@
             "country": "Sweden",
             "description": "",
             "website": "http://www.omnipollo.com",
-            "latitude": 52.084329,
-            "longitude": 4.739447
+            "latitude": 52.084347,
+            "longitude": 4.739305
         },
         {
             "id": 22,
-            "logoUrl": "bakunin.png",
+            "logoUrl": "bakunin.jpg",
             "name": "Bakunin Brewery",
             "shortName": "Bakunin",
             "sortName": "Bakunin",
@@ -130,12 +130,12 @@
             "country": "Russia",
             "description": "",
             "website": "http://www.bakuninbrewery.com",
-            "latitude": 52.084329,
-            "longitude": 4.739447
+            "latitude": 52.084347,
+            "longitude": 4.739305
         },
         {
             "id": 23,
-            "logoUrl": "bevog.png",
+            "logoUrl": "bevog.jpg",
             "name": "Bevog Brewery",
             "shortName": "Bevog",
             "sortName": "Bevog",
@@ -143,12 +143,12 @@
             "country": "Austria",
             "description": "",
             "website": "http://www.bevog.at",
-            "latitude": 52.084329,
-            "longitude": 4.739447
+            "latitude": 52.084347,
+            "longitude": 4.739305
         },
         {
             "id": 24,
-            "logoUrl": "birradelborgo.png",
+            "logoUrl": "birradelborgo.jpg",
             "name": "Birra del Borgo",
             "shortName": "Birra del Borgo",
             "sortName": "Birra del Borgo",
@@ -156,12 +156,12 @@
             "country": "Italy",
             "description": "",
             "website": "http://www.birradelborgo.it",
-            "latitude": 52.084329,
-            "longitude": 4.739447
+            "latitude": 52.084347,
+            "longitude": 4.739305
         },
         {
             "id": 25,
-            "logoUrl": "thiriez.png",
+            "logoUrl": "thiriez.jpg",
             "name": "Brasserie Thiriez",
             "shortName": "Thiriez",
             "sortName": "Thiriez",
@@ -169,8 +169,8 @@
             "country": "France",
             "description": "",
             "website": "http://www.brasseriethiriez.com",
-            "latitude": 52.084329,
-            "longitude": 4.739447
+            "latitude": 52.084347,
+            "longitude": 4.739305
         },
         {
             "id": 26,
@@ -182,12 +182,12 @@
             "country": "USA",
             "description": "",
             "website": "http://www.cascadebrewingbarrelhouse.com",
-            "latitude": 52.084329,
-            "longitude": 4.739447
+            "latitude": 52.084347,
+            "longitude": 4.739305
         },
         {
             "id": 27,
-            "logoUrl": "drybitter.png",
+            "logoUrl": "drybitter.jpg",
             "name": "Dry & Bitter Brewing Company",
             "shortName": "Dry & Bitter",
             "sortName": "Dry Bitter",
@@ -195,22 +195,64 @@
             "country": "Denmark",
             "description": "",
             "website": "https://www.facebook.com/Dry-Bitter-Brewing-Company-1519454774996343/",
-            "latitude": 52.084329,
-            "longitude": 4.739447
+            "latitude": 52.084347,
+            "longitude": 4.739305
         },
         {
             "id": 28,
-            "logoUrl": "lapirata.png",
+            "logoUrl": "lapirata.jpg",
             "name": "Cerveses La Pirata",
             "shortName": "La Pirata",
             "sortName": "Pirata",
             "city": "Suria",
             "country": "Spain",
             "description": "",
-            "website": "http://www.cervesalapirata.com/",
+            "website": "http://www.cervesalapirata.com",
+            "latitude": 52.084347,
+            "longitude": 4.739305
+        },
+        {
+            "id": 29,
+            "logoUrl": "cigarcity.jpg",
+            "name": "Cigar City Brewing",
+            "shortName": "Cigar City",
+            "sortName": "Cigar City",
+            "city": "Tampa",
+            "country": "USA",
+            "description": "",
+            "website": "https://cigarcitybrewing.com",
             "latitude": 52.084329,
-            "longitude": 4.739447
+            "longitude": 4.739447,
+            "hide": true
+        },
+        {
+            "id": 30,
+            "logoUrl": "sahtipaja.jpg",
+            "name": "Sahtipaja",
+            "shortName": "Sahtipaja",
+            "sortName": "Sahtipaja",
+            "city": "Sätila",
+            "country": "Sweden",
+            "description": "",
+            "website": "https://www.facebook.com/sahtipaja",
+            "latitude": 52.084329,
+            "longitude": 4.739447,
+            "hide": true
+        },
+        {
+            "id": 31,
+            "logoUrl": "brewdog.png",
+            "name": "BrewDog",
+            "shortName": "BrewDog",
+            "sortName": "Brewdog",
+            "city": "Ellon",
+            "country": "Scotland",
+            "description": "",
+            "website": "https://www.brewdog.com",
+            "latitude": 52.084329,
+            "longitude": 4.739447,
+            "hide": true
         }
     ],
-    "revision": 32
+    "revision": 31
 }

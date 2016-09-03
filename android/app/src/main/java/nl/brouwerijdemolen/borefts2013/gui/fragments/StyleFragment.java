@@ -98,9 +98,10 @@ public class StyleFragment extends Fragment implements Listener<Brewers>, ErrorL
 				if (getActivity() == null || !isAdded())
 					return;
 				// Beers are loaded now too; sort them and add the style and brewer objects
+				// Beer s for which the brewer is not loaded (like hidden brewers) are ignored
 				List<Beer> beersList = new ArrayList<Beer>();
 				for (Beer beer : beers.getBeers()) {
-					if (beer.getStyleId() == style.getId()) {
+					if (beer.getStyleId() == style.getId() && loadedBrewers.get(beer.getBrewerId()) != null) {
 						beer.setStyle(style);
 						beer.setBrewer(loadedBrewers.get(beer.getBrewerId()));
 						beersList.add(beer);

@@ -16,8 +16,10 @@ import org.androidannotations.annotations.EBean.Scope;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Iterator;
 
 import nl.brouwerijdemolen.borefts2013.api.Beers;
+import nl.brouwerijdemolen.borefts2013.api.Brewer;
 import nl.brouwerijdemolen.borefts2013.api.Brewers;
 import nl.brouwerijdemolen.borefts2013.api.GsonRequest;
 import nl.brouwerijdemolen.borefts2013.api.Pois;
@@ -26,8 +28,8 @@ import nl.brouwerijdemolen.borefts2013.api.Styles;
 @EBean(scope = Scope.Singleton)
 public class ApiQueue {
 
-	private static final Long MAX_CACHE_AGE = 60L * 60L * 1000L; // 1 hour
-	// DEBUG private static final Long MAX_CACHE_AGE = 1000L;
+	// TODO RESTORE private static final Long MAX_CACHE_AGE = 60L * 60L * 1000L; // 1 hour
+	private static final Long MAX_CACHE_AGE = 1000L;
 
 	private RequestQueue requestQueue;
 	private Resources resources;
@@ -57,6 +59,11 @@ public class ApiQueue {
 			public void onResponse(Brewers brewers) {
 				cachedBrewers = brewers;
 				cachedBrewersAge = System.currentTimeMillis();
+				Iterator<Brewer> brewer = cachedBrewers.getBrewers().iterator();
+				while (brewer.hasNext()) {
+					if (brewer.next().isHide())
+						brewer.remove();
+				}
 				listener.onResponse(cachedBrewers);
 			}
 

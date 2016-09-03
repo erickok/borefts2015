@@ -16,6 +16,7 @@ public class Brewer implements Comparable<Brewer>, Parcelable {
 	private String website;
 	private float latitude;
 	private float longitude;
+	private boolean hide;
 
 	Brewer() {
 	}
@@ -62,6 +63,10 @@ public class Brewer implements Comparable<Brewer>, Parcelable {
 	
 	public float getLongitude() {
 		return longitude;
+	}
+
+	public boolean isHide() {
+		return hide;
 	}
 
 	@Override
