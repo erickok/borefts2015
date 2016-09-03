@@ -1,7 +1,8 @@
 <?php
   include 'enablecache.php';
 ?>
-[
+{
+  "beers": [
   {
     "id": 1000,
     "brewerId": 22,
@@ -17,7 +18,7 @@
     "oakAged": false,
     "tags": "spices",
     "ratebeerId": 384612,
-    "untappdId": ""
+    "untappdId": -1
   },
   {
     "id": 1001,
@@ -34,7 +35,7 @@
     "oakAged": false,
     "tags": "sea buckthorn",
     "ratebeerId": 436717,
-    "untappdId": ""
+    "untappdId": -1
   },
   {
     "id": 1002,
@@ -51,7 +52,7 @@
     "oakAged": false,
     "tags": "chilli,bourbon,coffee,anise",
     "ratebeerId": 442447,
-    "untappdId": ""
+    "untappdId": -1
   },
   {
     "id": 1003,
@@ -68,7 +69,7 @@
     "oakAged": true,
     "tags": "oats,brett,brandy",
     "ratebeerId": 330104,
-    "untappdId": ""
+    "untappdId": -1
   },
   {
     "id": 1004,
@@ -85,7 +86,7 @@
     "oakAged": false,
     "tags": "oat wine",
     "ratebeerId": 417902,
-    "untappdId": ""
+    "untappdId": -1
   },
   {
     "id": 1005,
@@ -102,7 +103,7 @@
     "oakAged": false,
     "tags": "chilli",
     "ratebeerId": 330102,
-    "untappdId": ""
+    "untappdId": -1
   },
   {
     "id": 1006,
@@ -118,8 +119,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1007,
@@ -135,8 +136,8 @@
     "sour": 3,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1008,
@@ -153,7 +154,7 @@
     "oakAged": false,
     "tags": "red current,black current",
     "ratebeerId": 402169,
-    "untappdId": ""
+    "untappdId": -1
   },
   {
     "id": 1009,
@@ -169,8 +170,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1010,
@@ -186,8 +187,8 @@
     "sour": 4,
     "oakAged": false,
     "tags": "raspberry",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1011,
@@ -203,8 +204,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1012,
@@ -220,8 +221,8 @@
     "sour": 4,
     "oakAged": true,
     "tags": "raspberry",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1013,
@@ -237,8 +238,8 @@
     "sour": 4,
     "oakAged": true,
     "tags": "blackthorn,bordeaux",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1014,
@@ -254,8 +255,8 @@
     "sour": 4,
     "oakAged": true,
     "tags": "grapes,red wine",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1015,
@@ -271,8 +272,8 @@
     "sour": 3,
     "oakAged": true,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1016,
@@ -288,8 +289,8 @@
     "sour": 3,
     "oakAged": true,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1017,
@@ -305,8 +306,8 @@
     "sour": 3,
     "oakAged": true,
     "tags": "sour cherry, pomerol",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1018,
@@ -322,8 +323,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1019,
@@ -339,8 +340,8 @@
     "sour": 2,
     "oakAged": true,
     "tags": "cognac",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1020,
@@ -357,7 +358,7 @@
     "oakAged": true,
     "tags": "dessert wine",
     "ratebeerId": 436021,
-    "untappdId": ""
+    "untappdId": -1
   },
   {
     "id": 1021,
@@ -373,8 +374,8 @@
     "sour": 1,
     "oakAged": true,
     "tags": "dessert wine",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1022,
@@ -390,8 +391,8 @@
     "sour": 1,
     "oakAged": true,
     "tags": "chilli",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1023,
@@ -407,8 +408,8 @@
     "sour": 2,
     "oakAged": true,
     "tags": "dessert wine",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1024,
@@ -424,13 +425,13 @@
     "sour": 3,
     "oakAged": false,
     "tags": "smoked fruit",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1025,
     "brewerId": 23,
-    "name": "KRAMAH",
+    "name": "Kramah",
     "abv": 6.5,
     "styleId": 2,
     "serving": 0,
@@ -441,13 +442,13 @@
     "sour": 1,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1026,
     "brewerId": 23,
-    "name": "DEETZ",
+    "name": "Deetz",
     "abv": 4.8,
     "styleId": 6,
     "serving": 0,
@@ -458,13 +459,13 @@
     "sour": 1,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1027,
     "brewerId": 23,
-    "name": "OND",
+    "name": "Ond",
     "abv": 6.3,
     "styleId": 11,
     "serving": 0,
@@ -475,13 +476,13 @@
     "sour": 1,
     "oakAged": false,
     "tags": "smoked",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1028,
     "brewerId": 23,
-    "name": "RUDEEN",
+    "name": "Rudeen",
     "abv": 7.4,
     "styleId": 8,
     "serving": 0,
@@ -492,13 +493,13 @@
     "sour": 1,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1029,
     "brewerId": 23,
-    "name": "BAJA",
+    "name": "Baja",
     "abv": 5.8,
     "styleId": 5,
     "serving": 0,
@@ -509,13 +510,13 @@
     "sour": 1,
     "oakAged": false,
     "tags": "oatmeal",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1030,
     "brewerId": 23,
-    "name": "WHO CARES EDITIONS - ORANGE UNICORN",
+    "name": "Who Cares Editions Orange Unicorn",
     "abv": 6.3,
     "styleId": 17,
     "serving": 0,
@@ -526,13 +527,13 @@
     "sour": 3,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1031,
     "brewerId": 23,
-    "name": "HAGGER",
+    "name": "Hagger",
     "abv": 12.3,
     "styleId": 0,
     "serving": 2,
@@ -543,13 +544,13 @@
     "sour": 1,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1032,
     "brewerId": 23,
-    "name": "KELLERBIER",
+    "name": "Kellerbier",
     "abv": 6,
     "styleId": 29,
     "serving": 0,
@@ -560,8 +561,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1033,
@@ -577,8 +578,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1034,
@@ -594,8 +595,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1035,
@@ -611,8 +612,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "tobacco",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1036,
@@ -628,8 +629,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1037,
@@ -645,8 +646,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "caskadian",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1038,
@@ -662,8 +663,8 @@
     "sour": 3,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1039,
@@ -679,8 +680,8 @@
     "sour": 3,
     "oakAged": false,
     "tags": "grape ale",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1040,
@@ -696,8 +697,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1041,
@@ -713,14 +714,14 @@
     "sour": 2,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1042,
     "brewerId": 24,
     "name": "Keller for Fest",
-    "abv": "",
+    "abv": -1,
     "styleId": 29,
     "serving": 0,
     "colour": 1,
@@ -730,8 +731,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1043,
@@ -747,8 +748,8 @@
     "sour": 3,
     "oakAged": true,
     "tags": "bourbon,porter",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1044,
@@ -764,8 +765,8 @@
     "sour": 3,
     "oakAged": true,
     "tags": "cranberries,spices",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1045,
@@ -782,7 +783,7 @@
     "oakAged": false,
     "tags": "",
     "ratebeerId": 150955,
-    "untappdId": ""
+    "untappdId": -1
   },
   {
     "id": 1046,
@@ -799,7 +800,7 @@
     "oakAged": true,
     "tags": "elderberries,red wine",
     "ratebeerId": 142387,
-    "untappdId": ""
+    "untappdId": -1
   },
   {
     "id": 1047,
@@ -816,7 +817,7 @@
     "oakAged": true,
     "tags": "white figs,chardonnay",
     "ratebeerId": 144417,
-    "untappdId": ""
+    "untappdId": -1
   },
   {
     "id": 1048,
@@ -833,7 +834,7 @@
     "oakAged": true,
     "tags": "cherry,oak",
     "ratebeerId": 82022,
-    "untappdId": ""
+    "untappdId": -1
   },
   {
     "id": 1049,
@@ -850,7 +851,7 @@
     "oakAged": true,
     "tags": "bourbon,heaven hill,cherry,apricot kernels",
     "ratebeerId": 209112,
-    "untappdId": ""
+    "untappdId": -1
   },
   {
     "id": 1050,
@@ -867,7 +868,7 @@
     "oakAged": true,
     "tags": "quad,blueberries,oak",
     "ratebeerId": 162318,
-    "untappdId": ""
+    "untappdId": -1
   },
   {
     "id": 1051,
@@ -884,7 +885,7 @@
     "oakAged": true,
     "tags": "strawberries",
     "ratebeerId": 164825,
-    "untappdId": ""
+    "untappdId": -1
   },
   {
     "id": 1052,
@@ -901,7 +902,7 @@
     "oakAged": true,
     "tags": "blend,grapes,oak",
     "ratebeerId": 97626,
-    "untappdId": ""
+    "untappdId": -1
   },
   {
     "id": 1053,
@@ -918,7 +919,7 @@
     "oakAged": true,
     "tags": "quad,wood",
     "ratebeerId": 96273,
-    "untappdId": ""
+    "untappdId": -1
   },
   {
     "id": 1054,
@@ -934,14 +935,14 @@
     "sour": 1,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1055,
     "brewerId": 29,
     "name": "Trousseau",
-    "abv": "",
+    "abv": -1,
     "styleId": 0,
     "serving": 0,
     "colour": 4,
@@ -951,8 +952,8 @@
     "sour": 2,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1056,
@@ -968,8 +969,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1057,
@@ -985,8 +986,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1058,
@@ -1002,8 +1003,8 @@
     "sour": 2,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1059,
@@ -1019,8 +1020,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1060,
@@ -1036,8 +1037,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1061,
@@ -1053,8 +1054,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "smoked",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1062,
@@ -1070,8 +1071,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "lager",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1063,
@@ -1087,8 +1088,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "zwickel",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1064,
@@ -1104,8 +1105,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1065,
@@ -1121,8 +1122,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "red",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1066,
@@ -1138,8 +1139,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "dry-hopped,dunkel",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1067,
@@ -1155,8 +1156,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "bounty bar",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1068,
@@ -1172,8 +1173,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "oatmeal",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1069,
@@ -1189,8 +1190,8 @@
     "sour": 1,
     "oakAged": true,
     "tags": "bourbon,barton",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1070,
@@ -1206,8 +1207,8 @@
     "sour": 1,
     "oakAged": true,
     "tags": "cognac",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1071,
@@ -1223,8 +1224,8 @@
     "sour": 1,
     "oakAged": true,
     "tags": "cognac,calvados",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1072,
@@ -1240,8 +1241,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "suchuan pepper",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1073,
@@ -1257,8 +1258,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "icebock,vanilla",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1074,
@@ -1274,8 +1275,8 @@
     "sour": 1,
     "oakAged": true,
     "tags": "bourbon",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1075,
@@ -1291,8 +1292,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1076,
@@ -1308,8 +1309,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "gluten free",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1077,
@@ -1325,8 +1326,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1078,
@@ -1342,8 +1343,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1079,
@@ -1359,8 +1360,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "coffee,lager",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1080,
@@ -1376,8 +1377,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "lager",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1081,
@@ -1393,8 +1394,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1082,
@@ -1410,8 +1411,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "farmhouse",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1083,
@@ -1427,8 +1428,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "yarrow",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1084,
@@ -1444,8 +1445,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "smoked,pine spruce",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1085,
@@ -1461,8 +1462,8 @@
     "sour": 2,
     "oakAged": false,
     "tags": "heather,thyme",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1086,
@@ -1478,8 +1479,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1087,
@@ -1495,8 +1496,8 @@
     "sour": 3,
     "oakAged": false,
     "tags": "yarrow,meadosweet,mugworm",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1088,
@@ -1512,8 +1513,8 @@
     "sour": 2,
     "oakAged": false,
     "tags": "chamomile",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1089,
@@ -1529,8 +1530,8 @@
     "sour": 2,
     "oakAged": false,
     "tags": "wormwood,catnip",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1090,
@@ -1546,8 +1547,8 @@
     "sour": 2,
     "oakAged": false,
     "tags": "ginger,peppermint,mild",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1091,
@@ -1563,8 +1564,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1092,
@@ -1580,8 +1581,8 @@
     "sour": 2,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1093,
@@ -1597,8 +1598,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "choco,vaniall,tonka",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1094,
@@ -1614,8 +1615,8 @@
     "sour": 2,
     "oakAged": false,
     "tags": "dry-hopped",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1095,
@@ -1631,8 +1632,8 @@
     "sour": 4,
     "oakAged": false,
     "tags": "coffee",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1096,
@@ -1648,8 +1649,8 @@
     "sour": 2,
     "oakAged": false,
     "tags": "brett",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1097,
@@ -1665,8 +1666,8 @@
     "sour": 2,
     "oakAged": false,
     "tags": "coffee",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1098,
@@ -1682,8 +1683,8 @@
     "sour": 2,
     "oakAged": false,
     "tags": "brett",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1099,
@@ -1699,8 +1700,8 @@
     "sour": 2,
     "oakAged": false,
     "tags": "farmhouse",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1100,
@@ -1716,8 +1717,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "dry stout,tea",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1101,
@@ -1733,8 +1734,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "oats",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1102,
@@ -1750,8 +1751,8 @@
     "sour": 4,
     "oakAged": false,
     "tags": "passionfruit,paradise",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1103,
@@ -1767,8 +1768,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1104,
@@ -1784,8 +1785,8 @@
     "sour": 4,
     "oakAged": false,
     "tags": "passionfruit,mango",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1105,
@@ -1801,8 +1802,8 @@
     "sour": 2,
     "oakAged": false,
     "tags": "violet,mead",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1106,
@@ -1818,8 +1819,8 @@
     "sour": 3,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1107,
@@ -1835,8 +1836,8 @@
     "sour": 2,
     "oakAged": false,
     "tags": "apple,vanilla",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1108,
@@ -1852,14 +1853,14 @@
     "sour": 1,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1109,
     "brewerId": 30,
     "name": "Sahti",
-    "abv": "",
+    "abv": -1,
     "styleId": 9,
     "serving": 0,
     "colour": 1,
@@ -1869,8 +1870,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1110,
@@ -1886,8 +1887,8 @@
     "sour": 1,
     "oakAged": false,
     "tags": "",
-    "ratebeerId": "",
-    "untappdId": ""
+    "ratebeerId": -1,
+    "untappdId": -1
   },
   {
     "id": 1111,
@@ -1904,7 +1905,7 @@
     "oakAged": false,
     "tags": "",
     "ratebeerId": 194018,
-    "untappdId": ""
+    "untappdId": -1
   },
   {
     "id": 1112,
@@ -1921,7 +1922,7 @@
     "oakAged": false,
     "tags": "",
     "ratebeerId": 55445,
-    "untappdId": ""
+    "untappdId": -1
   },
   {
     "id": 1113,
@@ -1938,7 +1939,7 @@
     "oakAged": false,
     "tags": "bière de garde",
     "ratebeerId": 15774,
-    "untappdId": ""
+    "untappdId": -1
   },
   {
     "id": 1114,
@@ -1955,7 +1956,7 @@
     "oakAged": false,
     "tags": "bière de garde",
     "ratebeerId": 12097,
-    "untappdId": ""
+    "untappdId": -1
   },
   {
     "id": 1115,
@@ -1972,7 +1973,7 @@
     "oakAged": false,
     "tags": "",
     "ratebeerId": 45746,
-    "untappdId": ""
+    "untappdId": -1
   },
   {
     "id": 1116,
@@ -1989,7 +1990,7 @@
     "oakAged": false,
     "tags": "",
     "ratebeerId": 176316,
-    "untappdId": ""
+    "untappdId": -1
   },
   {
     "id": 1117,
@@ -2005,8 +2006,9 @@
     "sour": 1,
     "oakAged": false,
     "tags": "spices",
-    "ratebeerId": "",
-    "untappdId": ""
-  },
-  revision: 42
-]
+    "ratebeerId": -1,
+    "untappdId": -1
+  }
+  ],
+  "revision": 40
+}

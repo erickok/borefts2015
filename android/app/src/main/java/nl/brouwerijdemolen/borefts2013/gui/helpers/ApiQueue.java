@@ -18,6 +18,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Iterator;
 
+import nl.brouwerijdemolen.borefts2013.BuildConfig;
 import nl.brouwerijdemolen.borefts2013.api.Beers;
 import nl.brouwerijdemolen.borefts2013.api.Brewer;
 import nl.brouwerijdemolen.borefts2013.api.Brewers;
@@ -28,8 +29,10 @@ import nl.brouwerijdemolen.borefts2013.api.Styles;
 @EBean(scope = Scope.Singleton)
 public class ApiQueue {
 
-	// TODO RESTORE private static final Long MAX_CACHE_AGE = 60L * 60L * 1000L; // 1 hour
-	private static final Long MAX_CACHE_AGE = 1000L;
+	private static final Long MAX_CACHE_AGE =
+			BuildConfig.DEBUG ?
+					(5L * 1000L) : // 5 seconds in debug mode
+					(60L * 60L * 1000L); // 1 hour for releases
 
 	private RequestQueue requestQueue;
 	private Resources resources;
@@ -66,8 +69,6 @@ public class ApiQueue {
 				}
 				listener.onResponse(cachedBrewers);
 			}
-
-			;
 		};
 		requestQueue.add(new GsonRequest<>(Brewers.BREWERS_URL, Brewers.class, null, wrappedListener, new ErrorListener() {
 			@Override
@@ -96,8 +97,6 @@ public class ApiQueue {
 				cachedStylesAge = System.currentTimeMillis();
 				listener.onResponse(cachedStyles);
 			}
-
-			;
 		};
 		requestQueue.add(new GsonRequest<>(Styles.STYLES_URL, Styles.class, null, wrappedListener, new ErrorListener() {
 			@Override
@@ -126,8 +125,6 @@ public class ApiQueue {
 				cachedBeersAge = System.currentTimeMillis();
 				listener.onResponse(cachedBeers);
 			}
-
-			;
 		};
 		requestQueue.add(new GsonRequest<>(Beers.BEERS_URL, Beers.class, null, wrappedListener, new ErrorListener() {
 			@Override
