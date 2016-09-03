@@ -119,8 +119,18 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 	}
 
 	@Override
-	public void openMap(Fragment baseFragment, int focusId, Brewer brewerToOpen) {
-		ContainerActivity_.intent(this).focusId(focusId).start();
+	public void openMap(Fragment baseFragment) {
+		ContainerActivity_.intent(this).start();
+	}
+
+	@Override
+	public void openMap(Fragment baseFragment, int brewerToOpen) {
+		ContainerActivity_.intent(this).focusBrewerId(brewerToOpen).start();
+	}
+
+	@Override
+	public void openMap(Fragment baseFragment, String poiToOpen) {
+		ContainerActivity_.intent(this).focusPoiId(poiToOpen).start();
 	}
 
 	@Override

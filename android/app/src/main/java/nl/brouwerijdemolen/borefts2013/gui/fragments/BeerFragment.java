@@ -1,8 +1,8 @@
 package nl.brouwerijdemolen.borefts2013.gui.fragments;
 
-import android.support.v4.app.Fragment;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.View;
@@ -113,7 +113,7 @@ public class BeerFragment extends Fragment {
 
 	@OptionsItem
 	protected void actionLocate() {
-		((NavigationManager) getActivity()).openMap(this, MapFragment.BREWER_ID_THRESHOLD + beer.getBrewerId(), beer.getBrewer());
+		((NavigationManager) getActivity()).openMap(this, beer.getBrewerId());
 	}
 
 	@Click

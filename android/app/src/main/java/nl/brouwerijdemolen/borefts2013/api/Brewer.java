@@ -17,7 +17,7 @@ public class Brewer implements Comparable<Brewer>, Parcelable {
 	private float latitude;
 	private float longitude;
 
-	protected Brewer() {
+	Brewer() {
 	}
 	
 	public int getId() {

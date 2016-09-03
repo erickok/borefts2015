@@ -16,7 +16,7 @@ public class Style implements Comparable<Style>, Parcelable {
 	private int sweetness;
 	private int acidity;
 
-	protected Style() {
+	Style() {
 	}
 
 	public int getId() {

@@ -57,13 +57,14 @@ public class InfoFragment extends Fragment {
 
 	@Click
 	protected void getmoreButtonClicked() {
-		((NavigationManager) getActivity()).openMap(this, MapFragment_.ELEMENT_TOKENS.focusId, null);
+		((NavigationManager) getActivity()).openMap(this, "tokensale");
 	}
 
 	@Click
 	protected void nstimesButtonClicked() {
 		startActivity(
-				new Intent(Intent.ACTION_VIEW, Uri.parse("http://m.ns.nl/actvertrektijden.action?from=BDG")).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+				new Intent(Intent.ACTION_VIEW, Uri.parse("http://m.ns.nl/actvertrektijden.action?from=BDG")).setFlags(Intent
+						.FLAG_ACTIVITY_NEW_TASK));
 	}
 
 	@Click
@@ -73,7 +74,7 @@ public class InfoFragment extends Fragment {
 
 	@Click
 	protected void findmillButtonClicked() {
-		((NavigationManager) getActivity()).openMap(this, MapFragment_.ELEMENT_MILL.focusId, null);
+		((NavigationManager) getActivity()).openMap(this, "mill");
 	}
 
 }

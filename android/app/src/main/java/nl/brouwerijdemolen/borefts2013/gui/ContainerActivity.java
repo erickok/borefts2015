@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import org.androidannotations.annotations.AfterViews;
@@ -45,7 +44,9 @@ public class ContainerActivity extends AppCompatActivity implements NavigationMa
 	@Extra
 	protected Beer beer = null;
 	@Extra
-	protected Integer focusId = null;
+	protected String focusPoiId = null;
+	@Extra
+	protected Integer focusBrewerId = null;
 
 	@AfterViews
 	protected void openFragment() {
@@ -73,11 +74,12 @@ public class ContainerActivity extends AppCompatActivity implements NavigationMa
 			fragment = StyleFragment_.builder().style(style).build();
 		} else if (beer != null) {
 			fragment = BeerFragment_.builder().beer(beer).build();
-		} else if (focusId != null) {
-			fragment = MapFragment_.builder().initFocusId(focusId).isMinimap(false).build();
-		}
-		if (fragment == null) {
-			throw new IllegalArgumentException("Don't know which fragment to open, since no Extra was specified.");
+		} else if (focusBrewerId != null) {
+			fragment = MapFragment_.builder().initFocusBrewer(focusBrewerId).isMinimap(false).build();
+		} else if (focusPoiId != null) {
+			fragment = MapFragment_.builder().initFocusPoi(focusPoiId).isMinimap(false).build();
+		} else {
+			fragment = MapFragment_.builder().isMinimap(false).build();
 		}
 
 		// Replace the activity contents with the new fragment
@@ -107,8 +109,18 @@ public class ContainerActivity extends AppCompatActivity implements NavigationMa
 	}
 
 	@Override
-	public void openMap(Fragment baseFragment, int focusId, Brewer brewerToOpen) {
-		ContainerActivity_.intent(this).focusId(focusId).start();
+	public void openMap(Fragment baseFragment) {
+		ContainerActivity_.intent(this).start();
+	}
+
+	@Override
+	public void openMap(Fragment baseFragment, int brewerToOpen) {
+		ContainerActivity_.intent(this).focusBrewerId(brewerToOpen).start();
+	}
+
+	@Override
+	public void openMap(Fragment baseFragment, String poiToOpen) {
+		ContainerActivity_.intent(this).focusPoiId(poiToOpen).start();
 	}
 
 }

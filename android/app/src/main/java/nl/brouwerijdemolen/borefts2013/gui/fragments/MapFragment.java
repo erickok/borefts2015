@@ -49,63 +49,36 @@ import java.util.Locale;
 import java.util.Map;
 
 import nl.brouwerijdemolen.borefts2013.R;
+import nl.brouwerijdemolen.borefts2013.api.Area;
 import nl.brouwerijdemolen.borefts2013.api.Brewer;
 import nl.brouwerijdemolen.borefts2013.api.Brewers;
+import nl.brouwerijdemolen.borefts2013.api.Poi;
+import nl.brouwerijdemolen.borefts2013.api.Pois;
 import nl.brouwerijdemolen.borefts2013.gui.helpers.ApiQueue;
 import nl.brouwerijdemolen.borefts2013.gui.helpers.NavigationManager;
 
 
 @EFragment
 public class MapFragment extends com.google.android.gms.maps.SupportMapFragment
-		implements OnMapReadyCallback, OnInfoWindowClickListener, Listener<Brewers>, ErrorListener, OnMarkerClickListener, OnMapClickListener {
-
-	public static final MapElement ELEMENT_TRAINS =
-			new MapElement(0, new LatLng(52.081515, 4.746145), R.string.map_trains, R.drawable.ic_marker_trains);
-	public static final MapElement ELEMENT_ENTRANCE =
-			new MapElement(1, new LatLng(52.084871, 4.740536), R.string.map_entrance, R.drawable.ic_marker_entrance);
-	public static final MapElement ELEMENT_FTOILET1 =
-			new MapElement(2, new LatLng(52.085153, 4.740472), R.string.map_toilet, R.drawable.ic_marker_toilet); // In bottle house
-	public static final MapElement ELEMENT_FTOILET2 =
-			new MapElement(3, new LatLng(52.084255, 4.739361), R.string.map_toilet, R.drawable.ic_marker_toilet); // In storage
-	public static final MapElement ELEMENT_FTOILET3 =
-			new MapElement(4, new LatLng(52.084176, 4.739313), R.string.map_toilet, R.drawable.ic_marker_toilet); // In the back
-	public static final MapElement ELEMENT_FTOILET4 =
-			new MapElement(5, new LatLng(52.085104, 4.740724), R.string.map_toilet, R.drawable.ic_marker_toilet); // In brewery
-	public static final MapElement ELEMENT_FTOILET5 =
-			new MapElement(6, new LatLng(52.085741, 4.742175), R.string.map_toilet, R.drawable.ic_marker_toilet); // In mill
-	/*public static final MapElement ELEMENT_MTOILET1 =
-			new MapElement(7, new LatLng(52.084291, 4.739415), R.string.map_mtoilet, R.drawable.ic_marker_toilet); // In storage*/
-	/*public static final MapElement ELEMENT_MTOILET2 =
-			new MapElement(8, new LatLng(52.084210, 4.739361), R.string.map_mtoilet, R.drawable.ic_marker_toilet); // In the back*/
-	/*public static final MapElement ELEMENT_MTOILET3 =
-			new MapElement(9, new LatLng(52.085741, 4.742175), R.string.map_mtoilet, R.drawable.ic_marker_toilet); // In mill*/
-	public static final MapElement ELEMENT_TOKENS =
-			new MapElement(10, new LatLng(52.085053, 4.740407), R.string.map_tokens, R.drawable.ic_marker_tokens);
-	public static final MapElement ELEMENT_MERCH =
-			new MapElement(11, new LatLng(52.084326, 4.739069), R.string.map_merch, R.drawable.ic_marker_tokens);
-	public static final MapElement ELEMENT_MILL = new MapElement(12, new LatLng(52.085649, 4.742070), R.string.map_mill, R.drawable.ic_marker_mill);
-	public static final MapElement ELEMENT_FIRSTAID =
-			new MapElement(13, new LatLng(52.084879, 4.740230), R.string.map_firstaid, R.drawable.ic_marker_firstaid);
-	public static final MapElement ELEMENT_FOODPLAZA =
-			new MapElement(14, new LatLng(52.084367, 4.739764), R.string.map_foodplaza, R.drawable.ic_marker_food);
-	public static final MapElement ELEMENT_FOODSNACK =
-			new MapElement(15, new LatLng(52.085700, 4.742221), R.string.map_foodplaza, R.drawable.ic_marker_food);
-	public static final MapElement ELEMENT_BEERBAR =
-			new MapElement(16, new LatLng(52.085763, 4.742025), R.string.map_beerbar, R.drawable.ic_marker_beer);
-	public static final MapElement ELEMENT_SHOP = new MapElement(17, new LatLng(52.085643, 4.741969), R.string.map_shop, R.drawable.ic_marker_shop);
-	public static final int BREWER_ID_THRESHOLD = 100;
+		implements ErrorListener, OnMapReadyCallback, OnInfoWindowClickListener, OnMarkerClickListener, OnMapClickListener {
 
 	private static final int REQUEST_PERMISSION = 0;
 
-	private SparseArray<Marker> elementMarkers;
+	private Brewers brewers;
+	private Pois pois;
+	private Map<Marker, Poi> poiMarkers;
+	private Map<String, Marker> poiIds;
 	private Map<Marker, Brewer> brewerMarkers;
+	private SparseArray<Marker> brewerIds;
 
 	@Bean
 	protected ApiQueue apiQueue;
 	@FragmentArg
 	protected boolean isMinimap = true;
 	@FragmentArg
-	protected int initFocusId;
+	protected Integer initFocusBrewer;
+	@FragmentArg
+	protected String initFocusPoi;
 
 	public MapFragment() {
 		setRetainInstance(false);
@@ -135,7 +108,7 @@ public class MapFragment extends com.google.android.gms.maps.SupportMapFragment
 		// When shown as minimap, no interaction is allowed; the full map screen is started instead
 		if (isMinimap) {
 			map.moveCamera(CameraUpdateFactory
-					.newCameraPosition(new CameraPosition.Builder().target(new LatLng(52.084754, 4.739858)).zoom(17.6f).bearing(314f).build()));
+					.newCameraPosition(new CameraPosition.Builder().target(new LatLng(52.084622, 4.740003)).zoom(17.6f).bearing(313.8f).build()));
 			map.getUiSettings().setAllGesturesEnabled(false);
 			map.getUiSettings().setZoomControlsEnabled(false);
 			map.setOnMarkerClickListener(this);
@@ -149,116 +122,96 @@ public class MapFragment extends com.google.android.gms.maps.SupportMapFragment
 			}
 			map.getUiSettings().setCompassEnabled(true);
 			map.setOnInfoWindowClickListener(this);
-			map.setOnCameraChangeListener(new GoogleMap.OnCameraChangeListener() {
+			map.setOnMapClickListener(new OnMapClickListener() {
+				@Override
+				public void onMapClick(LatLng latLng) {
+					Log.d("BOREFTS", String.format(Locale.US, "LAT: %1$.6f LNG: %2$.6f", latLng.latitude, latLng.longitude));
+				}
+			});
+			/*map.setOnCameraChangeListener(new GoogleMap.OnCameraChangeListener() {
 				@Override
 				public void onCameraChange(CameraPosition cameraPosition) {
 					Log.d("BOREFTS", String.format(Locale.US, "LAT: %1$.6f LNG: %2$.6f ZOOM: %3$.1f BEA: %4$.1f", cameraPosition.target.latitude,
 							cameraPosition.target.longitude, cameraPosition.zoom, cameraPosition.bearing));
 				}
-			});
+			});*/
 			// Schedule zooming to festival terrain (except when searching for the trains)
-			if (initFocusId >= BREWER_ID_THRESHOLD) {
-				new Handler().postDelayed(new Runnable() {
-					@Override
-					public void run() {
-						map.animateCamera(CameraUpdateFactory.newCameraPosition(
-								new CameraPosition.Builder().target(new LatLng(52.084723, 4.739909)).zoom(18f).bearing(3.3f).build()));
-					}
-				}, 1500);
+			new Handler().postDelayed(new Runnable() {
+				@Override
+				public void run() {
+					map.animateCamera(CameraUpdateFactory.newCameraPosition(
+							new CameraPosition.Builder().target(new LatLng(52.084515, 4.739977)).zoom(18f).bearing(3.3f).build()));
+				}
+			}, 1500);
+		}
+
+		// Load the areas, pois and brewers markers asynchronously
+		apiQueue.requestBrewers(new Listener<Brewers>() {
+			@Override
+			public void onResponse(Brewers brewers) {
+				MapFragment.this.brewers = brewers;
+				drawMarkers();
 			}
-		}
-
-		// Load the festival outline
-		// Brewery building
-		map.addPolygon(new PolygonOptions()
-				.add(new LatLng(52.085212, 4.740633), new LatLng(52.085081, 4.740858), new LatLng(52.085008, 4.740740),
-						new LatLng(52.085143, 4.740525)).strokeColor(getColor(R.color.darkred)).strokeWidth(5f)
-				.fillColor(getColor(R.color.darkred_half)));
-		// Bottling building
-		map.addPolygon(new PolygonOptions()
-				.add(new LatLng(52.085262, 4.740338), new LatLng(52.085163, 4.740525), new LatLng(52.084992, 4.740257),
-						new LatLng(52.084929, 4.740257), new LatLng(52.084718, 4.739925), new LatLng(52.084850, 4.739705))
-				.strokeColor(getColor(R.color.darkred)).strokeWidth(5f).fillColor(getColor(R.color.darkred_half)));
-		// Storage building
-		map.addPolygon(new PolygonOptions()
-				.add(new LatLng(52.084718, 4.739925), new LatLng(52.084843, 4.739715), new LatLng(52.084369, 4.738948),
-						new LatLng(52.084177, 4.739243), new LatLng(52.084392, 4.739614), new LatLng(52.084527, 4.739619))
-				.strokeColor(getColor(R.color.darkred)).strokeWidth(5f).fillColor(getColor(R.color.darkred_half)));
-		// Festival area 1
-		map.addPolygon(new PolygonOptions()
-				.add(new LatLng(52.084171, 4.739249), new LatLng(52.084388, 4.739624), new LatLng(52.084523, 4.739624),
-						new LatLng(52.084929, 4.740263), new LatLng(52.084995, 4.740257), new LatLng(52.085146, 4.740515),
-						new LatLng(52.084992, 4.740762), new LatLng(52.084072, 4.739372)).strokeColor(getColor(R.color.yellow))
-				.strokeWidth(5f).fillColor(getColor(R.color.yellow_half)));
-		// Entrance area
-		map.addPolygon(new PolygonOptions()
-				.add(new LatLng(52.084856, 4.740461), new LatLng(52.084921, 4.740550), new LatLng(52.084888, 4.740609),
-						new LatLng(52.084825, 4.740515)).strokeColor(getColor(R.color.blue)).strokeWidth(5f)
-				.fillColor(getColor(R.color.blue_half)));
-		// Mill building
-		map.addPolygon(new PolygonOptions()
-				.add(new LatLng(52.085812, 4.742054), new LatLng(52.085746, 4.742215), new LatLng(52.085687, 4.742151),
-						new LatLng(52.085677, 4.742178), new LatLng(52.085578, 4.742060), new LatLng(52.085641, 4.741910),
-						new LatLng(52.085690, 4.741947), new LatLng(52.085704, 4.741920)).strokeColor(getColor(R.color.darkred))
-				.strokeWidth(5f).fillColor(getColor(R.color.darkred_half)));
-		// Festival area 2
-		map.addPolygon(new PolygonOptions()
-				.add(new LatLng(52.085651, 4.742486), new LatLng(52.085470, 4.742285), new LatLng(52.085575, 4.742062),
-						new LatLng(52.085672, 4.742183), new LatLng(52.085687, 4.742164), new LatLng(52.085745, 4.742226))
-				.strokeColor(getColor(R.color.yellow)).strokeWidth(5f).fillColor(getColor(R.color.yellow_half)));
-
-		// Load the POI markers
-		elementMarkers = new SparseArray<>(6);
-		addPoiMarker(map, ELEMENT_TRAINS);
-		addPoiMarker(map, ELEMENT_ENTRANCE);
-		addPoiMarker(map, ELEMENT_FTOILET1);
-		addPoiMarker(map, ELEMENT_FTOILET2);
-		addPoiMarker(map, ELEMENT_FTOILET3);
-		addPoiMarker(map, ELEMENT_FTOILET4);
-		addPoiMarker(map, ELEMENT_FTOILET5);
-		/*addPoiMarker(ELEMENT_MTOILET1);
-		addPoiMarker(ELEMENT_MTOILET2);
-		addPoiMarker(ELEMENT_MTOILET3);*/
-		addPoiMarker(map, ELEMENT_TOKENS);
-		addPoiMarker(map, ELEMENT_MILL);
-		addPoiMarker(map, ELEMENT_FIRSTAID);
-		addPoiMarker(map, ELEMENT_MERCH);
-		addPoiMarker(map, ELEMENT_FOODPLAZA);
-		addPoiMarker(map, ELEMENT_FOODSNACK);
-		addPoiMarker(map, ELEMENT_BEERBAR);
-		addPoiMarker(map, ELEMENT_SHOP);
-		if (initFocusId >= 0 && initFocusId < BREWER_ID_THRESHOLD) {
-			focusOnMarker(initFocusId);
-		}
-
-		// Load the brewers markers asynchronously
-		apiQueue.requestBrewers(this, this);
+		}, this);
+		apiQueue.requestPois(new Listener<Pois>() {
+			@Override
+			public void onResponse(Pois pois) {
+				MapFragment.this.pois = pois;
+				drawMarkers();
+			}
+		}, this);
 	}
 
-	@Override
-	public void onResponse(final Brewers brewers) {
-		if (getActivity() == null || !isAdded())
+	private void drawMarkers() {
+		if (getActivity() == null || !isAdded() || brewers == null || pois == null)
 			return;
 		getMapAsync(new OnMapReadyCallback() {
 			@Override
 			public void onMapReady(final GoogleMap map) {
+				for (Area area : pois.getAreas()) {
+					addArea(map, area);
+				}
+				poiMarkers = new HashMap<>();
+				poiIds = new HashMap<>();
+				for (final Poi poi : pois.getPois()) {
+					addPoiMarker(map, poi);
+				}
 				brewerMarkers = new HashMap<>();
+				brewerIds = new SparseArray<>();
 				for (final Brewer brewer : brewers.getBrewers()) {
 					addBrewerMarker(map, brewer);
+				}
+
+				// Set focus on a specific marker
+				if (initFocusBrewer != null) {
+					Marker marker = brewerIds.get(initFocusBrewer);
+					if (marker != null)
+						marker.showInfoWindow();
+				} else if (initFocusPoi != null) {
+					Marker marker = poiIds.get(initFocusPoi);
+					if (marker != null)
+						marker.showInfoWindow();
 				}
 			}
 		});
 	}
 
+	private void addArea(GoogleMap map, Area area) {
+		map.addPolygon(new PolygonOptions().addAll(area.getPointLatLngs())
+				.strokeColor(getColor(area.getColor())).strokeWidth(5f).fillColor(getFillColor(area.getColor())));
+	}
+
 	/**
 	 * Adds a marker to the visible map where some point of interest is located. The marker is cached for later lookup.
 	 * @param map The map object to draw on
-	 * @param element The meta data of the marker to show, including the marker resource graphic id
+	 * @param poi The point of interest to show, which contains the elements to create a map marker
 	 */
-	protected void addPoiMarker(GoogleMap map, MapElement element) {
-		Marker marker = map.addMarker(new MarkerOptions().position(element.latLng).title(getString(element.titleResource))
-				.icon(BitmapDescriptorFactory.fromResource(element.markerResource)));
-		elementMarkers.put(element.focusId, marker);
+	private void addPoiMarker(GoogleMap map, Poi poi) {
+		Marker marker = map.addMarker(new MarkerOptions().position(poi.getPointLatLng()).title(getPoiName(poi))
+				.icon(BitmapDescriptorFactory.fromResource(getDrawable(poi.getMarker()))));
+		poiMarkers.put(marker, poi);
+		poiIds.put(poi.getId(), marker);
+		//elementMarkers.put(element.focusId, marker);
 	}
 
 	/**
@@ -281,11 +234,8 @@ public class MapFragment extends com.google.android.gms.maps.SupportMapFragment
 		Marker marker = map.addMarker(
 				new MarkerOptions().position(new LatLng(brewer.getLatitude(), brewer.getLongitude())).title(brewer.getShortName()).icon
 						(bitmapToUse));
-		// Also open the info window if a focus ID for this brewer was supplied
-		if (initFocusId == BREWER_ID_THRESHOLD + brewer.getId())
-			marker.showInfoWindow();
-		elementMarkers.put(BREWER_ID_THRESHOLD + brewer.getId(), marker);
 		brewerMarkers.put(marker, brewer);
+		brewerIds.put(brewer.getId(), marker);
 	}
 
 	/**
@@ -318,17 +268,26 @@ public class MapFragment extends com.google.android.gms.maps.SupportMapFragment
 		Toast.makeText(getActivity(), R.string.error_nolocations, Toast.LENGTH_LONG).show();
 	}
 
-	public void focusOnMarker(int focusId) {
-		Marker marker = elementMarkers.get(focusId);
-		if (marker != null)
-			marker.showInfoWindow();
-	}
-
 	@Override
 	public void onInfoWindowClick(Marker marker) {
 		if (brewerMarkers.containsKey(marker)) {
 			((NavigationManager) getActivity()).openBrewer(this, brewerMarkers.get(marker));
 		}
+	}
+
+	@Override
+	public void onMapClick(LatLng arg0) {
+		if (isMinimap)
+			((NavigationManager) getActivity()).openMap(this);
+	}
+
+	@Override
+	public boolean onMarkerClick(Marker marker) {
+		if (isMinimap) {
+			((NavigationManager) getActivity()).openMap(this);
+			return true;
+		}
+		return false;
 	}
 
 	@Override
@@ -349,40 +308,31 @@ public class MapFragment extends com.google.android.gms.maps.SupportMapFragment
 		return ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
 	}
 
+	private String getPoiName(Poi poi) {
+		if (Locale.getDefault().getLanguage().equals("nl")) {
+			return poi.getName_nl();
+		}
+		return poi.getName_en();
+	}
+
+	private int getDrawable(String resName) {
+		return getResources().getIdentifier(resName, "drawable", getActivity().getPackageName());
+	}
+
 	@ColorInt
 	private int getColor(int res) {
 		return ContextCompat.getColor(getContext(), res);
 	}
 
-	public static class MapElement {
-
-		public final int focusId;
-		public final LatLng latLng;
-		public final int titleResource;
-		public final int markerResource;
-
-		public MapElement(int focusId, LatLng latLng, int titleResource, int markerResource) {
-			this.focusId = focusId;
-			this.latLng = latLng;
-			this.titleResource = titleResource;
-			this.markerResource = markerResource;
-		}
-
+	@ColorInt
+	private int getColor(String resName) {
+		return ContextCompat.getColor(getContext(),
+				getResources().getIdentifier(resName, "color", getActivity().getPackageName()));
 	}
 
-	@Override
-	public void onMapClick(LatLng arg0) {
-		if (isMinimap)
-			((NavigationManager) getActivity()).openMap(this, -1, null);
-	}
-
-	@Override
-	public boolean onMarkerClick(Marker marker) {
-		if (isMinimap) {
-			((NavigationManager) getActivity()).openMap(this, -1, null);
-			return true;
-		}
-		return false;
+	@ColorInt
+	private int getFillColor(String resName) {
+		return getColor(resName + "_half");
 	}
 
 }

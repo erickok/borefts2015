@@ -28,7 +28,7 @@ public class Beer implements Comparable<Beer>, Parcelable {
 	private volatile Brewer brewer;
 	private volatile Style style;
 
-	protected Beer() {
+	Beer() {
 	}
 
 	public int getId() {
