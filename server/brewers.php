@@ -13,8 +13,8 @@
             "country": "The Netherlands",
             "description": "",
             "website": "http://www.brouwerijdemolen.nl",
-            "latitude": 52.084347,
-            "longitude": 4.739305
+            "latitude": 52.084576,
+            "longitude": 4.739627
         },
         {
             "id": 8,
@@ -26,8 +26,8 @@
             "country": "Belgium",
             "description": "",
             "website": "http://www.alvinne.be",
-            "latitude": 52.084347,
-            "longitude": 4.739305
+            "latitude": 52.084544,
+            "longitude": 4.739775
         },
         {
             "id": 9,
@@ -39,8 +39,8 @@
             "country": "Sweden",
             "description": "",
             "website": "http://www.kulturbryggeri.se",
-            "latitude": 52.084347,
-            "longitude": 4.739305
+            "latitude": 52.084255,
+            "longitude": 4.739194
         },
         {
             "id": 11,
@@ -52,8 +52,8 @@
             "country": "Germany",
             "description": "",
             "website": "http://www.gaenstaller.de",
-            "latitude": 52.084347,
-            "longitude": 4.739305
+            "latitude": 52.084233,
+            "longitude": 4.739244
         },
         {
             "id": 14,
@@ -65,8 +65,8 @@
             "country": "The Netherlands",
             "description": "",
             "website": "http://www.brouwerijkees.nl",
-            "latitude": 52.084347,
-            "longitude": 4.739305
+            "latitude": 52.084589,
+            "longitude": 4.739841
         },
         {
             "id": 15,
@@ -78,8 +78,8 @@
             "country": "Latvia",
             "description": "",
             "website": "http://www.labietis.lv",
-            "latitude": 52.084347,
-            "longitude": 4.739305
+            "latitude": 52.084469,
+            "longitude": 4.739212
         },
         {
             "id": 17,
@@ -91,8 +91,8 @@
             "country": "Norway",
             "description": "",
             "website": "http://www.lervig.no",
-            "latitude": 52.084347,
-            "longitude": 4.739305
+            "latitude": 52.084648,
+            "longitude": 4.739772
         },
         {
             "id": 20,
@@ -104,8 +104,8 @@
             "country": "The Netherlands",
             "description": "",
             "website": "http://www.oedipusbrewing.com",
-            "latitude": 52.084347,
-            "longitude": 4.739305
+            "latitude": 52.084425,
+            "longitude": 4.739138
         },
         {
             "id": 21,
@@ -117,8 +117,8 @@
             "country": "Sweden",
             "description": "",
             "website": "http://www.omnipollo.com",
-            "latitude": 52.084347,
-            "longitude": 4.739305
+            "latitude": 52.084299,
+            "longitude": 4.739360
         },
         {
             "id": 22,
@@ -130,8 +130,8 @@
             "country": "Russia",
             "description": "",
             "website": "http://www.bakuninbrewery.com",
-            "latitude": 52.084347,
-            "longitude": 4.739305
+            "latitude": 52.084643,
+            "longitude": 4.739935
         },
         {
             "id": 23,
@@ -143,8 +143,8 @@
             "country": "Austria",
             "description": "",
             "website": "http://www.bevog.at",
-            "latitude": 52.084347,
-            "longitude": 4.739305
+            "latitude": 52.084538,
+            "longitude": 4.739333
         },
         {
             "id": 24,
@@ -156,8 +156,8 @@
             "country": "Italy",
             "description": "",
             "website": "http://www.birradelborgo.it",
-            "latitude": 52.084347,
-            "longitude": 4.739305
+            "latitude": 52.084642,
+            "longitude": 4.739511
         },
         {
             "id": 25,
@@ -169,8 +169,8 @@
             "country": "France",
             "description": "",
             "website": "http://www.brasseriethiriez.com",
-            "latitude": 52.084347,
-            "longitude": 4.739305
+            "latitude": 52.084702,
+            "longitude": 4.739595
         },
         {
             "id": 26,
@@ -182,8 +182,8 @@
             "country": "USA",
             "description": "",
             "website": "http://www.cascadebrewingbarrelhouse.com",
-            "latitude": 52.084347,
-            "longitude": 4.739305
+            "latitude": 52.084756,
+            "longitude": 4.739789
         },
         {
             "id": 27,
@@ -195,8 +195,8 @@
             "country": "Denmark",
             "description": "",
             "website": "https://www.facebook.com/Dry-Bitter-Brewing-Company-1519454774996343/",
-            "latitude": 52.084347,
-            "longitude": 4.739305
+            "latitude": 52.084375,
+            "longitude": 4.739439
         },
         {
             "id": 28,
@@ -208,8 +208,8 @@
             "country": "Spain",
             "description": "",
             "website": "http://www.cervesalapirata.com",
-            "latitude": 52.084347,
-            "longitude": 4.739305
+            "latitude": 52.084402,
+            "longitude": 4.739527
         },
         {
             "id": 29,
@@ -221,9 +221,9 @@
             "country": "USA",
             "description": "",
             "website": "https://cigarcitybrewing.com",
-            "latitude": 52.084329,
-            "longitude": 4.739447,
-            "hide": true
+            "latitude": 52.085775,
+            "longitude": 4.742017,
+            "hide": false
         },
         {
             "id": 30,
@@ -235,9 +235,9 @@
             "country": "Sweden",
             "description": "",
             "website": "https://www.facebook.com/sahtipaja",
-            "latitude": 52.084329,
-            "longitude": 4.739447,
-            "hide": true
+            "latitude": 52.084726,
+            "longitude": 4.739835,
+            "hide": false
         },
         {
             "id": 31,
@@ -249,9 +249,9 @@
             "country": "Scotland",
             "description": "",
             "website": "https://www.brewdog.com",
-            "latitude": 52.084329,
-            "longitude": 4.739447,
-            "hide": true
+            "latitude": 52.085783,
+            "longitude": 4.742041,
+            "hide": false
         }
     ],
     "revision": 31

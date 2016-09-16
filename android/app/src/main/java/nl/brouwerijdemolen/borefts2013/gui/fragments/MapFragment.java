@@ -16,7 +16,6 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
 import android.widget.Toast;
@@ -122,12 +121,12 @@ public class MapFragment extends com.google.android.gms.maps.SupportMapFragment
 			}
 			map.getUiSettings().setCompassEnabled(true);
 			map.setOnInfoWindowClickListener(this);
-			map.setOnMapClickListener(new OnMapClickListener() {
+			/*map.setOnMapClickListener(new OnMapClickListener() {
 				@Override
 				public void onMapClick(LatLng latLng) {
 					Log.d("BOREFTS", String.format(Locale.US, "LAT: %1$.6f LNG: %2$.6f", latLng.latitude, latLng.longitude));
 				}
-			});
+			});*/
 			/*map.setOnCameraChangeListener(new GoogleMap.OnCameraChangeListener() {
 				@Override
 				public void onCameraChange(CameraPosition cameraPosition) {
@@ -135,7 +134,8 @@ public class MapFragment extends com.google.android.gms.maps.SupportMapFragment
 							cameraPosition.target.longitude, cameraPosition.zoom, cameraPosition.bearing));
 				}
 			});*/
-			// Schedule zooming to festival terrain (except when searching for the trains)
+
+			// Schedule zooming to festival terrain
 			new Handler().postDelayed(new Runnable() {
 				@Override
 				public void run() {

@@ -153,8 +153,6 @@ public class ApiQueue {
 				cachedPoisAge = System.currentTimeMillis();
 				listener.onResponse(cachedPois);
 			}
-
-			;
 		};
 		requestQueue.add(new GsonRequest<>(Pois.POIS_URL, Pois.class, null, wrappedListener, new ErrorListener() {
 			@Override
