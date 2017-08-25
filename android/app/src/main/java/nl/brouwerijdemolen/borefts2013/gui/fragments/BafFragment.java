@@ -37,7 +37,7 @@ public class BafFragment extends Fragment {
 				return true;
 			}
 		});
-		bafWebview.loadUrl("https://www.facebook.com/events/1451158231852615/");
+		bafWebview.loadUrl("https://www.facebook.com/events/1877911625865879/");
 	}
 
 }

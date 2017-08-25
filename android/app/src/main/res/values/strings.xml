@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<string name="app_name">Borefts Beer Festival 2016</string>
-	<string name="app_name_short">Borefts 2016</string>
+	<string name="app_name">Borefts Beer Festival 2017</string>
+	<string name="app_name_short">Borefts 2017</string>
 
 	<string name="general_location_permission">Show your location?</string>
 	<string name="general_location_ok">Yes, please</string>
@@ -22,7 +22,7 @@
 	<string name="action_about">About this app</string>
 	
 	<string name="info_what">WHAT? WHERE?</string>
-	<string name="info_address">Borefts Beer Festival 2016\nDe Molen Brewery\nDoortocht 4, Bodegraven</string>
+	<string name="info_address">Borefts Beer Festival 2017\nDe Molen Brewery\nDoortocht 4, Bodegraven</string>
 	<string name="info_times">Sep 23 &#8211; 24\n12:00 &#8211; 22:00</string>
 	<string name="info_presale">NEW: PRE-SALE ONLY!</string>
 	<string name="info_tokens">ENTRY &amp; TOKENS</string>
@@ -50,8 +50,8 @@
 	
 	<string name="info_abvlabel">ABV: %1$.1f%%</string>
 	<string name="info_oakaged">OAK AGED</string>
-	<string name="info_untappd">UNTAPPD</string>
-	<string name="info_ratebeer">RATEBEER</string>
+	<string name="info_untappd">Untappd</string>
+	<string name="info_google">Google</string>
 	<string name="info_tostyle">(indication based on style)</string>
 	<string name="info_serving_keg">ON KEG</string>
 	<string name="info_serving_cask">ON CASK</string>

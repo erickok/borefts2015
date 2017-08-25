@@ -89,8 +89,8 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 	protected void actionSendcorrection() {
 		Intent startEmail = new Intent(Intent.ACTION_SEND);
 		startEmail.setType("message/rfc822");
-		startEmail.putExtra(Intent.EXTRA_EMAIL, new String[]{"borefts2016@2312.nl"});
-		startEmail.putExtra(Intent.EXTRA_SUBJECT, "Borefts 2016 Android app correction");
+		startEmail.putExtra(Intent.EXTRA_EMAIL, new String[]{"borefts2017@2312.nl"});
+		startEmail.putExtra(Intent.EXTRA_SUBJECT, "Borefts 2017 Android app correction");
 		try {
 			startActivity(startEmail);
 		} catch (ActivityNotFoundException e) {

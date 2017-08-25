@@ -63,7 +63,7 @@ public class InfoFragment extends Fragment {
 	@Click
 	protected void nstimesButtonClicked() {
 		startActivity(
-				new Intent(Intent.ACTION_VIEW, Uri.parse("http://m.ns.nl/actvertrektijden.action?from=BDG")).setFlags(Intent
+				new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.ns.nl/actuele-vertrektijden/avt?station=bdg")).setFlags(Intent
 						.FLAG_ACTIVITY_NEW_TASK));
 	}
 

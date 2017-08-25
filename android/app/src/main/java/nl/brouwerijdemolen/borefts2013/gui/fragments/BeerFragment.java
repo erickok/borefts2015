@@ -117,13 +117,9 @@ public class BeerFragment extends Fragment {
 	}
 
 	@Click
-	protected void ratebeerButtonClicked() {
-		if (beer.getRatebeerId() <= 0) {
-			Toast.makeText(getActivity(), R.string.error_notcoupled, Toast.LENGTH_LONG).show();
-			return;
-		}
-		startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.ratebeer.com/b/" + beer.getRatebeerId() + "/"))
-				.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+	protected void googleButtonClicked() {
+		startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com/search?q=" + Uri.encode(beer.getBrewer().getName() + " " +
+				beer.getName()))).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
 	}
 
 	@Click
@@ -132,8 +128,8 @@ public class BeerFragment extends Fragment {
 			Toast.makeText(getActivity(), R.string.error_notcoupled, Toast.LENGTH_LONG).show();
 			return;
 		}
-		startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://untappd.com/qr/beer/" + beer.getUntappdId()))
-				.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+		startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://untappd.com/qr/beer/" + beer.getUntappdId())).addFlags(Intent
+				.FLAG_ACTIVITY_NEW_TASK));
 	}
 
 }

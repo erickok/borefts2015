@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Pois {
 
-	public static final String POIS_URL = "http://2312.nl/borefts2016/pois.php";
+	public static final String POIS_URL = "http://2312.nl/borefts2017/pois.php";
 
 	private List<Area> areas;
 	private List<Poi> pois;

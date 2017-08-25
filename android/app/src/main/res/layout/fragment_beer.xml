@@ -97,12 +97,12 @@
 			android:text="@string/info_untappd" />
 
 		<Button
-			android:id="@+id/ratebeer_button"
+			android:id="@+id/google_button"
 			style="@style/TransparentButton"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
 			android:layout_weight="1"
-			android:text="@string/info_ratebeer" />
+			android:text="@string/info_google" />
 	</LinearLayout>
 
 	<View
