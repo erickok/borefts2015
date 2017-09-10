@@ -14,9 +14,10 @@ public class Beer implements Comparable<Beer>, Parcelable {
 	private int styleId;
 	private float abv;
 	private boolean oakAged;
+	private boolean festivalBeer;
 	private String tags;
 	private int ratebeerId;
-	private int untappdId;
+	private String untappdId;
 	private int serving;
 	private int colour;
 	private int body;
@@ -55,6 +56,10 @@ public class Beer implements Comparable<Beer>, Parcelable {
 		return oakAged;
 	}
 
+	public boolean isFestivalBeer() {
+		return festivalBeer;
+	}
+
 	public String getTags() {
 		return tags;
 	}
@@ -64,7 +69,7 @@ public class Beer implements Comparable<Beer>, Parcelable {
 	}
 
 	public int getUntappdId() {
-		return untappdId;
+		return untappdId.equals("")? -1: Integer.parseInt(untappdId);
 	}
 
 	public int getServing() {
@@ -115,21 +120,21 @@ public class Beer implements Comparable<Beer>, Parcelable {
 	}
 
 	public int getBitternessIndication() {
-		if (bitterness >= 0) {
+		if (bitterness > 0) {
 			return bitterness;
 		}
 		return style.getBitterness();
 	}
 
 	public int getSweetnessIndication() {
-		if (sweetness >= 0) {
+		if (sweetness > 0) {
 			return sweetness;
 		}
 		return style.getSweetness();
 	}
 
 	public int getAcidityIndication() {
-		if (acidity >= 0) {
+		if (acidity > 0) {
 			return acidity;
 		}
 		return style.getAcidity();
@@ -137,7 +142,7 @@ public class Beer implements Comparable<Beer>, Parcelable {
 
 	public int getColorIndicationResource(Resources res) {
 		int c = style.getColor();
-		if (colour >= 0) {
+		if (colour > 0) {
 			c = colour;
 		}
 		switch (c) {
@@ -179,9 +184,10 @@ public class Beer implements Comparable<Beer>, Parcelable {
 		this.styleId = in.readInt();
 		this.abv = in.readFloat();
 		this.oakAged = in.readInt() == 1;
+		this.festivalBeer = in.readInt() == 1;
 		this.tags = in.readString();
 		this.ratebeerId = in.readInt();
-		this.untappdId = in.readInt();
+		this.untappdId = in.readString();
 		this.serving = in.readInt();
 		this.colour = in.readInt();
 		this.body = in.readInt();
@@ -215,9 +221,10 @@ public class Beer implements Comparable<Beer>, Parcelable {
 		dest.writeInt(styleId);
 		dest.writeFloat(abv);
 		dest.writeInt(oakAged ? 1 : 0);
+		dest.writeInt(festivalBeer ? 1 : 0);
 		dest.writeString(tags);
 		dest.writeInt(ratebeerId);
-		dest.writeInt(untappdId);
+		dest.writeString(untappdId);
 		dest.writeInt(serving);
 		dest.writeInt(colour);
 		dest.writeInt(body);

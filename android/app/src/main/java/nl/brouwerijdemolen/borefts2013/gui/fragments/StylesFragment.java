@@ -19,16 +19,22 @@ import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 
 import nl.brouwerijdemolen.borefts2013.R;
+import nl.brouwerijdemolen.borefts2013.api.Beer;
+import nl.brouwerijdemolen.borefts2013.api.Beers;
+import nl.brouwerijdemolen.borefts2013.api.Style;
 import nl.brouwerijdemolen.borefts2013.api.Styles;
 import nl.brouwerijdemolen.borefts2013.gui.helpers.ApiQueue;
 import nl.brouwerijdemolen.borefts2013.gui.helpers.NavigationManager;
 import nl.brouwerijdemolen.borefts2013.gui.lists.StyleListAdapter;
 
 @EFragment(R.layout.fragment_list)
-public class StylesFragment extends Fragment implements Listener<Styles>, ErrorListener, OnItemClickListener {
+public class StylesFragment extends Fragment implements ErrorListener, OnItemClickListener {
 
 	@Bean
 	protected ApiQueue apiQueue;
@@ -54,13 +60,38 @@ public class StylesFragment extends Fragment implements Listener<Styles>, ErrorL
 	}
 
 	private void refreshScreen() {
-		apiQueue.requestStyles(this, this);
+		apiQueue.requestBeers(new Listener<Beers>() {
+			@Override
+			public void onResponse(final Beers beers) {
+				if (getActivity() == null || !isAdded())
+					return;
+				apiQueue.requestStyles(new Listener<Styles>() {
+					@Override
+					public void onResponse(final Styles styles) {
+						if (getActivity() == null || !isAdded())
+							return;
+						showStyles(styles, beers);
+					}
+				}, StylesFragment.this);
+			}
+		}, this);
 	}
 
-	@Override
-	public void onResponse(Styles styles) {
-		if (getActivity() == null || !isAdded())
-			return;
+	private void showStyles(Styles styles, Beers beers) {
+		// HACK Filter out styles from code if there are no beers in the style
+		Iterator<Style> styleIter = styles.getStyles().iterator();
+		while (styleIter.hasNext()) {
+			Style testStyle = styleIter.next();
+			boolean isUsed = false;
+			for (Beer beer : beers.getBeers()) {
+				if (beer.getStyleId() == testStyle.getId()) {
+					isUsed = true;
+					break;
+				}
+			}
+			if (!isUsed)
+				styleIter.remove();
+		}
 		Collections.sort(styles.getStyles());
 		styleListAdapter.update(styles.getStyles());
 		theList.setAdapter(styleListAdapter);

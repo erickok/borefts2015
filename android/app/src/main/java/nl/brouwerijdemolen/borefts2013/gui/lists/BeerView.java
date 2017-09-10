@@ -48,7 +48,7 @@ public class BeerView extends RelativeLayout {
 	}
 
 	public void bind(Beer beer, boolean showStyle) {
-		nameText.setText(beer.getName());
+		nameText.setText(beer.getName() + (beer.isFestivalBeer()? " 🌸": ""));
 		stylebrewerText.setText(showStyle? beer.getStyle().getName(): beer.getBrewer().getName());
 		if (beer.getAbv() > 0)
 			abvText.setText(getResources().getString(R.string.info_abvperc, beer.getAbv()));

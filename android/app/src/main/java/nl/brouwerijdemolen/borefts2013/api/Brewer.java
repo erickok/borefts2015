@@ -16,7 +16,7 @@ public class Brewer implements Comparable<Brewer>, Parcelable {
 	private String website;
 	private float latitude;
 	private float longitude;
-	private boolean hide;
+	private transient boolean hide;
 
 	Brewer() {
 	}

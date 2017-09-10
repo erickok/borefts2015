@@ -25,6 +25,7 @@ import nl.brouwerijdemolen.borefts2013.api.Brewers;
 import nl.brouwerijdemolen.borefts2013.api.GsonRequest;
 import nl.brouwerijdemolen.borefts2013.api.Pois;
 import nl.brouwerijdemolen.borefts2013.api.Styles;
+import nl.brouwerijdemolen.borefts2013.api.Urls;
 
 @EBean(scope = Scope.Singleton)
 public class ApiQueue {
@@ -70,7 +71,7 @@ public class ApiQueue {
 				listener.onResponse(cachedBrewers);
 			}
 		};
-		requestQueue.add(new GsonRequest<>(Brewers.BREWERS_URL, Brewers.class, null, wrappedListener, new ErrorListener() {
+		requestQueue.add(new GsonRequest<>(Urls.BREWERS_URL, Brewers.class, null, wrappedListener, new ErrorListener() {
 			@Override
 			public void onErrorResponse(VolleyError arg0) {
 				// Error response; use the offline version instead
@@ -98,7 +99,7 @@ public class ApiQueue {
 				listener.onResponse(cachedStyles);
 			}
 		};
-		requestQueue.add(new GsonRequest<>(Styles.STYLES_URL, Styles.class, null, wrappedListener, new ErrorListener() {
+		requestQueue.add(new GsonRequest<>(Urls.STYLES_URL, Styles.class, null, wrappedListener, new ErrorListener() {
 			@Override
 			public void onErrorResponse(VolleyError arg0) {
 				// Error response; use the offline version instead
@@ -126,7 +127,7 @@ public class ApiQueue {
 				listener.onResponse(cachedBeers);
 			}
 		};
-		requestQueue.add(new GsonRequest<>(Beers.BEERS_URL, Beers.class, null, wrappedListener, new ErrorListener() {
+		requestQueue.add(new GsonRequest<>(Urls.BEERS_URL, Beers.class, null, wrappedListener, new ErrorListener() {
 			@Override
 			public void onErrorResponse(VolleyError arg0) {
 				// Error response; use the offline version instead

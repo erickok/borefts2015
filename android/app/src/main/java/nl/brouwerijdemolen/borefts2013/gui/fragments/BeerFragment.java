@@ -61,6 +61,8 @@ public class BeerFragment extends Fragment {
 			abvText.setText(getString(R.string.info_abvlabel, beer.getAbv()));
 		else
 			abvText.setVisibility(View.INVISIBLE);
+		if (beer.isFestivalBeer())
+			addTagView("🌸");
 		if (!TextUtils.isEmpty(beer.getTags())) {
 			for (String tag : beer.getTags().split(",")) {
 				addTagView(tag);

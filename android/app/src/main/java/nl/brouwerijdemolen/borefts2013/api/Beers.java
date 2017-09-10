@@ -4,8 +4,6 @@ import java.util.List;
 
 public class Beers {
 
-	public static final String BEERS_URL = "http://2312.nl/borefts2017/beers.php";
-
 	private List<Beer> beers;
 	private int revision;
 

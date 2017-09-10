@@ -23,12 +23,12 @@
 	
 	<string name="info_what">WHAT? WHERE?</string>
 	<string name="info_address">Borefts Beer Festival 2017\nDe Molen Brewery\nDoortocht 4, Bodegraven</string>
-	<string name="info_times">Sep 23 &#8211; 24\n12:00 &#8211; 22:00</string>
+	<string name="info_times">Sep 22 &#8211; 23\n12:00 &#8211; 22:00</string>
 	<string name="info_presale">NEW: PRE-SALE ONLY!</string>
 	<string name="info_tokens">ENTRY &amp; TOKENS</string>
 	<string name="info_getmore">BUY EXTRA\nTOKENS</string>
 	<string name="info_entry">3500 ticket per day are available, only available online in the pre-sale. € 25,- for glass, festival booklet and 10 tokens.</string>
-	<string name="info_extra">Additional tokens can be bought at € 2,- per single token. NOT 18 YEARS NO ALCOHOL</string>
+	<string name="info_extra">Additional tokens can be bought with cash or card. NOT 18 YEARS NO ALCOHOL</string>
 	<string name="info_publictransport">PUBLIC TRANSPORT</string>
 	<string name="info_trains">Trains run every half hour, in each direction, at :15 and :45. Last trains leave at 00:45.</string>
 	<string name="info_nstimes">Departures</string>

@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 	private class TabPageAdapter extends FragmentPagerAdapter {
 
 		private final int[] TITLES =
-				{R.string.action_info, R.string.action_brewers, R.string.action_styles, R.string.action_twitter, R.string.info_stars,
+				{R.string.action_info, R.string.action_brewers, R.string.action_styles, R.string.info_stars, R.string.action_twitter,
 						R.string.info_baf};
 
 		public TabPageAdapter(FragmentManager fm) {
@@ -174,13 +174,13 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 						stylesFragment = StylesFragment_.builder().build();
 					return stylesFragment;
 				case 3:
-					if (twitterFragment == null)
-						twitterFragment = TwitterFragment_.builder().build();
-					return twitterFragment;
-				case 4:
 					if (starredFragment == null)
 						starredFragment = StarredFragment_.builder().build();
 					return starredFragment;
+				case 4:
+					if (twitterFragment == null)
+						twitterFragment = TwitterFragment_.builder().build();
+					return twitterFragment;
 				case 5:
 					if (bafFragment == null)
 						bafFragment = BafFragment_.builder().build();
