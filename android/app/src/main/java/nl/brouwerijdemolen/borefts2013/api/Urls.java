@@ -4,7 +4,7 @@ public class Urls {
 
 	// d454d
 	// staging
-	private static final String BASE = "https://borefts-staging.firebaseio.com/";
+	private static final String BASE = "https://borefts-d454d.firebaseio.com/";
 
 	public static final String BREWERS_URL = BASE + "brewers/2017.json";
 	public static final String BEERS_URL = BASE + "beers/2017.json";
