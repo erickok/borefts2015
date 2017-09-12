@@ -120,8 +120,7 @@ public class BeerFragment extends Fragment {
 
 	@Click
 	protected void googleButtonClicked() {
-		startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com/search?q=" + Uri.encode(beer.getBrewer().getName() + " " +
-				beer.getName()))).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+		startLink(Uri.parse("http://www.google.com/search?q=" + Uri.encode(beer.getBrewer().getName() + " " + beer.getName())), null);
 	}
 
 	@Click
@@ -130,8 +129,21 @@ public class BeerFragment extends Fragment {
 			Toast.makeText(getActivity(), R.string.error_notcoupled, Toast.LENGTH_LONG).show();
 			return;
 		}
-		startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://untappd.com/qr/beer/" + beer.getUntappdId())).addFlags(Intent
-				.FLAG_ACTIVITY_NEW_TASK));
+		startLink(Uri.parse("untappd://beer/" + beer.getUntappdId()), Uri.parse("https://untappd.com/qr/beer/" + beer.getUntappdId()));
+	}
+
+	private void startLink(Uri primary, Uri alternative) {
+		try {
+			startActivity(new Intent(Intent.ACTION_VIEW, primary).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+		} catch (Exception e) {
+			if (alternative != null) {
+				try {
+					startActivity(new Intent(Intent.ACTION_VIEW, alternative).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+				} catch (Exception e2) {
+					// No browser installed; ignore this hypothetical case
+				}
+			}
+		}
 	}
 
 }
