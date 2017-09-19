@@ -79,11 +79,8 @@
 	<string name="about_visitdemolen">DE MOLEN</string>
 	<string name="about_licenses"><![CDATA[Bevat <a href="https://github.com/excilys/androidannotations">AndroidAnnotations</a> door Pierre-Yves Ricau et al.<br /><br />Iconen: <a href="http://thenounproject.com/noun/map-marker/#icon-No20774" target="_blank">Map Marker</a> ontworpen door <a href="http://thenounproject.com/tobiasfabian" target="_blank">Tobias F. Wolf</a> bij The Noun Project. <a href="http://thenounproject.com/noun/toilet-paper/#icon-No2962" target="_blank">Toilet Paper</a> ontworpen door <a href="http://thenounproject.com/pieroborgo" target="_blank">Piero Borgo</a> op The Noun Project. <a href="http://thenounproject.com/noun/entrance/#icon-No2276" target="_blank">Entrance</a> ontworpen door <a href="http://thenounproject.com/pedro.lalli" target="_blank">Pedro Lalli</a> op The Noun Project. <a href="http://thenounproject.com/noun/coins/#icon-No4509" target="_blank">Coins</a> ontworpen door <a href="http://thenounproject.com/zer0mike" target="_blank">Mike Hince</a> op The Noun Project. <a href="http://thenounproject.com/noun/hamburger/#icon-No10990" target="_blank">Hamburger</a> ontworpen door <a href="http://thenounproject.com/skatakila" target="_blank">Ricardo Moreira</a> op The Noun Project.]]></string>
 	
-	<string name="rate_title">Beoordeel de app</string>
-	<string name="rate_explanation">Nuttige app? Het zou super zijn als je een beoordeling gaf of me liet weten wat je van de app vindt.</string>
-	<string name="rate_now">Doe ik</string>
-	<string name="rate_later">Misschien later</string>
-	<string name="rate_never">Nee, bedankt</string>
+	<string name="rate_title">Nuttige app?</string>
+	<string name="rate_confirm">Geef beoordeling</string>
 	
 	<string name="error_connection">Geen (stabiele) verbinding beschikbaar. Raak aan om opnieuw te proberen.</string>
 	<string name="error_nolocations">De brouwers konden niet worden geladen</string>

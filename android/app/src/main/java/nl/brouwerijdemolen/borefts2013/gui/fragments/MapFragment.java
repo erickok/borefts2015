@@ -124,7 +124,7 @@ public class MapFragment extends com.google.android.gms.maps.SupportMapFragment
 			/*map.setOnMapClickListener(new OnMapClickListener() {
 				@Override
 				public void onMapClick(LatLng latLng) {
-					Log.d("BOREFTS", String.format(Locale.US, "LAT: %1$.6f LNG: %2$.6f", latLng.latitude, latLng.longitude));
+					Log.d("BOREFTS", String.format(new Locale("nl"), "LAT: %1$.6f LNG: %2$.6f", latLng.latitude, latLng.longitude));
 				}
 			});*/
 			/*map.setOnCameraChangeListener(new GoogleMap.OnCameraChangeListener() {

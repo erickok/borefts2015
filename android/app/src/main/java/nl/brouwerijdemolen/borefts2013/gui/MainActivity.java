@@ -1,8 +1,12 @@
 package nl.brouwerijdemolen.borefts2013.gui;
 
+import android.Manifest;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.net.Uri;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -10,9 +14,11 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.View;
 import android.widget.TextView;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.OptionsItem;
 import org.androidannotations.annotations.OptionsMenu;
@@ -35,6 +41,7 @@ import nl.brouwerijdemolen.borefts2013.gui.fragments.StylesFragment;
 import nl.brouwerijdemolen.borefts2013.gui.fragments.StylesFragment_;
 import nl.brouwerijdemolen.borefts2013.gui.fragments.TwitterFragment;
 import nl.brouwerijdemolen.borefts2013.gui.fragments.TwitterFragment_;
+import nl.brouwerijdemolen.borefts2013.gui.helpers.AppRater;
 import nl.brouwerijdemolen.borefts2013.gui.helpers.MolenTypefaceSpan;
 import nl.brouwerijdemolen.borefts2013.gui.helpers.NavigationManager;
 
@@ -58,6 +65,9 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 	private StarredFragment starredFragment = null;
 	private BafFragment bafFragment = null;
 
+	@Bean
+	protected AppRater appRater;
+
 	@AfterViews
 	protected void init() {
 
@@ -70,6 +80,23 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 		tabViewPager.addOnPageChangeListener(this);
 		tabLayout.setupWithViewPager(tabViewPager);
 
+		appRater.hit();
+		if (appRater.shouldShow()) {
+			Snackbar snackbar = Snackbar.make(tabViewPager, R.string.rate_title, Snackbar.LENGTH_LONG);
+			snackbar.setActionTextColor(getResources().getColor(R.color.yellow));
+			snackbar.setAction(R.string.rate_confirm, new View.OnClickListener() {
+				@Override
+				public void onClick(View view) {
+					appRater.block();
+					try {
+						startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse("market://details?id=nl.brouwerijdemolen.borefts2013")));
+					} catch (Exception e) {
+						// No Play Store installed: ignore
+					}
+				}
+			});
+			snackbar.show();
+		}
 	}
 
 	@Override

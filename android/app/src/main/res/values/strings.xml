@@ -79,12 +79,9 @@
 	<string name="about_visitdemolen">DE MOLEN</string>
 	<string name="about_licenses"><![CDATA[Includes <a href="https://github.com/excilys/androidannotations">AndroidAnnotations</a> by Pierre-Yves Ricau et al.<br /><br />Icons: <a href="http://thenounproject.com/noun/map-marker/#icon-No20774" target="_blank">Map Marker</a> designed by <a href="http://thenounproject.com/tobiasfabian" target="_blank">Tobias F. Wolf</a> from The Noun Project. <a href="http://thenounproject.com/noun/toilet-paper/#icon-No2962" target="_blank">Toilet Paper</a> designed by <a href="http://thenounproject.com/pieroborgo" target="_blank">Piero Borgo</a> from The Noun Project. <a href="http://thenounproject.com/noun/entrance/#icon-No2276" target="_blank">Entrance</a> designed by <a href="http://thenounproject.com/pedro.lalli" target="_blank">Pedro Lalli</a> from The Noun Project. <a href="http://thenounproject.com/noun/coins/#icon-No4509" target="_blank">Coins</a> designed by <a href="http://thenounproject.com/zer0mike" target="_blank">Mike Hince</a> from The Noun Project. <a href="http://thenounproject.com/noun/hamburger/#icon-No10990" target="_blank">Hamburger</a> designed by <a href="http://thenounproject.com/skatakila" target="_blank">Ricardo Moreira</a> from The Noun Project. <a href="http://thenounproject.com/noun/bottle/#icon-No137253" target="_blank">Bottle</a> designed by <a href="http://thenounproject.com/Patengerie" target="_blank">Patengerie</a> from The Noun Project. <a href="http://thenounproject.com/noun/shopping-cart/#icon-No5641" target="_blank">Shopping Cart</a> designed by <a href="http://thenounproject.com/naomiatkinson" target="_blank">Naomi Atkinson</a> from The Noun Project.]]></string>
 	
-	<string name="rate_title">Rate this app</string>
-	<string name="rate_explanation">Like the app? It would be great if you could leave a rating or some feedback in the Play Store.</string>
-	<string name="rate_now">Sure</string>
-	<string name="rate_later">Maybe later</string>
-	<string name="rate_never">No, thanks</string>
-		
+	<string name="rate_title">Like the app?</string>
+	<string name="rate_confirm">Give a rating</string>
+
 	<string name="error_connection">No (stable) connection available. Tap to try again.</string>
 	<string name="error_nolocations">Couldn\'t load brewer locations</string>
 	<string name="error_nocalendar">No supported Calendar app found</string>
