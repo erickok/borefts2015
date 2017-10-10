@@ -4,12 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-import org.androidannotations.annotations.EBean;
-import org.androidannotations.annotations.EBean.Scope;
-
 import java.util.HashSet;
 
-@EBean(scope = Scope.Singleton)
 public class StarPersistance {
 
 	private SharedPreferences prefs;

@@ -6,7 +6,7 @@ import android.os.Parcelable;
 
 import nl.brouwerijdemolen.borefts2013.R;
 
-public class Beer implements Comparable<Beer>, Parcelable {
+public class Beer {
 
 	private int id;
 	private String name;
@@ -170,69 +170,6 @@ public class Beer implements Comparable<Beer>, Parcelable {
 			default:
 				return res.getString(R.string.info_serving_keg);
 		}
-	}
-
-	@Override
-	public int compareTo(Beer another) {
-		return name.compareTo(another.getName());
-	}
-
-	public Beer(Parcel in) {
-		this.id = in.readInt();
-		this.name = in.readString();
-		this.brewerId = in.readInt();
-		this.styleId = in.readInt();
-		this.abv = in.readFloat();
-		this.oakAged = in.readInt() == 1;
-		this.festivalBeer = in.readInt() == 1;
-		this.tags = in.readString();
-		this.ratebeerId = in.readInt();
-		this.untappdId = in.readString();
-		this.serving = in.readInt();
-		this.colour = in.readInt();
-		this.body = in.readInt();
-		this.bitterness = in.readInt();
-		this.sweetness = in.readInt();
-		this.acidity = in.readInt();
-		this.brewer = in.readParcelable(Brewer.class.getClassLoader());
-		this.style = in.readParcelable(Style.class.getClassLoader());
-	}
-
-	public static final Creator<Beer> CREATOR = new Creator<Beer>() {
-		public Beer createFromParcel(Parcel in) {
-			return new Beer(in);
-		}
-
-		public Beer[] newArray(int size) {
-			return new Beer[size];
-		}
-	};
-
-	@Override
-	public int describeContents() {
-		return 0;
-	}
-
-	@Override
-	public void writeToParcel(Parcel dest, int flags) {
-		dest.writeInt(id);
-		dest.writeString(name);
-		dest.writeInt(brewerId);
-		dest.writeInt(styleId);
-		dest.writeFloat(abv);
-		dest.writeInt(oakAged ? 1 : 0);
-		dest.writeInt(festivalBeer ? 1 : 0);
-		dest.writeString(tags);
-		dest.writeInt(ratebeerId);
-		dest.writeString(untappdId);
-		dest.writeInt(serving);
-		dest.writeInt(colour);
-		dest.writeInt(body);
-		dest.writeInt(bitterness);
-		dest.writeInt(sweetness);
-		dest.writeInt(acidity);
-		dest.writeParcelable(brewer, flags);
-		dest.writeParcelable(style, flags);
 	}
 
 }

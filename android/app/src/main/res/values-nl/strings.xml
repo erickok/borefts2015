@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<string name="app_name">Borefts Bierfestival 2017</string>
-	<string name="app_name_short">Borefts 2017</string>
+	<string name="app_name">Borefts Bierfestival 2018</string>
+	<string name="app_name_short">Borefts 2018</string>
 
 	<string name="general_location_permission">Je lokatie tonen?</string>
 	<string name="general_location_ok">Ja, graag</string>
