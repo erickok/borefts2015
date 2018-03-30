@@ -1,5 +1,9 @@
 package nl.brouwerijdemolen.borefts2013.api
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class Brewer(
         val id: Int,
         val logoUrl: String,
@@ -11,4 +15,4 @@ data class Brewer(
         val description: String? = null,
         val website: String? = null,
         val latitude: Float,
-        val longitude: Float)
+        val longitude: Float): Parcelable

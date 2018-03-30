@@ -1,4 +1,4 @@
-package nl.brouwerijdemolen.borefts2013.gui.helpers;
+package nl.brouwerijdemolen.borefts2013.gui.components;
 
 import android.content.Context;
 import android.content.SharedPreferences;

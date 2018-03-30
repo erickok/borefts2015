@@ -1,8 +1,11 @@
 package nl.brouwerijdemolen.borefts2013.api
 
 import android.content.res.Resources
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 import nl.brouwerijdemolen.borefts2013.R
 
+@Parcelize
 data class Beer(
         val id: Int,
         val name: String,
@@ -18,7 +21,7 @@ data class Beer(
         val body: Int = 0,
         val bitterness: Int = 0,
         val sweetness: Int = 0,
-        val acidity: Int = 0) {
+        val acidity: Int = 0): Parcelable {
 
     // These are not provided by the server, but loaded manually and attached with their setters
     lateinit var brewer: Brewer

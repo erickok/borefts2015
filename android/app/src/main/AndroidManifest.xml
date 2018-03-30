@@ -25,6 +25,8 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".gui.screens.BeerActivity"/>
+
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyBhPaHFUAwmbuHFgteNX4yfw9ARSOsmogg"/>

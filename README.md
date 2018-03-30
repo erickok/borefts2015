@@ -1,21 +1,24 @@
-Borefts 2016
+Borefts 2018
 ============
 
-The official Android companion app to the Borefts Beer Festival 2016, as organised yearly by brewery De Molen. For everything on the festival itself, please visit [the offical festival website](http://brouwerijdemolen.nl/borefts-bierfestival/).
+The official Android companion app to the Borefts Beer Festival 2018, as organised yearly by brewery De Molen. For everything on the festival  
+itself, please visit [the offical festival website](http://brouwerijdemolen.nl/borefts-bierfestival/).
 
-This app was build by [Eric Kok](http://ekok.nl) of [2312 development](http://2312.nl) as a continuation of the 2013, 2014 and 2015 apps. For the 2015 version, see the dedicated branch or releases. We are open-source, so free to contribute or to modify for your own (festival) needs. Remeber, though, the GNU GPLv3 license is copyleft, so every single change or addition needs to be open-sourced under the same license.
+This app was build by [Eric Kok](http://ekok.nl) of [2312 development](http://2312.nl) as a continuation of the 2013-2017 apps. We are open-source,
+ so free to contribute or to modify for your own (festival) needs. Remember, though, the GNU GPLv3 license is copyleft, so every single change or 
+ addition needs to be open-sourced under the same license.
 
 License
 =======
     
-    Copyright 2010-2016 Eric Kok et al.
+    Copyright 2010-2018 Eric Kok et al.
     
-    Borefts 2016 is free software: you can redistribute it and/or modify
+    Borefts 2018 is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
     
-    Borefts 2016 is distributed in the hope that it will be useful,
+    Borefts 2018 is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
@@ -25,11 +28,23 @@ License
     
 Some code/libraries/resources are used in the project:
 
-*  [AndroidAnnotations](http://androidannotations.org/)  
-    Pierre-Yves Ricau (eBusinessInformations) et al.  
-    Apache License, Version 2.0
-*  [Android Support Libraries](http://developer.android.com/tools/support-library/index.html)  
+*  [Android Support Libraries](https://developer.android.com/topic/libraries/support-library/index.html)  
     The Android Open Source Project  
+    Apache License, Version 2.0
+*  [Retrofit](http://square.github.io/retrofit/)  
+    Square, Inc.  
+    Apache License, Version 2.0
+*  [koin](https://insert-koin.io/)  
+    ekito  
+    Apache License, Version 2.0
+*  [gson](https://github.com/google/gson)  
+    Google Inc.  
+    Apache License, Version 2.0
+*  [Android Architecture Components](https://developer.android.com/topic/libraries/architecture/index.html)  
+    The Android Open Source Project  
+    Apache License, Version 2.0
+*  [retrofit2-kotlin-coroutines-experimental-adapter](https://github.com/JakeWharton/retrofit2-kotlin-coroutines-adapter)  
+    Jake Wharton  
     Apache License, Version 2.0
 *  [Map Marker](http://thenounproject.com/noun/map-marker/#icon-No20774)  
     Tobias F. Wolf from The Noun Project  

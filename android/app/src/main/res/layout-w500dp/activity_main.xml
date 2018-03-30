@@ -1,47 +1,46 @@
-<RelativeLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
-	xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	tools:context=".gui.MainActivity_">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".gui.BoreftsActivity">
 
-	<android.support.v7.widget.Toolbar
-		android:id="@+id/titleToobar"
-		android:layout_width="match_parent"
-		android:layout_height="?attr/actionBarSize"
-		android:background="@android:color/white">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/title_toobar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/white">
 
-		<TextView
-			android:id="@+id/titleText"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginRight="16dp"
-			android:textSize="20sp"
-			tools:text="Borefts 2017" />
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:textSize="20sp"
+            tools:text="Borefts 2017"/>
 
-		<android.support.design.widget.TabLayout
-			android:id="@+id/tabLayout"
-			android:layout_width="match_parent"
-			android:layout_height="?attr/actionBarSize"
-			android:background="@android:color/white"
-			app:tabIndicatorColor="@color/darkred"
-			app:tabMode="scrollable"
-			app:tabMinWidth="0dp"/>
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabs_tablayout"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/white"
+            app:tabIndicatorColor="@color/darkred"
+            app:tabMinWidth="0dp"
+            app:tabMode="scrollable"/>
 
-	</android.support.v7.widget.Toolbar>
+    </android.support.v7.widget.Toolbar>
 
-	<android.support.v4.view.ViewPager
-		android:id="@+id/tabViewPager"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:layout_below="@id/titleToobar" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_toolbarshadow"
+        android:background="@drawable/dropshadow"/>
 
-	<View
-		android:layout_width="match_parent"
-		android:layout_height="@dimen/margin_toolbarshadow"
-		android:layout_below="@id/titleToobar"
-		android:background="@drawable/dropshadow" />
+    <android.support.v4.view.ViewPager
+        android:id="@+id/tabs_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
-</RelativeLayout>
+</LinearLayout>
 

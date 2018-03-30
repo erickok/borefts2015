@@ -21,41 +21,42 @@
 	<string name="action_sendcorrection">Send correction</string>
 	<string name="action_about">About this app</string>
 	
-	<string name="info_what">WHAT? WHERE?</string>
+	<string name="info_what">What? Where?</string>
 	<string name="info_address">Borefts Beer Festival 2017\nDe Molen Brewery\nDoortocht 4, Bodegraven</string>
-	<string name="info_times">Sep 22 &#8211; 23\n12:00 &#8211; 22:00</string>
-	<string name="info_presale">NEW: PRE-SALE ONLY!</string>
-	<string name="info_tokens">ENTRY &amp; TOKENS</string>
-	<string name="info_getmore">BUY EXTRA\nTOKENS</string>
-	<string name="info_entry">3500 ticket per day are available, only available online in the pre-sale. € 25,- for glass, festival booklet and 10 tokens.</string>
-	<string name="info_extra">Additional tokens can be bought with cash or card. NOT 18 YEARS NO ALCOHOL</string>
-	<string name="info_publictransport">PUBLIC TRANSPORT</string>
+	<string name="info_times">Sep 21 &#8211; 22\n12:00 &#8211; 21:45</string>
+	<string name="info_presale">Note: pre-sale only!</string>
+	<string name="info_tokens">Entry &amp; tokens</string>
+	<string name="info_getmore">Buy extra\ntokens</string>
+	<string name="info_entry">3500 ticket per day are available, only available online in the pre-sale. € 35,- for glass, festival booklet and 10
+		tokens.</string>
+	<string name="info_extra">Additional tokens can be bought with cash or card. Extra tokens € 2,- = 1 beer. NOT 18 YEARS NO ALCOHOL</string>
+	<string name="info_publictransport">Public transport</string>
 	<string name="info_trains">Trains run every half hour, in each direction, at :15 and :45. Last trains leave at 00:45.</string>
 	<string name="info_nstimes">Departures</string>
 	<string name="info_noparking">Please don\'t drink and drive. Taxis are available via the regional taxi companies.</string>
 	<string name="info_taxis">Find taxis</string>
-	<string name="info_beercafe">BEER SHOP</string>
+	<string name="info_beercafe">Beer shop</string>
 	<string name="info_findmill">Find mill</string>
 	<string name="info_shopinfo">The beer shop in the old mill is of course open; for De Molen specialties, festival beers and hundreds of other beers.</string>
-	<string name="info_merchandise">MERCHANDISE</string>
+	<string name="info_merchandise">Merchandise</string>
 	<string name="info_shirts">Most brewers will again bring merchansise this year. Moreover, a special Borefts festival t-shirt will be available. You can pay in cash or with card.</string>
 	
 	<string name="info_origin">%1$s, %2$s</string>
 	<string name="info_abvperc">%1$.1f%%</string>
-	<string name="info_color">COLOR</string>
-	<string name="info_abv">ABV</string>
-	<string name="info_bitterness">BITTER</string>
-	<string name="info_sweetness">SWEET</string>
-	<string name="info_acidity">ACIDIC</string>
+	<string name="info_color">color</string>
+	<string name="info_abv">abv</string>
+	<string name="info_bitterness">bitter</string>
+	<string name="info_sweetness">sweet</string>
+	<string name="info_acidity">acidic</string>
 	
-	<string name="info_abvlabel">ABV: %1$.1f%%</string>
-	<string name="info_oakaged">OAK AGED</string>
+	<string name="info_abvlabel">Abv: %1$.1f%%</string>
+	<string name="info_oakaged">oak aged</string>
 	<string name="info_untappd">Untappd</string>
 	<string name="info_google">Google</string>
 	<string name="info_tostyle">(indication based on style)</string>
-	<string name="info_serving_keg">ON KEG</string>
-	<string name="info_serving_cask">ON CASK</string>
-	<string name="info_serving_bottle">ON BOTTLE</string>
+	<string name="info_serving_keg">on keg</string>
+	<string name="info_serving_cask">on cask</string>
+	<string name="info_serving_bottle">on bottle</string>
 	
 	<string name="info_stars">Stars</string>
 	<string name="info_nostars">No beers starred yet.\n\nYou can add your favourite beers to this list using the star button in the top of every beer details screen.</string>
@@ -75,9 +76,9 @@
 	<string name="map_shop">Beer shop</string>
 
 	<string name="about_broughtby">Brought by Eric Kok\nof 2312 development</string>
-	<string name="about_visit2312">2312.NL</string>
-	<string name="about_visitdemolen">DE MOLEN</string>
-	<string name="about_licenses"><![CDATA[Includes <a href="https://github.com/excilys/androidannotations">AndroidAnnotations</a> by Pierre-Yves Ricau et al.<br /><br />Icons: <a href="http://thenounproject.com/noun/map-marker/#icon-No20774" target="_blank">Map Marker</a> designed by <a href="http://thenounproject.com/tobiasfabian" target="_blank">Tobias F. Wolf</a> from The Noun Project. <a href="http://thenounproject.com/noun/toilet-paper/#icon-No2962" target="_blank">Toilet Paper</a> designed by <a href="http://thenounproject.com/pieroborgo" target="_blank">Piero Borgo</a> from The Noun Project. <a href="http://thenounproject.com/noun/entrance/#icon-No2276" target="_blank">Entrance</a> designed by <a href="http://thenounproject.com/pedro.lalli" target="_blank">Pedro Lalli</a> from The Noun Project. <a href="http://thenounproject.com/noun/coins/#icon-No4509" target="_blank">Coins</a> designed by <a href="http://thenounproject.com/zer0mike" target="_blank">Mike Hince</a> from The Noun Project. <a href="http://thenounproject.com/noun/hamburger/#icon-No10990" target="_blank">Hamburger</a> designed by <a href="http://thenounproject.com/skatakila" target="_blank">Ricardo Moreira</a> from The Noun Project. <a href="http://thenounproject.com/noun/bottle/#icon-No137253" target="_blank">Bottle</a> designed by <a href="http://thenounproject.com/Patengerie" target="_blank">Patengerie</a> from The Noun Project. <a href="http://thenounproject.com/noun/shopping-cart/#icon-No5641" target="_blank">Shopping Cart</a> designed by <a href="http://thenounproject.com/naomiatkinson" target="_blank">Naomi Atkinson</a> from The Noun Project.]]></string>
+	<string name="about_visit2312">2312.nl</string>
+	<string name="about_visitdemolen">De Molen</string>
+	<string name="about_licenses"><![CDATA[See <a href="https://github.com/erickok/borefts2015">the GitHub project</a> for open-source license information.]]></string>
 	
 	<string name="rate_title">Rate this app</string>
 	<string name="rate_explanation">Like the app? It would be great if you could leave a rating or some feedback in the Play Store.</string>
