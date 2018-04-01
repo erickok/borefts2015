@@ -79,13 +79,10 @@
 	<string name="about_visit2312">2312.nl</string>
 	<string name="about_visitdemolen">De Molen</string>
 	<string name="about_licenses"><![CDATA[Zie <a href="https://github.com/erickok/borefts2015">the GitHub project</a> voor opensource-licentieinformatie.]]></string>
-	
-	<string name="rate_title">Beoordeel de app</string>
-	<string name="rate_explanation">Nuttige app? Het zou super zijn als je een beoordeling gaf of me liet weten wat je van de app vindt.</string>
-	<string name="rate_now">Doe ik</string>
-	<string name="rate_later">Misschien later</string>
-	<string name="rate_never">Nee, bedankt</string>
-	
+
+	<string name="rate_title">Nuttige app?</string>
+	<string name="rate_confirm">Geef beoordeling</string>
+
 	<string name="error_connection">Geen (stabiele) verbinding beschikbaar. Raak aan om opnieuw te proberen.</string>
 	<string name="error_nolocations">De brouwers konden niet worden geladen</string>
 	<string name="error_nocalendar">Geen ondersteunde kalenderaplicatie gevonden</string>

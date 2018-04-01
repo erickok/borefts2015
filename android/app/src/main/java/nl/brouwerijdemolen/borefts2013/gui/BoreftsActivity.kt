@@ -1,32 +1,105 @@
 package nl.brouwerijdemolen.borefts2013.gui
 
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentStatePagerAdapter
+import android.support.v4.content.ContextCompat
+import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.tabs_tablayout
 import kotlinx.android.synthetic.main.activity_main.tabs_viewpager
 import kotlinx.android.synthetic.main.activity_main.title_text
+import kotlinx.android.synthetic.main.activity_main.title_toobar
 import nl.brouwerijdemolen.borefts2013.R
+import nl.brouwerijdemolen.borefts2013.gui.components.AppRater
 import nl.brouwerijdemolen.borefts2013.gui.components.getMolenString
+import nl.brouwerijdemolen.borefts2013.gui.screens.AboutFragment
 import nl.brouwerijdemolen.borefts2013.gui.screens.BafFragment
 import nl.brouwerijdemolen.borefts2013.gui.screens.InfoFragment
+import nl.brouwerijdemolen.borefts2013.gui.screens.TwitterFragment
+import org.koin.android.ext.android.inject
+
 
 class BoreftsActivity : AppCompatActivity() {
 
-    private val infoFragment = InfoFragment()
+    val appRater: AppRater by inject()
+
+    private val infoFragment by lazy { InfoFragment() }
+    private val twitterFragment by lazy { TwitterFragment() }
+    private val bafFragment by lazy { BafFragment() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        title_text.text = this.getMolenString(title_text.text)
         setupViewPager()
+        setupToolbar()
+        hitAppRater()
+    }
+
+    private fun setupToolbar() {
+        title_text.text = this.getMolenString(title_text.text)
+        title_toobar.inflateMenu(R.menu.activity_start)
+        // Only show refresh button on Twitter page
+        tabs_viewpager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+            val refreshMenuItem = title_toobar.menu.findItem(R.id.action_refresh)
+            override fun onPageScrollStateChanged(state: Int) = Unit
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) = Unit
+            override fun onPageSelected(position: Int) {
+                refreshMenuItem.isVisible = position == 4
+            }
+        })
+        // Handle toolbar menu clicks
+        title_toobar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.action_refresh -> twitterFragment.refreshFeed()
+                R.id.action_sendcorrection -> prepareCorrectionEmail()
+                R.id.action_about -> AboutFragment().show(supportFragmentManager, "about")
+            }
+            true
+        }
     }
 
     private fun setupViewPager() {
         tabs_viewpager.adapter = TabsAdapter()
         tabs_tablayout.setupWithViewPager(tabs_viewpager)
+    }
+
+    private fun hitAppRater() {
+        appRater.hit()
+        if (appRater.shouldShow()) {
+            Snackbar.make(tabs_viewpager, R.string.rate_title, Snackbar.LENGTH_LONG).apply {
+                setActionTextColor(ContextCompat.getColor(this@BoreftsActivity, R.color.yellow))
+                setAction(R.string.rate_confirm) {
+                    appRater.block()
+                    try {
+                        startActivity(Intent(Intent.ACTION_VIEW)
+                                .setData(Uri.parse("market://details?id=nl.brouwerijdemolen.borefts2013")))
+                    } catch (e: Exception) {
+                        // No Play Store installed: ignore
+                    }
+                }
+                show()
+            }
+        }
+    }
+
+    private fun prepareCorrectionEmail() {
+        val startEmail = Intent(Intent.ACTION_SEND).apply {
+            type = "message/rfc822"
+            putExtra(Intent.EXTRA_EMAIL, arrayOf("borefts2018@2312.nl"))
+            putExtra(Intent.EXTRA_SUBJECT, "Borefts 2018 Android app correction")
+        }
+        try {
+            startActivity(startEmail)
+        } catch (e: ActivityNotFoundException) {
+            // Ignore; normal devices always have an app to send emails, but at least do not crash
+        }
+
     }
 
     inner class TabsAdapter : FragmentStatePagerAdapter(supportFragmentManager) {
@@ -36,6 +109,8 @@ class BoreftsActivity : AppCompatActivity() {
         override fun getItem(position: Int): Fragment {
             return when (position) {
                 0 -> infoFragment
+                4 -> twitterFragment
+                5 -> bafFragment
                 else -> BafFragment()
             }
         }

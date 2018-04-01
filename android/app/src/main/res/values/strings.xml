@@ -79,13 +79,10 @@
 	<string name="about_visit2312">2312.nl</string>
 	<string name="about_visitdemolen">De Molen</string>
 	<string name="about_licenses"><![CDATA[See <a href="https://github.com/erickok/borefts2015">the GitHub project</a> for open-source license information.]]></string>
-	
-	<string name="rate_title">Rate this app</string>
-	<string name="rate_explanation">Like the app? It would be great if you could leave a rating or some feedback in the Play Store.</string>
-	<string name="rate_now">Sure</string>
-	<string name="rate_later">Maybe later</string>
-	<string name="rate_never">No, thanks</string>
-		
+
+	<string name="rate_title">Like the app?</string>
+	<string name="rate_confirm">Give a rating</string>
+
 	<string name="error_connection">No (stable) connection available. Tap to try again.</string>
 	<string name="error_nolocations">Couldn\'t load brewer locations</string>
 	<string name="error_nocalendar">No supported Calendar app found</string>
