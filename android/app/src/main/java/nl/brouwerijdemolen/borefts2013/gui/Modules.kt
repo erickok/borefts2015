@@ -2,7 +2,11 @@ package nl.brouwerijdemolen.borefts2013.gui
 
 import nl.brouwerijdemolen.borefts2013.api.Api
 import nl.brouwerijdemolen.borefts2013.gui.components.AppRater
+import nl.brouwerijdemolen.borefts2013.gui.screens.BrewerActivity
+import nl.brouwerijdemolen.borefts2013.gui.screens.BrewerViewModel
 import nl.brouwerijdemolen.borefts2013.gui.screens.BrewersViewModel
+import nl.brouwerijdemolen.borefts2013.gui.screens.StyleActivity
+import nl.brouwerijdemolen.borefts2013.gui.screens.StyleViewModel
 import nl.brouwerijdemolen.borefts2013.gui.screens.StylesViewModel
 import org.koin.android.architecture.ext.viewModel
 import org.koin.dsl.module.applicationContext
@@ -16,4 +20,6 @@ val uiModel = applicationContext {
     bean { AppRater(get()) }
     viewModel { BrewersViewModel(get()) }
     viewModel { StylesViewModel(get()) }
+    viewModel { params -> BrewerViewModel(params[BrewerActivity.KEY_BREWER], get()) }
+    viewModel { params -> StyleViewModel(params[StyleActivity.KEY_STYLE], get()) }
 }

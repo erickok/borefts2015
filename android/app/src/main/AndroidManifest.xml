@@ -25,6 +25,8 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".gui.screens.BrewerActivity"/>
+        <activity android:name=".gui.screens.StyleActivity"/>
         <activity android:name=".gui.screens.BeerActivity"/>
 
         <meta-data

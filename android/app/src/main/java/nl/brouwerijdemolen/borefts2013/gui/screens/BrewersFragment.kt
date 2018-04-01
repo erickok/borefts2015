@@ -48,12 +48,12 @@ class BrewersFragment : Fragment() {
     }
 
     private fun openBrewer(brewer: Brewer) {
-        // TODO
+        startActivity(BrewerActivity(requireContext(), brewer))
     }
 
 }
 
-class BrewersListAdapter(val brewerClicked: (Brewer) -> Unit) : ListAdapter<Brewer, BrewersListAdapter.BrewersViewHolder>(BrewersDiffCallback) {
+class BrewersListAdapter(private val brewerClicked: (Brewer) -> Unit) : ListAdapter<Brewer, BrewersListAdapter.BrewersViewHolder>(BrewersDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BrewersViewHolder {
         return BrewersViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.list_item_brewer, parent, false))

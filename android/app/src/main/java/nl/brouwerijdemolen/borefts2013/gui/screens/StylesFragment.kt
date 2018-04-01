@@ -43,7 +43,7 @@ class StylesFragment : Fragment() {
     }
 
     private fun openStyle(style: Style) {
-        //TODO startActivity()
+        startActivity(StyleActivity(requireContext(), style))
     }
 
 }
