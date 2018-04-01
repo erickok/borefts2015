@@ -1,4 +1,4 @@
-package nl.brouwerijdemolen.borefts2013.gui.components
+package nl.brouwerijdemolen.borefts2013.gui
 
 import nl.brouwerijdemolen.borefts2013.api.Api
 import retrofit2.Response
