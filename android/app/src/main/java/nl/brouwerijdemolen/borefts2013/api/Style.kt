@@ -13,7 +13,7 @@ data class Style(
         val sweetness: Int,
         val acidity: Int) {
 
-    fun colorResource(res: Resources): Int {
+    fun getColorResource(res: Resources): Int {
         return when (color) {
             1 -> res.getColor(R.color.style_1)
             2 -> res.getColor(R.color.style_2)

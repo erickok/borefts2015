@@ -5,11 +5,8 @@ import android.arch.lifecycle.MediatorLiveData
 import android.arch.lifecycle.Transformations
 import android.support.annotation.MainThread
 
-
 @MainThread
-fun <X, Y> LiveData<X>.map(func: (X) -> Y): LiveData<Y> {
-    return Transformations.map(this, func)
-}
+fun <X, Y> LiveData<X>.map(func: (X) -> Y): LiveData<Y> = Transformations.map(this, func)
 
 @MainThread
 fun <Y> LiveData<Y>.filter(predicate: (Y) -> Boolean): LiveData<Y> {

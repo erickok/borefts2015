@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fragment_background"
     android:paddingLeft="@dimen/margin_sides"
     android:paddingRight="@dimen/margin_sides">
 
-    <ListView
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/the_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"/>
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layoutManager="LinearLayoutManager"/>
 
     <ProgressBar
         android:id="@+id/loading_progress"

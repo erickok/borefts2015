@@ -11,7 +11,8 @@
         android:id="@+id/title_toobar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@android:color/white">
+        android:background="@android:color/white"
+        android:elevation="4dp">
 
         <TextView
             android:id="@+id/title_text"
@@ -31,11 +32,6 @@
             app:tabMode="scrollable"/>
 
     </android.support.v7.widget.Toolbar>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/margin_toolbarshadow"
-        android:background="@drawable/dropshadow"/>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/tabs_viewpager"

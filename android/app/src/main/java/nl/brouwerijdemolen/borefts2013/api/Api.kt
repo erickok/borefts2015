@@ -2,6 +2,7 @@ package nl.brouwerijdemolen.borefts2013.api
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.experimental.CoroutineCallAdapterFactory
 import kotlinx.coroutines.experimental.Deferred
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
@@ -18,27 +19,27 @@ class Api {
 
     private val routes by lazy { retrofit.create(Routes::class.java) }
 
-    suspend fun pois(): Pois = routes.pois().await()
+    suspend fun pois() = routes.pois().await()
 
-    suspend fun brewers(): Brewers = routes.brewers().await()
+    suspend fun brewers() = routes.brewers().await()
 
-    suspend fun styles(): Styles = routes.styles().await()
+    suspend fun styles() = routes.styles().await()
 
-    suspend fun beers(): Beers = routes.beers().await()
+    suspend fun beers() = routes.beers().await()
 
     interface Routes {
 
         @GET("http://2312.nl/borefts2017/pois.php")
-        fun pois(): Deferred<Pois>
+        fun pois(): Deferred<Response<Pois>>
 
         @GET("brewers/2017.json")
-        fun brewers(): Deferred<Brewers>
+        fun brewers(): Deferred<Response<Brewers>>
 
         @GET("styles/2017.json")
-        fun styles(): Deferred<Styles>
+        fun styles(): Deferred<Response<Styles>>
 
         @GET("beers/2017.json")
-        fun beers(): Deferred<Beers>
+        fun beers(): Deferred<Response<Beers>>
 
     }
 

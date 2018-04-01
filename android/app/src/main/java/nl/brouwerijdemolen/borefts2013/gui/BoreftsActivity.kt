@@ -19,16 +19,18 @@ import nl.brouwerijdemolen.borefts2013.gui.components.AppRater
 import nl.brouwerijdemolen.borefts2013.gui.components.getMolenString
 import nl.brouwerijdemolen.borefts2013.gui.screens.AboutFragment
 import nl.brouwerijdemolen.borefts2013.gui.screens.BafFragment
+import nl.brouwerijdemolen.borefts2013.gui.screens.BrewersFragment
 import nl.brouwerijdemolen.borefts2013.gui.screens.InfoFragment
+import nl.brouwerijdemolen.borefts2013.gui.screens.StylesFragment
 import nl.brouwerijdemolen.borefts2013.gui.screens.TwitterFragment
 import org.koin.android.ext.android.inject
 
-
 class BoreftsActivity : AppCompatActivity() {
 
-    val appRater: AppRater by inject()
-
+    private val appRater: AppRater by inject()
     private val infoFragment by lazy { InfoFragment() }
+    private val brewersFragment by lazy { BrewersFragment() }
+    private val stylesFragment by lazy { StylesFragment() }
     private val twitterFragment by lazy { TwitterFragment() }
     private val bafFragment by lazy { BafFragment() }
 
@@ -109,9 +111,12 @@ class BoreftsActivity : AppCompatActivity() {
         override fun getItem(position: Int): Fragment {
             return when (position) {
                 0 -> infoFragment
+                1 -> brewersFragment
+                2 -> stylesFragment
+            // TODO StarsFragment
+                3 -> BafFragment()
                 4 -> twitterFragment
-                5 -> bafFragment
-                else -> BafFragment()
+                else -> bafFragment
             }
         }
 

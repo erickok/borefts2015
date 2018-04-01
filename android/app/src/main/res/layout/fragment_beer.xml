@@ -24,7 +24,6 @@
 
     <Button
         android:id="@+id/brewer_button"
-        style="@style/DefaultButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/name_text"
@@ -36,7 +35,6 @@
 
     <Button
         android:id="@+id/style_button"
-        style="@style/DefaultButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
