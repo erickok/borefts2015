@@ -1,9 +1,7 @@
 package nl.brouwerijdemolen.borefts2013.api
 
-import android.content.res.Resources
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
-import nl.brouwerijdemolen.borefts2013.R
 
 @Parcelize
 data class Style(
@@ -14,17 +12,4 @@ data class Style(
         val body: Int,
         val bitterness: Int,
         val sweetness: Int,
-        val acidity: Int): Parcelable {
-
-    fun getColorResource(res: Resources): Int {
-        return when (color) {
-            1 -> res.getColor(R.color.style_1)
-            2 -> res.getColor(R.color.style_2)
-            3 -> res.getColor(R.color.style_3)
-            4 -> res.getColor(R.color.style_4)
-            5 -> res.getColor(R.color.style_5)
-            else -> res.getColor(R.color.style_unknown)
-        }
-    }
-
-}
+        val acidity: Int) : Parcelable

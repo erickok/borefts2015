@@ -2,6 +2,7 @@ package nl.brouwerijdemolen.borefts2013.gui
 
 import nl.brouwerijdemolen.borefts2013.api.Api
 import nl.brouwerijdemolen.borefts2013.gui.components.AppRater
+import nl.brouwerijdemolen.borefts2013.gui.components.ResourceProvider
 import nl.brouwerijdemolen.borefts2013.gui.screens.BrewerActivity
 import nl.brouwerijdemolen.borefts2013.gui.screens.BrewerViewModel
 import nl.brouwerijdemolen.borefts2013.gui.screens.BrewersViewModel
@@ -16,8 +17,12 @@ val networkModule = applicationContext {
     bean { Repository(get()) }
 }
 
-val uiModel = applicationContext {
+val uiModule = applicationContext {
+    bean { ResourceProvider(get()) }
     bean { AppRater(get()) }
+}
+
+val viewModelsModule = applicationContext {
     viewModel { BrewersViewModel(get()) }
     viewModel { StylesViewModel(get()) }
     viewModel { params -> BrewerViewModel(params[BrewerActivity.KEY_BREWER], get()) }

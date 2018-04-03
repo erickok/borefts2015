@@ -83,7 +83,7 @@
 	<string name="rate_title">Nuttige app?</string>
 	<string name="rate_confirm">Geef beoordeling</string>
 
-	<string name="error_connection">Geen (stabiele) verbinding beschikbaar. Raak aan om opnieuw te proberen.</string>
+	<string name="error_connection">Geen (stabiele) verbinding beschikbaar.\nRaak aan om opnieuw te proberen.</string>
 	<string name="error_nolocations">De brouwers konden niet worden geladen</string>
 	<string name="error_nocalendar">Geen ondersteunde kalenderaplicatie gevonden</string>
 	<string name="error_notcoupled">Dit bier is nog niet aan de website gekoppeld</string>

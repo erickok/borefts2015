@@ -74,7 +74,7 @@ class BoreftsActivity : AppCompatActivity() {
     private fun hitAppRater() {
         appRater.hit()
         if (appRater.shouldShow()) {
-            Snackbar.make(tabs_viewpager, R.string.rate_title, Snackbar.LENGTH_LONG).apply {
+            Snackbar.make(tabs_viewpager, R.string.rate_title, 5_000).apply {
                 setActionTextColor(ContextCompat.getColor(this@BoreftsActivity, R.color.yellow))
                 setAction(R.string.rate_confirm) {
                     appRater.block()

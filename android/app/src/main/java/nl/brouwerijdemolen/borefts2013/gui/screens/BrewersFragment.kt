@@ -1,12 +1,10 @@
 package nl.brouwerijdemolen.borefts2013.gui.screens
 
-import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.recyclerview.extensions.ListAdapter
 import android.support.v7.util.DiffUtil
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,9 +19,11 @@ import nl.brouwerijdemolen.borefts2013.R
 import nl.brouwerijdemolen.borefts2013.api.Brewer
 import nl.brouwerijdemolen.borefts2013.ext.isVisible
 import nl.brouwerijdemolen.borefts2013.ext.observeNonNull
+import nl.brouwerijdemolen.borefts2013.gui.location
+import nl.brouwerijdemolen.borefts2013.gui.logoBitmap
 import org.koin.android.architecture.ext.viewModel
-import java.io.IOException
-
+import org.koin.standalone.KoinComponent
+import org.koin.standalone.get
 
 class BrewersFragment : Fragment() {
 
@@ -39,7 +39,7 @@ class BrewersFragment : Fragment() {
         the_list.adapter = brewersListAdapter
         viewModel.state.observeNonNull(this) {
             loading_progress.isVisible = it == BrewersUiModel.Loading
-            error_text.isVisible = it is BrewersUiModel.Failure
+            error_text.isVisible = it === BrewersUiModel.Failure
             the_list.isVisible = it is BrewersUiModel.Success
             if (it is BrewersUiModel.Success) {
                 brewersListAdapter.submitList(it.brewers)
@@ -53,7 +53,8 @@ class BrewersFragment : Fragment() {
 
 }
 
-class BrewersListAdapter(private val brewerClicked: (Brewer) -> Unit) : ListAdapter<Brewer, BrewersListAdapter.BrewersViewHolder>(BrewersDiffCallback) {
+class BrewersListAdapter(
+        private val brewerClicked: (Brewer) -> Unit) : ListAdapter<Brewer, BrewersListAdapter.BrewersViewHolder>(BrewersDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BrewersViewHolder {
         return BrewersViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.list_item_brewer, parent, false))
@@ -69,18 +70,12 @@ class BrewersListAdapter(private val brewerClicked: (Brewer) -> Unit) : ListAdap
 
     }
 
-    class BrewersViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer {
+    class BrewersViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer, KoinComponent {
 
         fun bind(brewer: Brewer, brewerClicked: (Brewer) -> Unit) {
             name_text.text = brewer.name
-            origin_text.text = containerView.resources.getString(R.string.info_origin, brewer.city, brewer.country)
-            try {
-                logo_image.setImageBitmap(BitmapFactory.decodeStream(containerView.resources.assets.open("images/" + brewer.logoUrl)))
-            } catch (e: IOException) {
-                // Should never happen, as the brewer logo always exists locally
-                Log.e("BrewersViewHolder", "Missing brewer icon drawable", e)
-                logo_image.setImageDrawable(null)
-            }
+            origin_text.text = brewer.location(get())
+            logo_image.setImageBitmap(brewer.logoBitmap(get()))
             containerView.setOnClickListener { brewerClicked(brewer) }
         }
 

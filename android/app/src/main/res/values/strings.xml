@@ -83,7 +83,7 @@
 	<string name="rate_title">Like the app?</string>
 	<string name="rate_confirm">Give a rating</string>
 
-	<string name="error_connection">No (stable) connection available. Tap to try again.</string>
+	<string name="error_connection">No (stable) connection available.\nTap to try again.</string>
 	<string name="error_nolocations">Couldn\'t load brewer locations</string>
 	<string name="error_nocalendar">No supported Calendar app found</string>
 	<string name="error_notcoupled">This beer is not yet coupled to the website</string>

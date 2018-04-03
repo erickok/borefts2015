@@ -25,9 +25,15 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".gui.screens.BrewerActivity"/>
-        <activity android:name=".gui.screens.StyleActivity"/>
-        <activity android:name=".gui.screens.BeerActivity"/>
+        <activity
+            android:name=".gui.screens.BrewerActivity"
+            android:parentActivityName=".gui.BoreftsActivity"/>
+        <activity
+            android:name=".gui.screens.StyleActivity"
+            android:parentActivityName=".gui.BoreftsActivity"/>
+        <activity
+            android:name=".gui.screens.BeerActivity"
+            android:parentActivityName=".gui.BoreftsActivity"/>
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"

@@ -2,12 +2,12 @@ package nl.brouwerijdemolen.borefts2013.gui.screens
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
+import arrow.data.getOrElse
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
 import nl.brouwerijdemolen.borefts2013.api.Beer
 import nl.brouwerijdemolen.borefts2013.api.Style
 import nl.brouwerijdemolen.borefts2013.gui.Repository
-import nl.brouwerijdemolen.borefts2013.gui.Result
 
 class StyleViewModel(
         private val style: Style,
@@ -17,20 +17,13 @@ class StyleViewModel(
 
     init {
         launch(UI) {
-            state.postValue(StyleUiModel(style.name, style.color, repository.styleBeers(style.id).requireSuccess()))
-        }
-    }
-
-    private fun Result<List<Beer>>.requireSuccess(): List<Beer> {
-        return when (this) {
-            is Result.Error -> throw IllegalStateException("StyleViewModel can only be created with cached data")
-            is Result.Data -> this.value
+            state.postValue(StyleUiModel(style, repository.styleBeers(style.id)
+                    .getOrElse { throw IllegalStateException("StyleViewModel can only be created with cached data") }))
         }
     }
 
 }
 
 data class StyleUiModel(
-        val name: String,
-        val color: Int,
+        val style: Style,
         val beers: List<Beer>)

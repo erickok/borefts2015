@@ -18,7 +18,10 @@ import nl.brouwerijdemolen.borefts2013.R
 import nl.brouwerijdemolen.borefts2013.api.Style
 import nl.brouwerijdemolen.borefts2013.ext.isVisible
 import nl.brouwerijdemolen.borefts2013.ext.observeNonNull
+import nl.brouwerijdemolen.borefts2013.gui.getColorResource
 import org.koin.android.architecture.ext.viewModel
+import org.koin.standalone.KoinComponent
+import org.koin.standalone.get
 
 class StylesFragment : Fragment() {
 
@@ -34,7 +37,7 @@ class StylesFragment : Fragment() {
         the_list.adapter = stylesListAdapter
         viewModel.state.observeNonNull(this) {
             loading_progress.isVisible = it == StylesUiModel.Loading
-            error_text.isVisible = it is StylesUiModel.Failure
+            error_text.isVisible = it === StylesUiModel.Failure
             the_list.isVisible = it is StylesUiModel.Success
             if (it is StylesUiModel.Success) {
                 stylesListAdapter.submitList(it.styles)
@@ -48,7 +51,8 @@ class StylesFragment : Fragment() {
 
 }
 
-class StylesListAdapter(private val styleClicked: (Style) -> Unit) : ListAdapter<Style, StylesListAdapter.StyleViewHolder>(StylesDiffCallback) {
+class StylesListAdapter(
+        private val styleClicked: (Style) -> Unit) : ListAdapter<Style, StylesListAdapter.StyleViewHolder>(StylesDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StyleViewHolder {
         return StyleViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.list_item_style, parent, false))
@@ -64,11 +68,11 @@ class StylesListAdapter(private val styleClicked: (Style) -> Unit) : ListAdapter
 
     }
 
-    class StyleViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer {
+    class StyleViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer, KoinComponent {
 
         fun bind(style: Style, styleClicked: (Style) -> Unit) {
             name_text.text = style.name
-            color_view.setBackgroundColor(style.getColorResource(containerView.resources))
+            color_view.setBackgroundColor(style.getColorResource(get()))
             containerView.setOnClickListener { styleClicked(style) }
         }
 

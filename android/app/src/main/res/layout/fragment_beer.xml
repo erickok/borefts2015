@@ -180,32 +180,32 @@
             <View
                 android:id="@+id/color_view"
                 android:layout_width="24dp"
-                android:layout_height="80dp"
+                android:layout_height="@dimen/bars_beer_height"
                 android:layout_gravity="center"/>
         </FrameLayout>
 
-        <nl.brouwerijdemolen.borefts2013.gui.fragments.BarView
+        <nl.brouwerijdemolen.borefts2013.gui.screens.BarView
             android:id="@+id/abv_view"
             android:layout_width="0dp"
-            android:layout_height="80dp"
+            android:layout_height="@dimen/bars_beer_height"
             android:layout_weight="1"/>
 
-        <nl.brouwerijdemolen.borefts2013.gui.fragments.BarView
+        <nl.brouwerijdemolen.borefts2013.gui.screens.BarView
             android:id="@+id/bitterness_view"
             android:layout_width="0dp"
-            android:layout_height="80dp"
+            android:layout_height="@dimen/bars_beer_height"
             android:layout_weight="1"/>
 
-        <nl.brouwerijdemolen.borefts2013.gui.fragments.BarView
+        <nl.brouwerijdemolen.borefts2013.gui.screens.BarView
             android:id="@+id/sweetness_view"
             android:layout_width="0dp"
-            android:layout_height="80dp"
+            android:layout_height="@dimen/bars_beer_height"
             android:layout_weight="1"/>
 
-        <nl.brouwerijdemolen.borefts2013.gui.fragments.BarView
+        <nl.brouwerijdemolen.borefts2013.gui.screens.BarView
             android:id="@+id/acidity_view"
             android:layout_width="0dp"
-            android:layout_height="80dp"
+            android:layout_height="@dimen/bars_beer_height"
             android:layout_weight="1"/>
     </LinearLayout>
 

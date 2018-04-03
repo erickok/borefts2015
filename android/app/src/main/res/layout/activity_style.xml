@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_default"
+                    android:layout_marginTop="?attr/actionBarSize"
+                    android:orientation="horizontal"
+                    app:layout_collapseMode="parallax"
+                    app:layout_scrollFlags="scroll">
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/bars_style_height"
+                        android:layout_weight="1">
+
+                        <View
+                            android:id="@+id/color_view"
+                            android:layout_width="24dp"
+                            android:layout_height="150dp"
+                            android:layout_gravity="center"/>
+                    </FrameLayout>
+
+                    <nl.brouwerijdemolen.borefts2013.gui.screens.BarView
+                        android:id="@+id/abv_view"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/bars_style_height"
+                        android:layout_weight="1"/>
+
+                    <nl.brouwerijdemolen.borefts2013.gui.screens.BarView
+                        android:id="@+id/bitterness_view"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/bars_style_height"
+                        android:layout_weight="1"/>
+
+                    <nl.brouwerijdemolen.borefts2013.gui.screens.BarView
+                        android:id="@+id/sweetness_view"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/bars_style_height"
+                        android:layout_weight="1"/>
+
+                    <nl.brouwerijdemolen.borefts2013.gui.screens.BarView
+                        android:id="@+id/acidity_view"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/bars_style_height"
+                        android:layout_weight="1"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_default"
+                    android:orientation="horizontal"
+                    app:layout_collapseMode="parallax"
+                    app:layout_scrollFlags="scroll">
+
+                    <TextView
+                        android:id="@+id/color_text"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/info_color"
+                        android:textSize="@dimen/text_small"/>
+
+                    <TextView
+                        android:id="@+id/abv_text"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/info_abv"
+                        android:textSize="@dimen/text_small"/>
+
+                    <TextView
+                        android:id="@+id/bitterness_text"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/info_bitterness"
+                        android:textSize="@dimen/text_small"/>
+
+                    <TextView
+                        android:id="@+id/sweetness_text"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/info_sweetness"
+                        android:textSize="@dimen/text_small"/>
+
+                    <TextView
+                        android:id="@+id/acidity_text"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/info_acidity"
+                        android:textSize="@dimen/text_small"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/title_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@android:color/white"
+                app:layout_collapseMode="pin">
+
+                <TextView
+                    android:id="@+id/title_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    tools:text="Borefts 2018"/>
+
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/beers_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layoutManager="LinearLayoutManager"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+</android.support.design.widget.CoordinatorLayout>

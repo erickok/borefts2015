@@ -2,11 +2,14 @@ package nl.brouwerijdemolen.borefts2013.gui.screens
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
+import arrow.data.Failure
+import arrow.data.Success
+import arrow.data.Try
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
 import nl.brouwerijdemolen.borefts2013.api.Style
 import nl.brouwerijdemolen.borefts2013.gui.Repository
-import nl.brouwerijdemolen.borefts2013.gui.Result
+import nl.brouwerijdemolen.borefts2013.gui.components.log
 
 class StylesViewModel(
         private val repository: Repository) : ViewModel() {
@@ -19,10 +22,10 @@ class StylesViewModel(
         }
     }
 
-    private fun Result<List<Style>>.toUiModel(): StylesUiModel {
+    private fun Try<List<Style>>.toUiModel(): StylesUiModel {
         return when (this) {
-            is Result.Data -> StylesUiModel.Success(value)
-            is Result.Error -> StylesUiModel.Failure(message)
+            is Success -> StylesUiModel.Success(value)
+            is Failure -> StylesUiModel.Failure.also { this.log() }
         }
     }
 
@@ -30,6 +33,6 @@ class StylesViewModel(
 
 sealed class StylesUiModel {
     object Loading : StylesUiModel()
-    data class Failure(val error: String?) : StylesUiModel()
+    object Failure : StylesUiModel()
     data class Success(val styles: List<Style>) : StylesUiModel()
 }

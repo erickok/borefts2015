@@ -7,7 +7,7 @@ class BoreftsApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        startKoin(this, listOf(networkModule, uiModel))
+        startKoin(this, listOf(networkModule, uiModule, viewModelsModule))
     }
 
 }
