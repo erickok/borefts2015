@@ -1,5 +1,5 @@
 buildscript {
-    ext.kotlin_version = '1.2.30'
+    ext.kotlin_version = '1.2.31'
     repositories {
         jcenter()
         google()
@@ -14,9 +14,6 @@ allprojects {
     repositories {
         jcenter()
         google()
-        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
-        maven { url 'https://kotlin.bintray.com/kotlinx' }
-        mavenLocal()
     }
 }
 

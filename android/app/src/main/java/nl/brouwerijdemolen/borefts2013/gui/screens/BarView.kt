@@ -25,6 +25,10 @@ class BarView @JvmOverloads constructor(
     private val valueRect = RectF()
 
     var value = 0
+    set(value) {
+        field = value
+        invalidate()
+    }
 
     init {
         barPaint.color = res.getColor(R.color.style_unknown)

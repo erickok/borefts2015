@@ -13,6 +13,9 @@
 	<dimen name="text_enlarged">19sp</dimen>
 	<dimen name="text_large">25sp</dimen>
 
+	<dimen name="toolbar_elevation">4dp</dimen>
+
+	<!-- Value bars -->
 	<dimen name="bars_style_height">120sp</dimen>
 	<dimen name="bars_beer_height">80sp</dimen>
 
