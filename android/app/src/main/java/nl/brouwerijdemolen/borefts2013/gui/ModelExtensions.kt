@@ -39,6 +39,9 @@ val Beer.abvIndication: Int
         Math.min(Math.max(Math.round(abv / 2.3).toInt(), 1), 5)
     } else style.abv
 
+val Beer.hasFlavourIndication: Boolean
+    get() = bitterness > 0 && sweetness > 0 && acidity > 0
+
 val Beer.bitternessIndication: Int
     get() = if (bitterness > 0) {
         bitterness
@@ -66,7 +69,7 @@ fun Beer.colorIndicationResource(res: ResourceProvider): Int {
     }
 }
 
-fun Beer.servingResource(res: ResourceProvider): String {
+fun Beer.servingText(res: ResourceProvider): String {
     return when (serving) {
         1 -> res.getString(R.string.info_serving_cask)
         2 -> res.getString(R.string.info_serving_bottle)

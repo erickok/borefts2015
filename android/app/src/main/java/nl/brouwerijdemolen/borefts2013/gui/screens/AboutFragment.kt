@@ -1,7 +1,6 @@
 package nl.brouwerijdemolen.borefts2013.gui.screens
 
 import android.app.Dialog
-import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.DialogFragment
@@ -16,6 +15,7 @@ import kotlinx.android.synthetic.main.dialog_about.visit2312_button
 import kotlinx.android.synthetic.main.dialog_about.visitdemolen_button
 import nl.brouwerijdemolen.borefts2013.R
 import nl.brouwerijdemolen.borefts2013.ext.asHtml
+import nl.brouwerijdemolen.borefts2013.ext.startLink
 import nl.brouwerijdemolen.borefts2013.gui.components.getMolenString
 
 class AboutFragment : DialogFragment() {
@@ -35,12 +35,10 @@ class AboutFragment : DialogFragment() {
         licenses_text.text = getString(R.string.about_licenses).asHtml()
         licenses_text.movementMethod = LinkMovementMethod.getInstance()
         visitdemolen_button.setOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("http://www.brouwerijdemolen.nl"))
-                    .setFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT))
+            requireContext().startLink(Uri.parse("http://www.brouwerijdemolen.nl"))
         }
         visit2312_button.setOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("http://2312.nl"))
-                    .setFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT))
+            requireContext().startLink(Uri.parse("http://2312.nl"))
         }
     }
 

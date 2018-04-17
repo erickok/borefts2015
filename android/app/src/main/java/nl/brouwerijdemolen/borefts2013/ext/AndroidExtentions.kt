@@ -1,6 +1,9 @@
 package nl.brouwerijdemolen.borefts2013.ext
 
 import android.app.Activity
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Parcelable
 import android.text.Html
@@ -24,3 +27,18 @@ fun String.asHtml(): Spanned {
     }
 }
 
+fun Context.startLink(primary: Uri, alternative: Uri? = null) {
+    try {
+        startActivity(Intent(Intent.ACTION_VIEW, primary).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+    } catch (e: Exception) {
+        if (alternative != null) {
+            try {
+                startActivity(Intent(Intent.ACTION_VIEW, alternative).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+            } catch (e2: Exception) {
+                // No browser installed; ignore this hypothetical case
+            }
+
+        }
+    }
+
+}

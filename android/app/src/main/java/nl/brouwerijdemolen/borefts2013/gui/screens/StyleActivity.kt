@@ -24,10 +24,7 @@ import org.koin.android.ext.android.get
 
 class StyleActivity : AppCompatActivity() {
 
-    private val styleViewModel: StyleViewModel by viewModel(parameters = {
-        mapOf(KEY_STYLE to arg(KEY_STYLE))
-    }
-    )
+    private val styleViewModel: StyleViewModel by viewModel(parameters = { mapOf(KEY_STYLE to arg(KEY_STYLE)) })
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +43,7 @@ class StyleActivity : AppCompatActivity() {
     }
 
     private fun openBeer(beer: Beer) {
-        TODO("not implemented")
+        startActivity(BeerActivity(this, beer))
     }
 
     private fun setupToolbar() {

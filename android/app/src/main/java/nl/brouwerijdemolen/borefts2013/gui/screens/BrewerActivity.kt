@@ -40,7 +40,7 @@ class BrewerActivity : AppCompatActivity() {
     }
 
     private fun openBeer(beer: Beer) {
-        TODO("not implemented")
+        startActivity(BeerActivity(this, beer))
     }
 
     private fun setupToolbar() {

@@ -8,26 +8,30 @@
     android:paddingLeft="@dimen/margin_sides"
     android:paddingRight="@dimen/margin_sides">
 
-    <TextView
-        android:id="@+id/name_text"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/title_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/margin_default"
-        android:layout_marginEnd="@dimen/margin_half"
-        android:layout_marginStart="@dimen/margin_default"
-        android:layout_marginTop="@dimen/margin_default"
-        android:layout_toStartOf="@+id/brewer_button"
-        android:textColor="#000"
-        android:textIsSelectable="true"
-        android:textSize="@dimen/text_large"
-        tools:text="Alvinne Mad Tom"/>
+        android:layout_marginBottom="@dimen/margin_half"
+        android:background="@android:color/white"
+        android:minHeight="?attr/actionBarSize">
+
+        <TextView
+            android:id="@+id/beer_name_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textIsSelectable="true"
+            android:textSize="20sp"
+            tools:text="Alvinne Mad Tom"/>
+
+    </android.support.v7.widget.Toolbar>
 
     <Button
         android:id="@+id/brewer_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/name_text"
         android:layout_alignParentEnd="true"
+        android:layout_below="@id/title_toolbar"
         android:layout_marginBottom="@dimen/margin_half"
         android:layout_marginLeft="@dimen/margin_default"
         android:layout_marginRight="@dimen/margin_default"
@@ -49,7 +53,7 @@
         style="@style/LabelBlue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/name_text"
+        android:layout_below="@id/title_toolbar"
         android:layout_marginBottom="@dimen/margin_half"
         android:layout_marginEnd="@dimen/margin_half"
         android:layout_marginStart="@dimen/margin_default"
@@ -61,7 +65,7 @@
         style="@style/LabelBlue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/name_text"
+        android:layout_below="@id/title_toolbar"
         android:layout_marginEnd="@dimen/margin_default"
         android:layout_marginStart="@dimen/margin_half"
         android:layout_toEndOf="@id/abv_text"

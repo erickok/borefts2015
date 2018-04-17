@@ -1,7 +1,6 @@
 package nl.brouwerijdemolen.borefts2013.gui.screens
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -12,6 +11,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import kotlinx.android.synthetic.main.fragment_baf.baf_webview
 import nl.brouwerijdemolen.borefts2013.R
+import nl.brouwerijdemolen.borefts2013.ext.startLink
 
 class BafFragment : Fragment() {
 
@@ -29,8 +29,7 @@ class BafFragment : Fragment() {
                 return if (isInFacebook) {
                     false // Load in the webview
                 } else {
-                    startActivity(Intent(Intent.ACTION_VIEW, request.url)
-                            .setFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT))
+                    requireContext().startLink(request.url)
                     true
                 }
             }

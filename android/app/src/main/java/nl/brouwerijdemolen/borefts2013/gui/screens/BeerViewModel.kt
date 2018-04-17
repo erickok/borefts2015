@@ -1,12 +1,13 @@
 package nl.brouwerijdemolen.borefts2013.gui.screens
 
+import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
-import nl.brouwerijdemolen.borefts2013.gui.Repository
+import nl.brouwerijdemolen.borefts2013.api.Beer
 
-class BeerViewModel(
-        private val repository: Repository): ViewModel() {
+class BeerViewModel(private val beer: Beer) : ViewModel() {
 
-    init {
+    val state = MutableLiveData<BeerUiModel>().apply { BeerUiModel(beer) }
 
-    }
 }
+
+data class BeerUiModel(val beer: Beer)

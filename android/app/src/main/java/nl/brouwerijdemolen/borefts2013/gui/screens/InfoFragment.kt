@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.fragment_info.nstimes_button
 import kotlinx.android.synthetic.main.fragment_info.taxis_button
 import kotlinx.android.synthetic.main.fragment_info.times_button
 import nl.brouwerijdemolen.borefts2013.R
+import nl.brouwerijdemolen.borefts2013.ext.startLink
 import java.util.GregorianCalendar
 
 
@@ -47,9 +48,7 @@ class InfoFragment : Fragment() {
             }
         }
         nstimes_button.setOnClickListener {
-            startActivity(
-                    Intent(Intent.ACTION_VIEW, Uri.parse("http://www.ns.nl/actuele-vertrektijden/avt?station=bdg"))
-                            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+            requireContext().startLink(Uri.parse("http://www.ns.nl/actuele-vertrektijden/avt?station=bdg"))
         }
         taxis_button.setOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("geo:52.084802,4.740689?z=14&q=taxi"))

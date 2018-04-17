@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.activity_main.tabs_viewpager
 import kotlinx.android.synthetic.main.activity_main.title_text
 import kotlinx.android.synthetic.main.activity_main.title_toobar
 import nl.brouwerijdemolen.borefts2013.R
+import nl.brouwerijdemolen.borefts2013.ext.startLink
 import nl.brouwerijdemolen.borefts2013.gui.components.AppRater
 import nl.brouwerijdemolen.borefts2013.gui.components.getMolenString
 import nl.brouwerijdemolen.borefts2013.gui.screens.AboutFragment
@@ -44,7 +45,7 @@ class BoreftsActivity : AppCompatActivity() {
     }
 
     private fun setupToolbar() {
-        title_text.text = this.getMolenString(title_text.text)
+        title_text.text = getMolenString(title_text.text)
         title_toobar.inflateMenu(R.menu.activity_start)
         // Only show refresh button on Twitter page
         tabs_viewpager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
@@ -78,12 +79,7 @@ class BoreftsActivity : AppCompatActivity() {
                 setActionTextColor(ContextCompat.getColor(this@BoreftsActivity, R.color.yellow))
                 setAction(R.string.rate_confirm) {
                     appRater.block()
-                    try {
-                        startActivity(Intent(Intent.ACTION_VIEW)
-                                .setData(Uri.parse("market://details?id=nl.brouwerijdemolen.borefts2013")))
-                    } catch (e: Exception) {
-                        // No Play Store installed: ignore
-                    }
+                    startLink(Uri.parse("market://details?id=nl.brouwerijdemolen.borefts2013"))
                 }
                 show()
             }
