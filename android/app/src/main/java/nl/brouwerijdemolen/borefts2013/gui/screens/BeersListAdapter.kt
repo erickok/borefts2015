@@ -41,7 +41,7 @@ class BeersListAdapter(
 
         fun bind(beer: Beer, showStyle: Boolean, beerClicked: (Beer) -> Unit) {
             name_text.text = beer.name
-            stylebrewer_text.text = if (showStyle) beer.style.name else beer.brewer.name
+            stylebrewer_text.text = if (showStyle) beer.style?.name else beer.brewer?.name
             abv_text.isVisible = beer.hasAbv
             abv_text.text = beer.abvText(get())
             style_view.setBackgroundColor(beer.colorIndicationResource(get()))

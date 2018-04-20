@@ -5,6 +5,8 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.MenuItem
+import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_beer.abv_text
 import kotlinx.android.synthetic.main.activity_beer.abv_view
@@ -37,10 +39,14 @@ import nl.brouwerijdemolen.borefts2013.gui.servingText
 import nl.brouwerijdemolen.borefts2013.gui.sweetnessIndication
 import org.koin.android.architecture.ext.viewModel
 import org.koin.android.ext.android.get
+import java.util.*
 
 class BeerActivity : AppCompatActivity() {
 
     private val beerViewModel: BeerViewModel by viewModel(parameters = { mapOf(KEY_BEER to arg(KEY_BEER)) })
+
+    private lateinit var actionStarOn: MenuItem
+    private lateinit var actionStarOff: MenuItem
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,8 +56,8 @@ class BeerActivity : AppCompatActivity() {
         beerViewModel.state.observeNonNull(this) {
             with(it) {
                 beer_name_text.text = getMolenString(beer.name)
-                brewer_button.text = beer.brewer.name
-                style_button.text = beer.style.name
+                brewer_button.text = beer.brewer?.name
+                style_button.text = beer.style?.name
                 abv_text.isVisible = beer.hasAbv
                 abv_text.text = beer.abvText(get())
                 serving_text.text = beer.servingText(get())
@@ -60,7 +66,14 @@ class BeerActivity : AppCompatActivity() {
                 sweetness_view.value = beer.sweetnessIndication
                 acidity_view.value = beer.acidityIndication
                 tostyle_text.isVisible = beer.hasFlavourIndication
-                tags_layout
+                val tags = beer.tags?.split(',')
+                tags_layout.isVisible = tags != null
+                tags?.forEach { tag ->
+                    layoutInflater.inflate(R.layout.widget_label, tags_layout, true)
+                    (tags_layout.getChildAt(tags_layout.childCount - 1) as TextView).apply {
+                        this.text = tag.toUpperCase(Locale.getDefault())
+                    }
+                }
                 untappd_button.setOnClickListener {
                     if (beer.untappdId <= 0) {
                         Toast.makeText(this@BeerActivity, R.string.error_notcoupled, Toast.LENGTH_LONG).show()
@@ -71,8 +84,10 @@ class BeerActivity : AppCompatActivity() {
                     }
                 }
                 google_button.setOnClickListener {
-                    startLink(Uri.parse("http://www.google.com/search?q=" + Uri.encode(beer.brewer.name + " " + beer.name)))
+                    startLink(Uri.parse("http://www.google.com/search?q=" + Uri.encode(beer.brewer?.name + " " + beer.name)))
                 }
+                actionStarOn.isVisible = !isStarred
+                actionStarOff.isVisible = isStarred
             }
         }
     }
@@ -81,11 +96,13 @@ class BeerActivity : AppCompatActivity() {
         title_toolbar.setNavigationIcon(R.drawable.ic_back)
         title_toolbar.setNavigationOnClickListener { finish() }
         title_toolbar.inflateMenu(R.menu.activity_beer)
+        actionStarOn = title_toolbar.menu.getItem(R.id.action_star_on)
+        actionStarOff = title_toolbar.menu.getItem(R.id.action_star_off)
         title_toolbar.setOnMenuItemClickListener {
-            when(it.itemId) {
+            when (it.itemId) {
                 R.id.action_locate -> TODO()
-                R.id.action_star_on -> TODO()
-                R.id.action_star_off -> TODO()
+                R.id.action_star_on -> beerViewModel.updateStar(true)
+                R.id.action_star_off -> beerViewModel.updateStar(true)
             }
             true
         }

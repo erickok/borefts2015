@@ -6,18 +6,17 @@ import android.preference.PreferenceManager;
 
 import java.util.HashSet;
 
-public class StarPersistance {
+public class StarPersistence {
 
 	private SharedPreferences prefs;
 	private HashSet<Integer> starCache = null;
 
-	protected StarPersistance(Context context) {
+	public StarPersistence(Context context) {
 		prefs = PreferenceManager.getDefaultSharedPreferences(context);
 	}
 
 	/**
 	 * Returns a set with beer ids for all the beers that the user starred.
-	 * @return
 	 */
 	public HashSet<Integer> getAllStars() {
 		ensureStarCache();
@@ -72,11 +71,11 @@ public class StarPersistance {
 			return;
 		String rawPref = prefs.getString("stars", "");
 		if (rawPref.equals("")) {
-			starCache = new HashSet<Integer>();
+			starCache = new HashSet<>();
 			return;
 		}
 		String[] rawStars = rawPref.split("\\|");
-		starCache = new HashSet<Integer>(rawStars.length);
+		starCache = new HashSet<>(rawStars.length);
 		for (String beerId : rawStars) {
 			if (!beerId.equals(""))
 				starCache.add(Integer.parseInt(beerId));
@@ -99,7 +98,7 @@ public class StarPersistance {
 			}
 			stars.append(beerId);
 		}
-		prefs.edit().putString("stars", stars.toString()).commit();
+		prefs.edit().putString("stars", stars.toString()).apply();
 	}
 
 }

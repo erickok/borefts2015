@@ -19,10 +19,6 @@ data class Beer(
         val body: Int = 0,
         val bitterness: Int = 0,
         val sweetness: Int = 0,
-        val acidity: Int = 0) : Parcelable {
-
-    // These are not provided by the server, but loaded manually and attached with their setters
-    lateinit var brewer: Brewer
-    lateinit var style: Style
-
-}
+        val acidity: Int = 0,
+        var brewer: Brewer? = null,
+        var style: Style? = null) : Parcelable

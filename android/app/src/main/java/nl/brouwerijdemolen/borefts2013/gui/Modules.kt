@@ -3,6 +3,7 @@ package nl.brouwerijdemolen.borefts2013.gui
 import nl.brouwerijdemolen.borefts2013.api.Api
 import nl.brouwerijdemolen.borefts2013.gui.components.AppRater
 import nl.brouwerijdemolen.borefts2013.gui.components.ResourceProvider
+import nl.brouwerijdemolen.borefts2013.gui.components.StarPersistence
 import nl.brouwerijdemolen.borefts2013.gui.screens.BeerActivity
 import nl.brouwerijdemolen.borefts2013.gui.screens.BeerViewModel
 import nl.brouwerijdemolen.borefts2013.gui.screens.BrewerActivity
@@ -22,6 +23,7 @@ val networkModule = applicationContext {
 val uiModule = applicationContext {
     bean { ResourceProvider(get()) }
     bean { AppRater(get()) }
+    bean { StarPersistence(get()) }
 }
 
 val viewModelsModule = applicationContext {
@@ -29,5 +31,5 @@ val viewModelsModule = applicationContext {
     viewModel { StylesViewModel(get()) }
     viewModel { params -> BrewerViewModel(params[BrewerActivity.KEY_BREWER], get()) }
     viewModel { params -> StyleViewModel(params[StyleActivity.KEY_STYLE], get()) }
-    viewModel { params -> BeerViewModel(params[BeerActivity.KEY_BEER]) }
+    viewModel { params -> BeerViewModel(params[BeerActivity.KEY_BEER], get()) }
 }
