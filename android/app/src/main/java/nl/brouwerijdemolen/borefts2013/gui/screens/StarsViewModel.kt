@@ -16,7 +16,7 @@ class StarsViewModel(
 
     val state = MutableLiveData<StarsUiModel>().apply { value = StarsUiModel.Loading }
 
-    init {
+    fun refresh() {
         launch(UI) {
             val starred = starPersistence.allStars
             state.postValue(repository.someBeers(starred).toUiModel())
@@ -25,7 +25,7 @@ class StarsViewModel(
 
     private fun Try<List<Beer>>.toUiModel(): StarsUiModel {
         return when (this) {
-            is Try.Success -> StarsUiModel.Success(value)
+            is Try.Success -> if (value.isEmpty()) StarsUiModel.Empty else StarsUiModel.Success(value)
             is Try.Failure -> StarsUiModel.Failure.also { this.log() }
         }
     }
@@ -35,5 +35,6 @@ class StarsViewModel(
 sealed class StarsUiModel {
     object Loading : StarsUiModel()
     object Failure : StarsUiModel()
+    object Empty : StarsUiModel()
     data class Success(val beers: List<Beer>) : StarsUiModel()
 }

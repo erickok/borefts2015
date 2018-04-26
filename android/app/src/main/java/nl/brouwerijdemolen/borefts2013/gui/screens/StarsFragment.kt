@@ -24,15 +24,20 @@ class StarsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         beersListAdapter = BeersListAdapter(false) { openBeer(it) }
         the_list.adapter = beersListAdapter
+        error_text.setText(R.string.info_nostars)
         viewModel.state.observeNonNull(this) {
             loading_progress.isVisible = it == StarsUiModel.Loading
-            error_text.isVisible = it === StarsUiModel.Failure
-            error_text.setText(R.string.info_nostars)
             the_list.isVisible = it is StarsUiModel.Success
+            error_text.isVisible = it == StarsUiModel.Failure || it == StarsUiModel.Empty
             if (it is StarsUiModel.Success) {
                 beersListAdapter.submitList(it.beers)
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.refresh()
     }
 
     private fun openBeer(beer: Beer) {
