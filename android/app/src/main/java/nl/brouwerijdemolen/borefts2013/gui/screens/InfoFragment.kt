@@ -32,7 +32,7 @@ class InfoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         mapView = BoreftsMapView(requireActivity(), GoogleMapOptions().liteMode(true)).apply {
-            onActivityCreated(savedInstanceState)
+            onCreate(savedInstanceState)
             getMapAsync {
                 it.moveCamera(CameraUpdateFactory.newCameraPosition(
                         CameraPosition.Builder()

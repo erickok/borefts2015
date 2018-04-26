@@ -1,10 +1,8 @@
 package nl.brouwerijdemolen.borefts2013.gui.screens
 
 import android.annotation.SuppressLint
-import android.app.Activity
-import android.app.Application
+import android.content.Context
 import android.graphics.*
-import android.os.Bundle
 import android.support.annotation.ColorInt
 import android.util.SparseArray
 import com.google.android.gms.maps.GoogleMapOptions
@@ -22,10 +20,9 @@ import java.util.*
 
 @SuppressLint("ViewConstructor") // Only to be created programmatically
 class BoreftsMapView(
-        activity: Activity,
-        mapOptions: GoogleMapOptions) : MapView(activity, mapOptions), KoinComponent {
+        context: Context,
+        mapOptions: GoogleMapOptions) : MapView(context, mapOptions), KoinComponent {
 
-    private val application: Application = activity.application
     private val res: ResourceProvider by inject()
 
     private var poiMarkers: MutableMap<Marker, Poi> = mutableMapOf()
@@ -140,58 +137,6 @@ class BoreftsMapView(
     @ColorInt
     private fun getFillColor(resName: String): Int {
         return getColor(resName + "_half")
-    }
-
-    override fun onAttachedToWindow() {
-        super.onAttachedToWindow()
-        // Marshall all activity lifecycle methods to the MapView
-        application.registerActivityLifecycleCallbacks(lifecycleDelegate)
-    }
-
-    override fun onDetachedFromWindow() {
-        super.onDetachedFromWindow()
-        application.unregisterActivityLifecycleCallbacks(lifecycleDelegate)
-    }
-
-    fun onActivityCreated(savedInstanceState: Bundle?) {
-        isCreated = true
-        super.onCreate(savedInstanceState)
-    }
-
-    private var isCreated: Boolean = false
-    private val lifecycleDelegate = object : Application.ActivityLifecycleCallbacks {
-
-        override fun onActivityCreated(eventActivity: Activity, savedInstanceState: Bundle?) {
-            if (activity == eventActivity) {
-                this@BoreftsMapView.onCreate(savedInstanceState)
-                isCreated = true
-            }
-        }
-
-        override fun onActivityStarted(eventActivity: Activity) {
-            if (activity == eventActivity && isCreated) this@BoreftsMapView.onStart()
-        }
-
-        override fun onActivityResumed(eventActivity: Activity) {
-            if (activity == eventActivity && isCreated) this@BoreftsMapView.onResume()
-        }
-
-        override fun onActivityPaused(eventActivity: Activity?) {
-            if (activity == eventActivity && isCreated) this@BoreftsMapView.onPause()
-        }
-
-        override fun onActivityStopped(eventActivity: Activity) {
-            if (activity == eventActivity && isCreated) this@BoreftsMapView.onStop()
-        }
-
-        override fun onActivitySaveInstanceState(eventActivity: Activity, outState: Bundle?) {
-            if (activity == eventActivity && isCreated) this@BoreftsMapView.onSaveInstanceState(outState)
-        }
-
-        override fun onActivityDestroyed(eventActivity: Activity) {
-            if (activity == eventActivity && isCreated) this@BoreftsMapView.onDestroy()
-        }
-
     }
 
 }

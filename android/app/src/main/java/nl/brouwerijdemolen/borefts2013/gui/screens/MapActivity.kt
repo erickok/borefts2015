@@ -51,7 +51,7 @@ class MapActivity : AppCompatActivity() {
         }
 
         mapView = BoreftsMapView(this, GoogleMapOptions()).apply {
-            onActivityCreated(savedInstanceState)
+            onCreate(savedInstanceState)
             getMapAsync {
                 // Pad map controls below action bar
                 val actionBarValue = TypedValue()
@@ -93,6 +93,36 @@ class MapActivity : AppCompatActivity() {
 
     private fun hasLocationPermission(): Boolean {
         return ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
+    }
+
+    override fun onStart() {
+        super.onStart()
+        mapView.onStart()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mapView.onResume()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        mapView.onPause()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        mapView.onStop()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        super.onSaveInstanceState(outState)
+        mapView.onSaveInstanceState(outState)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mapView.onDestroy()
     }
 
     companion object {
