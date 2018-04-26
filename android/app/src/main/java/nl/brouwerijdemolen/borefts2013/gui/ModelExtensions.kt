@@ -29,7 +29,7 @@ fun Style.getColorResource(res: ResourceProvider): Int {
 }
 
 fun Beer.abvText(res: ResourceProvider): String? {
-    return if (hasAbv) null else res.getString(R.string.info_abv, abv)
+    return if (hasAbv) res.getString(R.string.info_abvperc, abv) else null
 }
 
 val Beer.hasAbv: Boolean

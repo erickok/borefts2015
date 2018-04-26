@@ -10,6 +10,7 @@ import android.text.Html
 import android.text.Spanned
 import android.view.View
 
+const val KEY_ARGS = "args"
 inline fun <reified T : Parcelable> Activity.arg(key: String): T = intent.getParcelableExtra(key)
 
 var View.isVisible

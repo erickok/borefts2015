@@ -8,42 +8,21 @@ import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import android.widget.TextView
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_beer.abv_text
-import kotlinx.android.synthetic.main.activity_beer.abv_view
-import kotlinx.android.synthetic.main.activity_beer.acidity_view
-import kotlinx.android.synthetic.main.activity_beer.beer_name_text
-import kotlinx.android.synthetic.main.activity_beer.bitterness_view
-import kotlinx.android.synthetic.main.activity_beer.brewer_button
-import kotlinx.android.synthetic.main.activity_beer.google_button
-import kotlinx.android.synthetic.main.activity_beer.serving_text
-import kotlinx.android.synthetic.main.activity_beer.style_button
-import kotlinx.android.synthetic.main.activity_beer.sweetness_view
-import kotlinx.android.synthetic.main.activity_beer.tags_layout
-import kotlinx.android.synthetic.main.activity_beer.title_toolbar
-import kotlinx.android.synthetic.main.activity_beer.tostyle_text
-import kotlinx.android.synthetic.main.activity_beer.untappd_button
+import kotlinx.android.synthetic.main.activity_beer.*
 import nl.brouwerijdemolen.borefts2013.R
 import nl.brouwerijdemolen.borefts2013.api.Beer
-import nl.brouwerijdemolen.borefts2013.ext.arg
-import nl.brouwerijdemolen.borefts2013.ext.isVisible
-import nl.brouwerijdemolen.borefts2013.ext.observeNonNull
-import nl.brouwerijdemolen.borefts2013.ext.startLink
-import nl.brouwerijdemolen.borefts2013.gui.abvIndication
-import nl.brouwerijdemolen.borefts2013.gui.abvText
-import nl.brouwerijdemolen.borefts2013.gui.acidityIndication
-import nl.brouwerijdemolen.borefts2013.gui.bitternessIndication
+import nl.brouwerijdemolen.borefts2013.ext.*
+import nl.brouwerijdemolen.borefts2013.gui.*
 import nl.brouwerijdemolen.borefts2013.gui.components.getMolenString
-import nl.brouwerijdemolen.borefts2013.gui.hasAbv
-import nl.brouwerijdemolen.borefts2013.gui.hasFlavourIndication
-import nl.brouwerijdemolen.borefts2013.gui.servingText
-import nl.brouwerijdemolen.borefts2013.gui.sweetnessIndication
 import org.koin.android.architecture.ext.viewModel
 import org.koin.android.ext.android.get
 import java.util.*
 
 class BeerActivity : AppCompatActivity() {
 
-    private val beerViewModel: BeerViewModel by viewModel(parameters = { mapOf(KEY_BEER to arg(KEY_BEER)) })
+    private val beerViewModel: BeerViewModel by viewModel(parameters = { mapOf(KEY_ARGS to arg(KEY_ARGS)) })
+    // TODO Via ViewModel action?
+    private val beerId by lazy { arg<Beer>(KEY_ARGS).id }
 
     private lateinit var actionStarOn: MenuItem
     private lateinit var actionStarOff: MenuItem
@@ -60,18 +39,22 @@ class BeerActivity : AppCompatActivity() {
                 style_button.text = beer.style?.name
                 abv_text.isVisible = beer.hasAbv
                 abv_text.text = beer.abvText(get())
-                serving_text.text = beer.servingText(get())
+                serving_text.text = beer.servingText(get()).toUpperCase(Locale.getDefault())
                 abv_view.value = beer.abvIndication
+                color_view.setBackgroundColor(beer.colorIndicationResource(get()))
                 bitterness_view.value = beer.bitternessIndication
                 sweetness_view.value = beer.sweetnessIndication
                 acidity_view.value = beer.acidityIndication
                 tostyle_text.isVisible = beer.hasFlavourIndication
                 val tags = beer.tags?.split(',')
                 tags_layout.isVisible = tags != null
+                tags_layout.removeAllViews()
                 tags?.forEach { tag ->
-                    layoutInflater.inflate(R.layout.widget_label, tags_layout, true)
-                    (tags_layout.getChildAt(tags_layout.childCount - 1) as TextView).apply {
-                        this.text = tag.toUpperCase(Locale.getDefault())
+                    if (tag.isNotBlank()) {
+                        layoutInflater.inflate(R.layout.widget_label, tags_layout, true)
+                        (tags_layout.getChildAt(tags_layout.childCount - 1) as TextView).apply {
+                            this.text = tag.toUpperCase(Locale.getDefault())
+                        }
                     }
                 }
                 untappd_button.setOnClickListener {
@@ -86,8 +69,8 @@ class BeerActivity : AppCompatActivity() {
                 google_button.setOnClickListener {
                     startLink(Uri.parse("http://www.google.com/search?q=" + Uri.encode(beer.brewer?.name + " " + beer.name)))
                 }
-                actionStarOn.isVisible = !isStarred
-                actionStarOff.isVisible = isStarred
+                actionStarOn.isVisible = isStarred
+                actionStarOff.isVisible = !isStarred
             }
         }
     }
@@ -96,12 +79,12 @@ class BeerActivity : AppCompatActivity() {
         title_toolbar.setNavigationIcon(R.drawable.ic_back)
         title_toolbar.setNavigationOnClickListener { finish() }
         title_toolbar.inflateMenu(R.menu.activity_beer)
-        actionStarOn = title_toolbar.menu.getItem(R.id.action_star_on)
-        actionStarOff = title_toolbar.menu.getItem(R.id.action_star_off)
+        actionStarOn = title_toolbar.menu.findItem(R.id.action_star_on)
+        actionStarOff = title_toolbar.menu.findItem(R.id.action_star_off)
         title_toolbar.setOnMenuItemClickListener {
             when (it.itemId) {
-                R.id.action_locate -> TODO()
-                R.id.action_star_on -> beerViewModel.updateStar(true)
+                R.id.action_locate -> startActivity(MapActivity(this, focusBrewerId = beerId))
+                R.id.action_star_on -> beerViewModel.updateStar(false)
                 R.id.action_star_off -> beerViewModel.updateStar(true)
             }
             true
@@ -109,10 +92,8 @@ class BeerActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val KEY_BEER = "beer"
-
         operator fun invoke(context: Context, beer: Beer): Intent =
-                Intent(context, BeerActivity::class.java).putExtra(KEY_BEER, beer)
+                Intent(context, BeerActivity::class.java).putExtra(KEY_ARGS, beer)
     }
 
 }

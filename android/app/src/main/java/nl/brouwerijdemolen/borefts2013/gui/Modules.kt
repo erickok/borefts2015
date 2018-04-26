@@ -1,17 +1,11 @@
 package nl.brouwerijdemolen.borefts2013.gui
 
 import nl.brouwerijdemolen.borefts2013.api.Api
+import nl.brouwerijdemolen.borefts2013.ext.KEY_ARGS
 import nl.brouwerijdemolen.borefts2013.gui.components.AppRater
 import nl.brouwerijdemolen.borefts2013.gui.components.ResourceProvider
 import nl.brouwerijdemolen.borefts2013.gui.components.StarPersistence
-import nl.brouwerijdemolen.borefts2013.gui.screens.BeerActivity
-import nl.brouwerijdemolen.borefts2013.gui.screens.BeerViewModel
-import nl.brouwerijdemolen.borefts2013.gui.screens.BrewerActivity
-import nl.brouwerijdemolen.borefts2013.gui.screens.BrewerViewModel
-import nl.brouwerijdemolen.borefts2013.gui.screens.BrewersViewModel
-import nl.brouwerijdemolen.borefts2013.gui.screens.StyleActivity
-import nl.brouwerijdemolen.borefts2013.gui.screens.StyleViewModel
-import nl.brouwerijdemolen.borefts2013.gui.screens.StylesViewModel
+import nl.brouwerijdemolen.borefts2013.gui.screens.*
 import org.koin.android.architecture.ext.viewModel
 import org.koin.dsl.module.applicationContext
 
@@ -27,9 +21,12 @@ val uiModule = applicationContext {
 }
 
 val viewModelsModule = applicationContext {
+    viewModel { InfoViewModel(get()) }
     viewModel { BrewersViewModel(get()) }
     viewModel { StylesViewModel(get()) }
-    viewModel { params -> BrewerViewModel(params[BrewerActivity.KEY_BREWER], get()) }
-    viewModel { params -> StyleViewModel(params[StyleActivity.KEY_STYLE], get()) }
-    viewModel { params -> BeerViewModel(params[BeerActivity.KEY_BEER], get()) }
+    viewModel { StarsViewModel(get(), get()) }
+    viewModel { params -> BrewerViewModel(params[KEY_ARGS], get()) }
+    viewModel { params -> StyleViewModel(params[KEY_ARGS], get()) }
+    viewModel { params -> BeerViewModel(params[KEY_ARGS], get()) }
+    viewModel { params -> MapViewModel(get(), params[KEY_ARGS]) }
 }

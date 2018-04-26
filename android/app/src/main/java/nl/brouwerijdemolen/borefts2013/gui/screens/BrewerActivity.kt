@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.activity_brewer.weblink_text
 import nl.brouwerijdemolen.borefts2013.R
 import nl.brouwerijdemolen.borefts2013.api.Beer
 import nl.brouwerijdemolen.borefts2013.api.Brewer
+import nl.brouwerijdemolen.borefts2013.ext.KEY_ARGS
 import nl.brouwerijdemolen.borefts2013.ext.arg
 import nl.brouwerijdemolen.borefts2013.ext.observeNonNull
 import nl.brouwerijdemolen.borefts2013.gui.components.getMolenString
@@ -23,7 +24,7 @@ import org.koin.android.ext.android.get
 
 class BrewerActivity : AppCompatActivity() {
 
-    private val brewerViewModel: BrewerViewModel by viewModel(parameters = { mapOf(KEY_BREWER to arg(KEY_BREWER)) })
+    private val brewerViewModel: BrewerViewModel by viewModel(parameters = { mapOf(KEY_ARGS to arg(KEY_ARGS)) })
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,10 +50,8 @@ class BrewerActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val KEY_BREWER = "brewer"
-
         operator fun invoke(context: Context, brewer: Brewer): Intent =
-                Intent(context, BrewerActivity::class.java).putExtra(KEY_BREWER, brewer)
+                Intent(context, BrewerActivity::class.java).putExtra(KEY_ARGS, brewer)
     }
 
 }

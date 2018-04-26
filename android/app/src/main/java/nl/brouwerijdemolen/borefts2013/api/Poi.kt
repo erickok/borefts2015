@@ -9,6 +9,6 @@ class Poi(
         val marker: String,
         val point: Point) {
 
-    val pointLatLng = LatLng(point.latitude.toDouble(), point.longitude.toDouble())
+    val pointLatLng get() = LatLng(point.latitude.toDouble(), point.longitude.toDouble())
 
 }

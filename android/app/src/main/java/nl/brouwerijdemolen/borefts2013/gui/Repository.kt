@@ -37,6 +37,8 @@ class Repository(private val api: Api) {
 
     suspend fun styleBeers(styleId: Int) = allBeers().map { it.filter { it.styleId == styleId } }
 
+    suspend fun someBeers(beerIds: Set<Int>) = allBeers().map { it.filter { beerIds.contains(it.id) } }
+
     suspend fun beer(beerId: Int) = allBeers().map { it.single { it.id == beerId } }
 
 }

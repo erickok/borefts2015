@@ -15,7 +15,7 @@ class Api {
     private val retrofit by lazy {
         Retrofit.Builder()
                 .client(OkHttpClient.Builder()
-                        .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.HEADERS))
+                        .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC))
                         .build())
                 .baseUrl("https://borefts-staging.firebaseio.com/") // d454d or staging
                 .addCallAdapterFactory(CoroutineCallAdapterFactory())

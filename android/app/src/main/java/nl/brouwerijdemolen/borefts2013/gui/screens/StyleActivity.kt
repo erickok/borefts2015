@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.activity_style.title_text
 import nl.brouwerijdemolen.borefts2013.R
 import nl.brouwerijdemolen.borefts2013.api.Beer
 import nl.brouwerijdemolen.borefts2013.api.Style
+import nl.brouwerijdemolen.borefts2013.ext.KEY_ARGS
 import nl.brouwerijdemolen.borefts2013.ext.arg
 import nl.brouwerijdemolen.borefts2013.ext.observeNonNull
 import nl.brouwerijdemolen.borefts2013.gui.components.getMolenString
@@ -24,7 +25,7 @@ import org.koin.android.ext.android.get
 
 class StyleActivity : AppCompatActivity() {
 
-    private val styleViewModel: StyleViewModel by viewModel(parameters = { mapOf(KEY_STYLE to arg(KEY_STYLE)) })
+    private val styleViewModel: StyleViewModel by viewModel(parameters = { mapOf(KEY_ARGS to arg(KEY_ARGS)) })
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,10 +53,8 @@ class StyleActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val KEY_STYLE = "style"
-
         operator fun invoke(context: Context, style: Style): Intent =
-                Intent(context, StyleActivity::class.java).putExtra(KEY_STYLE, style)
+                Intent(context, StyleActivity::class.java).putExtra(KEY_ARGS, style)
     }
 
 }

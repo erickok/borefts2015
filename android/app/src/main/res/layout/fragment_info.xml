@@ -15,7 +15,7 @@
         android:paddingBottom="@dimen/margin_default">
 
         <FrameLayout
-            android:id="@+id/minimap"
+            android:id="@+id/minimap_holder"
             android:layout_width="match_parent"
             android:layout_height="150dp"/>
 
@@ -24,7 +24,7 @@
             style="@style/SectionHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/minimap"
+            android:layout_below="@id/minimap_holder"
             android:layout_margin="@dimen/margin_default"
             android:text="@string/info_what"
             android:textIsSelectable="false"/>

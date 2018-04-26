@@ -1,0 +1,58 @@
+package nl.brouwerijdemolen.borefts2013.gui.screens
+
+import android.arch.lifecycle.MutableLiveData
+import android.arch.lifecycle.ViewModel
+import android.os.Parcelable
+import arrow.data.*
+import arrow.typeclasses.binding
+import kotlinx.android.parcel.Parcelize
+import kotlinx.coroutines.experimental.android.UI
+import kotlinx.coroutines.experimental.launch
+import nl.brouwerijdemolen.borefts2013.api.Area
+import nl.brouwerijdemolen.borefts2013.api.Brewer
+import nl.brouwerijdemolen.borefts2013.api.Poi
+import nl.brouwerijdemolen.borefts2013.gui.Repository
+import nl.brouwerijdemolen.borefts2013.gui.components.log
+
+class MapViewModel(
+        private val repository: Repository,
+        private val args: Args) : ViewModel() {
+
+    val state = MutableLiveData<MapUiModel>().apply { value = MapUiModel.Loading }
+
+    init {
+        launch(UI) {
+            val tryBrewers = repository.brewers()
+            val tryAreas = repository.areas()
+            val tryPois = repository.pois()
+            state.postValue(Try.monad().binding {
+                val brewers = tryBrewers.bind()
+                val areas = tryAreas.bind()
+                val pois = tryPois.bind()
+                MapUiModel.Success(brewers, areas, pois, args.focusBrewerId, args.focusPoiId)
+            }.ev().toUiModel())
+        }
+    }
+
+    private fun Try<MapUiModel>.toUiModel(): MapUiModel {
+        return when (this) {
+            is Success -> value
+            is Failure -> MapUiModel.Failure.also { this.log() }
+        }
+    }
+
+}
+
+@Parcelize
+data class Args(val focusBrewerId: Int? = null, val focusPoiId: String? = null) : Parcelable
+
+sealed class MapUiModel {
+    object Loading : MapUiModel()
+    object Failure : MapUiModel()
+    data class Success(
+            val brewers: List<Brewer>,
+            val areas: List<Area>,
+            val pois: List<Poi>,
+            val focusBrewerId: Int?,
+            val focusPoiId: String?) : MapUiModel()
+}

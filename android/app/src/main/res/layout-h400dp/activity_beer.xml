@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/fragment_background"
     android:paddingLeft="@dimen/margin_sides"
     android:paddingRight="@dimen/margin_sides">
@@ -14,15 +13,19 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/margin_half"
         android:background="@android:color/white"
-        android:minHeight="?attr/actionBarSize">
+        android:elevation="@dimen/toolbar_elevation">
 
         <TextView
             android:id="@+id/beer_name_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:minHeight="?attr/actionBarSize"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
             android:textIsSelectable="true"
             android:textSize="20sp"
-            tools:text="Alvinne Mad Tom"/>
+            tools:text="Alvinne Mad Tom Alvinne Mad Tom Alvinne Mad Tom Alvinne Mad Tom Alvinne Mad Tom Alvinne Mad Tom Alvinne Mad Tom Alvinne Mad Tom Alvinne Mad Tom Alvinne Mad Tom Alvinne Mad Tom Alvinne Mad Tom Alvinne Mad Tom Alvinne Mad Tom Alvinne Mad Tom Alvinne Mad Tom " />
 
     </android.support.v7.widget.Toolbar>
 
@@ -34,7 +37,7 @@
         android:layout_below="@id/title_toolbar"
         android:layout_marginBottom="@dimen/margin_half"
         android:layout_marginEnd="@dimen/margin_default"
-        android:layout_marginStart="@dimen/margin_half"/>
+        android:layout_marginStart="@dimen/margin_half" />
 
     <Button
         android:id="@+id/brewer_button"
@@ -43,7 +46,7 @@
         android:layout_below="@id/title_toolbar"
         android:layout_marginBottom="@dimen/margin_half"
         android:layout_marginEnd="@dimen/margin_half"
-        android:layout_marginStart="@dimen/margin_default"/>
+        android:layout_marginStart="@dimen/margin_default" />
 
     <TextView
         android:id="@+id/abv_text"
@@ -54,7 +57,7 @@
         android:layout_marginBottom="@dimen/margin_half"
         android:layout_marginLeft="@dimen/margin_default"
         android:layout_marginRight="@dimen/margin_default"
-        android:textIsSelectable="false"/>
+        android:textIsSelectable="false" />
 
     <TextView
         android:id="@+id/serving_text"
@@ -64,7 +67,7 @@
         android:layout_below="@id/abv_text"
         android:layout_marginLeft="@dimen/margin_default"
         android:layout_marginRight="@dimen/margin_default"
-        android:textIsSelectable="false"/>
+        android:textIsSelectable="false" />
 
     <LinearLayout
         android:id="@+id/tags_layout"
@@ -75,7 +78,7 @@
         android:layout_marginLeft="@dimen/margin_default"
         android:layout_marginRight="@dimen/margin_default"
         android:gravity="end"
-        android:orientation="vertical"/>
+        android:orientation="vertical" />
 
     <LinearLayout
         android:id="@+id/buttonbar_view"
@@ -91,7 +94,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/info_untappd"/>
+            android:text="@string/info_untappd" />
 
         <Button
             android:id="@+id/google_button"
@@ -99,7 +102,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/info_google"/>
+            android:text="@string/info_google" />
     </LinearLayout>
 
     <View
@@ -108,7 +111,7 @@
         android:layout_height="1dp"
         android:layout_above="@id/buttonbar_view"
         android:layout_marginTop="@dimen/margin_default"
-        android:background="#aaa"/>
+        android:background="#aaa" />
 
     <LinearLayout
         android:id="@+id/statsnames_view"
@@ -123,7 +126,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/info_color"
-            android:textSize="@dimen/text_small"/>
+            android:textSize="@dimen/text_small" />
 
         <TextView
             android:layout_width="0dp"
@@ -131,7 +134,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/info_abv"
-            android:textSize="@dimen/text_small"/>
+            android:textSize="@dimen/text_small" />
 
         <TextView
             android:layout_width="0dp"
@@ -139,7 +142,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/info_bitterness"
-            android:textSize="@dimen/text_small"/>
+            android:textSize="@dimen/text_small" />
 
         <TextView
             android:layout_width="0dp"
@@ -147,7 +150,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/info_sweetness"
-            android:textSize="@dimen/text_small"/>
+            android:textSize="@dimen/text_small" />
 
         <TextView
             android:layout_width="0dp"
@@ -155,7 +158,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/info_acidity"
-            android:textSize="@dimen/text_small"/>
+            android:textSize="@dimen/text_small" />
     </LinearLayout>
 
     <LinearLayout
@@ -175,32 +178,32 @@
                 android:id="@+id/color_view"
                 android:layout_width="24dp"
                 android:layout_height="@dimen/bars_beer_height"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center" />
         </FrameLayout>
 
         <nl.brouwerijdemolen.borefts2013.gui.screens.BarView
             android:id="@+id/abv_view"
             android:layout_width="0dp"
             android:layout_height="@dimen/bars_beer_height"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
 
         <nl.brouwerijdemolen.borefts2013.gui.screens.BarView
             android:id="@+id/bitterness_view"
             android:layout_width="0dp"
             android:layout_height="@dimen/bars_beer_height"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
 
         <nl.brouwerijdemolen.borefts2013.gui.screens.BarView
             android:id="@+id/sweetness_view"
             android:layout_width="0dp"
             android:layout_height="@dimen/bars_beer_height"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
 
         <nl.brouwerijdemolen.borefts2013.gui.screens.BarView
             android:id="@+id/acidity_view"
             android:layout_width="0dp"
             android:layout_height="@dimen/bars_beer_height"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
     </LinearLayout>
 
     <TextView
@@ -213,6 +216,6 @@
         android:layout_marginRight="@dimen/margin_default"
         android:text="@string/info_tostyle"
         android:textIsSelectable="false"
-        android:textSize="@dimen/text_small"/>
+        android:textSize="@dimen/text_small" />
 
 </RelativeLayout>

@@ -18,12 +18,7 @@ import nl.brouwerijdemolen.borefts2013.R
 import nl.brouwerijdemolen.borefts2013.ext.startLink
 import nl.brouwerijdemolen.borefts2013.gui.components.AppRater
 import nl.brouwerijdemolen.borefts2013.gui.components.getMolenString
-import nl.brouwerijdemolen.borefts2013.gui.screens.AboutFragment
-import nl.brouwerijdemolen.borefts2013.gui.screens.BafFragment
-import nl.brouwerijdemolen.borefts2013.gui.screens.BrewersFragment
-import nl.brouwerijdemolen.borefts2013.gui.screens.InfoFragment
-import nl.brouwerijdemolen.borefts2013.gui.screens.StylesFragment
-import nl.brouwerijdemolen.borefts2013.gui.screens.TwitterFragment
+import nl.brouwerijdemolen.borefts2013.gui.screens.*
 import org.koin.android.ext.android.inject
 
 class BoreftsActivity : AppCompatActivity() {
@@ -32,6 +27,7 @@ class BoreftsActivity : AppCompatActivity() {
     private val infoFragment by lazy { InfoFragment() }
     private val brewersFragment by lazy { BrewersFragment() }
     private val stylesFragment by lazy { StylesFragment() }
+    private val starsFragment by lazy { StarsFragment() }
     private val twitterFragment by lazy { TwitterFragment() }
     private val bafFragment by lazy { BafFragment() }
 
@@ -109,8 +105,7 @@ class BoreftsActivity : AppCompatActivity() {
                 0 -> infoFragment
                 1 -> brewersFragment
                 2 -> stylesFragment
-            // TODO StarsFragment
-                3 -> BafFragment()
+                3 -> starsFragment
                 4 -> twitterFragment
                 else -> bafFragment
             }

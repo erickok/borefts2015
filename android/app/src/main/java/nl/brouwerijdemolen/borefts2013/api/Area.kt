@@ -9,6 +9,6 @@ data class Area(
         val color: String,
         val points: List<Point>) {
 
-    val pointLatLngs = points.map { LatLng(it.latitude.toDouble(), it.longitude.toDouble()) }
+    val pointLatLngs get() = points.map { LatLng(it.latitude.toDouble(), it.longitude.toDouble()) }
 
 }

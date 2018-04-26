@@ -1,0 +1,50 @@
+package nl.brouwerijdemolen.borefts2013.gui.screens
+
+import android.arch.lifecycle.MutableLiveData
+import android.arch.lifecycle.ViewModel
+import arrow.data.*
+import arrow.typeclasses.binding
+import kotlinx.coroutines.experimental.android.UI
+import kotlinx.coroutines.experimental.launch
+import nl.brouwerijdemolen.borefts2013.api.Area
+import nl.brouwerijdemolen.borefts2013.api.Brewer
+import nl.brouwerijdemolen.borefts2013.api.Poi
+import nl.brouwerijdemolen.borefts2013.gui.Repository
+import nl.brouwerijdemolen.borefts2013.gui.components.log
+
+class InfoViewModel(
+        private val repository: Repository) : ViewModel() {
+
+    val state = MutableLiveData<InfoUiModel>().apply { value = InfoUiModel.Loading }
+
+    init {
+        launch(UI) {
+            val tryBrewers = repository.brewers()
+            val tryAreas = repository.areas()
+            val tryPois = repository.pois()
+            state.postValue(Try.monad().binding {
+                val brewers = tryBrewers.bind()
+                val areas = tryAreas.bind()
+                val pois = tryPois.bind()
+                InfoUiModel.Success(brewers, areas, pois)
+            }.ev().toUiModel())
+        }
+    }
+
+    private fun Try<InfoUiModel>.toUiModel(): InfoUiModel {
+        return when (this) {
+            is Success -> value
+            is Failure -> InfoUiModel.Failure.also { this.log() }
+        }
+    }
+
+}
+
+sealed class InfoUiModel {
+    object Loading : InfoUiModel()
+    object Failure : InfoUiModel()
+    data class Success(
+            val brewers: List<Brewer>,
+            val areas: List<Area>,
+            val pois: List<Poi>) : InfoUiModel()
+}

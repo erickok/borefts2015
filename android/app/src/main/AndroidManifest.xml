@@ -3,9 +3,7 @@
           xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET"/>
-    <!--<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />-->
-    <!--<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />-->
-    <!--<uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:name=".gui.BoreftsApplication"
@@ -26,6 +24,9 @@
         </activity>
 
         <activity
+            android:name=".gui.screens.MapActivity"
+            android:parentActivityName=".gui.BoreftsActivity"/>
+        <activity
             android:name=".gui.screens.BrewerActivity"
             android:parentActivityName=".gui.BoreftsActivity"/>
         <activity
@@ -36,8 +37,8 @@
             android:parentActivityName=".gui.BoreftsActivity"/>
 
         <meta-data
-            android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyBhPaHFUAwmbuHFgteNX4yfw9ARSOsmogg"/>
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCJpbGC_zoHZ27Eok4693rtT32yZEOqbLA"/>
 
     </application>
 
