@@ -1,6 +1,6 @@
 package nl.brouwerijdemolen.borefts2013.api
 
-import arrow.data.Try
+import arrow.core.Try
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.experimental.CoroutineCallAdapterFactory
 import kotlinx.coroutines.experimental.Deferred
 import okhttp3.OkHttpClient

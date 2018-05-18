@@ -3,7 +3,11 @@ package nl.brouwerijdemolen.borefts2013.gui.screens
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import android.os.Parcelable
-import arrow.data.*
+import arrow.core.Failure
+import arrow.core.Success
+import arrow.core.Try
+import arrow.core.fix
+import arrow.core.monad
 import arrow.typeclasses.binding
 import kotlinx.android.parcel.Parcelize
 import kotlinx.coroutines.experimental.android.UI
@@ -30,7 +34,7 @@ class MapViewModel(
                 val areas = tryAreas.bind()
                 val pois = tryPois.bind()
                 MapUiModel.Success(brewers, areas, pois, args.focusBrewerId, args.focusPoiId)
-            }.ev().toUiModel())
+            }.fix().toUiModel())
         }
     }
 

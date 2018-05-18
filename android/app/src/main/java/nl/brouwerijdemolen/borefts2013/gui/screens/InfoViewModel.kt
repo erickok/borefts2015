@@ -2,7 +2,11 @@ package nl.brouwerijdemolen.borefts2013.gui.screens
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
-import arrow.data.*
+import arrow.core.Failure
+import arrow.core.Success
+import arrow.core.Try
+import arrow.core.fix
+import arrow.core.monad
 import arrow.typeclasses.binding
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
@@ -27,7 +31,7 @@ class InfoViewModel(
                 val areas = tryAreas.bind()
                 val pois = tryPois.bind()
                 InfoUiModel.Success(brewers, areas, pois)
-            }.ev().toUiModel())
+            }.fix().toUiModel())
         }
     }
 

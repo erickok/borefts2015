@@ -31,9 +31,10 @@ dependencies {
     // Kotlin and Arrow
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:0.22.5"
-    implementation "io.arrow-kt:arrow-core:0.6.1"
-    implementation "io.arrow-kt:arrow-data:0.6.1"
-    implementation "io.arrow-kt:arrow-instances:0.6.1"
+    implementation "io.arrow-kt:arrow-core:0.7.1"
+    implementation "io.arrow-kt:arrow-typeclasses:0.7.1"
+    implementation "io.arrow-kt:arrow-data:0.7.1"
+    implementation "io.arrow-kt:arrow-instances-core:0.7.1"
 
     // Support and Arch libs
     implementation "com.android.support:appcompat-v7:27.1.1"
@@ -43,8 +44,8 @@ dependencies {
     kapt "android.arch.lifecycle:compiler:1.1.1"
 
     // DI
-    implementation "org.koin:koin-android:0.9.1"
-    implementation "org.koin:koin-android-architecture:0.9.1"
+    implementation "org.koin:koin-android:0.9.2"
+    implementation "org.koin:koin-android-architecture:0.9.2"
 
     // Networking
     implementation "com.google.code.gson:gson:2.8.2"
@@ -53,5 +54,5 @@ dependencies {
     implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-experimental-adapter:1.0.0"
 
     // Maps
-    implementation 'com.google.android.gms:play-services-maps:15.0.0'
+    implementation 'com.google.android.gms:play-services-maps:15.0.1'
 }

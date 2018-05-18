@@ -2,9 +2,9 @@ package nl.brouwerijdemolen.borefts2013.gui.screens
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
-import arrow.data.Failure
-import arrow.data.Success
-import arrow.data.Try
+import arrow.core.Failure
+import arrow.core.Success
+import arrow.core.Try
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
 import nl.brouwerijdemolen.borefts2013.api.Style

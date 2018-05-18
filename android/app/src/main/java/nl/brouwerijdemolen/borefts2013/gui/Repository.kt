@@ -1,8 +1,8 @@
 package nl.brouwerijdemolen.borefts2013.gui
 
-import arrow.data.Try
-import arrow.data.ev
-import arrow.data.monad
+import arrow.core.Try
+import arrow.core.fix
+import arrow.core.monad
 import arrow.typeclasses.binding
 import nl.brouwerijdemolen.borefts2013.api.Api
 import nl.brouwerijdemolen.borefts2013.api.Beer
@@ -30,7 +30,7 @@ class Repository(private val api: Api) {
                 beer.brewer = brewers.brewers.single { it.id == beer.brewerId }
                 beer.style = styles.styles.single { it.id == beer.styleId }
             }
-        }.ev()
+        }.fix()
     }
 
     suspend fun brewerBeers(brewerId: Int) = allBeers().map { it.filter { it.brewerId == brewerId } }

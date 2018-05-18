@@ -2,7 +2,7 @@ package nl.brouwerijdemolen.borefts2013.gui.screens
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
-import arrow.data.getOrElse
+import arrow.core.getOrElse
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
 import nl.brouwerijdemolen.borefts2013.api.Beer
