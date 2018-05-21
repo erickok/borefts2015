@@ -7,7 +7,6 @@ import arrow.typeclasses.binding
 import nl.brouwerijdemolen.borefts2013.api.Api
 import nl.brouwerijdemolen.borefts2013.api.Beer
 
-// TODO Implement persistent caching
 class Repository(private val api: Api) {
 
     suspend fun pois() = api.pois().map { it.pois }

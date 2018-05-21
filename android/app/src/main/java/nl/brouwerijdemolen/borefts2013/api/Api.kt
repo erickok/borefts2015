@@ -4,19 +4,16 @@ import arrow.core.Try
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.experimental.CoroutineCallAdapterFactory
 import kotlinx.coroutines.experimental.Deferred
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
-class Api {
+class Api(private val okHttpClient: OkHttpClient) {
 
     private val retrofit by lazy {
         Retrofit.Builder()
-                .client(OkHttpClient.Builder()
-                        .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC))
-                        .build())
+                .client(okHttpClient)
                 .baseUrl("https://borefts-staging.firebaseio.com/") // d454d or staging
                 .addCallAdapterFactory(CoroutineCallAdapterFactory())
                 .addConverterFactory(GsonConverterFactory.create())
