@@ -6,28 +6,31 @@ import arrow.core.monad
 import arrow.typeclasses.binding
 import nl.brouwerijdemolen.borefts2013.api.Api
 import nl.brouwerijdemolen.borefts2013.api.Beer
+import nl.brouwerijdemolen.borefts2013.api.Pois
 
-class Repository(private val api: Api) {
+class Repository(private val api: Api, private val memoryCache: MemoryCache) {
 
-    suspend fun pois() = api.pois().map { it.pois }
+    suspend fun poisAndAreas(): Try<Pois> = memoryCache.cachedPois.getFreshOr { api.pois() }
 
-    suspend fun areas() = api.pois().map { it.areas }
+    suspend fun pois() = poisAndAreas().map { it.pois }
 
-    suspend fun brewers() = api.brewers().map { it.brewers }
+    suspend fun areas() = poisAndAreas().map { it.areas }
 
-    suspend fun styles() = api.styles().map { it.styles }
+    suspend fun brewers() = memoryCache.cachedBrewers.getFreshOr { api.brewers() }.map { it.brewers }
+
+    suspend fun styles() = memoryCache.cachedStyles.getFreshOr { api.styles() }.map { it.styles }
 
     private suspend fun allBeers(): Try<List<Beer>> {
-        val tryBrewers = api.brewers()
-        val tryStyles = api.styles()
-        val tryBeers = api.beersRaw()
+        val tryBrewers = brewers()
+        val tryStyles = styles()
+        val tryBeers = memoryCache.cachedBeers.getFreshOr { api.beersRaw() }
         return Try.monad().binding {
             val brewers = tryBrewers.bind()
             val styles = tryStyles.bind()
             val beersRaw = tryBeers.bind()
             beersRaw.beers.onEach { beer ->
-                beer.brewer = brewers.brewers.single { it.id == beer.brewerId }
-                beer.style = styles.styles.single { it.id == beer.styleId }
+                beer.brewer = brewers.single { it.id == beer.brewerId }
+                beer.style = styles.single { it.id == beer.styleId }
             }
         }.fix()
     }

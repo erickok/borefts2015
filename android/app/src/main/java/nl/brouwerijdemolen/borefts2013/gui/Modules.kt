@@ -19,17 +19,19 @@ import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.architecture.ext.viewModel
 import org.koin.dsl.module.applicationContext
 
-private const val ONE_HOUR = 3_600_000L
+private const val CACHE_TIME_MEMORY = 300_000L // Five minutes
+private const val CACHE_TIME_DISK = 1_800_000L // Half hour
 
 val networkModule = applicationContext {
     bean {
         OkHttpClient.Builder()
-                .addInterceptor(CachingInterceptor(get<Context>().filesDir, ONE_HOUR))
+                .addInterceptor(CachingInterceptor(get<Context>().filesDir, CACHE_TIME_DISK))
                 .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC))
                 .build()
     }
     bean { Api(get()) }
-    bean { Repository(get()) }
+    bean { MemoryCache(CACHE_TIME_MEMORY) }
+    bean { Repository(get(), get()) }
 }
 
 val uiModule = applicationContext {
