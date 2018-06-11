@@ -54,5 +54,10 @@ dependencies {
     implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-experimental-adapter:1.0.0"
 
     // Maps
-    implementation 'com.google.android.gms:play-services-maps:15.0.1'
+    implementation "com.google.android.gms:play-services-maps:15.0.1"
+
+    testImplementation "org.junit.jupiter:junit-jupiter-api:5.2.0"
+    testImplementation "org.assertj:assertj-core:3.10.0"
+//    testImplementation "io.mockk:mockk:1.8.3"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:0.22.5"
 }
