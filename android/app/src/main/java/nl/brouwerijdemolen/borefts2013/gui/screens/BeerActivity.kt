@@ -14,13 +14,14 @@ import nl.brouwerijdemolen.borefts2013.api.Beer
 import nl.brouwerijdemolen.borefts2013.ext.*
 import nl.brouwerijdemolen.borefts2013.gui.*
 import nl.brouwerijdemolen.borefts2013.gui.components.getMolenString
-import org.koin.android.architecture.ext.viewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.android.ext.android.get
+import org.koin.core.parameter.parametersOf
 import java.util.*
 
 class BeerActivity : AppCompatActivity() {
 
-    private val beerViewModel: BeerViewModel by viewModel(parameters = { mapOf(KEY_ARGS to arg(KEY_ARGS)) })
+    private val beerViewModel: BeerViewModel by viewModel  { parametersOf(arg(KEY_ARGS)) }
     // TODO Via ViewModel action?
     private val beerId by lazy { arg<Beer>(KEY_ARGS).id }
 

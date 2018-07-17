@@ -10,7 +10,7 @@ import nl.brouwerijdemolen.borefts2013.R
 import nl.brouwerijdemolen.borefts2013.api.Beer
 import nl.brouwerijdemolen.borefts2013.ext.isVisible
 import nl.brouwerijdemolen.borefts2013.ext.observeNonNull
-import org.koin.android.architecture.ext.viewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class StarsFragment : Fragment() {
 

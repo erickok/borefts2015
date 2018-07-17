@@ -23,12 +23,13 @@ import nl.brouwerijdemolen.borefts2013.ext.KEY_ARGS
 import nl.brouwerijdemolen.borefts2013.ext.arg
 import nl.brouwerijdemolen.borefts2013.ext.observeNonNull
 import nl.brouwerijdemolen.borefts2013.gui.components.ResourceProvider
-import org.koin.android.architecture.ext.viewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 
 class MapActivity : AppCompatActivity() {
 
-    private val mapViewModel: MapViewModel by viewModel(parameters = { mapOf(KEY_ARGS to arg(KEY_ARGS)) })
+    private val mapViewModel: MapViewModel by viewModel { parametersOf(arg(KEY_ARGS)) }
     private val res: ResourceProvider by inject()
 
     private lateinit var mapView: BoreftsMapView

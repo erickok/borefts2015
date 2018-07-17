@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.fragment_info.*
 import nl.brouwerijdemolen.borefts2013.R
 import nl.brouwerijdemolen.borefts2013.ext.observeNonNull
 import nl.brouwerijdemolen.borefts2013.ext.startLink
-import org.koin.android.architecture.ext.viewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 import java.util.*
 
 class InfoFragment : Fragment() {

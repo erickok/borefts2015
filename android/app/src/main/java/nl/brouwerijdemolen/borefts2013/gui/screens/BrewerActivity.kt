@@ -19,12 +19,13 @@ import nl.brouwerijdemolen.borefts2013.ext.observeNonNull
 import nl.brouwerijdemolen.borefts2013.gui.components.getMolenString
 import nl.brouwerijdemolen.borefts2013.gui.location
 import nl.brouwerijdemolen.borefts2013.gui.logoBitmap
-import org.koin.android.architecture.ext.viewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.android.ext.android.get
+import org.koin.core.parameter.parametersOf
 
 class BrewerActivity : AppCompatActivity() {
 
-    private val brewerViewModel: BrewerViewModel by viewModel(parameters = { mapOf(KEY_ARGS to arg(KEY_ARGS)) })
+    private val brewerViewModel: BrewerViewModel by viewModel { parametersOf(arg(KEY_ARGS)) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

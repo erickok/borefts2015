@@ -19,7 +19,7 @@ import nl.brouwerijdemolen.borefts2013.api.Style
 import nl.brouwerijdemolen.borefts2013.ext.isVisible
 import nl.brouwerijdemolen.borefts2013.ext.observeNonNull
 import nl.brouwerijdemolen.borefts2013.gui.getColorResource
-import org.koin.android.architecture.ext.viewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.standalone.KoinComponent
 import org.koin.standalone.get
 
