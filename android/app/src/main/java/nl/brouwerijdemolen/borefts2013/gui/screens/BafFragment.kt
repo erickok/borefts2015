@@ -34,6 +34,6 @@ class BafFragment : Fragment() {
                 }
             }
         }
-        baf_webview.loadUrl("https://www.facebook.com/events/1877911625865879/")
+        baf_webview.loadUrl("https://www.facebook.com/events/147419966082008/")
     }
 }
