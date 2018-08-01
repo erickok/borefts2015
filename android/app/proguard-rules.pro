@@ -25,7 +25,7 @@
 -keep class * implements com.google.gson.JsonDeserializer
 
 # Koin
--keep,allowshrinking,allowoptimization class android.arch.lifecycle.*
+-keepnames class android.arch.lifecycle.ViewModel
 
 # Model classes (de)serialized from/to JSON
 -keepclassmembernames class nl.brouwerijdemolen.borefts2013.api.* { *; }
