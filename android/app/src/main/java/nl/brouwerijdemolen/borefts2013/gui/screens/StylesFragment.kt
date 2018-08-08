@@ -20,13 +20,12 @@ import nl.brouwerijdemolen.borefts2013.ext.isVisible
 import nl.brouwerijdemolen.borefts2013.ext.observeNonNull
 import nl.brouwerijdemolen.borefts2013.gui.getColorResource
 import org.koin.android.viewmodel.ext.android.viewModel
-import org.koin.core.parameter.parametersOf
 import org.koin.standalone.KoinComponent
 import org.koin.standalone.get
 
 class StylesFragment : Fragment() {
 
-    private val viewModel: StylesViewModel by viewModel { parametersOf(requireActivity()) }
+    private val viewModel: StylesViewModel by viewModel()
     private lateinit var stylesListAdapter: StylesListAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

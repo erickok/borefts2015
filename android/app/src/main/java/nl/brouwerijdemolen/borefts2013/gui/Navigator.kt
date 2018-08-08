@@ -53,7 +53,7 @@ class IntentNavigator(private val appContext: Context) : Navigator {
     }
 
     private fun startTask(target: Intent) {
-        appContext.startActivity(target)
+        appContext.startActivity(target.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
     }
 
 }

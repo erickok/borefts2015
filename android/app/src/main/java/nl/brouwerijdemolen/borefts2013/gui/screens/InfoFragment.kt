@@ -23,12 +23,11 @@ import nl.brouwerijdemolen.borefts2013.R
 import nl.brouwerijdemolen.borefts2013.ext.observeNonNull
 import nl.brouwerijdemolen.borefts2013.ext.startLink
 import org.koin.android.viewmodel.ext.android.viewModel
-import org.koin.core.parameter.parametersOf
 import java.util.GregorianCalendar
 
 class InfoFragment : Fragment() {
 
-    private val viewModel: InfoViewModel by viewModel { parametersOf(requireActivity()) }
+    private val viewModel: InfoViewModel by viewModel()
     private lateinit var mapView: BoreftsMapView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

@@ -47,7 +47,7 @@ import java.util.Locale
 
 class BeerActivity : AppCompatActivity() {
 
-    private val beerViewModel: BeerViewModel by viewModel { parametersOf(this, arg(KEY_ARGS)) }
+    private val beerViewModel: BeerViewModel by viewModel { parametersOf(arg(KEY_ARGS)) }
 
     private lateinit var actionStarOn: MenuItem
     private lateinit var actionStarOff: MenuItem
