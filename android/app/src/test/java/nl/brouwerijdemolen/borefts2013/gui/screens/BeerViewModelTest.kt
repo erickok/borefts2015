@@ -2,6 +2,12 @@ package nl.brouwerijdemolen.borefts2013.gui.screens
 
 import android.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.common.truth.Truth.assertThat
+import nl.brouwerijdemolen.borefts2013.gui.dummyBeer
+import nl.brouwerijdemolen.borefts2013.gui.dummyBrewer
+import nl.brouwerijdemolen.borefts2013.gui.dummyStyle
+import nl.brouwerijdemolen.borefts2013.gui.mockNavigator
+import nl.brouwerijdemolen.borefts2013.gui.mockStarPersistence
+import nl.brouwerijdemolen.borefts2013.gui.testModule
 import nl.brouwerijdemolen.borefts2013.gui.viewModelsModule
 import org.junit.After
 import org.junit.Before
@@ -14,6 +20,7 @@ import org.koin.standalone.StandAloneContext.startKoin
 import org.koin.standalone.inject
 import org.koin.test.KoinTest
 import org.mockito.Mockito
+import org.mockito.Mockito.verify
 
 class BeerViewModelTest : KoinTest {
 
@@ -45,20 +52,26 @@ class BeerViewModelTest : KoinTest {
         lateinit var result: BeerUiModel
         beerViewModel.state.observeForever { model -> result = requireNotNull(model) }
         assertThat(result.isStarred).isFalse()
+
         beerViewModel.updateStar(true)
         assertThat(result.isStarred).isTrue()
+        verify(mockStarPersistence).addStar(dummyBeer.id)
+
+        beerViewModel.updateStar(false)
+        assertThat(result.isStarred).isFalse()
+        verify(mockStarPersistence).removeStar(dummyBeer.id)
     }
 
     @Test
     fun `opening brewer starts navigation`() {
         beerViewModel.openBrewer()
-        Mockito.verify(mockNavigator).openBrewer(dummyBrewer)
+        verify(mockNavigator).openBrewer(dummyBrewer)
     }
 
     @Test
     fun `opening style starts navigation`() {
         beerViewModel.openStyle()
-        Mockito.verify(mockNavigator).openStyle(dummyStyle)
+        verify(mockNavigator).openStyle(dummyStyle)
     }
 
     @Test

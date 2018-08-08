@@ -3,9 +3,9 @@ package nl.brouwerijdemolen.borefts2013.gui.screens
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import arrow.core.Try
-import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
 import nl.brouwerijdemolen.borefts2013.api.Beer
+import nl.brouwerijdemolen.borefts2013.gui.CoroutineScope.ui
 import nl.brouwerijdemolen.borefts2013.gui.Navigator
 import nl.brouwerijdemolen.borefts2013.gui.Repository
 import nl.brouwerijdemolen.borefts2013.gui.components.StarPersistence
@@ -19,7 +19,7 @@ class StarsViewModel(
     val state = MutableLiveData<StarsUiModel>().apply { value = StarsUiModel.Loading }
 
     fun refresh() {
-        launch(UI) {
+        launch(ui) {
             val starred = starPersistence.allStars
             state.postValue(repository.someBeers(starred).toUiModel())
         }

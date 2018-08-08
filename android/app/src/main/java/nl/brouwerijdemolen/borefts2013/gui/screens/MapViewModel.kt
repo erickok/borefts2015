@@ -10,12 +10,11 @@ import arrow.core.fix
 import arrow.core.monad
 import arrow.typeclasses.binding
 import kotlinx.android.parcel.Parcelize
-import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
 import nl.brouwerijdemolen.borefts2013.api.Area
-import nl.brouwerijdemolen.borefts2013.api.Beer
 import nl.brouwerijdemolen.borefts2013.api.Brewer
 import nl.brouwerijdemolen.borefts2013.api.Poi
+import nl.brouwerijdemolen.borefts2013.gui.CoroutineScope.ui
 import nl.brouwerijdemolen.borefts2013.gui.Navigator
 import nl.brouwerijdemolen.borefts2013.gui.Repository
 import nl.brouwerijdemolen.borefts2013.gui.components.log
@@ -28,7 +27,7 @@ class MapViewModel(
     val state = MutableLiveData<MapUiModel>().apply { value = MapUiModel.Loading }
 
     init {
-        launch(UI) {
+        launch(ui) {
             val tryBrewers = repository.brewers()
             val tryAreas = repository.areas()
             val tryPois = repository.pois()

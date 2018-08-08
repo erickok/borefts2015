@@ -5,9 +5,9 @@ import android.arch.lifecycle.ViewModel
 import arrow.core.Failure
 import arrow.core.Success
 import arrow.core.Try
-import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
 import nl.brouwerijdemolen.borefts2013.api.Style
+import nl.brouwerijdemolen.borefts2013.gui.CoroutineScope.ui
 import nl.brouwerijdemolen.borefts2013.gui.Navigator
 import nl.brouwerijdemolen.borefts2013.gui.Repository
 import nl.brouwerijdemolen.borefts2013.gui.components.log
@@ -19,7 +19,7 @@ class StylesViewModel(
     val state = MutableLiveData<StylesUiModel>().apply { value = StylesUiModel.Loading }
 
     init {
-        launch(UI) {
+        launch(ui) {
             state.postValue(repository.styles().toUiModel())
         }
     }

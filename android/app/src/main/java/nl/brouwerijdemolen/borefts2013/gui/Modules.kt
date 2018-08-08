@@ -1,9 +1,11 @@
 package nl.brouwerijdemolen.borefts2013.gui
 
 import android.content.Context
+import kotlinx.coroutines.experimental.android.UI
 import nl.brouwerijdemolen.borefts2013.api.Api
 import nl.brouwerijdemolen.borefts2013.api.Beer
 import nl.brouwerijdemolen.borefts2013.api.Brewer
+import nl.brouwerijdemolen.borefts2013.api.HttpApi
 import nl.brouwerijdemolen.borefts2013.api.Style
 import nl.brouwerijdemolen.borefts2013.gui.components.AppRater
 import nl.brouwerijdemolen.borefts2013.gui.components.ResourceProvider
@@ -21,6 +23,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
+import kotlin.coroutines.experimental.CoroutineContext
 
 private const val CACHE_TIME_MEMORY = 300_000L // Five minutes
 private const val CACHE_TIME_DISK = 1_800_000L // Half hour
@@ -32,12 +35,13 @@ val networkModule = module {
                 .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC))
                 .build()
     }
-    single { Api(get()) }
+    single { HttpApi(get()) as Api }
     single { MemoryCache(CACHE_TIME_MEMORY) }
     single { Repository(get(), get()) }
 }
 
 val uiModule = module {
+    single("ui") { UI as CoroutineContext }
     single { ResourceProvider(get()) }
     single { AppRater(get()) }
     single { StarPersistence(get()) }
