@@ -6,12 +6,14 @@ import arrow.core.Try
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
 import nl.brouwerijdemolen.borefts2013.api.Beer
+import nl.brouwerijdemolen.borefts2013.gui.Navigator
 import nl.brouwerijdemolen.borefts2013.gui.Repository
 import nl.brouwerijdemolen.borefts2013.gui.components.StarPersistence
 import nl.brouwerijdemolen.borefts2013.gui.components.log
 
 class StarsViewModel(
         private val repository: Repository,
+        private val navigator: Navigator,
         private val starPersistence: StarPersistence) : ViewModel() {
 
     val state = MutableLiveData<StarsUiModel>().apply { value = StarsUiModel.Loading }
@@ -28,6 +30,10 @@ class StarsViewModel(
             is Try.Success -> if (value.isEmpty()) StarsUiModel.Empty else StarsUiModel.Success(value)
             is Try.Failure -> StarsUiModel.Failure.also { this.log() }
         }
+    }
+
+    fun openBeer(beer: Beer) {
+        navigator.openBeer(beer)
     }
 
 }

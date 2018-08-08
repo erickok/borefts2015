@@ -13,13 +13,16 @@ import kotlinx.android.parcel.Parcelize
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
 import nl.brouwerijdemolen.borefts2013.api.Area
+import nl.brouwerijdemolen.borefts2013.api.Beer
 import nl.brouwerijdemolen.borefts2013.api.Brewer
 import nl.brouwerijdemolen.borefts2013.api.Poi
+import nl.brouwerijdemolen.borefts2013.gui.Navigator
 import nl.brouwerijdemolen.borefts2013.gui.Repository
 import nl.brouwerijdemolen.borefts2013.gui.components.log
 
 class MapViewModel(
         private val repository: Repository,
+        private val navigator: Navigator,
         private val args: Args) : ViewModel() {
 
     val state = MutableLiveData<MapUiModel>().apply { value = MapUiModel.Loading }
@@ -43,6 +46,10 @@ class MapViewModel(
             is Success -> value
             is Failure -> MapUiModel.Failure.also { this.log() }
         }
+    }
+
+    fun openBrewer(brewer: Brewer) {
+        navigator.openBrewer(brewer)
     }
 
 }

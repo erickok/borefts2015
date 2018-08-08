@@ -33,7 +33,7 @@ class StylesFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        stylesListAdapter = StylesListAdapter { openStyle(it) }
+        stylesListAdapter = StylesListAdapter(viewModel::openStyle)
         the_list.adapter = stylesListAdapter
         viewModel.state.observeNonNull(this) {
             loading_progress.isVisible = it == StylesUiModel.Loading
@@ -43,10 +43,6 @@ class StylesFragment : Fragment() {
                 stylesListAdapter.submitList(it.styles)
             }
         }
-    }
-
-    private fun openStyle(style: Style) {
-        startActivity(StyleActivity(requireContext(), style))
     }
 
 }

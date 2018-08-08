@@ -1,7 +1,6 @@
 package nl.brouwerijdemolen.borefts2013.gui.screens
 
 import android.content.Intent
-import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -39,17 +38,13 @@ class InfoFragment : Fragment() {
                                 .target(LatLng(52.084622, 4.740003))
                                 .zoom(17f).build()))
                 it.uiSettings.isMapToolbarEnabled = false
-                it.setOnMarkerClickListener { startActivity(MapActivity(requireContext())).let { true } }
-                it.setOnMapClickListener { startActivity(MapActivity(requireContext())) }
+                it.setOnMarkerClickListener { _ -> viewModel.openMap().let { _ -> true } }
+                it.setOnMapClickListener {_ -> startActivity(MapActivity(requireContext())) }
             }
         }
         minimap_holder.addView(mapView, FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT)
-        getmore_button.setOnClickListener {
-            startActivity(MapActivity(requireContext(), focusPoiId = "tokensale"))
-        }
-        findmill_button.setOnClickListener {
-            startActivity(MapActivity(requireContext(), focusPoiId = "mill"))
-        }
+        getmore_button.setOnClickListener { viewModel.openMap("tokensale") }
+        findmill_button.setOnClickListener { viewModel.openMap("mill") }
         times_button.setOnClickListener {
             // Try to start the calendar application
             val intent = Intent(Intent.ACTION_EDIT).apply {

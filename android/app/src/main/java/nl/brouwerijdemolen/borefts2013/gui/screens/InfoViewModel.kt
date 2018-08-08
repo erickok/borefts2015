@@ -13,10 +13,12 @@ import kotlinx.coroutines.experimental.launch
 import nl.brouwerijdemolen.borefts2013.api.Area
 import nl.brouwerijdemolen.borefts2013.api.Brewer
 import nl.brouwerijdemolen.borefts2013.api.Poi
+import nl.brouwerijdemolen.borefts2013.gui.Navigator
 import nl.brouwerijdemolen.borefts2013.gui.Repository
 import nl.brouwerijdemolen.borefts2013.gui.components.log
 
 class InfoViewModel(
+        private val navigator: Navigator,
         private val repository: Repository) : ViewModel() {
 
     val state = MutableLiveData<InfoUiModel>().apply { value = InfoUiModel.Loading }
@@ -40,6 +42,18 @@ class InfoViewModel(
             is Success -> value
             is Failure -> InfoUiModel.Failure.also { this.log() }
         }
+    }
+
+    fun openMap() {
+        navigator.openMap()
+    }
+
+    fun openMap(brewerId: Int) {
+        navigator.openMapForBrewer(brewerId)
+    }
+
+    fun openMap(poiId: String) {
+        navigator.openMapForPoi(poiId)
     }
 
 }

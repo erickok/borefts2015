@@ -35,7 +35,7 @@ class BrewersFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        brewersListAdapter = BrewersListAdapter { openBrewer(it) }
+        brewersListAdapter = BrewersListAdapter(viewModel::openBrewer)
         the_list.adapter = brewersListAdapter
         viewModel.state.observeNonNull(this) {
             loading_progress.isVisible = it == BrewersUiModel.Loading
@@ -45,10 +45,6 @@ class BrewersFragment : Fragment() {
                 brewersListAdapter.submitList(it.brewers)
             }
         }
-    }
-
-    private fun openBrewer(brewer: Brewer) {
-        startActivity(BrewerActivity(requireContext(), brewer))
     }
 
 }

@@ -13,15 +13,14 @@ import kotlinx.android.synthetic.main.activity_style.color_view
 import kotlinx.android.synthetic.main.activity_style.sweetness_view
 import kotlinx.android.synthetic.main.activity_style.title_text
 import nl.brouwerijdemolen.borefts2013.R
-import nl.brouwerijdemolen.borefts2013.api.Beer
 import nl.brouwerijdemolen.borefts2013.api.Style
 import nl.brouwerijdemolen.borefts2013.ext.KEY_ARGS
 import nl.brouwerijdemolen.borefts2013.ext.arg
 import nl.brouwerijdemolen.borefts2013.ext.observeNonNull
 import nl.brouwerijdemolen.borefts2013.gui.components.getMolenString
 import nl.brouwerijdemolen.borefts2013.gui.getColorResource
-import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.android.ext.android.get
+import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
 class StyleActivity : AppCompatActivity() {
@@ -40,12 +39,8 @@ class StyleActivity : AppCompatActivity() {
             bitterness_view.value = it.style.bitterness
             sweetness_view.value = it.style.sweetness
             acidity_view.value = it.style.abv
-            beers_list.adapter = BeersListAdapter(false, ::openBeer).apply { submitList(it.beers) }
+            beers_list.adapter = BeersListAdapter(false, styleViewModel::openBeer).apply { submitList(it.beers) }
         }
-    }
-
-    private fun openBeer(beer: Beer) {
-        startActivity(BeerActivity(this, beer))
     }
 
     private fun setupToolbar() {

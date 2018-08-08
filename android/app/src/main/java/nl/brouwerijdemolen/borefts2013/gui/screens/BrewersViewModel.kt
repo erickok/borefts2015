@@ -8,10 +8,12 @@ import arrow.core.Try
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
 import nl.brouwerijdemolen.borefts2013.api.Brewer
+import nl.brouwerijdemolen.borefts2013.gui.Navigator
 import nl.brouwerijdemolen.borefts2013.gui.Repository
 import nl.brouwerijdemolen.borefts2013.gui.components.log
 
 class BrewersViewModel(
+        private val navigator: Navigator,
         private val repository: Repository) : ViewModel() {
 
     val state = MutableLiveData<BrewersUiModel>().apply { value = BrewersUiModel.Loading }
@@ -27,6 +29,10 @@ class BrewersViewModel(
             is Success -> BrewersUiModel.Success(value)
             is Failure -> BrewersUiModel.Failure.also { this.log() }
         }
+    }
+
+    fun openBrewer(brewer: Brewer) {
+        navigator.openBrewer(brewer)
     }
 
 }

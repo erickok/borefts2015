@@ -7,10 +7,12 @@ import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
 import nl.brouwerijdemolen.borefts2013.api.Beer
 import nl.brouwerijdemolen.borefts2013.api.Brewer
+import nl.brouwerijdemolen.borefts2013.gui.Navigator
 import nl.brouwerijdemolen.borefts2013.gui.Repository
 
 class BrewerViewModel(
         private val brewer: Brewer,
+        private val navigator: Navigator,
         private val repository: Repository) : ViewModel() {
 
     val state = MutableLiveData<BrewerUiModel>()
@@ -20,6 +22,10 @@ class BrewerViewModel(
             state.postValue(BrewerUiModel(brewer, repository.brewerBeers(brewer.id)
                     .getOrElse { throw IllegalStateException("BrewerViewModel can only be created with cached data") }))
         }
+    }
+
+    fun openBeer(beer: Beer) {
+        navigator.openBeer(beer)
     }
 
 }

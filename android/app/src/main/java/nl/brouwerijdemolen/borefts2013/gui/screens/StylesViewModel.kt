@@ -8,10 +8,12 @@ import arrow.core.Try
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
 import nl.brouwerijdemolen.borefts2013.api.Style
+import nl.brouwerijdemolen.borefts2013.gui.Navigator
 import nl.brouwerijdemolen.borefts2013.gui.Repository
 import nl.brouwerijdemolen.borefts2013.gui.components.log
 
 class StylesViewModel(
+        private val navigator: Navigator,
         private val repository: Repository) : ViewModel() {
 
     val state = MutableLiveData<StylesUiModel>().apply { value = StylesUiModel.Loading }
@@ -27,6 +29,10 @@ class StylesViewModel(
             is Success -> StylesUiModel.Success(value)
             is Failure -> StylesUiModel.Failure.also { this.log() }
         }
+    }
+
+    fun openStyle(style: Style) {
+        navigator.openStyle(style)
     }
 
 }

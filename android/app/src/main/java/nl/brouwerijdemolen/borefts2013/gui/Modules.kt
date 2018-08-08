@@ -41,15 +41,16 @@ val uiModule = module {
     single { ResourceProvider(get()) }
     single { AppRater(get()) }
     single { StarPersistence(get()) }
+    single { IntentNavigator(get()) as Navigator }
 }
 
 val viewModelsModule = module {
-    viewModel { InfoViewModel(get()) }
-    viewModel { BrewersViewModel(get()) }
-    viewModel { StylesViewModel(get()) }
-    viewModel { StarsViewModel(get(), get()) }
-    viewModel { (brewer: Brewer) -> BrewerViewModel(brewer, get()) }
-    viewModel { (style: Style) -> StyleViewModel(style, get()) }
-    viewModel { (beer: Beer) -> BeerViewModel(beer, get()) }
-    viewModel { (args: Args) -> MapViewModel(get(), args) }
+    viewModel { InfoViewModel(get(), get()) }
+    viewModel { BrewersViewModel(get(), get()) }
+    viewModel { StylesViewModel(get(), get()) }
+    viewModel { StarsViewModel(get(), get(), get()) }
+    viewModel { (brewer: Brewer) -> BrewerViewModel(brewer, get(), get()) }
+    viewModel { (style: Style) -> StyleViewModel(style, get(), get()) }
+    viewModel { (beer: Beer) -> BeerViewModel(beer, get(), get()) }
+    viewModel { (args: Args) -> MapViewModel(get(), get(), args) }
 }
