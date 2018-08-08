@@ -21,7 +21,7 @@ import nl.brouwerijdemolen.borefts2013.ext.isVisible
 import nl.brouwerijdemolen.borefts2013.ext.observeNonNull
 import nl.brouwerijdemolen.borefts2013.gui.location
 import nl.brouwerijdemolen.borefts2013.gui.logoBitmap
-import org.koin.android.architecture.ext.viewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.standalone.KoinComponent
 import org.koin.standalone.get
 
@@ -35,7 +35,7 @@ class BrewersFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        brewersListAdapter = BrewersListAdapter { openBrewer(it) }
+        brewersListAdapter = BrewersListAdapter(viewModel::openBrewer)
         the_list.adapter = brewersListAdapter
         viewModel.state.observeNonNull(this) {
             loading_progress.isVisible = it == BrewersUiModel.Loading
@@ -45,10 +45,6 @@ class BrewersFragment : Fragment() {
                 brewersListAdapter.submitList(it.brewers)
             }
         }
-    }
-
-    private fun openBrewer(brewer: Brewer) {
-        startActivity(BrewerActivity(requireContext(), brewer))
     }
 
 }

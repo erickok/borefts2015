@@ -38,7 +38,7 @@ class AboutFragment : DialogFragment() {
             requireContext().startLink(Uri.parse("http://www.brouwerijdemolen.nl"))
         }
         visit2312_button.setOnClickListener {
-            requireContext().startLink(Uri.parse("http://2312.nl"))
+            requireContext().startLink(Uri.parse("https://2312.nl"))
         }
     }
 

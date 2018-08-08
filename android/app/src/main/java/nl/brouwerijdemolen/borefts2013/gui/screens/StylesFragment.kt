@@ -19,7 +19,7 @@ import nl.brouwerijdemolen.borefts2013.api.Style
 import nl.brouwerijdemolen.borefts2013.ext.isVisible
 import nl.brouwerijdemolen.borefts2013.ext.observeNonNull
 import nl.brouwerijdemolen.borefts2013.gui.getColorResource
-import org.koin.android.architecture.ext.viewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.standalone.KoinComponent
 import org.koin.standalone.get
 
@@ -33,7 +33,7 @@ class StylesFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        stylesListAdapter = StylesListAdapter { openStyle(it) }
+        stylesListAdapter = StylesListAdapter(viewModel::openStyle)
         the_list.adapter = stylesListAdapter
         viewModel.state.observeNonNull(this) {
             loading_progress.isVisible = it == StylesUiModel.Loading
@@ -43,10 +43,6 @@ class StylesFragment : Fragment() {
                 stylesListAdapter.submitList(it.styles)
             }
         }
-    }
-
-    private fun openStyle(style: Style) {
-        startActivity(StyleActivity(requireContext(), style))
     }
 
 }

@@ -8,21 +8,46 @@ import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import android.widget.TextView
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_beer.*
+import kotlinx.android.synthetic.main.activity_beer.abv_text
+import kotlinx.android.synthetic.main.activity_beer.abv_view
+import kotlinx.android.synthetic.main.activity_beer.acidity_view
+import kotlinx.android.synthetic.main.activity_beer.beer_name_text
+import kotlinx.android.synthetic.main.activity_beer.bitterness_view
+import kotlinx.android.synthetic.main.activity_beer.brewer_button
+import kotlinx.android.synthetic.main.activity_beer.color_view
+import kotlinx.android.synthetic.main.activity_beer.google_button
+import kotlinx.android.synthetic.main.activity_beer.serving_text
+import kotlinx.android.synthetic.main.activity_beer.style_button
+import kotlinx.android.synthetic.main.activity_beer.sweetness_view
+import kotlinx.android.synthetic.main.activity_beer.tags_layout
+import kotlinx.android.synthetic.main.activity_beer.title_toolbar
+import kotlinx.android.synthetic.main.activity_beer.tostyle_text
+import kotlinx.android.synthetic.main.activity_beer.untappd_button
 import nl.brouwerijdemolen.borefts2013.R
 import nl.brouwerijdemolen.borefts2013.api.Beer
-import nl.brouwerijdemolen.borefts2013.ext.*
-import nl.brouwerijdemolen.borefts2013.gui.*
+import nl.brouwerijdemolen.borefts2013.ext.KEY_ARGS
+import nl.brouwerijdemolen.borefts2013.ext.arg
+import nl.brouwerijdemolen.borefts2013.ext.isVisible
+import nl.brouwerijdemolen.borefts2013.ext.observeNonNull
+import nl.brouwerijdemolen.borefts2013.ext.startLink
+import nl.brouwerijdemolen.borefts2013.gui.abvIndication
+import nl.brouwerijdemolen.borefts2013.gui.abvText
+import nl.brouwerijdemolen.borefts2013.gui.acidityIndication
+import nl.brouwerijdemolen.borefts2013.gui.bitternessIndication
+import nl.brouwerijdemolen.borefts2013.gui.colorIndicationResource
 import nl.brouwerijdemolen.borefts2013.gui.components.getMolenString
-import org.koin.android.architecture.ext.viewModel
+import nl.brouwerijdemolen.borefts2013.gui.hasAbv
+import nl.brouwerijdemolen.borefts2013.gui.hasFlavourIndication
+import nl.brouwerijdemolen.borefts2013.gui.servingText
+import nl.brouwerijdemolen.borefts2013.gui.sweetnessIndication
 import org.koin.android.ext.android.get
-import java.util.*
+import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
+import java.util.Locale
 
 class BeerActivity : AppCompatActivity() {
 
-    private val beerViewModel: BeerViewModel by viewModel(parameters = { mapOf(KEY_ARGS to arg(KEY_ARGS)) })
-    // TODO Via ViewModel action?
-    private val beerId by lazy { arg<Beer>(KEY_ARGS).id }
+    private val beerViewModel: BeerViewModel by viewModel { parametersOf(arg(KEY_ARGS)) }
 
     private lateinit var actionStarOn: MenuItem
     private lateinit var actionStarOff: MenuItem
@@ -36,7 +61,9 @@ class BeerActivity : AppCompatActivity() {
             with(it) {
                 beer_name_text.text = getMolenString(beer.name)
                 brewer_button.text = beer.brewer?.name
+                brewer_button.setOnClickListener { _ -> beerViewModel.openBrewer() }
                 style_button.text = beer.style?.name
+                style_button.setOnClickListener { _ -> beerViewModel.openStyle() }
                 abv_text.isVisible = beer.hasAbv
                 abv_text.text = beer.abvText(get())
                 serving_text.text = beer.servingText(get()).toUpperCase(Locale.getDefault())
@@ -57,7 +84,7 @@ class BeerActivity : AppCompatActivity() {
                         }
                     }
                 }
-                untappd_button.setOnClickListener {
+                untappd_button.setOnClickListener { _ ->
                     if (beer.untappdId <= 0) {
                         Toast.makeText(this@BeerActivity, R.string.error_notcoupled, Toast.LENGTH_LONG).show()
                     } else {
@@ -66,7 +93,7 @@ class BeerActivity : AppCompatActivity() {
                                 Uri.parse("https://untappd.com/qr/beer/${beer.untappdId}"))
                     }
                 }
-                google_button.setOnClickListener {
+                google_button.setOnClickListener { _ ->
                     startLink(Uri.parse("http://www.google.com/search?q=" + Uri.encode(beer.brewer?.name + " " + beer.name)))
                 }
                 actionStarOn.isVisible = isStarred
@@ -83,7 +110,7 @@ class BeerActivity : AppCompatActivity() {
         actionStarOff = title_toolbar.menu.findItem(R.id.action_star_off)
         title_toolbar.setOnMenuItemClickListener {
             when (it.itemId) {
-                R.id.action_locate -> startActivity(MapActivity(this, focusBrewerId = beerId))
+                R.id.action_locate -> beerViewModel.locateBrewer()
                 R.id.action_star_on -> beerViewModel.updateStar(false)
                 R.id.action_star_off -> beerViewModel.updateStar(true)
             }

@@ -4,20 +4,29 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion "27.0.3"
-
+    signingConfigs {
+        releaseConfig {
+            keyAlias 'borefts2013'
+            keyPassword ''
+            storeFile file('../../../erickok.keystore')
+            storePassword ''
+        }
+    }
+    compileSdkVersion 28
+    buildToolsVersion "28.0.1"
     defaultConfig {
         applicationId "nl.brouwerijdemolen.borefts2013"
         minSdkVersion 21
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 60
         versionName "6.0.0"
+        resConfigs "en", "nl"
     }
     buildTypes {
         release {
-            // TODO Minify
-            minifyEnabled false
+            signingConfig signingConfigs.releaseConfig
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 }
@@ -30,29 +39,27 @@ androidExtensions { experimental = true }
 dependencies {
     // Kotlin and Arrow
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:0.22.5"
-    implementation "io.arrow-kt:arrow-core:0.7.1"
-    implementation "io.arrow-kt:arrow-typeclasses:0.7.1"
-    implementation "io.arrow-kt:arrow-data:0.7.1"
-    implementation "io.arrow-kt:arrow-instances-core:0.7.1"
-
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:0.24.0'
+    implementation 'com.github.arrow-kt.arrow:arrow-core:master-SNAPSHOT'
+    implementation 'com.github.arrow-kt.arrow:arrow-instances-core:master-SNAPSHOT'
+    // TODO Back to official distributions when Arrow Proguard issue #807 is merged in a release
+    // implementation 'io.arrow-kt:arrow-core:0.7.2'
+    // implementation 'io.arrow-kt:arrow-instances-core:0.7.2'
     // Support and Arch libs
-    implementation "com.android.support:appcompat-v7:27.1.1"
-    implementation "com.android.support:design:27.1.1"
-    implementation "android.arch.lifecycle:runtime:1.1.1"
-    implementation "android.arch.lifecycle:extensions:1.1.1"
-    kapt "android.arch.lifecycle:compiler:1.1.1"
-
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
+    implementation 'android.arch.lifecycle:runtime:1.1.1'
+    implementation 'android.arch.lifecycle:viewmodel:1.1.1'
+    implementation 'android.arch.lifecycle:extensions:1.1.1'
+    kapt 'android.arch.lifecycle:compiler:1.1.1'
     // DI
-    implementation "org.koin:koin-android:0.9.2"
-    implementation "org.koin:koin-android-architecture:0.9.2"
-
+    implementation 'org.koin:koin-android:1.0.0-beta-3'
+    implementation 'org.koin:koin-android-viewmodel:1.0.0-beta-3'
     // Networking
-    implementation "com.google.code.gson:gson:2.8.2"
-    implementation "com.squareup.okhttp3:logging-interceptor:3.10.0"
-    implementation "com.squareup.retrofit2:converter-gson:2.4.0"
-    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-experimental-adapter:1.0.0"
-
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-experimental-adapter:1.0.0'
     // Maps
     implementation "com.google.android.gms:play-services-maps:15.0.1"
 

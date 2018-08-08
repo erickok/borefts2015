@@ -5,12 +5,13 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.fragment_list.*
+import kotlinx.android.synthetic.main.fragment_list.error_text
+import kotlinx.android.synthetic.main.fragment_list.loading_progress
+import kotlinx.android.synthetic.main.fragment_list.the_list
 import nl.brouwerijdemolen.borefts2013.R
-import nl.brouwerijdemolen.borefts2013.api.Beer
 import nl.brouwerijdemolen.borefts2013.ext.isVisible
 import nl.brouwerijdemolen.borefts2013.ext.observeNonNull
-import org.koin.android.architecture.ext.viewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class StarsFragment : Fragment() {
 
@@ -22,7 +23,7 @@ class StarsFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        beersListAdapter = BeersListAdapter(false) { openBeer(it) }
+        beersListAdapter = BeersListAdapter(false, viewModel::openBeer)
         the_list.adapter = beersListAdapter
         error_text.setText(R.string.info_nostars)
         viewModel.state.observeNonNull(this) {
@@ -38,10 +39,6 @@ class StarsFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         viewModel.refresh()
-    }
-
-    private fun openBeer(beer: Beer) {
-        startActivity(BeerActivity(requireContext(), beer))
     }
 
 }

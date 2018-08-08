@@ -34,7 +34,7 @@ class Api(private val okHttpClient: OkHttpClient) {
 
     interface Routes {
 
-        @GET("http://2312.nl/borefts2017/pois.php")
+        @GET("https://2312.nl/borefts2017/pois.php")
         fun pois(): Deferred<Response<Pois>>
 
         @GET("brewers/2017.json")
