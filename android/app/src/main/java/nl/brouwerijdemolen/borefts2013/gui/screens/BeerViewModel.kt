@@ -15,6 +15,14 @@ class BeerViewModel(
         value = BeerUiModel(beer, starPersistence.isStarred(beer.id))
     }
 
+    fun openBrewer() {
+        navigator.openBrewer(beer.brewer!!)
+    }
+
+    fun openStyle() {
+        navigator.openStyle(beer.style!!)
+    }
+
     fun locateBrewer() {
         navigator.openMapForBrewer(beer.brewerId)
     }

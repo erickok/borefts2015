@@ -29,7 +29,7 @@ import org.koin.core.parameter.parametersOf
 
 class MapActivity : AppCompatActivity() {
 
-    private val mapViewModel: MapViewModel by viewModel { parametersOf(arg(KEY_ARGS)) }
+    private val mapViewModel: MapViewModel by viewModel { parametersOf(this, arg(KEY_ARGS)) }
     private val res: ResourceProvider by inject()
 
     private lateinit var mapView: BoreftsMapView

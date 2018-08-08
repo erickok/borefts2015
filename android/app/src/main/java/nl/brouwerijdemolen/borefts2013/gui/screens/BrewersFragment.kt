@@ -22,12 +22,13 @@ import nl.brouwerijdemolen.borefts2013.ext.observeNonNull
 import nl.brouwerijdemolen.borefts2013.gui.location
 import nl.brouwerijdemolen.borefts2013.gui.logoBitmap
 import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 import org.koin.standalone.KoinComponent
 import org.koin.standalone.get
 
 class BrewersFragment : Fragment() {
 
-    private val viewModel: BrewersViewModel by viewModel()
+    private val viewModel: BrewersViewModel by viewModel { parametersOf(requireActivity()) }
     private lateinit var brewersListAdapter: BrewersListAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

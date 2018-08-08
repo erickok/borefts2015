@@ -48,10 +48,6 @@ class InfoViewModel(
         navigator.openMap()
     }
 
-    fun openMap(brewerId: Int) {
-        navigator.openMapForBrewer(brewerId)
-    }
-
     fun openMap(poiId: String) {
         navigator.openMapForPoi(poiId)
     }

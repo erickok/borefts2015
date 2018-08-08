@@ -1,6 +1,7 @@
 package nl.brouwerijdemolen.borefts2013.gui
 
 import android.content.Context
+import android.content.Intent
 import nl.brouwerijdemolen.borefts2013.api.Beer
 import nl.brouwerijdemolen.borefts2013.api.Brewer
 import nl.brouwerijdemolen.borefts2013.api.Style
@@ -28,27 +29,31 @@ interface Navigator {
 class IntentNavigator(private val appContext: Context) : Navigator {
 
     override fun openBrewer(brewer: Brewer) {
-        appContext.startActivity(BrewerActivity(appContext, brewer = brewer))
+        startTask(BrewerActivity(appContext, brewer = brewer))
     }
 
     override fun openStyle(style: Style) {
-        appContext.startActivity(StyleActivity(appContext, style = style))
+        startTask(StyleActivity(appContext, style = style))
     }
 
     override fun openBeer(beer: Beer) {
-        appContext.startActivity(BeerActivity(appContext, beer = beer))
+        startTask(BeerActivity(appContext, beer = beer))
     }
 
     override fun openMap() {
-        appContext.startActivity(MapActivity(appContext))
+        startTask(MapActivity(appContext))
     }
 
     override fun openMapForBrewer(brewerId: Int) {
-        appContext.startActivity(MapActivity(appContext, focusBrewerId = brewerId))
+        startTask(MapActivity(appContext, focusBrewerId = brewerId))
     }
 
     override fun openMapForPoi(poiId: String) {
-        appContext.startActivity(MapActivity(appContext, focusPoiId = poiId))
+        startTask(MapActivity(appContext, focusPoiId = poiId))
+    }
+
+    private fun startTask(target: Intent) {
+        appContext.startActivity(target)
     }
 
 }

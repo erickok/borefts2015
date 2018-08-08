@@ -24,7 +24,7 @@ import org.koin.core.parameter.parametersOf
 
 class BrewerActivity : AppCompatActivity() {
 
-    private val brewerViewModel: BrewerViewModel by viewModel { parametersOf(arg(KEY_ARGS)) }
+    private val brewerViewModel: BrewerViewModel by viewModel { parametersOf(this, arg(KEY_ARGS)) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -12,8 +12,8 @@ import nl.brouwerijdemolen.borefts2013.gui.components.StarPersistence
 import nl.brouwerijdemolen.borefts2013.gui.components.log
 
 class StarsViewModel(
-        private val repository: Repository,
         private val navigator: Navigator,
+        private val repository: Repository,
         private val starPersistence: StarPersistence) : ViewModel() {
 
     val state = MutableLiveData<StarsUiModel>().apply { value = StarsUiModel.Loading }

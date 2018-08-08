@@ -47,7 +47,7 @@ import java.util.Locale
 
 class BeerActivity : AppCompatActivity() {
 
-    private val beerViewModel: BeerViewModel by viewModel { parametersOf(arg(KEY_ARGS)) }
+    private val beerViewModel: BeerViewModel by viewModel { parametersOf(this, arg(KEY_ARGS)) }
 
     private lateinit var actionStarOn: MenuItem
     private lateinit var actionStarOff: MenuItem
@@ -61,7 +61,9 @@ class BeerActivity : AppCompatActivity() {
             with(it) {
                 beer_name_text.text = getMolenString(beer.name)
                 brewer_button.text = beer.brewer?.name
+                brewer_button.setOnClickListener { _ -> beerViewModel.openBrewer() }
                 style_button.text = beer.style?.name
+                style_button.setOnClickListener { _ -> beerViewModel.openStyle() }
                 abv_text.isVisible = beer.hasAbv
                 abv_text.text = beer.abvText(get())
                 serving_text.text = beer.servingText(get()).toUpperCase(Locale.getDefault())

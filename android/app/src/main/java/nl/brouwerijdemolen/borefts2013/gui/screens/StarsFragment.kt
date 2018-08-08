@@ -12,10 +12,11 @@ import nl.brouwerijdemolen.borefts2013.R
 import nl.brouwerijdemolen.borefts2013.ext.isVisible
 import nl.brouwerijdemolen.borefts2013.ext.observeNonNull
 import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 
 class StarsFragment : Fragment() {
 
-    private val viewModel: StarsViewModel by viewModel()
+    private val viewModel: StarsViewModel by viewModel { parametersOf(requireActivity()) }
     private lateinit var beersListAdapter: BeersListAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

@@ -1,5 +1,6 @@
 package nl.brouwerijdemolen.borefts2013.gui
 
+import android.app.Activity
 import android.content.Context
 import nl.brouwerijdemolen.borefts2013.api.Api
 import nl.brouwerijdemolen.borefts2013.api.Beer
@@ -20,6 +21,7 @@ import nl.brouwerijdemolen.borefts2013.gui.screens.StylesViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.viewmodel.ext.koin.viewModel
+import org.koin.core.parameter.parametersOf
 import org.koin.dsl.module.module
 
 private const val CACHE_TIME_MEMORY = 300_000L // Five minutes
@@ -41,16 +43,16 @@ val uiModule = module {
     single { ResourceProvider(get()) }
     single { AppRater(get()) }
     single { StarPersistence(get()) }
-    single { IntentNavigator(get()) as Navigator }
+    factory { (activity: Activity) -> IntentNavigator(activity) as Navigator }
 }
 
 val viewModelsModule = module {
-    viewModel { InfoViewModel(get(), get()) }
-    viewModel { BrewersViewModel(get(), get()) }
-    viewModel { StylesViewModel(get(), get()) }
-    viewModel { StarsViewModel(get(), get(), get()) }
-    viewModel { (brewer: Brewer) -> BrewerViewModel(brewer, get(), get()) }
-    viewModel { (style: Style) -> StyleViewModel(style, get(), get()) }
-    viewModel { (beer: Beer) -> BeerViewModel(beer, get(), get()) }
-    viewModel { (args: Args) -> MapViewModel(get(), get(), args) }
+    viewModel { (activity: Activity) -> InfoViewModel(get(parameters = { parametersOf(activity) }), get()) }
+    viewModel { (activity: Activity) -> BrewersViewModel(get(parameters = { parametersOf(activity) }), get()) }
+    viewModel { (activity: Activity) -> StylesViewModel(get(parameters = { parametersOf(activity) }), get()) }
+    viewModel { (activity: Activity) -> StarsViewModel(get(parameters = { parametersOf(activity) }), get(), get()) }
+    viewModel { (activity: Activity, brewer: Brewer) -> BrewerViewModel(brewer, get(parameters = { parametersOf(activity) }), get()) }
+    viewModel { (activity: Activity, style: Style) -> StyleViewModel(style, get(parameters = { parametersOf(activity) }), get()) }
+    viewModel { (activity: Activity, beer: Beer) -> BeerViewModel(beer, get(parameters = { parametersOf(activity) }), get()) }
+    viewModel { (activity: Activity, args: Args) -> MapViewModel(get(parameters = { parametersOf(activity) }), get(), args) }
 }

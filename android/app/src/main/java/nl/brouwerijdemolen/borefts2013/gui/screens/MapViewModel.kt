@@ -21,8 +21,8 @@ import nl.brouwerijdemolen.borefts2013.gui.Repository
 import nl.brouwerijdemolen.borefts2013.gui.components.log
 
 class MapViewModel(
-        private val repository: Repository,
         private val navigator: Navigator,
+        private val repository: Repository,
         private val args: Args) : ViewModel() {
 
     val state = MutableLiveData<MapUiModel>().apply { value = MapUiModel.Loading }

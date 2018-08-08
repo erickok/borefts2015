@@ -13,16 +13,22 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMapOptions
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
-import kotlinx.android.synthetic.main.fragment_info.*
+import kotlinx.android.synthetic.main.fragment_info.findmill_button
+import kotlinx.android.synthetic.main.fragment_info.getmore_button
+import kotlinx.android.synthetic.main.fragment_info.minimap_holder
+import kotlinx.android.synthetic.main.fragment_info.nstimes_button
+import kotlinx.android.synthetic.main.fragment_info.taxis_button
+import kotlinx.android.synthetic.main.fragment_info.times_button
 import nl.brouwerijdemolen.borefts2013.R
 import nl.brouwerijdemolen.borefts2013.ext.observeNonNull
 import nl.brouwerijdemolen.borefts2013.ext.startLink
 import org.koin.android.viewmodel.ext.android.viewModel
-import java.util.*
+import org.koin.core.parameter.parametersOf
+import java.util.GregorianCalendar
 
 class InfoFragment : Fragment() {
 
-    private val viewModel: InfoViewModel by viewModel()
+    private val viewModel: InfoViewModel by viewModel { parametersOf(requireActivity()) }
     private lateinit var mapView: BoreftsMapView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -39,7 +45,7 @@ class InfoFragment : Fragment() {
                                 .zoom(17f).build()))
                 it.uiSettings.isMapToolbarEnabled = false
                 it.setOnMarkerClickListener { _ -> viewModel.openMap().let { _ -> true } }
-                it.setOnMapClickListener {_ -> startActivity(MapActivity(requireContext())) }
+                it.setOnMapClickListener { _ -> startActivity(MapActivity(requireContext())) }
             }
         }
         minimap_holder.addView(mapView, FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT)
