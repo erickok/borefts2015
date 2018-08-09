@@ -2,21 +2,18 @@ package nl.brouwerijdemolen.borefts2013.gui.screens
 
 import android.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.common.truth.Truth.assertThat
+import nl.brouwerijdemolen.borefts2013.gui.Navigator
+import nl.brouwerijdemolen.borefts2013.gui.TestWithKoin
+import nl.brouwerijdemolen.borefts2013.gui.components.StarPersistence
 import nl.brouwerijdemolen.borefts2013.gui.dummyBeer
 import nl.brouwerijdemolen.borefts2013.gui.dummyBrewer
 import nl.brouwerijdemolen.borefts2013.gui.dummyStyle
-import nl.brouwerijdemolen.borefts2013.gui.mockNavigator
-import nl.brouwerijdemolen.borefts2013.gui.mockStarPersistence
-import nl.brouwerijdemolen.borefts2013.gui.testModule
-import nl.brouwerijdemolen.borefts2013.gui.viewModelsModule
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
 import org.koin.core.parameter.parametersOf
-import org.koin.standalone.StandAloneContext.closeKoin
-import org.koin.standalone.StandAloneContext.startKoin
 import org.koin.standalone.inject
 import org.koin.test.KoinTest
 import org.mockito.Mockito
@@ -27,15 +24,17 @@ class BeerViewModelTest : KoinTest {
     @get:Rule var rule: TestRule = InstantTaskExecutorRule()
 
     private val beerViewModel: BeerViewModel by inject { parametersOf(dummyBeer) }
+    private val mockStarPersistence: StarPersistence by inject()
+    private val mockNavigator: Navigator by inject()
 
     @Before
     fun `setup dependencies`() {
-        startKoin(listOf(testModule, viewModelsModule))
+        TestWithKoin.startKoin()
     }
 
     @After
     fun `clean up dependencies`() {
-        closeKoin()
+        TestWithKoin.stopKoin()
     }
 
     @Test

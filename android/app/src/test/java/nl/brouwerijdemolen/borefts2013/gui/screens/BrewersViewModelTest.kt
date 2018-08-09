@@ -4,23 +4,23 @@ import android.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.common.truth.Truth.assertThat
 import nl.brouwerijdemolen.borefts2013.gui.Navigator
 import nl.brouwerijdemolen.borefts2013.gui.TestWithKoin
-import nl.brouwerijdemolen.borefts2013.gui.dummyBeer
 import nl.brouwerijdemolen.borefts2013.gui.dummyBrewer
+import nl.brouwerijdemolen.borefts2013.gui.dummyBrewers
+import nl.brouwerijdemolen.borefts2013.test.Register
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
-import org.koin.core.parameter.parametersOf
 import org.koin.standalone.inject
 import org.koin.test.KoinTest
-import org.mockito.Mockito
+import org.mockito.Mockito.verify
 
-class BrewerViewModelTest : KoinTest {
+class BrewersViewModelTest : KoinTest {
 
     @get:Rule var rule: TestRule = InstantTaskExecutorRule()
 
-    private val beerViewModel: BrewerViewModel by inject { parametersOf(dummyBrewer) }
+    private val brewersViewModel: BrewersViewModel by inject()
     private val mockNavigator: Navigator by inject()
 
     @Before
@@ -34,19 +34,18 @@ class BrewerViewModelTest : KoinTest {
     }
 
     @Test
-    fun `initializes with brewer`() {
-        lateinit var result: BrewerUiModel
-        beerViewModel.state.observeForever { model -> result = requireNotNull(model) }
-        assertThat(result).isNotNull()
-        assertThat(result.brewer).isEqualTo(dummyBrewer)
-        assertThat(result.beers).isNotNull()
-        assertThat(result.beers[0]).isEqualTo(dummyBeer)
+    fun `initialization emits styles state`() {
+        val register = Register<BrewersUiModel>()
+        brewersViewModel.state.observeForever(register)
+        assertThat(register.values[0]).isInstanceOf(BrewersUiModel.Success::class.java)
+        val result = (register.values[0] as BrewersUiModel.Success)
+        assertThat(result.brewers).isEqualTo(dummyBrewers.brewers)
     }
 
     @Test
-    fun `opening a beer starts navigation`() {
-        beerViewModel.openBeer(dummyBeer)
-        Mockito.verify(mockNavigator).openBeer(dummyBeer)
+    fun `opening a brewer starts navigation`() {
+        brewersViewModel.openBrewer(dummyBrewer)
+        verify(mockNavigator).openBrewer(dummyBrewer)
     }
 
 }

@@ -10,12 +10,12 @@ import nl.brouwerijdemolen.borefts2013.api.Style
 import nl.brouwerijdemolen.borefts2013.gui.components.AppRater
 import nl.brouwerijdemolen.borefts2013.gui.components.ResourceProvider
 import nl.brouwerijdemolen.borefts2013.gui.components.StarPersistence
-import nl.brouwerijdemolen.borefts2013.gui.screens.Args
 import nl.brouwerijdemolen.borefts2013.gui.screens.BeerViewModel
 import nl.brouwerijdemolen.borefts2013.gui.screens.BrewerViewModel
 import nl.brouwerijdemolen.borefts2013.gui.screens.BrewersViewModel
 import nl.brouwerijdemolen.borefts2013.gui.screens.InfoViewModel
 import nl.brouwerijdemolen.borefts2013.gui.screens.MapViewModel
+import nl.brouwerijdemolen.borefts2013.gui.screens.MapViewModelArgs
 import nl.brouwerijdemolen.borefts2013.gui.screens.StarsViewModel
 import nl.brouwerijdemolen.borefts2013.gui.screens.StyleViewModel
 import nl.brouwerijdemolen.borefts2013.gui.screens.StylesViewModel
@@ -56,5 +56,5 @@ val viewModelsModule = module {
     viewModel { (brewer: Brewer) -> BrewerViewModel(brewer, get(), get()) }
     viewModel { (style: Style) -> StyleViewModel(style, get(), get()) }
     viewModel { (beer: Beer) -> BeerViewModel(beer, get(), get()) }
-    viewModel { (args: Args) -> MapViewModel(get(), get(), args) }
+    viewModel { (args: MapViewModelArgs) -> MapViewModel(get(), get(), args) }
 }

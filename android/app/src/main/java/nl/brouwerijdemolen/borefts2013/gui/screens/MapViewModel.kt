@@ -22,7 +22,7 @@ import nl.brouwerijdemolen.borefts2013.gui.components.log
 class MapViewModel(
         private val navigator: Navigator,
         private val repository: Repository,
-        private val args: Args) : ViewModel() {
+        private val args: MapViewModelArgs) : ViewModel() {
 
     val state = MutableLiveData<MapUiModel>().apply { value = MapUiModel.Loading }
 
@@ -54,7 +54,7 @@ class MapViewModel(
 }
 
 @Parcelize
-data class Args(val focusBrewerId: Int? = null, val focusPoiId: String? = null) : Parcelable
+data class MapViewModelArgs(val focusBrewerId: Int? = null, val focusPoiId: String? = null) : Parcelable
 
 sealed class MapUiModel {
     object Loading : MapUiModel()

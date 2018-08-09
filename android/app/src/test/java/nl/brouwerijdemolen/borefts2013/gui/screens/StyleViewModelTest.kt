@@ -5,7 +5,7 @@ import com.google.common.truth.Truth.assertThat
 import nl.brouwerijdemolen.borefts2013.gui.Navigator
 import nl.brouwerijdemolen.borefts2013.gui.TestWithKoin
 import nl.brouwerijdemolen.borefts2013.gui.dummyBeer
-import nl.brouwerijdemolen.borefts2013.gui.dummyBrewer
+import nl.brouwerijdemolen.borefts2013.gui.dummyStyle
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
@@ -14,13 +14,13 @@ import org.junit.rules.TestRule
 import org.koin.core.parameter.parametersOf
 import org.koin.standalone.inject
 import org.koin.test.KoinTest
-import org.mockito.Mockito
+import org.mockito.Mockito.verify
 
-class BrewerViewModelTest : KoinTest {
+class StyleViewModelTest : KoinTest {
 
     @get:Rule var rule: TestRule = InstantTaskExecutorRule()
 
-    private val beerViewModel: BrewerViewModel by inject { parametersOf(dummyBrewer) }
+    private val styleViewModel: StyleViewModel by inject { parametersOf(dummyStyle) }
     private val mockNavigator: Navigator by inject()
 
     @Before
@@ -34,19 +34,19 @@ class BrewerViewModelTest : KoinTest {
     }
 
     @Test
-    fun `initializes with brewer`() {
-        lateinit var result: BrewerUiModel
-        beerViewModel.state.observeForever { model -> result = requireNotNull(model) }
+    fun `initializes with style`() {
+        lateinit var result: StyleUiModel
+        styleViewModel.state.observeForever { model -> result = requireNotNull(model) }
         assertThat(result).isNotNull()
-        assertThat(result.brewer).isEqualTo(dummyBrewer)
+        assertThat(result.style).isEqualTo(dummyStyle)
         assertThat(result.beers).isNotNull()
         assertThat(result.beers[0]).isEqualTo(dummyBeer)
     }
 
     @Test
     fun `opening a beer starts navigation`() {
-        beerViewModel.openBeer(dummyBeer)
-        Mockito.verify(mockNavigator).openBeer(dummyBeer)
+        styleViewModel.openBeer(dummyBeer)
+        verify(mockNavigator).openBeer(dummyBeer)
     }
 
 }
