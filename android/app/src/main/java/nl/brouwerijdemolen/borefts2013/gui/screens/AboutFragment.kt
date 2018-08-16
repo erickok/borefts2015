@@ -26,7 +26,7 @@ class AboutFragment : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return super.onCreateDialog(savedInstanceState).apply {
-            window.requestFeature(Window.FEATURE_NO_TITLE)
+            window?.requestFeature(Window.FEATURE_NO_TITLE)
         }
     }
 
