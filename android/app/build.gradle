@@ -39,7 +39,8 @@ androidExtensions { experimental = true }
 dependencies {
     // Kotlin and Arrow
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:0.24.0'
+    // TODO Update to 0.24.0 when runBlocking in tests is fixed (kotlinx.coroutines#464)
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:0.23.4'
     implementation 'com.github.arrow-kt.arrow:arrow-core:master-SNAPSHOT'
     implementation 'com.github.arrow-kt.arrow:arrow-instances-core:master-SNAPSHOT'
     // TODO Back to official distributions when Arrow Proguard issue #807 is merged in a release
@@ -62,4 +63,11 @@ dependencies {
     implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-experimental-adapter:1.0.0'
     // Maps
     implementation 'com.google.android.gms:play-services-maps:15.0.1'
+
+    // Testing
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'com.google.truth:truth:0.42'
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.0.0-RC1"
+    testImplementation 'android.arch.core:core-testing:1.1.1'
+    testImplementation 'org.koin:koin-test:1.0.0-beta-3'
 }

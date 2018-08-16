@@ -129,7 +129,7 @@ class MapActivity : AppCompatActivity() {
         private const val REQUEST_PERMISSION = 0
 
         operator fun invoke(context: Context, focusBrewerId: Int? = null, focusPoiId: String? = null): Intent =
-                Intent(context, MapActivity::class.java).putExtra(KEY_ARGS, Args(focusBrewerId, focusPoiId))
+                Intent(context, MapActivity::class.java).putExtra(KEY_ARGS, MapViewModelArgs(focusBrewerId, focusPoiId))
     }
 
 }

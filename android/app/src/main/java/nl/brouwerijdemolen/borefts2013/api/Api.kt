@@ -9,7 +9,19 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
-class Api(private val okHttpClient: OkHttpClient) {
+interface Api {
+
+    suspend fun pois(): Try<Pois>
+
+    suspend fun brewers(): Try<Brewers>
+
+    suspend fun styles(): Try<Styles>
+
+    suspend fun beersRaw(): Try<Beers>
+
+}
+
+class HttpApi(private val okHttpClient: OkHttpClient) : Api {
 
     private val retrofit by lazy {
         Retrofit.Builder()
@@ -22,13 +34,13 @@ class Api(private val okHttpClient: OkHttpClient) {
 
     private val routes by lazy { retrofit.create(Routes::class.java) }
 
-    suspend fun pois() = Try { routes.pois().await() }.nonNullBody()
+    override suspend fun pois() = Try { routes.pois().await() }.nonNullBody()
 
-    suspend fun brewers() = Try { routes.brewers().await() }.nonNullBody()
+    override suspend fun brewers() = Try { routes.brewers().await() }.nonNullBody()
 
-    suspend fun styles() = Try { routes.styles().await() }.nonNullBody()
+    override suspend fun styles() = Try { routes.styles().await() }.nonNullBody()
 
-    suspend fun beersRaw() = Try { routes.beers().await() }.nonNullBody()
+    override suspend fun beersRaw() = Try { routes.beers().await() }.nonNullBody()
 
     private fun <T> Try<Response<T>>.nonNullBody() = this.filter { it.body() != null }.map { it.body()!! }
 
