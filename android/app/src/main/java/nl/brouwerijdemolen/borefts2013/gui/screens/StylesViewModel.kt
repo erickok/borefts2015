@@ -35,6 +35,13 @@ class StylesViewModel(
         navigator.openStyle(style)
     }
 
+    fun retry() {
+        state.postValue(StylesUiModel.Loading)
+        launch(ui) {
+            state.postValue(repository.styles().toUiModel())
+        }
+    }
+
 }
 
 sealed class StylesUiModel {

@@ -25,7 +25,7 @@ import org.koin.android.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
 import kotlin.coroutines.experimental.CoroutineContext
 
-private const val CACHE_TIME_MEMORY = 300_000L // Five minutes
+private const val CACHE_TIME_MEMORY = 1_800_000L // Half hour
 private const val CACHE_TIME_DISK = 1_800_000L // Half hour
 
 val networkModule = module {

@@ -36,6 +36,7 @@ import nl.brouwerijdemolen.borefts2013.gui.acidityIndication
 import nl.brouwerijdemolen.borefts2013.gui.bitternessIndication
 import nl.brouwerijdemolen.borefts2013.gui.colorIndicationResource
 import nl.brouwerijdemolen.borefts2013.gui.components.getMolenString
+import nl.brouwerijdemolen.borefts2013.gui.fullName
 import nl.brouwerijdemolen.borefts2013.gui.hasAbv
 import nl.brouwerijdemolen.borefts2013.gui.hasFlavourIndication
 import nl.brouwerijdemolen.borefts2013.gui.servingText
@@ -59,7 +60,7 @@ class BeerActivity : AppCompatActivity() {
 
         beerViewModel.state.observeNonNull(this) {
             with(it) {
-                beer_name_text.text = getMolenString(beer.name)
+                beer_name_text.text = getMolenString(beer.fullName)
                 brewer_button.text = beer.brewer?.name
                 brewer_button.setOnClickListener { _ -> beerViewModel.openBrewer() }
                 style_button.text = beer.style?.name

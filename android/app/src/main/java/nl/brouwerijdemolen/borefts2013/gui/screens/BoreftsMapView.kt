@@ -2,12 +2,23 @@ package nl.brouwerijdemolen.borefts2013.gui.screens
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.*
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Canvas
+import android.graphics.Paint
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffXfermode
+import android.graphics.Rect
 import android.support.annotation.ColorInt
 import android.util.SparseArray
 import com.google.android.gms.maps.GoogleMapOptions
 import com.google.android.gms.maps.MapView
-import com.google.android.gms.maps.model.*
+import com.google.android.gms.maps.model.BitmapDescriptor
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
+import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.PolygonOptions
 import nl.brouwerijdemolen.borefts2013.R
 import nl.brouwerijdemolen.borefts2013.api.Area
 import nl.brouwerijdemolen.borefts2013.api.Brewer
@@ -16,7 +27,8 @@ import nl.brouwerijdemolen.borefts2013.gui.components.ResourceProvider
 import org.koin.standalone.KoinComponent
 import org.koin.standalone.inject
 import java.io.IOException
-import java.util.*
+import java.util.HashMap
+import java.util.Locale
 
 @SuppressLint("ViewConstructor") // Only to be created programmatically
 class BoreftsMapView(
@@ -35,18 +47,20 @@ class BoreftsMapView(
             brewerMarkers = mutableMapOf()
             brewerIds = SparseArray()
             for (brewer in brewers) {
-                val brewerPin = drawBrewerMarker(brewer)
-                val bitmapToUse: BitmapDescriptor = if (brewerPin == null)
-                    BitmapDescriptorFactory.fromResource(R.drawable.ic_marker_mask)
-                else
-                    BitmapDescriptorFactory.fromBitmap(brewerPin)
-                val marker = map.addMarker(
-                        MarkerOptions()
-                                .position(LatLng(brewer.latitude.toDouble(), brewer.longitude.toDouble()))
-                                .title(brewer.shortName)
-                                .icon(bitmapToUse))
-                brewerMarkers[marker] = brewer
-                brewerIds.put(brewer.id, marker)
+                if (brewer.latitude != null && brewer.longitude != null && brewer.latitude.isNotEmpty() && brewer.longitude.isNotEmpty()) {
+                    val brewerPin = drawBrewerMarker(brewer)
+                    val bitmapToUse: BitmapDescriptor = if (brewerPin == null)
+                        BitmapDescriptorFactory.fromResource(R.drawable.ic_marker_mask)
+                    else
+                        BitmapDescriptorFactory.fromBitmap(brewerPin)
+                    val marker = map.addMarker(
+                            MarkerOptions()
+                                    .position(LatLng(brewer.latitude.toDouble(), brewer.longitude.toDouble()))
+                                    .title(brewer.shortName)
+                                    .icon(bitmapToUse))
+                    brewerMarkers[marker] = brewer
+                    brewerIds.put(brewer.id, marker)
+                }
             }
 
             // Set focus on a specific marker

@@ -16,6 +16,7 @@ import nl.brouwerijdemolen.borefts2013.api.Beer
 import nl.brouwerijdemolen.borefts2013.ext.isVisible
 import nl.brouwerijdemolen.borefts2013.gui.abvText
 import nl.brouwerijdemolen.borefts2013.gui.colorIndicationResource
+import nl.brouwerijdemolen.borefts2013.gui.fullName
 import nl.brouwerijdemolen.borefts2013.gui.hasAbv
 import org.koin.standalone.KoinComponent
 import org.koin.standalone.get
@@ -40,7 +41,7 @@ class BeersListAdapter(
     class BeerViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer, KoinComponent {
 
         fun bind(beer: Beer, showStyle: Boolean, beerClicked: (Beer) -> Unit) {
-            name_text.text = beer.name
+            name_text.text = beer.fullName
             stylebrewer_text.text = if (showStyle) beer.style?.name else beer.brewer?.name
             abv_text.isVisible = beer.hasAbv
             abv_text.text = beer.abvText(get())

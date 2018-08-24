@@ -35,6 +35,13 @@ class BrewersViewModel(
         navigator.openBrewer(brewer)
     }
 
+    fun retry() {
+        state.postValue(BrewersUiModel.Loading)
+        launch(ui) {
+            state.postValue(repository.brewers().toUiModel())
+        }
+    }
+
 }
 
 sealed class BrewersUiModel {

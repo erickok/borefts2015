@@ -45,6 +45,7 @@ class BrewersFragment : Fragment() {
                 brewersListAdapter.submitList(it.brewers)
             }
         }
+        error_text.setOnClickListener { _ -> viewModel.retry() }
     }
 
 }

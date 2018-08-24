@@ -43,6 +43,7 @@ class StylesFragment : Fragment() {
                 stylesListAdapter.submitList(it.styles)
             }
         }
+        error_text.setOnClickListener { _ -> viewModel.retry() }
     }
 
 }

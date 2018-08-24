@@ -49,13 +49,13 @@ class HttpApi(private val okHttpClient: OkHttpClient) : Api {
         @GET("https://2312.nl/borefts2018/pois.php")
         fun pois(): Deferred<Response<Pois>>
 
-        @GET("brewers/2017.json")
+        @GET("brewers/2018.json")
         fun brewers(): Deferred<Response<Brewers>>
 
-        @GET("styles/2017.json")
+        @GET("styles/2018.json")
         fun styles(): Deferred<Response<Styles>>
 
-        @GET("beers/2017.json")
+        @GET("beers/2018.json")
         fun beers(): Deferred<Response<Beers>>
 
     }

@@ -39,13 +39,9 @@ androidExtensions { experimental = true }
 dependencies {
     // Kotlin and Arrow
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    // TODO Update to 0.24.0 when runBlocking in tests is fixed (kotlinx.coroutines#464)
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:0.23.4'
-    implementation 'com.github.arrow-kt.arrow:arrow-core:master-SNAPSHOT'
-    implementation 'com.github.arrow-kt.arrow:arrow-instances-core:master-SNAPSHOT'
-    // TODO Back to official distributions when Arrow Proguard issue #807 is merged in a release
-    // implementation 'io.arrow-kt:arrow-core:0.7.2'
-    // implementation 'io.arrow-kt:arrow-instances-core:0.7.2'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:0.24.0'
+    implementation 'io.arrow-kt:arrow-core:0.7.3'
+    implementation 'io.arrow-kt:arrow-instances-core:0.7.3'
     // Support and Arch libs
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support:design:27.1.1'
@@ -54,8 +50,8 @@ dependencies {
     implementation 'android.arch.lifecycle:extensions:1.1.1'
     kapt 'android.arch.lifecycle:compiler:1.1.1'
     // DI
-    implementation 'org.koin:koin-android:1.0.0-beta-5'
-    implementation 'org.koin:koin-android-viewmodel:1.0.0-beta-5'
+    implementation 'org.koin:koin-android:1.0.0-beta-7'
+    implementation 'org.koin:koin-android-viewmodel:1.0.0-beta-7'
     // Networking
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
@@ -69,5 +65,5 @@ dependencies {
     testImplementation 'com.google.truth:truth:0.42'
     testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.0.0-RC1"
     testImplementation 'android.arch.core:core-testing:1.1.1'
-    testImplementation 'org.koin:koin-test:1.0.0-beta-3'
+    testImplementation 'org.koin:koin-test:1.0.0-beta-7'
 }

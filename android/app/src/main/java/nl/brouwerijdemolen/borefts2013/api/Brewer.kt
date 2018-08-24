@@ -14,5 +14,6 @@ data class Brewer(
         val country: String,
         val description: String? = null,
         val website: String? = null,
-        val latitude: Float,
-        val longitude: Float): Parcelable
+        // TODO Change back to Float when data is refreshed
+        val latitude: String? = null,
+        val longitude: String? = null) : Parcelable
