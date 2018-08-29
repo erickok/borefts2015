@@ -74,6 +74,7 @@ class BeerActivity : AppCompatActivity() {
                 sweetness_view.value = beer.sweetnessIndication
                 acidity_view.value = beer.acidityIndication
                 tostyle_text.isVisible = beer.hasFlavourIndication
+                // TODO Add oak aged tag
                 val tags = beer.tags?.split(',')
                 tags_layout.isVisible = tags != null
                 tags_layout.removeAllViews()

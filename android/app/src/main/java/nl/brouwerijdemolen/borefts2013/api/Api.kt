@@ -26,7 +26,7 @@ class HttpApi(private val okHttpClient: OkHttpClient) : Api {
     private val retrofit by lazy {
         Retrofit.Builder()
                 .client(okHttpClient)
-                .baseUrl("https://borefts-staging.firebaseio.com/") // d454d or staging
+                .baseUrl("https://borefts-d454d.firebaseio.com/") // d454d or staging
                 .addCallAdapterFactory(CoroutineCallAdapterFactory())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
