@@ -1,38 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:padding="@dimen/margin_default">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:padding="@dimen/margin_default">
 
-	<ImageView
-		android:id="@+id/logo_image"
-		android:layout_width="48dp"
-		android:layout_height="48dp"
-		tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/logo_image"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        tools:ignore="ContentDescription"
+        tools:src="@drawable/ic_logo_dimmed"/>
 
-	<TextView
-		android:id="@+id/name_text"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginLeft="@dimen/margin_breweritem"
-		android:layout_marginTop="2dp"
-		android:layout_toRightOf="@id/logo_image"
-		android:textColor="#000"
-		android:textIsSelectable="false"
-		android:textSize="@dimen/text_enlarged"
-		android:textStyle="bold"
-		tools:text="De Molen" />
+    <TextView
+        android:id="@+id/name_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_breweritem"
+        android:layout_marginTop="2dp"
+        android:layout_toEndOf="@id/logo_image"
+        android:textColor="#000"
+        android:textIsSelectable="false"
+        android:textSize="@dimen/text_enlarged"
+        android:textStyle="bold"
+        tools:text="De Molen"/>
 
-	<TextView
-		android:id="@+id/origin_text"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_below="@id/name_text"
-		android:layout_marginLeft="@dimen/margin_default"
-		android:layout_toRightOf="@id/logo_image"
-		android:textIsSelectable="false"
-		android:textSize="@dimen/text_small"
-		tools:text="Bodegraven, The Netherlands" />
+    <TextView
+        android:id="@+id/origin_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name_text"
+        android:layout_marginStart="@dimen/margin_default"
+        android:layout_toEndOf="@id/logo_image"
+        android:textIsSelectable="false"
+        android:textSize="@dimen/text_small"
+        tools:text="Bodegraven, The Netherlands"/>
 
 </RelativeLayout>

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WebView xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/baf_webview"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:background="@drawable/fragment_background"
-	android:paddingLeft="@dimen/margin_sides"
-	android:paddingRight="@dimen/margin_sides" />
+<WebView
+    android:id="@+id/baf_webview"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fragment_background"
+    android:paddingLeft="@dimen/margin_sides"
+    android:paddingRight="@dimen/margin_sides"/>

@@ -1,9 +1,0 @@
-Header unset Pragma
-#FileETag None
-#Header unset ETag
-
-# cache images/pdf docs for 1 day
-<FilesMatch "\.(ico|pdf|jpg|jpeg|png|gif)$">
-	Header set Cache-Control "max-age=86400"
-	Header unset Last-Modified
-</FilesMatch>

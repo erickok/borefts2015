@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	xmlns:tools="http://schemas.android.com/tools"
-	android:padding="@dimen/margin_default">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="?attr/selectableItemBackground"
+    android:padding="@dimen/margin_default">
 
-	<View
-		android:id="@+id/color_view"
-		android:layout_width="24dp"
-		android:layout_height="24dp"
-		android:layout_marginTop="1dp"
-		android:background="@color/darkred" />
+    <View
+        android:id="@+id/color_view"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="1dp"
+        android:background="@color/darkred"/>
 
-	<TextView
-		android:id="@+id/name_text"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginLeft="@dimen/margin_breweritem"
-		android:layout_toRightOf="@id/color_view"
-		android:textColor="#000"
-		android:textIsSelectable="false"
-		android:textSize="@dimen/text_enlarged"
-		android:textStyle="bold"
-		tools:text="Barley Wine" />
+    <TextView
+        android:id="@+id/name_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_breweritem"
+        android:textColor="#000"
+        android:textIsSelectable="false"
+        android:textSize="@dimen/text_enlarged"
+        android:textStyle="bold"
+        tools:text="Barley Wine"/>
 
-</RelativeLayout>
+</LinearLayout>

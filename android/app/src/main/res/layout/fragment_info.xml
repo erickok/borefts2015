@@ -1,226 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-			android:layout_width="match_parent"
-			android:layout_height="match_parent"
-			android:background="@drawable/fragment_background"
-			android:clipToPadding="false"
-			android:fillViewport="true"
-			android:paddingLeft="@dimen/margin_sides"
-			android:paddingRight="@dimen/margin_sides">
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fragment_background"
+    android:clipToPadding="false"
+    android:fillViewport="true"
+    android:paddingLeft="@dimen/margin_sides"
+    android:paddingRight="@dimen/margin_sides">
 
-	<RelativeLayout
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:paddingBottom="@dimen/margin_default">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/margin_default">
 
-		<FrameLayout
-			android:id="@+id/minimap"
-			android:layout_width="match_parent"
-			android:layout_height="150dp" />
+        <FrameLayout
+            android:id="@+id/minimap_holder"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"/>
 
-		<TextView
-			android:id="@+id/what_header"
-			style="@style/SectionHeader"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_below="@id/minimap"
-			android:layout_margin="@dimen/margin_default"
-			android:text="@string/info_what"
-			android:textIsSelectable="false" />
+        <TextView
+            android:id="@+id/what_header"
+            style="@style/SectionHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/minimap_holder"
+            android:layout_margin="@dimen/margin_default"
+            android:text="@string/info_what"
+            android:textIsSelectable="false"/>
 
-		<Button
-			android:id="@+id/times_button"
-			style="@style/DefaultButton"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_alignParentRight="true"
-			android:layout_below="@id/what_header"
-			android:layout_marginLeft="@dimen/margin_default"
-			android:layout_marginRight="@dimen/margin_default"
-			android:text="@string/info_times" />
+        <Button
+            android:id="@+id/times_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/what_header"
+            android:layout_marginLeft="@dimen/margin_default"
+            android:layout_marginRight="@dimen/margin_default"
+            android:text="@string/info_times"/>
 
-		<TextView
-			android:id="@+id/address_text"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_below="@id/what_header"
-			android:layout_marginBottom="@dimen/margin_half"
-			android:layout_marginLeft="@dimen/margin_default"
-			android:layout_marginRight="@dimen/margin_half"
-			android:layout_toLeftOf="@id/times_button"
-			android:text="@string/info_address"
-			android:textIsSelectable="false" />
+        <TextView
+            android:id="@+id/address_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/what_header"
+            android:layout_marginBottom="@dimen/margin_half"
+            android:layout_marginEnd="@dimen/margin_half"
+            android:layout_marginStart="@dimen/margin_default"
+            android:layout_toStartOf="@id/times_button"
+            android:text="@string/info_address"
+            android:textIsSelectable="false"/>
 
-		<TextView
-			android:id="@+id/tokens_header"
-			style="@style/SectionHeader"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_below="@id/address_text"
-			android:layout_margin="@dimen/margin_default"
-			android:text="@string/info_tokens"
-			android:textIsSelectable="false" />
+        <TextView
+            android:id="@+id/tokens_header"
+            style="@style/SectionHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/address_text"
+            android:layout_margin="@dimen/margin_default"
+            android:text="@string/info_tokens"
+            android:textIsSelectable="false"/>
 
-		<TextView
-			android:id="@+id/presale_text"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_below="@id/tokens_header"
-			android:layout_marginBottom="@dimen/margin_half"
-			android:layout_marginLeft="@dimen/margin_default"
-			android:layout_marginRight="@dimen/margin_half"
-			android:text="@string/info_presale"
-			android:textIsSelectable="false"
-			android:textStyle="bold" />
+        <TextView
+            android:id="@+id/presale_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tokens_header"
+            android:layout_marginBottom="@dimen/margin_half"
+            android:layout_marginEnd="@dimen/margin_half"
+            android:layout_marginStart="@dimen/margin_default"
+            android:text="@string/info_presale"
+            android:textIsSelectable="false"
+            android:textStyle="bold"/>
 
-		<RelativeLayout
-			android:id="@+id/getmore_wrapper"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_below="@+id/presale_text">
+        <RelativeLayout
+            android:id="@+id/getmore_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/presale_text">
 
-			<Button
-				android:id="@+id/getmore_button"
-				style="@style/DefaultButton"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_alignParentRight="true"
-				android:layout_marginLeft="@dimen/margin_half"
-				android:layout_marginRight="@dimen/margin_default"
-				android:text="@string/info_getmore" />
+            <Button
+                android:id="@+id/getmore_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/margin_default"
+                android:layout_marginStart="@dimen/margin_half"
+                android:text="@string/info_getmore"/>
 
-			<TextView
-				android:id="@+id/entry_text"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginBottom="@dimen/margin_default"
-				android:layout_marginLeft="@dimen/margin_default"
-				android:layout_marginRight="@dimen/margin_half"
-				android:layout_toLeftOf="@id/getmore_button"
-				android:text="@string/info_entry"
-				android:textIsSelectable="false" />
+            <TextView
+                android:id="@+id/entry_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_default"
+                android:layout_marginEnd="@dimen/margin_half"
+                android:layout_marginStart="@dimen/margin_default"
+                android:layout_toStartOf="@id/getmore_button"
+                android:text="@string/info_entry"
+                android:textIsSelectable="false"/>
 
-		</RelativeLayout>
+        </RelativeLayout>
 
-		<TextView
-			android:id="@+id/extra_text"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_below="@id/getmore_wrapper"
-			android:layout_marginLeft="@dimen/margin_default"
-			android:layout_marginRight="@dimen/margin_default"
-			android:text="@string/info_extra"
-			android:textIsSelectable="false" />
+        <TextView
+            android:id="@+id/extra_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/getmore_wrapper"
+            android:layout_marginLeft="@dimen/margin_default"
+            android:layout_marginRight="@dimen/margin_default"
+            android:text="@string/info_extra"
+            android:textIsSelectable="false"/>
 
-		<TextView
-			android:id="@+id/publictransport_header"
-			style="@style/SectionHeader"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_below="@id/extra_text"
-			android:layout_margin="@dimen/margin_default"
-			android:text="@string/info_publictransport"
-			android:textIsSelectable="false" />
+        <TextView
+            android:id="@+id/publictransport_header"
+            style="@style/SectionHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/extra_text"
+            android:layout_margin="@dimen/margin_default"
+            android:text="@string/info_publictransport"
+            android:textIsSelectable="false"/>
 
-		<Button
-			android:id="@+id/nstimes_button"
-			style="@style/DefaultButton"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_alignParentRight="true"
-			android:layout_below="@id/publictransport_header"
-			android:layout_marginLeft="@dimen/margin_half"
-			android:layout_marginRight="@dimen/margin_default"
-			android:text="@string/info_nstimes" />
+        <Button
+            android:id="@+id/nstimes_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/publictransport_header"
+            android:layout_marginEnd="@dimen/margin_default"
+            android:layout_marginStart="@dimen/margin_half"
+            android:text="@string/info_nstimes"/>
 
-		<TextView
-			android:id="@+id/trains_text"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_below="@id/publictransport_header"
-			android:layout_marginBottom="@dimen/margin_half"
-			android:layout_marginLeft="@dimen/margin_default"
-			android:layout_marginRight="@dimen/margin_half"
-			android:layout_toLeftOf="@id/nstimes_button"
-			android:text="@string/info_trains"
-			android:textIsSelectable="false" />
+        <TextView
+            android:id="@+id/trains_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/publictransport_header"
+            android:layout_marginBottom="@dimen/margin_half"
+            android:layout_marginEnd="@dimen/margin_half"
+            android:layout_marginStart="@dimen/margin_default"
+            android:layout_toStartOf="@id/nstimes_button"
+            android:text="@string/info_trains"
+            android:textIsSelectable="false"/>
 
-		<Button
-			android:id="@+id/taxis_button"
-			style="@style/DefaultButton"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_alignParentRight="true"
-			android:layout_below="@id/trains_text"
-			android:layout_marginLeft="@dimen/margin_half"
-			android:layout_marginRight="@dimen/margin_default"
-			android:text="@string/info_taxis" />
+        <Button
+            android:id="@+id/taxis_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/trains_text"
+            android:layout_marginEnd="@dimen/margin_default"
+            android:layout_marginStart="@dimen/margin_half"
+            android:text="@string/info_taxis"/>
 
-		<TextView
-			android:id="@+id/noparking_text"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_below="@id/trains_text"
-			android:layout_marginBottom="@dimen/margin_half"
-			android:layout_marginLeft="@dimen/margin_default"
-			android:layout_marginRight="@dimen/margin_half"
-			android:layout_toLeftOf="@id/taxis_button"
-			android:text="@string/info_noparking"
-			android:textIsSelectable="false" />
+        <TextView
+            android:id="@+id/noparking_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/trains_text"
+            android:layout_marginBottom="@dimen/margin_half"
+            android:layout_marginEnd="@dimen/margin_half"
+            android:layout_marginStart="@dimen/margin_default"
+            android:layout_toStartOf="@id/taxis_button"
+            android:text="@string/info_noparking"
+            android:textIsSelectable="false"/>
 
-		<TextView
-			android:id="@+id/beercafe_text"
-			style="@style/SectionHeader"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_below="@id/noparking_text"
-			android:layout_margin="@dimen/margin_default"
-			android:text="@string/info_beercafe"
-			android:textIsSelectable="false" />
+        <TextView
+            android:id="@+id/beercafe_text"
+            style="@style/SectionHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/noparking_text"
+            android:layout_margin="@dimen/margin_default"
+            android:text="@string/info_beercafe"
+            android:textIsSelectable="false"/>
 
-		<Button
-			android:id="@+id/findmill_button"
-			style="@style/DefaultButton"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_alignParentRight="true"
-			android:layout_below="@id/beercafe_text"
-			android:layout_marginLeft="@dimen/margin_half"
-			android:layout_marginRight="@dimen/margin_default"
-			android:text="@string/info_findmill" />
+        <Button
+            android:id="@+id/findmill_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/beercafe_text"
+            android:layout_marginEnd="@dimen/margin_default"
+            android:layout_marginStart="@dimen/margin_half"
+            android:text="@string/info_findmill"/>
 
-		<TextView
-			android:id="@+id/shopinfo_text"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_below="@id/beercafe_text"
-			android:layout_marginBottom="@dimen/margin_half"
-			android:layout_marginLeft="@dimen/margin_default"
-			android:layout_marginRight="@dimen/margin_half"
-			android:layout_toLeftOf="@id/findmill_button"
-			android:text="@string/info_shopinfo"
-			android:textIsSelectable="false" />
+        <TextView
+            android:id="@+id/shopinfo_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/beercafe_text"
+            android:layout_marginBottom="@dimen/margin_half"
+            android:layout_marginEnd="@dimen/margin_half"
+            android:layout_marginStart="@dimen/margin_default"
+            android:layout_toStartOf="@id/findmill_button"
+            android:text="@string/info_shopinfo"
+            android:textIsSelectable="false"/>
 
-		<TextView
-			android:id="@+id/merchandise_text"
-			style="@style/SectionHeader"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_below="@id/shopinfo_text"
-			android:layout_margin="@dimen/margin_default"
-			android:text="@string/info_merchandise"
-			android:textIsSelectable="false" />
+        <TextView
+            android:id="@+id/merchandise_text"
+            style="@style/SectionHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/shopinfo_text"
+            android:layout_margin="@dimen/margin_default"
+            android:text="@string/info_merchandise"
+            android:textIsSelectable="false"/>
 
-		<TextView
-			android:id="@+id/shirts_text"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_below="@id/merchandise_text"
-			android:layout_marginBottom="@dimen/margin_half"
-			android:layout_marginLeft="@dimen/margin_default"
-			android:layout_marginRight="@dimen/margin_default"
-			android:text="@string/info_shirts"
-			android:textIsSelectable="false" />
-	</RelativeLayout>
+        <TextView
+            android:id="@+id/shirts_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/merchandise_text"
+            android:layout_marginBottom="@dimen/margin_half"
+            android:layout_marginLeft="@dimen/margin_default"
+            android:layout_marginRight="@dimen/margin_default"
+            android:text="@string/info_shirts"
+            android:textIsSelectable="false"/>
+    </RelativeLayout>
 
 </ScrollView>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<string name="app_name">Borefts Bierfestival 2017</string>
-	<string name="app_name_short">Borefts 2017</string>
+	<string name="app_name">Borefts Bierfestival 2018</string>
+	<string name="app_name_short">Borefts 2018</string>
 
 	<string name="general_location_permission">Je lokatie tonen?</string>
 	<string name="general_location_ok">Ja, graag</string>
@@ -21,42 +21,43 @@
 	<string name="action_sendcorrection">Correctie doorgeven</string>
 	<string name="action_about">Over deze app</string>
 	
-	<string name="info_what">WAT? WAAR?</string>
-	<string name="info_address">Borefts Bierfestival 2017\nBrouwerij De Molen\nDoortocht 4, Bodegraven</string>
-	<string name="info_times">Sep 22 &#8211; 23\n12:00 &#8211; 22:00</string>
-	<string name="info_presale">NIEUW: ALLEEN VOORVERKOOP!</string>
-	<string name="info_tokens">TOEGANG &amp; MUNTEN</string>
-	<string name="info_getmore">KOOP EXTRA\nMUNTEN</string>
-	<string name="info_entry">3500 tickets per dag zijn beschikbaar, alleen via the online voorverkoop. € 30,- voor glas, festivalboekje en 10 munten.</string>
-	<string name="info_extra">Extra munten kunnen worden gekocht per cash of kaart. GEEN 18 JAAR GEEN ALCOHOL</string>
-	<string name="info_publictransport">OPENBAAR VERVOER</string>
+	<string name="info_what">Wat? Waar?</string>
+	<string name="info_address">Borefts Bierfestival 2018\nBrouwerij De Molen\nDoortocht 4, Bodegraven</string>
+	<string name="info_times">Sep 21 &#8211; 22\n12:00 &#8211; 21:45</string>
+	<string name="info_presale">Let op: alleen voorverkoop!</string>
+	<string name="info_tokens">Toegang &amp; munten</string>
+	<string name="info_getmore">Koop extra\nmunten</string>
+	<string name="info_entry">3500 tickets per dag zijn beschikbaar, alleen via the online voorverkoop. € 35,- voor glas, festivalboekje en 10
+		munten.</string>
+	<string name="info_extra">Extra munten kunnen worden gekocht per cash of kaart. Extra tokens € 2,- = 1 bier. GEEN 18 JAAR GEEN ALCOHOL</string>
+	<string name="info_publictransport">Openbaar vervoer</string>
 	<string name="info_trains">Treinen rijden elk half uur, om :15 en :45. De laatste trein vertrekt om 00:45.</string>
 	<string name="info_nstimes">Vertrektijden</string>
 	<string name="info_noparking">Alcohol en autorijden gaat niet samen. Taxi\'s zijn beschikbaar via de lokale taxicentrales.</string>
 	<string name="info_taxis">Zoek een taxi</string>
-	<string name="info_beercafe">BIERWINKEL</string>
+	<string name="info_beercafe">Bierwinkel</string>
 	<string name="info_findmill">Zoek de molen</string>
 	<string name="info_shopinfo">De bierwinkel in de molen is natuurlijk weer geopend; voor specialiteiten van De Molen, brouwers op het festival en honderden andere bieren.</string>
-	<string name="info_merchandise">MERCHANDISE</string>
+	<string name="info_merchandise">Merchandise</string>
 	<string name="info_shirts">Ook dit jaar is er weer merchandise beschikbaar van de meeste aanwezige brouwers. Bovendien is er een uniek Borefts festivalt-shirt beschikbaar. Je kunt met cash of pin betalen.</string>
 
 	<string name="info_origin">%1$s, %2$s</string>
 	<string name="info_abvperc">%1$.1f%%</string>
-	<string name="info_color">KLEUR</string>
-	<string name="info_abv">ALCOHOL</string>
-	<string name="info_bitterness">BITTER</string>
-	<string name="info_sweetness">ZOET</string>
-	<string name="info_acidity">ZUUR</string>
+	<string name="info_color">Kleur</string>
+	<string name="info_abv">Alcohol</string>
+	<string name="info_bitterness">Bitter</string>
+	<string name="info_sweetness">Zoet</string>
+	<string name="info_acidity">Zuur</string>
 	
-	<string name="info_abvlabel">ALCOHOL: %1$.1f%%</string>
-	<string name="info_oakaged">HOUTGERIJPT</string>
+	<string name="info_abvlabel">Alcohol: %1$.1f%%</string>
+	<string name="info_oakaged">houtgerijpt</string>
 	<string name="info_untappd">Untappd</string>
 	<string name="info_google">Google</string>
 	<string name="info_tostyle">(indicatie op basis van stijl)</string>
-	<string name="info_serving_keg">OP FUST</string>
-	<string name="info_serving_cask">OP CASK</string>
-	<string name="info_serving_bottle">OP FLES</string>
-	
+	<string name="info_serving_bottle">op fles</string>
+	<string name="info_serving_keg">op fust</string>
+	<string name="info_serving_cask">op cask</string>
+
 	<string name="info_stars">Sterren</string>
 	<string name="info_nostars">Nog geen bieren van ster voorzien.\n\nJe kunt je favoriete bieren van een ster voorzien in een bierdetailscherm met de ster bovenin het scherm.</string>
 
@@ -75,14 +76,14 @@
 	<string name="map_shop">Bierwinkel</string>
 
 	<string name="about_broughtby">Ontwikkeld door Eric Kok\nals 2312 development</string>
-	<string name="about_visit2312">2312.NL</string>
-	<string name="about_visitdemolen">DE MOLEN</string>
-	<string name="about_licenses"><![CDATA[Bevat <a href="https://github.com/excilys/androidannotations">AndroidAnnotations</a> door Pierre-Yves Ricau et al.<br /><br />Iconen: <a href="http://thenounproject.com/noun/map-marker/#icon-No20774" target="_blank">Map Marker</a> ontworpen door <a href="http://thenounproject.com/tobiasfabian" target="_blank">Tobias F. Wolf</a> bij The Noun Project. <a href="http://thenounproject.com/noun/toilet-paper/#icon-No2962" target="_blank">Toilet Paper</a> ontworpen door <a href="http://thenounproject.com/pieroborgo" target="_blank">Piero Borgo</a> op The Noun Project. <a href="http://thenounproject.com/noun/entrance/#icon-No2276" target="_blank">Entrance</a> ontworpen door <a href="http://thenounproject.com/pedro.lalli" target="_blank">Pedro Lalli</a> op The Noun Project. <a href="http://thenounproject.com/noun/coins/#icon-No4509" target="_blank">Coins</a> ontworpen door <a href="http://thenounproject.com/zer0mike" target="_blank">Mike Hince</a> op The Noun Project. <a href="http://thenounproject.com/noun/hamburger/#icon-No10990" target="_blank">Hamburger</a> ontworpen door <a href="http://thenounproject.com/skatakila" target="_blank">Ricardo Moreira</a> op The Noun Project.]]></string>
-	
+	<string name="about_visit2312">2312.nl</string>
+	<string name="about_visitdemolen">De Molen</string>
+	<string name="about_licenses"><![CDATA[Zie <a href="https://github.com/erickok/borefts2015">the GitHub project</a> voor opensource-licentieinformatie.]]></string>
+
 	<string name="rate_title">Nuttige app?</string>
 	<string name="rate_confirm">Geef beoordeling</string>
-	
-	<string name="error_connection">Geen (stabiele) verbinding beschikbaar. Raak aan om opnieuw te proberen.</string>
+
+	<string name="error_connection">Geen (stabiele) verbinding beschikbaar.\nRaak aan om opnieuw te proberen.</string>
 	<string name="error_nolocations">De brouwers konden niet worden geladen</string>
 	<string name="error_nocalendar">Geen ondersteunde kalenderaplicatie gevonden</string>
 	<string name="error_notcoupled">Dit bier is nog niet aan de website gekoppeld</string>
