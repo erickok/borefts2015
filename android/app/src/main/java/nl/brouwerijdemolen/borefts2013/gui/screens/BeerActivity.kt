@@ -86,7 +86,7 @@ class BeerActivity : AppCompatActivity() {
                     }
                 }
                 untappd_button.setOnClickListener { _ ->
-                    if (beer.untappdId <= 0) {
+                    if (beer.untappdId.isNullOrEmpty()) {
                         Toast.makeText(this@BeerActivity, R.string.error_notcoupled, Toast.LENGTH_LONG).show()
                     } else {
                         startLink(

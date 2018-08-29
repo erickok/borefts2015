@@ -29,7 +29,7 @@ fun Style.getColorResource(res: ResourceProvider): Int {
 }
 
 val Beer.fullName: CharSequence
-    get() = if (isFestivalBeer) "$name (9+1)" else name
+    get() = if (festivalBeer) "$name (9+1)" else name
 
 fun Beer.abvText(res: ResourceProvider): String? {
     return if (hasAbv) res.getString(R.string.info_abvperc, abv) else null

@@ -29,8 +29,9 @@ class Repository(private val api: Api, private val memoryCache: MemoryCache) {
             val styles = tryStyles.bind()
             val beersRaw = tryBeers.bind()
             beersRaw.beers.onEach { beer ->
-                beer.brewer = brewers.single { it.id == beer.brewerId }
-                beer.style = styles.single { it.id == beer.styleId }
+                // TODO fix back to single {} when the data set is fixed
+                beer.brewer = brewers.last { it.id == beer.brewerId }
+                beer.style = styles.last { it.id == beer.styleId }
             }
         }.fix()
     }
