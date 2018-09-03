@@ -1,12 +1,13 @@
 Borefts 2018
 ============
 
-The official Android companion app to the Borefts Beer Festival 2018, as organised yearly by brewery De Molen. For everything on the festival  
-itself, please visit [the offical festival website](http://brouwerijdemolen.nl/borefts-bierfestival/).
 
-This app was build by [Eric Kok](http://ekok.nl) of [2312 development](http://2312.nl) as a continuation of the 2013-2017 apps. We are open-source,
- so free to contribute or to modify for your own (festival) needs. Remember, though, the GNU GPLv3 license is copyleft, so every single change or 
- addition needs to be open-sourced under the same license.
+<a href="https://play.google.com/store/apps/details?id=nl.brouwerijdemolen.borefts2013" target="_blank">
+<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" alt="Get it on Google Play" height="80"/></a>
+
+The official Android companion app to the Borefts Beer Festival 2018, as organised yearly by brewery De Molen. For everything on the festival itself, please visit [the offical festival website](http://brouwerijdemolen.nl/borefts-bierfestival/).
+
+This app was build by [Eric Kok](http://ekok.nl) of [2312 development](http://2312.nl) as a continuation of the 2013-2017 apps. We are open-source, so free to contribute or to modify for your own (festival) needs. Remember, though, the GNU GPLv3 license is copyleft, so every single change or addition needs to be open-sourced under the same license.
 
 License
 =======
