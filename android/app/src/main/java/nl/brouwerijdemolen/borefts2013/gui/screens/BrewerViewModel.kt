@@ -20,6 +20,7 @@ class BrewerViewModel(
     init {
         launch(ui) {
             state.postValue(BrewerUiModel(brewer, repository.brewerBeers(brewer.id)
+                    .map { it.sortedBy { it.name } }
                     .getOrElse { throw IllegalStateException("BrewerViewModel can only be created with cached data") }))
         }
     }

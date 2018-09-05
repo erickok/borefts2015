@@ -26,7 +26,7 @@ class StylesViewModel(
 
     private fun Try<List<Style>>.toUiModel(): StylesUiModel {
         return when (this) {
-            is Success -> StylesUiModel.Success(value)
+            is Success -> StylesUiModel.Success(value.sortedBy { it.name })
             is Failure -> StylesUiModel.Failure.also { this.log() }
         }
     }

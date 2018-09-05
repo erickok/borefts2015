@@ -20,6 +20,7 @@ class StyleViewModel(
     init {
         launch(ui) {
             state.postValue(StyleUiModel(style, repository.styleBeers(style.id)
+                    .map { it.sortedBy { it.name } }
                     .getOrElse { throw IllegalStateException("StyleViewModel can only be created with cached data") }))
         }
     }

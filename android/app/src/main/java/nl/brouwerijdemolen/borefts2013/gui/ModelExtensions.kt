@@ -2,7 +2,6 @@ package nl.brouwerijdemolen.borefts2013.gui
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import nl.brouwerijdemolen.borefts2013.R
 import nl.brouwerijdemolen.borefts2013.api.Beer
 import nl.brouwerijdemolen.borefts2013.api.Brewer
 import nl.brouwerijdemolen.borefts2013.api.Style
@@ -27,6 +26,9 @@ fun Style.getColorResource(res: ResourceProvider): Int {
         else -> res.getColor(R.color.style_unknown)
     }
 }
+
+val Brewer.sortFilter: String
+    get() = if (id == 32) "" else sortName
 
 val Beer.fullName: CharSequence
     get() = if (festivalBeer) "$name (9+1)" else name
