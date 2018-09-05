@@ -2,6 +2,7 @@ package nl.brouwerijdemolen.borefts2013.gui
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import nl.brouwerijdemolen.borefts2013.R
 import nl.brouwerijdemolen.borefts2013.api.Beer
 import nl.brouwerijdemolen.borefts2013.api.Brewer
 import nl.brouwerijdemolen.borefts2013.api.Style
