@@ -11,6 +11,7 @@ import nl.brouwerijdemolen.borefts2013.gui.CoroutineScope.ui
 import nl.brouwerijdemolen.borefts2013.gui.Navigator
 import nl.brouwerijdemolen.borefts2013.gui.Repository
 import nl.brouwerijdemolen.borefts2013.gui.components.log
+import nl.brouwerijdemolen.borefts2013.gui.sortFilter
 
 class BrewersViewModel(
         private val navigator: Navigator,
@@ -26,7 +27,7 @@ class BrewersViewModel(
 
     private fun Try<List<Brewer>>.toUiModel(): BrewersUiModel {
         return when (this) {
-            is Success -> BrewersUiModel.Success(value)
+            is Success -> BrewersUiModel.Success(value.sortedBy { it.sortFilter })
             is Failure -> BrewersUiModel.Failure.also { this.log() }
         }
     }
