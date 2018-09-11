@@ -91,6 +91,8 @@ class InfoFragment : Fragment() {
     private fun showTaxiSuggestionsDialog() {
         val dialogBuilder = AlertDialog.Builder(requireContext())
         val numbers = SpannableString.valueOf(getString(R.string.info_taxis_recommended))
+
+        // Make phone numbers clickable
         "(\\+[\\d ()-]+)".toRegex().findAll(numbers).forEach { result ->
             numbers.setSpan(object : ClickableSpan() {
                 override fun onClick(widget: View) {
@@ -98,6 +100,8 @@ class InfoFragment : Fragment() {
                 }
             }, result.range.start, result.range.endInclusive + 1, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
         }
+
+        // Dialog with a textview that is set up to have clickable links
         val numbersText = TextView(dialogBuilder.context).also {
             it.movementMethod = LinkMovementMethod.getInstance()
             it.text = numbers
