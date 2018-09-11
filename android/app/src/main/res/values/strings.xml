@@ -35,6 +35,8 @@
 	<string name="info_nstimes">Departures</string>
 	<string name="info_noparking">Please don\'t drink and drive. Taxis are available via the regional taxi companies.</string>
 	<string name="info_taxis">Find taxis</string>
+	<string name="info_taxis_recommended">We recommend using one of these taxi services:\n\nTaxi Centrale Woerden\n+31 (0) 348-744069\n\nTaxi
+		Centrale Gouda\n+31 (0) 612 500 013\n\nTaxi One Gouda\n+31 (0) 182 538 769</string>
 	<string name="info_beercafe">Beer shop</string>
 	<string name="info_findmill">Find mill</string>
 	<string name="info_shopinfo">The beer shop in the old mill is of course open; for De Molen specialties, festival beers and hundreds of other beers.</string>

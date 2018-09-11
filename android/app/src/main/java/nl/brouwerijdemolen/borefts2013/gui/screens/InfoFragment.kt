@@ -4,10 +4,16 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.app.AlertDialog
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.method.LinkMovementMethod
+import android.text.style.ClickableSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.TextView
 import android.widget.Toast
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMapOptions
@@ -69,9 +75,8 @@ class InfoFragment : Fragment() {
         nstimes_button.setOnClickListener {
             requireContext().startLink(Uri.parse("http://www.ns.nl/actuele-vertrektijden/avt?station=bdg"))
         }
-        taxis_button.setOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("geo:52.084802,4.740689?z=14&q=taxi"))
-                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+        taxis_button.setOnClickListener { _ ->
+            showTaxiSuggestionsDialog()
         }
 
         viewModel.state.observeNonNull(this) {
@@ -81,6 +86,29 @@ class InfoFragment : Fragment() {
                 mapView.showPois(it.pois)
             }
         }
+    }
+
+    private fun showTaxiSuggestionsDialog() {
+        val dialogBuilder = AlertDialog.Builder(requireContext())
+        val numbers = SpannableString.valueOf(getString(R.string.info_taxis_recommended))
+        "(\\+[\\d ()-]+)".toRegex().findAll(numbers).forEach { result ->
+            numbers.setSpan(object : ClickableSpan() {
+                override fun onClick(widget: View) {
+                    startActivity(Intent(Intent.ACTION_DIAL, Uri.parse("tel:${result.value.replace("(0) ", "")}")))
+                }
+            }, result.range.start, result.range.endInclusive + 1, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
+        }
+        val numbersText = TextView(dialogBuilder.context).also {
+            it.movementMethod = LinkMovementMethod.getInstance()
+            it.text = numbers
+            resources.getDimension(R.dimen.margin_default).toInt().let { padding ->
+                it.setPadding(padding, padding, padding, padding)
+            }
+        }
+        dialogBuilder
+                .setView(numbersText)
+                .setPositiveButton(android.R.string.ok, null)
+                .show()
     }
 
 }
