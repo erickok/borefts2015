@@ -35,6 +35,8 @@
 	<string name="info_nstimes">Vertrektijden</string>
 	<string name="info_noparking">Alcohol en autorijden gaat niet samen. Taxi\'s zijn beschikbaar via de lokale taxicentrales.</string>
 	<string name="info_taxis">Zoek een taxi</string>
+	<string name="info_taxis_recommended">We raden de volgende taxicentrales aan:\n\nTaxi Centrale Woerden\n+31 (0) 348-744069\n\nTaxi
+		Centrale Gouda\n+31 (0) 612 500 013\n\nTaxi One Gouda\n+31 (0) 182 538 769</string>
 	<string name="info_beercafe">Bierwinkel</string>
 	<string name="info_findmill">Zoek de molen</string>
 	<string name="info_shopinfo">De bierwinkel in de molen is natuurlijk weer geopend; voor specialiteiten van De Molen, brouwers op het festival en honderden andere bieren.</string>

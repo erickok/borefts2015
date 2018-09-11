@@ -38,7 +38,7 @@ class StyleActivity : AppCompatActivity() {
             abv_view.value = it.style.abv
             bitterness_view.value = it.style.bitterness
             sweetness_view.value = it.style.sweetness
-            acidity_view.value = it.style.abv
+            acidity_view.value = it.style.acidity
             beers_list.adapter = BeersListAdapter(false, styleViewModel::openBeer).apply { submitList(it.beers) }
         }
     }
