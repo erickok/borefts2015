@@ -39,7 +39,8 @@
 		Centrale Gouda\n+31 (0) 612 500 013\n\nTaxi One Gouda\n+31 (0) 182 538 769</string>
 	<string name="info_beercafe">Bierwinkel</string>
 	<string name="info_findmill">Zoek de molen</string>
-	<string name="info_shopinfo">De bierwinkel in de molen is natuurlijk weer geopend; voor specialiteiten van De Molen, brouwers op het festival en honderden andere bieren.</string>
+	<string name="info_shopinfo">Brouwcafé de Molen zal 20 speciale De Molenbieren op tap hebben, met klassiekers en veel specials. Je kunt met
+		festivaltokens betalen. De bierwinkel is natuurlijk ook weer geopend. Open van 12:00 tot 21:45.</string>
 	<string name="info_merchandise">Merchandise</string>
 	<string name="info_shirts">Ook dit jaar is er weer merchandise beschikbaar van de meeste aanwezige brouwers. Bovendien is er een uniek Borefts festivalt-shirt beschikbaar. Je kunt met cash of pin betalen.</string>
 
@@ -74,7 +75,6 @@
 	<string name="map_firstaid">EHBO</string>
 	<string name="map_foodplaza">Food court</string>
 	<string name="map_foodsnack">Food &amp; snack</string>
-	<string name="map_beerbar">USA bierbar</string>
 	<string name="map_shop">Bierwinkel</string>
 
 	<string name="about_broughtby">Ontwikkeld door Eric Kok\nals 2312 development</string>
