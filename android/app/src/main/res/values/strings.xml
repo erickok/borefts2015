@@ -39,7 +39,8 @@
 		Centrale Gouda\n+31 (0) 612 500 013\n\nTaxi One Gouda\n+31 (0) 182 538 769</string>
 	<string name="info_beercafe">Beer shop</string>
 	<string name="info_findmill">Find mill</string>
-	<string name="info_shopinfo">The beer shop in the old mill is of course open; for De Molen specialties, festival beers and hundreds of other beers.</string>
+	<string name="info_shopinfo">Brouwcafé de Molen will have 20 special De Molen beers on tap, some classics and a lot of specials. You can pay with
+		the regular festival tokens. The beer shop is of course open as well. Opened from 12:00 until 21:45.</string>
 	<string name="info_merchandise">Merchandise</string>
 	<string name="info_shirts">Most brewers will again bring merchansise this year. Moreover, a special Borefts festival t-shirt will be available. You can pay in cash or with card.</string>
 	
@@ -74,7 +75,6 @@
 	<string name="map_firstaid">First aid</string>
 	<string name="map_foodplaza">Food court</string>
 	<string name="map_foodsnack">Food &amp; snack</string>
-	<string name="map_beerbar">USA beer bar</string>>
 	<string name="map_shop">Beer shop</string>
 
 	<string name="about_broughtby">Brought by Eric Kok\nof 2312 development</string>
