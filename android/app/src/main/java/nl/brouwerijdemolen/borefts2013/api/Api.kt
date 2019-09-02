@@ -1,8 +1,7 @@
 package nl.brouwerijdemolen.borefts2013.api
 
 import arrow.core.Try
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.experimental.CoroutineCallAdapterFactory
-import kotlinx.coroutines.experimental.Deferred
+import kotlinx.coroutines.Deferred
 import okhttp3.OkHttpClient
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -27,7 +26,6 @@ class HttpApi(private val okHttpClient: OkHttpClient) : Api {
         Retrofit.Builder()
                 .client(okHttpClient)
                 .baseUrl("https://borefts-d454d.firebaseio.com/") // d454d or staging
-                .addCallAdapterFactory(CoroutineCallAdapterFactory())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
     }

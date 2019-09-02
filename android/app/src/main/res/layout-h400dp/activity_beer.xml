@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/margin_sides"
     android:paddingRight="@dimen/margin_sides">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/title_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
             android:textSize="20sp"
             tools:text="Alvinne Mad Tom Alvinne Mad Tom Alvinne Mad Tom Alvinne Mad Tom Alvinne Mad Tom Alvinne Mad Tom Alvinne Mad Tom Alvinne Mad Tom Alvinne Mad Tom Alvinne Mad Tom Alvinne Mad Tom Alvinne Mad Tom Alvinne Mad Tom Alvinne Mad Tom Alvinne Mad Tom Alvinne Mad Tom " />
 
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
     <Button
         android:id="@+id/style_button"

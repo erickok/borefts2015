@@ -2,7 +2,7 @@ package nl.brouwerijdemolen.borefts2013.gui
 
 import arrow.core.Try
 import com.nhaarman.mockitokotlin2.mock
-import kotlinx.coroutines.experimental.Unconfined
+import kotlinx.coroutines.Unconfined
 import nl.brouwerijdemolen.borefts2013.api.Api
 import nl.brouwerijdemolen.borefts2013.api.Area
 import nl.brouwerijdemolen.borefts2013.api.Beer
@@ -20,7 +20,7 @@ import org.koin.dsl.module.Module
 import org.koin.dsl.module.module
 import org.koin.log.EmptyLogger
 import org.koin.standalone.StandAloneContext
-import kotlin.coroutines.experimental.CoroutineContext
+import kotlin.coroutines.CoroutineContext
 
 val dummyBrewer = Brewer(2, "logo", "brewerName", "brwNm", "brewer name", "Leuven", "Belgium", null, null, 0f, 0f)
 val dummyStyle = Style(3, "styleName", 3, 1, 2, 3, 4, 5)

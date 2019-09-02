@@ -1,11 +1,12 @@
 package nl.brouwerijdemolen.borefts2013.gui.screens
 
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import arrow.core.Failure
 import arrow.core.Success
 import arrow.core.Try
-import kotlinx.coroutines.experimental.launch
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import nl.brouwerijdemolen.borefts2013.api.Style
 import nl.brouwerijdemolen.borefts2013.gui.CoroutineScope.ui
 import nl.brouwerijdemolen.borefts2013.gui.Navigator
@@ -19,7 +20,7 @@ class StylesViewModel(
     val state = MutableLiveData<StylesUiModel>().apply { value = StylesUiModel.Loading }
 
     init {
-        launch(ui) {
+        GlobalScope.launch(ui) {
             state.postValue(repository.styles().toUiModel())
         }
     }
@@ -37,7 +38,7 @@ class StylesViewModel(
 
     fun retry() {
         state.postValue(StylesUiModel.Loading)
-        launch(ui) {
+        GlobalScope.launch(ui) {
             state.postValue(repository.styles().toUiModel())
         }
     }

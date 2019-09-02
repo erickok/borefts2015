@@ -3,8 +3,8 @@ package nl.brouwerijdemolen.borefts2013.gui.components
 import android.content.Context
 import android.graphics.Paint
 import android.graphics.Typeface
-import android.support.annotation.StringRes
-import android.support.v4.util.LruCache
+import androidx.annotation.StringRes
+import androidx.collection.LruCache
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.TextPaint

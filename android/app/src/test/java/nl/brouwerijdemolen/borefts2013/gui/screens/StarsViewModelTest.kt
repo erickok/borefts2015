@@ -1,6 +1,6 @@
 package nl.brouwerijdemolen.borefts2013.gui.screens
 
-import android.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.common.truth.Truth.assertThat
 import com.nhaarman.mockitokotlin2.whenever
 import nl.brouwerijdemolen.borefts2013.gui.Navigator

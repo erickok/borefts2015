@@ -1,9 +1,10 @@
 package nl.brouwerijdemolen.borefts2013.gui.screens
 
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import arrow.core.getOrElse
-import kotlinx.coroutines.experimental.launch
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import nl.brouwerijdemolen.borefts2013.api.Beer
 import nl.brouwerijdemolen.borefts2013.api.Style
 import nl.brouwerijdemolen.borefts2013.gui.CoroutineScope.ui
@@ -18,7 +19,7 @@ class StyleViewModel(
     val state = MutableLiveData<StyleUiModel>()
 
     init {
-        launch(ui) {
+        GlobalScope.launch(ui) {
             state.postValue(StyleUiModel(style, repository.styleBeers(style.id)
                     .map { it.sortedBy { it.name } }
                     .getOrElse { throw IllegalStateException("StyleViewModel can only be created with cached data") }))

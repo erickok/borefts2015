@@ -1,25 +1,25 @@
-Borefts 2018
+Borefts 2019
 ============
 
 
 <a href="https://play.google.com/store/apps/details?id=nl.brouwerijdemolen.borefts2013" target="_blank">
 <img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" alt="Get it on Google Play" height="80"/></a>
 
-The official Android companion app to the Borefts Beer Festival 2018, as organised yearly by brewery De Molen. For everything on the festival itself, please visit [the offical festival website](http://brouwerijdemolen.nl/borefts-bierfestival/).
+The official Android companion app to the Borefts Beer Festival 2019, as organised yearly by brewery De Molen. For everything on the festival itself, please visit [the offical festival website](http://brouwerijdemolen.nl/borefts-bierfestival/).
 
-This app was build by [Eric Kok](http://ekok.nl) of [2312 development](http://2312.nl) as a continuation of the 2013-2017 apps. We are open-source, so free to contribute or to modify for your own (festival) needs. Remember, though, the GNU GPLv3 license is copyleft, so every single change or addition needs to be open-sourced under the same license.
+This app was build by [Eric Kok](http://ekok.nl) of [2312 development](http://2312.nl) as a continuation of the 2013-2018 apps. We are open-source, so free to contribute or to modify for your own (festival) needs. Remember, though, the GNU GPLv3 license is copyleft, so every single change or addition needs to be open-sourced under the same license.
 
 License
 =======
     
-    Copyright 2010-2018 Eric Kok et al.
+    Copyright 2010-2019 Eric Kok et al.
     
-    Borefts 2018 is free software: you can redistribute it and/or modify
+    Borefts 2019 is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
     
-    Borefts 2018 is distributed in the hope that it will be useful,
+    Borefts 2019 is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
@@ -44,10 +44,7 @@ Some code/libraries/resources are used in the project:
 *  [Android Architecture Components](https://developer.android.com/topic/libraries/architecture/index.html)  
     The Android Open Source Project  
     Apache License, Version 2.0
-*  [retrofit2-kotlin-coroutines-experimental-adapter](https://github.com/JakeWharton/retrofit2-kotlin-coroutines-adapter)  
-    Jake Wharton  
-    Apache License, Version 2.0
-*  [Map Marker](http://thenounproject.com/noun/map-marker/#icon-No20774)  
+*  [Map Marker](http://thenounproject.com/noun/map-marker/#icon-No20774)
     Tobias F. Wolf from The Noun Project  
     Creative Commons Attribution 3.0
 *  [Entrance](http://thenounproject.com/noun/map-marker/#icon-No2962)  

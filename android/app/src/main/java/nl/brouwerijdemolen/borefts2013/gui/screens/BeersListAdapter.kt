@@ -1,8 +1,8 @@
 package nl.brouwerijdemolen.borefts2013.gui.screens
 
-import android.support.v7.recyclerview.extensions.ListAdapter
-import android.support.v7.util.DiffUtil
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,8 +34,8 @@ class BeersListAdapter(
     }
 
     object BeersDiffCallback : DiffUtil.ItemCallback<Beer>() {
-        override fun areItemsTheSame(oldItem: Beer?, newItem: Beer?) = oldItem?.id == newItem?.id
-        override fun areContentsTheSame(oldItem: Beer?, newItem: Beer?) = oldItem == newItem
+        override fun areItemsTheSame(oldItem: Beer, newItem: Beer) = oldItem.id == newItem.id
+        override fun areContentsTheSame(oldItem: Beer, newItem: Beer) = oldItem == newItem
     }
 
     class BeerViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer, KoinComponent {

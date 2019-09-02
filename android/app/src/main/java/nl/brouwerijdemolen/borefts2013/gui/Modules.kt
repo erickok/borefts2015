@@ -1,7 +1,7 @@
 package nl.brouwerijdemolen.borefts2013.gui
 
 import android.content.Context
-import kotlinx.coroutines.experimental.android.UI
+import kotlinx.coroutines.Dispatchers
 import nl.brouwerijdemolen.borefts2013.api.Api
 import nl.brouwerijdemolen.borefts2013.api.Beer
 import nl.brouwerijdemolen.borefts2013.api.Brewer
@@ -23,7 +23,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
-import kotlin.coroutines.experimental.CoroutineContext
+import kotlin.coroutines.CoroutineContext
 
 private const val CACHE_TIME_MEMORY = 1_800_000L // Half hour
 private const val CACHE_TIME_DISK = 1_800_000L // Half hour
@@ -41,7 +41,7 @@ val networkModule = module {
 }
 
 val uiModule = module {
-    single("ui") { UI as CoroutineContext }
+    single("ui") { Dispatchers.Main as CoroutineContext }
     single { ResourceProvider(get()) }
     single { AppRater(get()) }
     single { StarPersistence(get()) }

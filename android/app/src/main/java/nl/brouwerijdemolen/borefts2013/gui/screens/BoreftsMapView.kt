@@ -9,7 +9,7 @@ import android.graphics.Paint
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffXfermode
 import android.graphics.Rect
-import android.support.annotation.ColorInt
+import androidx.annotation.ColorInt
 import android.util.SparseArray
 import com.google.android.gms.maps.GoogleMapOptions
 import com.google.android.gms.maps.MapView

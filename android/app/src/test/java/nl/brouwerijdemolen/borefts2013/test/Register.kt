@@ -1,6 +1,6 @@
 package nl.brouwerijdemolen.borefts2013.test
 
-import android.arch.lifecycle.Observer
+import androidx.lifecycle.Observer
 
 /**
  * A [android.arch.lifecycle.LiveData] [Observer] that registers all emitted values. This is useful in tests to validate the amount and content of

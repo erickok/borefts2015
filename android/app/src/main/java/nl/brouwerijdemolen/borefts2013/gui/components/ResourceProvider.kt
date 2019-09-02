@@ -1,9 +1,9 @@
 package nl.brouwerijdemolen.borefts2013.gui.components
 
 import android.content.Context
-import android.support.annotation.ColorRes
-import android.support.annotation.StringRes
-import android.support.v4.content.ContextCompat
+import androidx.annotation.ColorRes
+import androidx.annotation.StringRes
+import androidx.core.content.ContextCompat
 import android.util.Log
 import java.io.InputStream
 

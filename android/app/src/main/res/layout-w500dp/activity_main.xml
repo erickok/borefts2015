@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".gui.BoreftsActivity">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/title_toobar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -22,7 +22,7 @@
             android:text="@text/app_name_short"
             android:textSize="20sp"/>
 
-        <android.support.design.widget.TabLayout
+        <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs_tablayout"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
@@ -31,9 +31,9 @@
             app:tabMinWidth="0dp"
             app:tabMode="scrollable"/>
 
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
-    <android.support.v4.view.ViewPager
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/tabs_viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

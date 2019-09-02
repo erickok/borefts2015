@@ -1,14 +1,15 @@
 package nl.brouwerijdemolen.borefts2013.gui.screens
 
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import arrow.core.Failure
 import arrow.core.Success
 import arrow.core.Try
 import arrow.core.fix
 import arrow.core.monad
 import arrow.typeclasses.binding
-import kotlinx.coroutines.experimental.launch
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import nl.brouwerijdemolen.borefts2013.api.Area
 import nl.brouwerijdemolen.borefts2013.api.Brewer
 import nl.brouwerijdemolen.borefts2013.api.Poi
@@ -24,7 +25,7 @@ class InfoViewModel(
     val state = MutableLiveData<InfoUiModel>().apply { value = InfoUiModel.Loading }
 
     init {
-        launch(ui) {
+        GlobalScope.launch(ui) {
             val tryBrewers = repository.brewers()
             val tryAreas = repository.areas()
             val tryPois = repository.pois()
