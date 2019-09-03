@@ -85,8 +85,8 @@ class BoreftsActivity : AppCompatActivity() {
     private fun prepareCorrectionEmail() {
         val startEmail = Intent(Intent.ACTION_SEND).apply {
             type = "message/rfc822"
-            putExtra(Intent.EXTRA_EMAIL, arrayOf("borefts2018@2312.nl"))
-            putExtra(Intent.EXTRA_SUBJECT, "Borefts 2018 Android app correction")
+            putExtra(Intent.EXTRA_EMAIL, arrayOf("borefts2019@2312.nl"))
+            putExtra(Intent.EXTRA_SUBJECT, "Borefts 2019 Android app correction")
         }
         try {
             startActivity(startEmail)

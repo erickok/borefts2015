@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<string name="app_name">Borefts Beer Festival 2018</string>
-	<string name="app_name_short">Borefts 2018</string>
+	<string name="app_name">Borefts Beer Festival 2019</string>
+	<string name="app_name_short">Borefts 2019</string>
 
 	<string name="general_location_permission">Show your location?</string>
 	<string name="general_location_ok">Yes, please</string>
@@ -22,14 +22,13 @@
 	<string name="action_about">About this app</string>
 	
 	<string name="info_what">What? Where?</string>
-	<string name="info_address">Borefts Beer Festival 2018\nDe Molen Brewery\nDoortocht 4, Bodegraven</string>
+	<string name="info_address">Borefts Beer Festival 2019\nDe Molen Brewery\nDoortocht 4, Bodegraven</string>
 	<string name="info_times">Sep 21 &#8211; 22\n12:00 &#8211; 21:45</string>
-	<string name="info_presale">Note: pre-sale only!</string>
+	<string name="info_presale">Note: all tickets sold out!</string>
 	<string name="info_tokens">Entry &amp; tokens</string>
 	<string name="info_getmore">Buy extra\ntokens</string>
-	<string name="info_entry">3500 ticket per day are available, only available online in the pre-sale. € 35,- for glass, festival booklet and 10
-		tokens.</string>
-	<string name="info_extra">Additional tokens can be bought with cash or card. Extra tokens € 2,- = 1 beer. NOT 18 YEARS NO ALCOHOL</string>
+	<string name="info_entry">3500 ticket per day were available, only available online in the pre-sale.</string>
+	<string name="info_extra">Additional tokens can be bought with cash or card. NOT 18 YEARS NO ALCOHOL</string>
 	<string name="info_publictransport">Public transport</string>
 	<string name="info_trains">Trains run every half hour, in each direction, at :15 and :45. Last trains leave at 00:45.</string>
 	<string name="info_nstimes">Departures</string>

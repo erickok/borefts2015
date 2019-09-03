@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<string name="app_name">Borefts Bierfestival 2018</string>
-	<string name="app_name_short">Borefts 2018</string>
+	<string name="app_name">Borefts Bierfestival 2019</string>
+	<string name="app_name_short">Borefts 2019</string>
 
 	<string name="general_location_permission">Je lokatie tonen?</string>
 	<string name="general_location_ok">Ja, graag</string>
@@ -22,14 +22,13 @@
 	<string name="action_about">Over deze app</string>
 	
 	<string name="info_what">Wat? Waar?</string>
-	<string name="info_address">Borefts Bierfestival 2018\nBrouwerij De Molen\nDoortocht 4, Bodegraven</string>
+	<string name="info_address">Borefts Bierfestival 2019\nBrouwerij De Molen\nDoortocht 4, Bodegraven</string>
 	<string name="info_times">Sep 21 &#8211; 22\n12:00 &#8211; 21:45</string>
-	<string name="info_presale">Let op: alleen voorverkoop!</string>
+	<string name="info_presale">Let op: Borefts is uitverkocht!</string>
 	<string name="info_tokens">Toegang &amp; munten</string>
 	<string name="info_getmore">Koop extra\nmunten</string>
-	<string name="info_entry">3500 tickets per dag zijn beschikbaar, alleen via the online voorverkoop. € 35,- voor glas, festivalboekje en 10
-		munten.</string>
-	<string name="info_extra">Extra munten kunnen worden gekocht per cash of kaart. Extra tokens € 2,- = 1 bier. GEEN 18 JAAR GEEN ALCOHOL</string>
+	<string name="info_entry">3500 tickets per dag zijn beschikbaar, alleen via the online voorverkoop.</string>
+	<string name="info_extra">Extra munten kunnen worden gekocht per cash of kaart. GEEN 18 JAAR GEEN ALCOHOL</string>
 	<string name="info_publictransport">Openbaar vervoer</string>
 	<string name="info_trains">Treinen rijden elk half uur, om :15 en :45. De laatste trein vertrekt om 00:45.</string>
 	<string name="info_nstimes">Vertrektijden</string>

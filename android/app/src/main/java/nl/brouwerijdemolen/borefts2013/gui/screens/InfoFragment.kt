@@ -62,8 +62,8 @@ class InfoFragment : Fragment() {
                 type = "vnd.android.cursor.item/event"
                 putExtra("title", getString(R.string.app_name))
                 putExtra("eventLocation", "Doortocht 4, Bodegraven, The Netherlands")
-                putExtra("beginTime", GregorianCalendar(2018, 8, 21, 12, 0).timeInMillis)
-                putExtra("endTime", GregorianCalendar(2018, 8, 22, 21, 45).timeInMillis)
+                putExtra("beginTime", GregorianCalendar(2019, 8, 27, 12, 0).timeInMillis)
+                putExtra("endTime", GregorianCalendar(2019, 8, 28, 21, 45).timeInMillis)
                 putExtra("rrule", "FREQ=DAILY;COUNT=2")
             }
             if (intent.resolveActivity(requireActivity().packageManager) != null) {
