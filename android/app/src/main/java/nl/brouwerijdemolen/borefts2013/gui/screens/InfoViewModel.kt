@@ -5,9 +5,8 @@ import androidx.lifecycle.ViewModel
 import arrow.core.Failure
 import arrow.core.Success
 import arrow.core.Try
+import arrow.core.extensions.`try`.monad.binding
 import arrow.core.fix
-import arrow.core.monad
-import arrow.typeclasses.binding
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import nl.brouwerijdemolen.borefts2013.api.Area
@@ -29,7 +28,7 @@ class InfoViewModel(
             val tryBrewers = repository.brewers()
             val tryAreas = repository.areas()
             val tryPois = repository.pois()
-            state.postValue(Try.monad().binding {
+            state.postValue(binding {
                 val brewers = tryBrewers.bind()
                 val areas = tryAreas.bind()
                 val pois = tryPois.bind()

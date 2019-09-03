@@ -11,7 +11,8 @@ import android.text.Spanned
 import android.view.View
 
 const val KEY_ARGS = "args"
-inline fun <reified T : Parcelable> Activity.arg(key: String): T = intent.getParcelableExtra(key)
+inline fun <reified T : Parcelable> Activity.arg(key: String): T =
+        requireNotNull(intent.getParcelableExtra(key)) { "No args in activity intent bundle" }
 
 var View.isVisible
     get() = this.visibility == View.VISIBLE

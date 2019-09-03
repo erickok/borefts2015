@@ -1,7 +1,6 @@
 package nl.brouwerijdemolen.borefts2013.api
 
 import arrow.core.Try
-import kotlinx.coroutines.Deferred
 import okhttp3.OkHttpClient
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -32,29 +31,29 @@ class HttpApi(private val okHttpClient: OkHttpClient) : Api {
 
     private val routes by lazy { retrofit.create(Routes::class.java) }
 
-    override suspend fun pois() = Try { routes.pois().await() }.nonNullBody()
+    override suspend fun pois() = Try { routes.pois() }.nonNullBody()
 
-    override suspend fun brewers() = Try { routes.brewers().await() }.nonNullBody()
+    override suspend fun brewers() = Try { routes.brewers() }.nonNullBody()
 
-    override suspend fun styles() = Try { routes.styles().await() }.nonNullBody()
+    override suspend fun styles() = Try { routes.styles() }.nonNullBody()
 
-    override suspend fun beersRaw() = Try { routes.beers().await() }.nonNullBody()
+    override suspend fun beersRaw() = Try { routes.beers() }.nonNullBody()
 
     private fun <T> Try<Response<T>>.nonNullBody() = this.filter { it.body() != null }.map { it.body()!! }
 
     interface Routes {
 
         @GET("https://2312.nl/borefts2018/pois.php")
-        fun pois(): Deferred<Response<Pois>>
+        suspend fun pois(): Response<Pois>
 
         @GET("brewers/2018.json")
-        fun brewers(): Deferred<Response<Brewers>>
+        suspend fun brewers(): Response<Brewers>
 
         @GET("styles/2018.json")
-        fun styles(): Deferred<Response<Styles>>
+        suspend fun styles(): Response<Styles>
 
         @GET("beers/2018.json")
-        fun beers(): Deferred<Response<Beers>>
+        suspend fun beers(): Response<Beers>
 
     }
 

@@ -2,8 +2,7 @@ package nl.brouwerijdemolen.borefts2013.gui
 
 import arrow.core.Try
 import arrow.core.fix
-import arrow.core.monad
-import arrow.typeclasses.binding
+import arrow.core.extensions.`try`.monad.binding
 import nl.brouwerijdemolen.borefts2013.api.Api
 import nl.brouwerijdemolen.borefts2013.api.Beer
 import nl.brouwerijdemolen.borefts2013.api.Pois
@@ -24,7 +23,7 @@ class Repository(private val api: Api, private val memoryCache: MemoryCache) {
         val tryBrewers = brewers()
         val tryStyles = styles()
         val tryBeers = memoryCache.cachedBeers.getFreshOr { api.beersRaw() }
-        return Try.monad().binding {
+        return binding {
             val brewers = tryBrewers.bind()
             val styles = tryStyles.bind()
             val beersRaw = tryBeers.bind()

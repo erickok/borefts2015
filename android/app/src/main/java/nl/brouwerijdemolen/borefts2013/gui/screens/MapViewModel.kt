@@ -1,14 +1,13 @@
 package nl.brouwerijdemolen.borefts2013.gui.screens
 
+import android.os.Parcelable
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import android.os.Parcelable
 import arrow.core.Failure
 import arrow.core.Success
 import arrow.core.Try
+import arrow.core.extensions.`try`.monad.binding
 import arrow.core.fix
-import arrow.core.monad
-import arrow.typeclasses.binding
 import kotlinx.android.parcel.Parcelize
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -32,7 +31,7 @@ class MapViewModel(
             val tryBrewers = repository.brewers()
             val tryAreas = repository.areas()
             val tryPois = repository.pois()
-            state.postValue(Try.monad().binding {
+            state.postValue(binding {
                 val brewers = tryBrewers.bind()
                 val areas = tryAreas.bind()
                 val pois = tryPois.bind()
