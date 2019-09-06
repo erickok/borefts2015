@@ -24,7 +24,7 @@ class HttpApi(private val okHttpClient: OkHttpClient) : Api {
     private val retrofit by lazy {
         Retrofit.Builder()
                 .client(okHttpClient)
-                .baseUrl("https://borefts-d454d.firebaseio.com/") // d454d or staging
+                .baseUrl("https://borefts-staging.firebaseio.com/") // d454d or staging
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
     }
@@ -46,13 +46,13 @@ class HttpApi(private val okHttpClient: OkHttpClient) : Api {
         @GET("https://2312.nl/borefts2018/pois.php")
         suspend fun pois(): Response<Pois>
 
-        @GET("brewers/2018.json")
+        @GET("brewers/2019.json")
         suspend fun brewers(): Response<Brewers>
 
-        @GET("styles/2018.json")
+        @GET("styles/2019.json")
         suspend fun styles(): Response<Styles>
 
-        @GET("beers/2018.json")
+        @GET("beers/2019.json")
         suspend fun beers(): Response<Beers>
 
     }

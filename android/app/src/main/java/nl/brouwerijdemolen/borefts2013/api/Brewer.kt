@@ -13,6 +13,8 @@ data class Brewer(
         val city: String,
         val country: String,
         val description: String? = null,
+        val twitter: String? = null,
+        val facebook: String? = null,
         val website: String? = null,
         // TODO Change back to Float when data is refreshed
         val latitude: String? = null,
