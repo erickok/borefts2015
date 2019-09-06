@@ -14,7 +14,7 @@ data class Beer(
         val festivalBeer: Boolean = false,
         val tags: String? = null,
         val untappdId: String? = null,
-        val serving: Int = 0,
+        val serving: String,
         val colour: Int = 0,
         val body: Int = 0,
         val bitterness: Int = 0,

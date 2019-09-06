@@ -1,23 +1,21 @@
 package nl.brouwerijdemolen.borefts2013.gui
 
 import nl.brouwerijdemolen.borefts2013.ext.div
-import okhttp3.HttpUrl
-import okhttp3.Interceptor
-import okhttp3.MediaType
-import okhttp3.Protocol
-import okhttp3.Request
-import okhttp3.Response
-import okhttp3.ResponseBody
-import okio.Okio
+import okhttp3.*
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.ResponseBody.Companion.asResponseBody
+import okio.buffer
+import okio.sink
+import okio.source
 import java.io.File
 
 class CachingInterceptor(private val cacheDir: File, private val maxAgeInMillis: Long) : Interceptor {
 
-    private val mediaTypeJson = MediaType.parse("application/json; charset=utf-8")
+    private val mediaTypeJson = "application/json; charset=utf-8".toMediaTypeOrNull()
     private val cacheNameDisallowCharacters = "[^a-zA-Z0-9.\\-]".toRegex()
 
     override fun intercept(chain: Interceptor.Chain): Response {
-        val cacheName = chain.request().url().cacheName()
+        val cacheName = chain.request().url.cacheName()
         val cacheFile = cacheDir / cacheName
 
         if (!cacheFile.exists() || cacheFile.lastModified() < (System.currentTimeMillis() - maxAgeInMillis)) {
@@ -30,27 +28,27 @@ class CachingInterceptor(private val cacheDir: File, private val maxAgeInMillis:
     }
 
     private fun responseFromCache(cacheFile: File, chain: Request): Response {
-        val cacheSource = Okio.buffer(Okio.source(cacheFile))
+        val cacheSource = cacheFile.source().buffer()
         return Response.Builder()
                 .request(chain)
                 .protocol(Protocol.HTTP_1_1)
                 .code(200)
                 .message("Cached")
-                .body(ResponseBody.create(mediaTypeJson, -1, cacheSource))
+                .body(cacheSource.asResponseBody(mediaTypeJson, -1))
                 .build()
     }
 
     private fun performAndCache(cacheFile: File, chain: Interceptor.Chain): Response {
         val request = chain.request()
         val freshResponse = chain.proceed(request)
-        val responseBody = freshResponse.body()
+        val responseBody = freshResponse.body
         if (!freshResponse.isSuccessful || responseBody == null) {
             // Failed request: use (old) cache if available, or return the error
             return if (cacheFile.exists()) responseFromCache(cacheFile, request) else freshResponse
         }
 
         // Data received: cache it
-        val cacheSink = Okio.buffer(Okio.sink(cacheFile))
+        val cacheSink = cacheFile.sink().buffer()
         cacheSink.writeAll(responseBody.source())
         cacheSink.close()
 

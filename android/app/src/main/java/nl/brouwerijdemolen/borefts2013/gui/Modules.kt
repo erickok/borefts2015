@@ -32,7 +32,7 @@ val networkModule = module {
     single {
         OkHttpClient.Builder()
                 .addInterceptor(CachingInterceptor(get<Context>().filesDir, CACHE_TIME_DISK))
-                .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC))
+                .addInterceptor(HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BASIC })
                 .build()
     }
     single { HttpApi(get()) as Api }

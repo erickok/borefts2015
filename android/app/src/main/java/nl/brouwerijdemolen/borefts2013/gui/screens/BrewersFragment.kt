@@ -1,26 +1,23 @@
 package nl.brouwerijdemolen.borefts2013.gui.screens
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
+import coil.api.load
+import coil.transform.CircleCropTransformation
 import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.fragment_list.error_text
-import kotlinx.android.synthetic.main.fragment_list.loading_progress
-import kotlinx.android.synthetic.main.fragment_list.the_list
-import kotlinx.android.synthetic.main.list_item_brewer.logo_image
-import kotlinx.android.synthetic.main.list_item_brewer.name_text
-import kotlinx.android.synthetic.main.list_item_brewer.origin_text
+import kotlinx.android.synthetic.main.fragment_list.*
+import kotlinx.android.synthetic.main.list_item_brewer.*
 import nl.brouwerijdemolen.borefts2013.R
 import nl.brouwerijdemolen.borefts2013.api.Brewer
 import nl.brouwerijdemolen.borefts2013.ext.isVisible
 import nl.brouwerijdemolen.borefts2013.ext.observeNonNull
 import nl.brouwerijdemolen.borefts2013.gui.location
-import nl.brouwerijdemolen.borefts2013.gui.logoBitmap
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.standalone.KoinComponent
 import org.koin.standalone.get
@@ -62,7 +59,7 @@ class BrewersListAdapter(
     }
 
     object BrewersDiffCallback : DiffUtil.ItemCallback<Brewer>() {
-        override fun areItemsTheSame(oldItem: Brewer, newItem: Brewer) = oldItem?.id == newItem?.id
+        override fun areItemsTheSame(oldItem: Brewer, newItem: Brewer) = oldItem.id == newItem.id
         override fun areContentsTheSame(oldItem: Brewer, newItem: Brewer) = oldItem == newItem
 
     }
@@ -72,7 +69,9 @@ class BrewersListAdapter(
         fun bind(brewer: Brewer, brewerClicked: (Brewer) -> Unit) {
             name_text.text = brewer.name
             origin_text.text = brewer.location(get())
-            logo_image.setImageBitmap(brewer.logoBitmap(get()))
+            logo_image.load(brewer.logoUrl) {
+                transformations(CircleCropTransformation())
+            }
             containerView.setOnClickListener { brewerClicked(brewer) }
         }
 

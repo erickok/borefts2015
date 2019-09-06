@@ -22,7 +22,7 @@ class BrewerViewModel(
         GlobalScope.launch(ui) {
             state.postValue(BrewerUiModel(brewer, repository.brewerBeers(brewer.id)
                     .map { it.sortedBy { it.name } }
-                    .getOrElse { throw IllegalStateException("BrewerViewModel can only be created with cached data") }))
+                    .getOrElse { throw IllegalStateException("BrewerViewModel can only be created with cached data", it) }))
         }
     }
 
