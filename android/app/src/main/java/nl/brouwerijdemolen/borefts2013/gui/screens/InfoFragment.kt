@@ -63,7 +63,7 @@ class InfoFragment : Fragment() {
                 putExtra("title", getString(R.string.app_name))
                 putExtra("eventLocation", "Doortocht 4, Bodegraven, The Netherlands")
                 putExtra("beginTime", GregorianCalendar(2019, 8, 27, 12, 0).timeInMillis)
-                putExtra("endTime", GregorianCalendar(2019, 8, 28, 21, 45).timeInMillis)
+                putExtra("endTime", GregorianCalendar(2019, 8, 27, 21, 45).timeInMillis)
                 putExtra("rrule", "FREQ=DAILY;COUNT=2")
             }
             if (intent.resolveActivity(requireActivity().packageManager) != null) {
@@ -75,7 +75,7 @@ class InfoFragment : Fragment() {
         nstimes_button.setOnClickListener {
             requireContext().startLink(Uri.parse("http://www.ns.nl/actuele-vertrektijden/avt?station=bdg"))
         }
-        taxis_button.setOnClickListener { _ ->
+        taxis_button.setOnClickListener {
             showTaxiSuggestionsDialog()
         }
 

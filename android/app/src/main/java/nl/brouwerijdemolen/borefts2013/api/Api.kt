@@ -43,7 +43,7 @@ class HttpApi(private val okHttpClient: OkHttpClient) : Api {
 
     interface Routes {
 
-        @GET("https://2312.nl/borefts2018/pois.php")
+        @GET("https://2312.nl/borefts2017/pois.php")
         suspend fun pois(): Response<Pois>
 
         @GET("brewers/2019.json")
