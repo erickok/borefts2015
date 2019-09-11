@@ -15,13 +15,18 @@
         android:visible="false"
         app:showAsAction="never"/>
     <item
-        android:id="@+id/action_sendcorrection"
+        android:id="@+id/action_export"
         android:orderInCategory="101"
+        android:title="@string/action_export"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_sendcorrection"
+        android:orderInCategory="102"
         android:title="@string/action_sendcorrection"
         app:showAsAction="never"/>
     <item
         android:id="@+id/action_about"
-        android:orderInCategory="102"
+        android:orderInCategory="103"
         android:title="@string/action_about"
         app:showAsAction="never"/>
 

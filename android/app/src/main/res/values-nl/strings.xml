@@ -18,6 +18,7 @@
 	<string name="action_star_on">Bier van ster voorzien</string>
 	<string name="action_star_off">Ster verwijderen</string>
 	<string name="action_settings">Instellingen</string>
+	<string name="action_export">Bierlijst exporteren</string>
 	<string name="action_sendcorrection">Correctie doorgeven</string>
 	<string name="action_about">Over deze app</string>
 	

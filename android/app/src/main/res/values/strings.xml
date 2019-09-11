@@ -18,6 +18,7 @@
 	<string name="action_star_on">Star this beer</string>
 	<string name="action_star_off">Remove star</string>
 	<string name="action_settings">Settings</string>
+	<string name="action_export">Export beer list</string>
 	<string name="action_sendcorrection">Send correction</string>
 	<string name="action_about">About this app</string>
 	

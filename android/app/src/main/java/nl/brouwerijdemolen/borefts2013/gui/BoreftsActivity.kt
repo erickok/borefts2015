@@ -6,17 +6,22 @@ import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import nl.brouwerijdemolen.borefts2013.R
 import nl.brouwerijdemolen.borefts2013.ext.startLink
 import nl.brouwerijdemolen.borefts2013.gui.components.AppRater
+import nl.brouwerijdemolen.borefts2013.gui.components.Exporter
 import nl.brouwerijdemolen.borefts2013.gui.components.getMolenString
 import nl.brouwerijdemolen.borefts2013.gui.screens.*
 import org.koin.android.ext.android.inject
+import java.io.File
 
 class BoreftsActivity : AppCompatActivity() {
 
@@ -52,6 +57,7 @@ class BoreftsActivity : AppCompatActivity() {
         title_toobar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.action_refresh -> twitterFragment.refreshFeed()
+                R.id.action_export -> prepareBeersExport()
                 R.id.action_sendcorrection -> prepareCorrectionEmail()
                 R.id.action_about -> AboutFragment().show(supportFragmentManager, "about")
             }
@@ -76,6 +82,18 @@ class BoreftsActivity : AppCompatActivity() {
                 show()
             }
         }
+    }
+
+    private fun prepareBeersExport() = GlobalScope.launch {
+        val csv = File(cacheDir, "export/borefts2019_export.csv")
+        Exporter().writeTo(csv)
+        val content = FileProvider.getUriForFile(this@BoreftsActivity, "nl.brouwerijdemolen.borefts2013.fileprovider", csv)
+        val shareIntent = Intent(Intent.ACTION_SEND)
+                .setDataAndType(content, "text/csv")
+                .setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                .putExtra(Intent.EXTRA_STREAM, content)
+        startActivity(Intent.createChooser(shareIntent, getString(R.string.action_export)))
+
     }
 
     private fun prepareCorrectionEmail() {
