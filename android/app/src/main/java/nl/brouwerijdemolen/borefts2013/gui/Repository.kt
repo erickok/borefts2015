@@ -1,11 +1,12 @@
 package nl.brouwerijdemolen.borefts2013.gui
 
 import arrow.core.Try
-import arrow.core.fix
 import arrow.core.extensions.`try`.monad.binding
+import arrow.core.fix
 import nl.brouwerijdemolen.borefts2013.api.Api
 import nl.brouwerijdemolen.borefts2013.api.Beer
 import nl.brouwerijdemolen.borefts2013.api.Pois
+import nl.brouwerijdemolen.borefts2013.api.Style
 
 class Repository(private val api: Api, private val memoryCache: MemoryCache) {
 
@@ -17,7 +18,15 @@ class Repository(private val api: Api, private val memoryCache: MemoryCache) {
 
     suspend fun brewers() = memoryCache.cachedBrewers.getFreshOr { api.brewers() }.map { it.brewers }
 
-    suspend fun styles() = memoryCache.cachedStyles.getFreshOr { api.styles() }.map { it.styles }
+    suspend fun styles(): Try<List<Style>> {
+        val tryStyles = memoryCache.cachedStyles.getFreshOr { api.styles() }.map { it.styles }
+        val tryBeers = memoryCache.cachedBeers.getFreshOr { api.beersRaw() }
+        return binding {
+            val styles = tryStyles.bind()
+            val beersRaw = tryBeers.bind()
+            styles.filter { style -> beersRaw.beers.any { it.styleId == style.id } }
+        }.fix()
+    }
 
     private suspend fun allBeers(): Try<List<Beer>> {
         val tryBrewers = brewers()
