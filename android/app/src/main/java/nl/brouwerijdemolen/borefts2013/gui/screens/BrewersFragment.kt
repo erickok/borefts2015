@@ -18,9 +18,9 @@ import nl.brouwerijdemolen.borefts2013.api.Brewer
 import nl.brouwerijdemolen.borefts2013.ext.isVisible
 import nl.brouwerijdemolen.borefts2013.ext.observeNonNull
 import nl.brouwerijdemolen.borefts2013.gui.location
-import org.koin.android.viewmodel.ext.android.viewModel
-import org.koin.standalone.KoinComponent
-import org.koin.standalone.get
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.KoinComponent
+import org.koin.core.get
 
 class BrewersFragment : Fragment() {
 

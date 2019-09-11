@@ -3,8 +3,6 @@ package nl.brouwerijdemolen.borefts2013.gui.screens
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import androidx.appcompat.app.AlertDialog
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.method.LinkMovementMethod
@@ -15,21 +13,18 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.Fragment
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMapOptions
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
-import kotlinx.android.synthetic.main.fragment_info.findmill_button
-import kotlinx.android.synthetic.main.fragment_info.getmore_button
-import kotlinx.android.synthetic.main.fragment_info.minimap_holder
-import kotlinx.android.synthetic.main.fragment_info.nstimes_button
-import kotlinx.android.synthetic.main.fragment_info.taxis_button
-import kotlinx.android.synthetic.main.fragment_info.times_button
+import kotlinx.android.synthetic.main.fragment_info.*
 import nl.brouwerijdemolen.borefts2013.R
 import nl.brouwerijdemolen.borefts2013.ext.observeNonNull
 import nl.brouwerijdemolen.borefts2013.ext.startLink
-import org.koin.android.viewmodel.ext.android.viewModel
-import java.util.GregorianCalendar
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.util.*
 
 class InfoFragment : Fragment() {
 

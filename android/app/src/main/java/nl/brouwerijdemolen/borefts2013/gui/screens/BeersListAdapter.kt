@@ -1,16 +1,13 @@
 package nl.brouwerijdemolen.borefts2013.gui.screens
 
-import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.list_item_beer.abv_text
-import kotlinx.android.synthetic.main.list_item_beer.name_text
-import kotlinx.android.synthetic.main.list_item_beer.style_view
-import kotlinx.android.synthetic.main.list_item_beer.stylebrewer_text
+import kotlinx.android.synthetic.main.list_item_beer.*
 import nl.brouwerijdemolen.borefts2013.R
 import nl.brouwerijdemolen.borefts2013.api.Beer
 import nl.brouwerijdemolen.borefts2013.ext.isVisible
@@ -18,8 +15,8 @@ import nl.brouwerijdemolen.borefts2013.gui.abvText
 import nl.brouwerijdemolen.borefts2013.gui.colorIndicationResource
 import nl.brouwerijdemolen.borefts2013.gui.fullName
 import nl.brouwerijdemolen.borefts2013.gui.hasAbv
-import org.koin.standalone.KoinComponent
-import org.koin.standalone.get
+import org.koin.core.KoinComponent
+import org.koin.core.get
 
 class BeersListAdapter(
         private val showStyle: Boolean,

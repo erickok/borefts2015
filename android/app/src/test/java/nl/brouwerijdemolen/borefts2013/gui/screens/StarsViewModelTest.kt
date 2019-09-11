@@ -13,8 +13,8 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
-import org.koin.standalone.inject
 import org.koin.test.KoinTest
+import org.koin.test.inject
 import org.mockito.Mockito.verify
 
 class StarsViewModelTest : KoinTest {

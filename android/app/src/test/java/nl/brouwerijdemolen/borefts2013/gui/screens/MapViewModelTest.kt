@@ -2,11 +2,7 @@ package nl.brouwerijdemolen.borefts2013.gui.screens
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.common.truth.Truth.assertThat
-import nl.brouwerijdemolen.borefts2013.gui.Navigator
-import nl.brouwerijdemolen.borefts2013.gui.TestWithKoin
-import nl.brouwerijdemolen.borefts2013.gui.dummyBrewer
-import nl.brouwerijdemolen.borefts2013.gui.dummyBrewers
-import nl.brouwerijdemolen.borefts2013.gui.dummyPois
+import nl.brouwerijdemolen.borefts2013.gui.*
 import nl.brouwerijdemolen.borefts2013.test.Register
 import org.junit.After
 import org.junit.Before
@@ -14,8 +10,8 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
 import org.koin.core.parameter.parametersOf
-import org.koin.standalone.inject
 import org.koin.test.KoinTest
+import org.koin.test.inject
 import org.mockito.Mockito.verify
 
 class MapViewModelTest : KoinTest {

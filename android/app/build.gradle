@@ -18,8 +18,8 @@ android {
         applicationId "nl.brouwerijdemolen.borefts2013"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 62
-        versionName "6.0.2"
+        versionCode 63
+        versionName "7.0.0"
         resConfigs "en", "nl"
     }
     buildTypes {
@@ -50,12 +50,12 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.0'
     implementation 'io.arrow-kt:arrow-core-extensions:0.9.0'
     // Support and Arch libs
-    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'com.google.android.material:material:1.0.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.0.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.1.0'
     // DI
-    implementation 'org.koin:koin-android:1.0.2'
-    implementation 'org.koin:koin-android-viewmodel:1.0.2'
+    implementation 'org.koin:koin-android:2.0.1'
+    implementation 'org.koin:koin-androidx-viewmodel:2.0.1'
     // Networking
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.1.1'
@@ -69,6 +69,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     testImplementation 'com.google.truth:truth:1.0'
     testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0"
-    testImplementation 'androidx.arch.core:core-testing:2.0.1'
-    testImplementation 'org.koin:koin-test:1.0.2'
+    testImplementation 'androidx.arch.core:core-testing:2.1.0'
+    testImplementation 'org.koin:koin-test:2.0.1'
 }

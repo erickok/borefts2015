@@ -4,16 +4,13 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentStatePagerAdapter
-import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
-import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.tabs_tablayout
-import kotlinx.android.synthetic.main.activity_main.tabs_viewpager
-import kotlinx.android.synthetic.main.activity_main.title_text
-import kotlinx.android.synthetic.main.activity_main.title_toobar
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_main.*
 import nl.brouwerijdemolen.borefts2013.R
 import nl.brouwerijdemolen.borefts2013.ext.startLink
 import nl.brouwerijdemolen.borefts2013.gui.components.AppRater
@@ -96,7 +93,7 @@ class BoreftsActivity : AppCompatActivity() {
 
     }
 
-    inner class TabsAdapter : FragmentStatePagerAdapter(supportFragmentManager) {
+    inner class TabsAdapter : FragmentStatePagerAdapter(supportFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
         override fun getCount() = 6
 

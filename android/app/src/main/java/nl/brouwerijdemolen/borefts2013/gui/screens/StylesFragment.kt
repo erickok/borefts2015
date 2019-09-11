@@ -1,27 +1,24 @@
 package nl.brouwerijdemolen.borefts2013.gui.screens
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.fragment_list.error_text
-import kotlinx.android.synthetic.main.fragment_list.loading_progress
-import kotlinx.android.synthetic.main.fragment_list.the_list
-import kotlinx.android.synthetic.main.list_item_style.color_view
-import kotlinx.android.synthetic.main.list_item_style.name_text
+import kotlinx.android.synthetic.main.fragment_list.*
+import kotlinx.android.synthetic.main.list_item_style.*
 import nl.brouwerijdemolen.borefts2013.R
 import nl.brouwerijdemolen.borefts2013.api.Style
 import nl.brouwerijdemolen.borefts2013.ext.isVisible
 import nl.brouwerijdemolen.borefts2013.ext.observeNonNull
 import nl.brouwerijdemolen.borefts2013.gui.getColorResource
-import org.koin.android.viewmodel.ext.android.viewModel
-import org.koin.standalone.KoinComponent
-import org.koin.standalone.get
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.KoinComponent
+import org.koin.core.get
 
 class StylesFragment : Fragment() {
 
@@ -43,7 +40,7 @@ class StylesFragment : Fragment() {
                 stylesListAdapter.submitList(it.styles)
             }
         }
-        error_text.setOnClickListener { _ -> viewModel.retry() }
+        error_text.setOnClickListener { viewModel.retry() }
     }
 
 }

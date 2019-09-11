@@ -42,25 +42,26 @@ val Beer.abvIndication: Int
     } else style?.abv.orZero()
 
 val Beer.hasFlavourIndication: Boolean
-    get() = bitterness > 0 && sweetness > 0 && acidity > 0
+    get() = bitter > 0 && sweet > 0 && sour > 0
 
 val Beer.bitternessIndication: Int
-    get() = if (bitterness > 0) {
-        bitterness
+    get() = if (bitter > 0) {
+        bitter
     } else style?.bitterness.orZero()
 
 val Beer.sweetnessIndication: Int
-    get() = if (sweetness > 0) {
-        sweetness
+    get() = if (sweet > 0) {
+        sweet
     } else style?.sweetness.orZero()
 
 val Beer.acidityIndication: Int
-    get() = if (acidity > 0) {
-        acidity
+    get() = if (sour > 0) {
+        sour
     } else style?.acidity.orZero()
 
 fun Beer.colorIndicationResource(res: ResourceProvider): Int {
-    val c = if (colour > 0) colour else style?.color.orZero()
+    val bc = color?.toInt().orZero()
+    val c = if (bc > 0) bc else style?.color.orZero()
     return when (c) {
         1 -> res.getColor(R.color.style_1)
         2 -> res.getColor(R.color.style_2)

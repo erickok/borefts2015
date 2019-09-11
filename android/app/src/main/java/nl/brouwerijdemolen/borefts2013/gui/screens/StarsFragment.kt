@@ -1,17 +1,15 @@
 package nl.brouwerijdemolen.borefts2013.gui.screens
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.fragment_list.error_text
-import kotlinx.android.synthetic.main.fragment_list.loading_progress
-import kotlinx.android.synthetic.main.fragment_list.the_list
+import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.fragment_list.*
 import nl.brouwerijdemolen.borefts2013.R
 import nl.brouwerijdemolen.borefts2013.ext.isVisible
 import nl.brouwerijdemolen.borefts2013.ext.observeNonNull
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class StarsFragment : Fragment() {
 

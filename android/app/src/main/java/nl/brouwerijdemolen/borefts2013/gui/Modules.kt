@@ -21,8 +21,8 @@ import nl.brouwerijdemolen.borefts2013.gui.screens.StyleViewModel
 import nl.brouwerijdemolen.borefts2013.gui.screens.StylesViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import org.koin.android.viewmodel.ext.koin.viewModel
-import org.koin.dsl.module.module
+import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.dsl.module
 import kotlin.coroutines.CoroutineContext
 
 private const val CACHE_TIME_MEMORY = 1_800_000L // Half hour
@@ -41,7 +41,7 @@ val networkModule = module {
 }
 
 val uiModule = module {
-    single("ui") { Dispatchers.Main as CoroutineContext }
+    single(CoroutineScope.UI) { Dispatchers.Main as CoroutineContext }
     single { ResourceProvider(get()) }
     single { AppRater(get()) }
     single { StarPersistence(get()) }

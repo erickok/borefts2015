@@ -19,9 +19,9 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
 import org.koin.core.parameter.parametersOf
-import org.koin.dsl.module.module
-import org.koin.standalone.get
+import org.koin.dsl.module
 import org.koin.test.KoinTest
+import org.koin.test.get
 
 class ScreenIntegrationTest : KoinTest {
 

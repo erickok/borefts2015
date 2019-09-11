@@ -24,8 +24,8 @@ import nl.brouwerijdemolen.borefts2013.api.Area
 import nl.brouwerijdemolen.borefts2013.api.Brewer
 import nl.brouwerijdemolen.borefts2013.api.Poi
 import nl.brouwerijdemolen.borefts2013.gui.components.ResourceProvider
-import org.koin.standalone.KoinComponent
-import org.koin.standalone.inject
+import org.koin.core.KoinComponent
+import org.koin.core.inject
 import java.io.IOException
 import java.util.HashMap
 import java.util.Locale

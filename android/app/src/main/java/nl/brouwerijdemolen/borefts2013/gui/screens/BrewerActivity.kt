@@ -6,12 +6,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import coil.api.load
 import coil.transform.CircleCropTransformation
-import kotlinx.android.synthetic.main.activity_brewer.beers_list
-import kotlinx.android.synthetic.main.activity_brewer.logo_image
-import kotlinx.android.synthetic.main.activity_brewer.origin_text
-import kotlinx.android.synthetic.main.activity_brewer.title_text
-import kotlinx.android.synthetic.main.activity_brewer.title_toolbar
-import kotlinx.android.synthetic.main.activity_brewer.weblink_text
+import kotlinx.android.synthetic.main.activity_brewer.*
 import nl.brouwerijdemolen.borefts2013.R
 import nl.brouwerijdemolen.borefts2013.api.Brewer
 import nl.brouwerijdemolen.borefts2013.ext.KEY_ARGS
@@ -20,7 +15,7 @@ import nl.brouwerijdemolen.borefts2013.ext.observeNonNull
 import nl.brouwerijdemolen.borefts2013.gui.components.getMolenString
 import nl.brouwerijdemolen.borefts2013.gui.location
 import org.koin.android.ext.android.get
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
 class BrewerActivity : AppCompatActivity() {
