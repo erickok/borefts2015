@@ -26,7 +26,6 @@ class BoreftsActivity : AppCompatActivity() {
     private val stylesFragment by lazy { StylesFragment() }
     private val starsFragment by lazy { StarsFragment() }
     private val twitterFragment by lazy { TwitterFragment() }
-    private val bafFragment by lazy { BafFragment() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -103,8 +102,7 @@ class BoreftsActivity : AppCompatActivity() {
                 1 -> brewersFragment
                 2 -> stylesFragment
                 3 -> starsFragment
-                4 -> twitterFragment
-                else -> bafFragment
+                else -> twitterFragment
             }
         }
 
@@ -114,8 +112,7 @@ class BoreftsActivity : AppCompatActivity() {
                 1 -> getString(R.string.action_brewers)
                 2 -> getString(R.string.action_styles)
                 3 -> getString(R.string.action_stars)
-                4 -> getString(R.string.action_twitter)
-                else -> getString(R.string.info_baf)
+                else -> getString(R.string.action_twitter)
             }
         }
 
