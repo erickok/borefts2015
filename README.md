@@ -41,6 +41,9 @@ Some code/libraries/resources are used in the project:
 *  [gson](https://github.com/google/gson)  
     Google Inc.  
     Apache License, Version 2.0
+*  [coil](https://github.com/coil-kt/coil)
+    Coil Contributors
+    Apache License, Version 2.0
 *  [Android Architecture Components](https://developer.android.com/topic/libraries/architecture/index.html)  
     The Android Open Source Project  
     Apache License, Version 2.0
