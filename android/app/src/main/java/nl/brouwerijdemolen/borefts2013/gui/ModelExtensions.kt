@@ -27,7 +27,7 @@ val Brewer.sortFilter: String
     get() = if (id == 32) "" else sortName
 
 val Beer.fullName: CharSequence
-    get() = if (festivalBeer) "$name (9+1)" else name
+    get() = name
 
 fun Beer.abvText(res: ResourceProvider): String? {
     return if (hasAbv) res.getString(R.string.info_abvperc, abv) else null
