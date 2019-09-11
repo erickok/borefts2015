@@ -7,9 +7,9 @@ android {
     signingConfigs {
         releaseConfig {
             keyAlias 'borefts2013'
-            keyPassword 'Clio172'
+            keyPassword ''
             storeFile file('../../../erickok.keystore')
-            storePassword 'Clio172'
+            storePassword ''
         }
     }
     compileSdkVersion 29
@@ -18,8 +18,8 @@ android {
         applicationId "nl.brouwerijdemolen.borefts2013"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 67
-        versionName "7.0.2"
+        versionCode 68
+        versionName "7.0.3"
         resConfigs "en", "nl"
     }
     buildTypes {
