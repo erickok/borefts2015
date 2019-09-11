@@ -29,7 +29,7 @@ class Exporter : KoinComponent {
             repository.brewers().getOrDefault { emptyList() }.forEach { brewer ->
                 repository.brewerBeers(brewer.id).getOrDefault { emptyList() }.forEach { beer ->
                     val brewerName = brewer.shortName
-                    val beerName = beer.name
+                    val beerName = """"${beer.name}""""
                     val styleName = styles.firstOrNull { it.id == beer.styleId }?.name
                     val festival = if (beer.festivalBeer) "TRUE" else "FALSE"
                     val abv = beer.abv
