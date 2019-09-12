@@ -18,8 +18,8 @@ android {
         applicationId "nl.brouwerijdemolen.borefts2013"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 68
-        versionName "7.0.3"
+        versionCode 69
+        versionName "7.0.4"
         resConfigs "en", "nl"
     }
     buildTypes {

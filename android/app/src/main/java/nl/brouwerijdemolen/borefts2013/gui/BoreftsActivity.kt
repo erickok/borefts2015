@@ -112,7 +112,7 @@ class BoreftsActivity : AppCompatActivity() {
 
     inner class TabsAdapter : FragmentStatePagerAdapter(supportFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
-        override fun getCount() = 6
+        override fun getCount() = 5
 
         override fun getItem(position: Int): Fragment {
             return when (position) {

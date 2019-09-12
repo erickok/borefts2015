@@ -46,7 +46,7 @@ class BeerActivity : AppCompatActivity() {
                 bitterness_view.value = beer.bitternessIndication
                 sweetness_view.value = beer.sweetnessIndication
                 acidity_view.value = beer.acidityIndication
-                tostyle_text.isVisible = beer.hasFlavourIndication
+                tostyle_text.isVisible = !beer.hasFlavourIndication
                 val customTags = beer.tags?.split(',').orEmpty()
                 val tags = if (beer.oakAged) listOf("barrel aged") + customTags else customTags
                 tags_layout.isVisible = tags.isNotEmpty()
