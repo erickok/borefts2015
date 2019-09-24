@@ -2,33 +2,28 @@ package nl.brouwerijdemolen.borefts2013.gui.screens
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.Canvas
-import android.graphics.Paint
-import android.graphics.PorterDuff
-import android.graphics.PorterDuffXfermode
-import android.graphics.Rect
-import androidx.annotation.ColorInt
+import android.graphics.*
+import android.graphics.drawable.BitmapDrawable
 import android.util.SparseArray
+import androidx.annotation.ColorInt
+import coil.Coil
+import coil.api.get
 import com.google.android.gms.maps.GoogleMapOptions
 import com.google.android.gms.maps.MapView
-import com.google.android.gms.maps.model.BitmapDescriptor
-import com.google.android.gms.maps.model.BitmapDescriptorFactory
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.Marker
-import com.google.android.gms.maps.model.MarkerOptions
-import com.google.android.gms.maps.model.PolygonOptions
+import com.google.android.gms.maps.model.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import nl.brouwerijdemolen.borefts2013.R
 import nl.brouwerijdemolen.borefts2013.api.Area
 import nl.brouwerijdemolen.borefts2013.api.Brewer
 import nl.brouwerijdemolen.borefts2013.api.Poi
+import nl.brouwerijdemolen.borefts2013.gui.CoroutineScope
 import nl.brouwerijdemolen.borefts2013.gui.components.ResourceProvider
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 import java.io.IOException
-import java.util.HashMap
-import java.util.Locale
+import java.util.*
 
 @SuppressLint("ViewConstructor") // Only to be created programmatically
 class BoreftsMapView(
@@ -44,29 +39,36 @@ class BoreftsMapView(
 
     fun showBrewers(brewers: List<Brewer>, focusBrewerId: Int? = null) {
         getMapAsync { map ->
-            brewerMarkers = mutableMapOf()
-            brewerIds = SparseArray()
-            for (brewer in brewers) {
-                if (brewer.latitude != null && brewer.longitude != null && brewer.latitude.isNotEmpty() && brewer.longitude.isNotEmpty()) {
-                    val brewerPin = drawBrewerMarker(brewer)
-                    val bitmapToUse: BitmapDescriptor = if (brewerPin == null)
-                        BitmapDescriptorFactory.fromResource(R.drawable.ic_marker_mask)
-                    else
-                        BitmapDescriptorFactory.fromBitmap(brewerPin)
-                    val marker = map.addMarker(
-                            MarkerOptions()
-                                    .position(LatLng(brewer.latitude.toDouble(), brewer.longitude.toDouble()))
-                                    .title(brewer.shortName)
-                                    .icon(bitmapToUse))
-                    brewerMarkers[marker] = brewer
-                    brewerIds.put(brewer.id, marker)
+            GlobalScope.launch(CoroutineScope.ui) {
+                brewerMarkers = mutableMapOf()
+                brewerIds = SparseArray()
+                for (brewer in brewers) {
+                    if (brewer.latitude != null && brewer.longitude != null) {
+                        val brewerPin = withContext(CoroutineScope.io) {
+                            drawBrewerMarker(brewer)
+                        }
+                        val bitmapToUse: BitmapDescriptor = if (brewerPin == null)
+                            BitmapDescriptorFactory.fromResource(R.drawable.ic_marker_mask)
+                        else
+                            BitmapDescriptorFactory.fromBitmap(brewerPin)
+                        val marker = map.addMarker(
+                                MarkerOptions()
+                                        .position(LatLng(brewer.latitude, brewer.longitude))
+                                        .title(brewer.shortName)
+                                        .icon(bitmapToUse))
+                        brewerMarkers[marker] = brewer
+                        brewerIds.put(brewer.id, marker)
+                    }
+                }
+
+                // Set focus on a specific marker
+                if (focusBrewerId != null) {
+                    brewerIds.get(focusBrewerId)?.showInfoWindow()
                 }
             }
 
-            // Set focus on a specific marker
-            if (focusBrewerId != null) {
-                brewerIds.get(focusBrewerId)?.showInfoWindow()
-            }
+            // DEBUG
+            // map.setOnMapClickListener { Log.v("MAP", "Lat ${it.latitude} Long ${it.longitude}") }
         }
     }
 
@@ -112,11 +114,12 @@ class BoreftsMapView(
         }
     }
 
-    private fun drawBrewerMarker(brewer: Brewer): Bitmap? {
+    private suspend fun drawBrewerMarker(brewer: Brewer): Bitmap? {
         try {
             val mask = BitmapFactory.decodeResource(resources, R.drawable.ic_marker_mask)
             val outline = BitmapFactory.decodeResource(resources, R.drawable.ic_marker_outline)
-            val logo = BitmapFactory.decodeStream(resources.assets.open("images/" + brewer.logoUrl))
+            val logo = (Coil.get(brewer.logoUrl) as? BitmapDrawable)?.bitmap
+                    ?: throw IllegalStateException("Coil decoder didn't provide a BitmapDrawable")
             val bmp = Bitmap.createBitmap(mask.width, mask.height, Bitmap.Config.ARGB_8888)
             val canvas = Canvas(bmp)
             val paint = Paint(Paint.ANTI_ALIAS_FLAG or Paint.DITHER_FLAG)

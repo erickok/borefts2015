@@ -16,6 +16,5 @@ data class Brewer(
         val twitter: String? = null,
         val facebook: String? = null,
         val website: String? = null,
-        // TODO Change back to Float when data is refreshed
-        val latitude: String? = null,
-        val longitude: String? = null) : Parcelable
+        val latitude: Double? = null,
+        val longitude: Double? = null) : Parcelable

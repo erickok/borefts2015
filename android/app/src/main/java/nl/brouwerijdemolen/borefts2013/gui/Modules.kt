@@ -41,6 +41,7 @@ val networkModule = module {
 }
 
 val uiModule = module {
+    single(CoroutineScope.IO) { Dispatchers.IO as CoroutineContext }
     single(CoroutineScope.UI) { Dispatchers.Main as CoroutineContext }
     single { ResourceProvider(get()) }
     single { AppRater(get()) }

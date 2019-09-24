@@ -35,9 +35,9 @@ class BeerActivity : AppCompatActivity() {
             with(it) {
                 beer_name_text.text = getMolenString(beer.fullName)
                 brewer_button.text = beer.brewer?.name
-                brewer_button.setOnClickListener { _ -> beerViewModel.openBrewer() }
+                brewer_button.setOnClickListener { beerViewModel.openBrewer() }
                 style_button.text = beer.style?.name
-                style_button.setOnClickListener { _ -> beerViewModel.openStyle() }
+                style_button.setOnClickListener { beerViewModel.openStyle() }
                 abv_text.isVisible = beer.hasAbv
                 abv_text.text = beer.abvText(get())
                 serving_text.text = beer.servingText(get()).toUpperCase(Locale.getDefault())
@@ -59,8 +59,8 @@ class BeerActivity : AppCompatActivity() {
                         }
                     }
                 }
-                untappd_button.setOnClickListener { _ ->
-                    if (beer.untappdId.isNullOrEmpty()) {
+                untappd_button.setOnClickListener {
+                    if (beer.untappdId.isNullOrEmpty() || beer.untappdId == "-1") {
                         Toast.makeText(this@BeerActivity, R.string.error_notcoupled, Toast.LENGTH_LONG).show()
                     } else {
                         startLink(
@@ -68,7 +68,7 @@ class BeerActivity : AppCompatActivity() {
                                 Uri.parse("https://untappd.com/qr/beer/${beer.untappdId}"))
                     }
                 }
-                google_button.setOnClickListener { _ ->
+                google_button.setOnClickListener {
                     startLink(Uri.parse("http://www.google.com/search?q=" + Uri.encode(beer.brewer?.name + " " + beer.name)))
                 }
                 actionStarOn.isVisible = isStarred
