@@ -59,12 +59,15 @@ val Beer.acidityIndication: Int
         sour
     } else style?.acidity.orZero()
 
-fun Beer.colorIndicationResource(res: ResourceProvider): Int {
-    val bc = try {
+val Beer.colorInt: Int
+    get() = try {
         color?.toInt().orZero()
     } catch (e: NumberFormatException) {
         0
     }
+
+fun Beer.colorIndicationResource(res: ResourceProvider): Int {
+    val bc = colorInt
     val c = if (bc > 0) bc else style?.color.orZero()
     return when (c) {
         1 -> res.getColor(R.color.style_1)
