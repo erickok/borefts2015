@@ -118,7 +118,10 @@ class BoreftsMapView(
         try {
             val mask = BitmapFactory.decodeResource(resources, R.drawable.ic_marker_mask)
             val outline = BitmapFactory.decodeResource(resources, R.drawable.ic_marker_outline)
-            val logo = (Coil.get(brewer.logoUrl) as? BitmapDrawable)?.bitmap
+            val logoDrawable = Coil.get(brewer.logoUrl) {
+                allowHardware(false)
+            }
+            val logo = (logoDrawable as? BitmapDrawable)?.bitmap
                     ?: throw IllegalStateException("Coil decoder didn't provide a BitmapDrawable")
             val bmp = Bitmap.createBitmap(mask.width, mask.height, Bitmap.Config.ARGB_8888)
             val canvas = Canvas(bmp)
