@@ -31,11 +31,12 @@ class Repository(private val api: Api, private val memoryCache: MemoryCache) {
                     // Calculate avg color and flavour from style's beers
                     .map { style ->
                         val styleBeers = beersRaw.beers.filter { it.styleId == style.id }
+                        val avgAbv = styleBeers.average { it.abvIndication }
                         val avgColor = styleBeers.average { it.colorInt }
                         val avgBitterness = styleBeers.average { it.bitter }
                         val avgSweet = styleBeers.average { it.sweet }
                         val avgSour = styleBeers.average { it.sour }
-                        style.copy(color = avgColor, bitterness = avgBitterness, sweetness = avgSweet, acidity = avgSour)
+                        style.copy(color = avgColor, abv = avgAbv, bitterness = avgBitterness, sweetness = avgSweet, acidity = avgSour)
                     }
                     .toList()
         }.fix()

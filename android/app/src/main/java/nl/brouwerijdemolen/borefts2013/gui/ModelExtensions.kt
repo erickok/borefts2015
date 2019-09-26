@@ -38,7 +38,7 @@ val Beer.hasAbv: Boolean
 
 val Beer.abvIndication: Int
     get() = if (hasAbv) {
-        (abv / 2.3).roundToInt().coerceIn(1, 5)
+        (abv / 2.5).roundToInt().coerceIn(1, 5)
     } else style?.abv.orZero()
 
 val Beer.hasFlavourIndication: Boolean
